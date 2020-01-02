@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+* {
+  font-family: 'Quicksand', sans-serif;
+  filter: grayscale(80%);
+}
+.lead-on-home {
+  padding: 2px;
+  margin: 5px;
+  border-width: thick;
+  border-radius: 20px 20px 0px 0px;
+  border-right: 5px solid black;
+}
+.h1-on-home {
+  text-align: left;
+  font-size: 350%;
+  border-left: 25px solid#ffc107;
+  position: absolute;
+  left: 80px;
+  top: 20px;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
