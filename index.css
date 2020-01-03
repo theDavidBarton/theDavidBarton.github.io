@@ -2,21 +2,23 @@
 
 * {
   font-family: 'Quicksand', sans-serif;
-  filter: grayscale(80%);
+  font-size: x-large;
 }
 .lead-on-home {
-  padding: 2px;
-  margin: 5px;
+  padding: 25px;
+  margin: 25px;
   border-width: thick;
   border-radius: 20px 20px 0px 0px;
-  border-right: 5px solid black;
+  border-right: 5px solid white;
 }
-.h1-on-home {
-  text-align: left;
-  font-size: 350%;
-  border-left: 25px solid#ffc107;
-  position: absolute;
-  left: 80px;
-  top: 20px;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+.background-style {
+  background-image: linear-gradient(0deg, rgb(52, 58, 64) 0%, rgba(52, 58, 64, 0) 100%), url(img/danube-bend-photo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  height: 960px;
+}
+.avatar-style {
+  width: 185px;
+  height: 185px;
 }
