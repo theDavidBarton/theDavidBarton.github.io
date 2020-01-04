@@ -24,11 +24,16 @@
             <img src="img/logo.svg" alt="logo" />
           </div>
           <!-- I.2.) nav links-->
-          <nav class="col my-2">
+          <nav class="col my-2 d-none d-sm-block">
             <a class="btn btn-dark" href="#about">about</a> |
             <a class="btn btn-dark" href="#projects">projects</a> |
             <a class="btn btn-dark" href="#contact">contact</a>
           </nav>
+          <script>function mobileNavOpens(){
+            document.querySelector('#mobileNav').innerHTML !== '' ? document.querySelector('#mobileNav').innerHTML ='' : document.querySelector('#mobileNav').innerHTML = '<a class="btn btn-dark" href="#about">about</a><a class="btn btn-dark" href="#projects">projects</a><a class="btn btn-dark" href="#contact">contact</a>'
+          }
+          </script>
+          <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 3em"><button style="all: unset" onclick="mobileNavOpens()">☰</button><div class="col-auto" style="float: right" id='mobileNav'></div></nav>
 
           <!-- I.3.) social section-->
           <div class="col-auto my-2">
