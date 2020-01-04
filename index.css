@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+.social-list-margin {
+  margin-right: 2em;
+}
+.social-img-style {
+  height: 22px;
+  filter: invert(100%);
+}
+.hello-on-home {
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.lead-on-home {
+  padding: 25px;
+  margin: 25px;
+  border-width: thick;
+  border-radius: 5px 5px 2px 5px;
+  border-left: 25px solid #dc3545;
+}
+.background-style {
+  background-image: linear-gradient(0deg, rgb(52, 58, 64) 0%, rgba(52, 58, 64, 0) 100%), url(img/danube-bend-photo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+.avatar-style {
+  width: 185px;
+  height: 185px;
+}
+.card-border-style {
+  padding: 25px;
+  margin: 25px;
+  border-width: thick;
+  border-radius: 5px 5px 250px 5px;
+  border-left: 25px solid #ffc107;
+}
+.quote-marker-style {
+  position: absolute;
+  top: -45px;
+  left: -25px;
+  font-size: 500%;
+}
