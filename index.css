@@ -21,6 +21,9 @@
   height: 22px;
   filter: invert(100%);
 }
+.hello-on-home {
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
 .lead-on-home {
   padding: 25px;
   margin: 25px;
