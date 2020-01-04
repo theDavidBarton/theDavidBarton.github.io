@@ -17,9 +17,9 @@
     <!-- I.) navigation bar-->
     <div class="bg-dark text-light">
       <div class="container">
-        <div class="row align-items-center text-center" style="padding: 15px">
+        <div class="row align-items-center" style="padding: 15px">
           <!-- I.1.) logo-->
-          <div class="col">
+          <div class="col-auto">
             <img src="img/logo.svg" alt="logo" />
           </div>
           <!-- I.2.) nav links-->
@@ -27,7 +27,6 @@
             <a class="nav-style" href="#about">[&nbsp;about&nbsp;]</a> |
             <a class="nav-style" href="#projects">[&nbsp;projects&nbsp;]</a> |
             <a class="nav-style" href="#contact"> [&nbsp;contact&nbsp;]</a> |
-            <a class="nav-style" href="#links"> [&nbsp;links&nbsp;]</a>
           </div>
           <!-- I.3.) social section-->
           <div class="col-auto my-2">
@@ -60,7 +59,7 @@
         </div>
       </div>
     </div>
-    <!-- intro bar -->
+    <!-- about bar -->
     <div class="bg-dark text-light background-style">
       <div class="container">
         <div class="row">
@@ -69,9 +68,11 @@
           </div>
           <div class="col-auto">
             <h2 class="display-4">
-              Hi,<br />
-              I am<br />
-              David...
+              <a class="text-decoration-none" name="about">
+                Hi,<br />
+                I am<br />
+                David...</a
+              >
             </h2>
           </div>
           <div class="lead-on-home bg-light text-dark col-auto">
@@ -85,9 +86,13 @@
         </div>
       </div>
     </div>
-    <!-- lead -->
-    <div class="bg-light">
+    <!-- projects -->
+    <div class="bg-dark">
       <div class="container">
+        <div class="row py-2 text-light">
+          <h2><a name="projects">projects</a></h2>
+        </div>
+
         <div class="row">
           <div class="lead-on-home bg-warning text-dark col">
             <p>
@@ -103,6 +108,34 @@
               engineer and release manager at French metasearch company liligo.com, where I got familiar with Node.Js,
               Google devTools Team's Puppeteer to automate headless Chrome, and GitLab CI, Kubernetes and Jenkins for
               deployment and release creation. In my spare time I enjoy making Node.Js and React.Js apps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact bar -->
+    <div class="bg-light">
+      <div class="container">
+        <div class="row py-2">
+          <h2><a name="contact">contact</a></h2>
+        </div>
+        <div class="row">
+          <div class="lead-on-home bg-light text-dark col-auto">
+            <p>
+              e-mail: theDavidBarton@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer bar -->
+    <div class="bg-dark text-light">
+      <div class="container">
+        <div class="text-center py-2">
+          <div>
+            <p>
+              copyright © 2020 theDavidBarton
             </p>
           </div>
         </div>

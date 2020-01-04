@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
 * {
   font-family: 'Quicksand', sans-serif;
-  font-size: large;
 }
 .nav-style {
   text-decoration: none;
@@ -25,7 +25,7 @@
   padding: 25px;
   margin: 25px;
   border-width: thick;
-  border-radius: 25px 50px 25px 50px;
+  border-radius: 5px 5px 2px 5px;
   border-left: 25px solid #dc3545;
 }
 .background-style {
