@@ -4,20 +4,10 @@
 * {
   font-family: 'Quicksand', sans-serif;
 }
-.nav-style {
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #6c757d;
-}
 .social-list-margin {
   margin-right: 2em;
 }
-.social-link-style {
-  display: inline-block;
-  width: 130px;
-}
 .social-img-style {
-  margin-right: 0.5em;
   height: 22px;
   filter: invert(100%);
 }
@@ -40,4 +30,17 @@
 .avatar-style {
   width: 185px;
   height: 185px;
+}
+.card-border-style {
+  padding: 25px;
+  margin: 25px;
+  border-width: thick;
+  border-radius: 5px 5px 250px 5px;
+  border-left: 25px solid #ffc107;
+}
+.quote-marker-style {
+  position: absolute;
+  top: -45px;
+  left: -25px;
+  font-size: 500%;
 }
