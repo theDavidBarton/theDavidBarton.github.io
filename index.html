@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>theDavidBarton.github.io</title>
     <link
@@ -9,22 +9,54 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="index.css" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
   </head>
   <body>
-    <!-- navigation bar-->
+    <!-- I.) navigation bar-->
     <div class="bg-dark text-light">
       <div class="container">
-        <div class="row" style="padding: 15px">
+        <div class="row align-items-center text-center" style="padding: 15px">
+          <!-- I.1.) logo-->
           <div class="col">
-            <a class="text-light" href="#about">[ about ] </a> |
-            <a class="text-light" href="#projects"> [ projects ] </a> |
-            <a class="text-light" href="#contact"> [ contact ] </a> |
-            <a class="text-light" href="#links"> [ links ]</a>
+            <img src="img/logo.svg" alt="logo" />
           </div>
-          <div class="col">
-            <h1 class="d-none d-md-block">theDavidBarton.github.io</h1>
+          <!-- I.2.) nav links-->
+          <div class="col-auto my-2">
+            <a class="nav-style" href="#about">[&nbsp;about&nbsp;]</a> |
+            <a class="nav-style" href="#projects">[&nbsp;projects&nbsp;]</a> |
+            <a class="nav-style" href="#contact"> [&nbsp;contact&nbsp;]</a> |
+            <a class="nav-style" href="#links"> [&nbsp;links&nbsp;]</a>
           </div>
+          <!-- I.3.) social section-->
+          <div class="col-auto my-2">
+            <ul class="list-unstyled list-group list-group-horizontal social-list-margin">
+              <li class="my-2">
+                <a
+                  href="https://github.com/theDavidBarton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-dark social-link-style"
+                >
+                  <img class="float-left social-img-style" alt="github logo" src="img/github.svg" />
+                  GitHub
+                </a>
+              </li>
+              <li class="my-2">
+                <a
+                  href="https://linkedin.com/in/theDavidBarton/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-dark float-left social-link-style"
+                >
+                  <img class="float-left social-img-style" alt="linkedin logo" src="img/linkedin.png" />
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- I.3.) social section ends-->
         </div>
       </div>
     </div>
@@ -32,15 +64,23 @@
     <div class="bg-dark text-light background-style">
       <div class="container">
         <div class="row">
-          <div class="col-md-4 text-center">
+          <div class="col-auto text-center my-5">
             <img src="img/avatar.png" class="rounded-circle avatar-style" alt="avatar" />
           </div>
-          <div class="col-md-4">
+          <div class="col-auto">
             <h2 class="display-4">
               Hi,<br />
               I am<br />
               David...
             </h2>
+          </div>
+          <div class="lead-on-home bg-warning text-dark col-auto">
+            <p>
+              ... (and using the not meek-enough user name "theDavidBarton" on the world wide web). I am working as a QA
+              engineer and release manager at French metasearch company liligo.com, where I got familiar with Node.Js,
+              Google devTools Team's Puppeteer to automate headless Chrome, and GitLab CI, Kubernetes and Jenkins for
+              deployment and release creation. In my spare time I enjoy making Node.Js and React.Js apps.
+            </p>
           </div>
         </div>
       </div>
