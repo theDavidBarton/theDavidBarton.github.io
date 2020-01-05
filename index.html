@@ -64,10 +64,10 @@
     <div class="bg-dark text-light background-style">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-auto text-center my-5">
+          <div class="col-auto text-center my-5 order-1 order-sm-1">
             <img src="img/avatar.png" class="rounded-circle avatar-style" alt="avatar" />
           </div>
-          <div class="col-auto">
+          <div class="col-auto order-3 order-sm-2">
             <h2 class="display-4 hello-on-home">
               
                 Hi,<br />
@@ -76,10 +76,10 @@
             </h2>
             
           </div>
-          <div class="col-auto">
+          <div class="col-sm-auto col order-2 order-sm-3">
             <a class="btn btn-danger text-center" href="#contact"><p><span class="lead">contact me</span><br /><img height="50" width="50" style="filter: invert(100%)" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg" alt="mail icon" /></p></a>
           </div>
-          <div class="lead-on-home bg-light text-dark col">
+          <div class="lead-on-home bg-light text-dark col order-4 order-sm-4">
             <h2><a class="text-decoration-none" name="about"></a>about</a></h2>
             <p>
               I am using the not meek-enough user name <strong>"theDavidBarton"</strong> around the web. I am working as a <strong>QA
@@ -196,7 +196,7 @@
 
         <div class="row align-items-center">
           <!-- card starts-->
-          <div class="m-2 card-border-style bg-light" style="max-width: 540px;">
+          <div class="m-2 m-sm-4 card-border-style bg-light order-2 order-sm-1" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/rawg_screenshot.jpg" class="card-img" alt="project thumbnail">
@@ -211,9 +211,9 @@
             </div>
           </div>
           <!-- card ends-->
-          <div class="col text-light m-4"><p class="lead">The following projects are not related to my professional work, I do them in my free time to improve my dev skills. All of them are available on GitHub.</p></div>
+          <div class="col-sm-5 text-light m-4 order-1 order-sm-2"><p class="lead">The following projects are not related to my professional work, I do them in my free time to improve my dev skills. All of them are available on GitHub.</p></div>
           <!-- card starts-->
-          <div class="m-2 card-border-style bg-light" style="max-width: 540px;">
+          <div class="m-2 m-sm-4 card-border-style bg-light order-4 order-sm-4" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/twinpeaks_screenshot.jpg" class="card-img" alt="project thumbnail">
@@ -229,12 +229,12 @@
           </div>
           <!-- card ends-->
           <script async src="index.js" onload="getQuote()"></script>
-          <div class="col text-light m-4"><blockquote id="twinpeaks-quote" class="blockquote"><p>Loading...</p>
+          <div class="col-sm-5 text-light m-4 order-3 order-sm-3"><blockquote id="twinpeaks-quote" class="blockquote"><p>Loading...</p>
             <div class="quote-marker-style"><p>"</p></div>
             <footer class="blockquote-footer"><cite title="persons">Loading...</cite></footer>
           </blockquote></div>
           <!-- card starts-->
-          <div class="m-2 card-border-style bg-light" style="max-width: 540px;">
+          <div class="m-2 m-sm-4 card-border-style bg-light order-6 order-sm-5" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/tmdb_screenshot.jpg" class="card-img" alt="project thumbnail">
@@ -249,6 +249,8 @@
             </div>
           </div>
           <!-- card ends-->
+          <div class="col-sm-5 text-light m-4 order-5 order-sm-6"><p class="lead">I am trying to handle all part of the process by myslef, like the DevOps tasks of deploying these projects on production.</p></div>
+
         </div>
       </div>
     </div>
@@ -273,14 +275,23 @@
               <img style="margin-right: 25px" height="25" width="25" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" alt="mail icon" /> 
               <a href="https://github.com/theDavidBarton">theDavidBarton</a>
             </p>
+            <p>
+              <img style="margin-right: 25px" height="25" width="25" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg" alt="mail icon" /> 
+              <a href="https://medium.com/@theDavidBarton">theDavidBarton</a>
+            </p>
+            <p>
+              <img style="margin-right: 25px" height="25" width="25" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg" alt="mail icon" /> 
+              <a href="https://stackoverflow.com/users/12412595/david-barton">David Barton</a>
+            </p>
           </div>
+          <div class="col m-4 text-right"><img style="max-width: 280px;" alt="danube photo" class="rounded-circle" src="img/danube-photo.jpg"></div>
         </div>
       </div>
     </div>
     <!-- footer bar -->
     <div class="bg-dark text-light">
       <div class="container">
-        <div class="text-center py-2">
+        <div class="text-center pt-4 pb-2">
           <div>
             <p>
               copyright © 2020 theDavidBarton
