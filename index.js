@@ -15,7 +15,7 @@ async function getQuote() {
     }
 
     let quoteTextOnly = obj.quoteTextOnly.replace(
-      /bitch|fuck|shit|whore|cunt|titties/gi, // some censorship on frequent bad words in the quotes
+      /bitch|fuck|shit|whore|cunt|titties/gi, // some censorship on frequent naughty words in the quotes
       '<span class="bg-secondary">[obscenity]</span>'
     )
     quoteTextOnly.length >= 380
