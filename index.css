@@ -49,9 +49,11 @@
 
 .quote-marker-style {
   position: absolute;
-  top: -45px;
-  left: -30px;
-  font-size: 5em;
+  top: -145px;
+  left: -45px;
+  font-size: 15em;
+  color: #ffc107;
+  opacity: 0.3;
 }
 
 .back-to-top-style {
