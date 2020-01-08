@@ -4,8 +4,8 @@ async function getQuote() {
     let response
     // reduce load on twin peaks api during development
     if (window.location.href.match(/https:\/\/thedavidbarton\.github\.io\//gi)) {
-      response = await fetch('https://twin-peaks-api.herokuapp.com/api/quotes/recommend')
-      await response.json().then(function (data) {
+      response = await fetch('https://twin-peaks-api.herokuapp.com/api/quotes/recommend?relevance=1&profanity=false')
+      await response.json().then(function(data) {
         obj = data[0]
       })
     } else {
@@ -14,14 +14,10 @@ async function getQuote() {
       obj = JSON.parse(response)[0]
       console.log('DEV MODE: on')
     }
-
-    let quoteTextOnly = obj.quoteTextOnly.replace(
-      /bitch|fuck|shit|whore|cunt|titties/gi, // some censorship on frequent naughty words in the quotes
-      '<span class="bg-secondary">[obscenity]</span>'
-    )
-    quoteTextOnly.length >= 380 ?
-      (quoteTextOnly = quoteTextOnly.substring(0, 380) + '...') :
-      (quoteTextOnly = quoteTextOnly)
+    let quoteTextOnly = obj.quoteTextOnly
+    quoteTextOnly.length >= 380
+      ? (quoteTextOnly = quoteTextOnly.substring(0, 380) + '...')
+      : (quoteTextOnly = quoteTextOnly)
     const persons = obj.persons.map(el => el)
     document.querySelector('#twinpeaks-quote > p').innerHTML = quoteTextOnly
     document.querySelector('#twinpeaks-quote > footer > cite').innerHTML = persons
