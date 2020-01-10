@@ -6,9 +6,7 @@
   scroll-behavior: smooth;
 }
 
-.card-body > p,
-h3 > a,
-h3 {
+.card-body > * {
   font-family: 'Special Elite', cursive;
 }
 
