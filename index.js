@@ -4,7 +4,7 @@ async function getQuote() {
     let response
     // reduce load on twin peaks api during development
     if (window.location.href.match(/https:\/\/thedavidbarton\.github\.io\//gi)) {
-      response = await fetch('https://twin-peaks-api.herokuapp.com/api/quotes/recommend?relevance=1&profanity=false')
+      response = await fetch('https://twin-peaks-api.herokuapp.com/api/1/quotes/recommend?relevance=1&profanity=false')
       await response.json().then(function(data) {
         obj = data[0]
       })
