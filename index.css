@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
 
 * {
   font-family: 'Quicksand', sans-serif;
@@ -20,6 +21,7 @@
 }
 
 .hello-on-home {
+  font-family: 'Amatic SC', cursive;
   text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
@@ -27,7 +29,7 @@
   padding: 25px;
   border-width: thick;
   border-radius: 5px 5px 2px 5px;
-  border-left: 25px solid #dc3545;
+  border-left: 25px solid #ffc107;
 }
 
 .background-style {
