@@ -37,6 +37,9 @@
                 ? (document.querySelector('#mobileNav').innerHTML = '')
                 : (document.querySelector('#mobileNav').innerHTML =
                     '<a class="btn btn-dark mx-3" href="#about">about</a><a class="btn btn-dark mx-3" href="#projects">projects</a><a class="btn btn-dark mx-3" href="#contact">contact</a><img width="100px" class="mx-3 mb-3" src="img/logo_small.svg" alt="logo" />')
+              document.querySelector('#mobileNav').innerHTML !== ''
+                ? (document.querySelector('#mobileMenuIcon').style.transform = 'rotate(-90deg)')
+                : (document.querySelector('#mobileMenuIcon').style.transform = 'rotate(0deg)')
             }
           </script>
           <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 3em">
