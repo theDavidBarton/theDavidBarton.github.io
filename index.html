@@ -33,18 +33,26 @@
           </nav>
           <script>
             function mobileNavOpens() {
-              document.querySelector('#mobileNav').innerHTML !== ''
-                ? (document.querySelector('#mobileNav').innerHTML = '')
-                : (document.querySelector('#mobileNav').innerHTML =
-                    '<a class="btn btn-dark mx-3" href="#about">about</a><a class="btn btn-dark mx-3" href="#projects">projects</a><a class="btn btn-dark mx-3" href="#contact">contact</a><img width="100px" class="mx-3 mb-3" src="img/logo_small.svg" alt="logo" />')
-              document.querySelector('#mobileNav').innerHTML !== ''
-                ? (document.querySelector('#mobileMenuIcon').style.transform = 'rotate(-90deg)')
-                : (document.querySelector('#mobileMenuIcon').style.transform = 'rotate(0deg)')
+              document.querySelector('#mobileNav').style.display !== 'none'
+                ? (document.querySelector('#mobileNav').style.display = 'none')
+                : (document.querySelector('#mobileNav').style.display = 'block')
+              document.querySelector('#mobileNav').style.display !== 'none'
+                ? (document.querySelector('#mobileMenuIcon').style.color = '#ffc107')
+                : (document.querySelector('#mobileMenuIcon').style.color = '#ffffff')
             }
           </script>
           <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 3em">
             <button style="all: unset" onclick="mobileNavOpens()" id="mobileMenuIcon">☰</button>
-            <div class="position-absolute bg-dark mr-4" style="left: -20px; z-index: 100; width: fit-content" id="mobileNav"></div>
+            <div
+              class="position-absolute bg-dark"
+              style="display: none; left: -15px; z-index: 100"
+              id="mobileNav"
+            >
+              <a class="btn btn-dark mx-3" href="#about">about</a>
+              <a class="btn btn-dark mx-3" href="#projects">projects</a>
+              <a class="btn btn-dark mx-3" href="#contact">contact</a>
+              <img width="100px" class="mx-3 mb-3" src="img/logo_small.svg" alt="logo" />
+            </div>
           </nav>
           <!-- I.3.) social section-->
           <div class="col-auto my-2">
@@ -94,7 +102,7 @@
           <div class="col-sm-auto col text-center order-2 order-sm-3">
             <a class="btn btn-outline-light" href="#projects">
               <div class="lead align-middle">
-                <span>my projects</span>
+                <span>see my work</span>
               </div>
             </a>
           </div>
@@ -103,8 +111,8 @@
               <a class="text-decoration-none" id="about">about</a>
             </h2>
             <p>
-              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, while I am working
-              as a <span class="badge badge-dark">QA engineer</span> and
+              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, while I am
+              working as a <span class="badge badge-dark">QA engineer</span> and
               <span class="badge badge-dark">release manager</span> at the French metasearch company
               <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I got
               familiar with JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome, while I am
