@@ -36,12 +36,12 @@
               document.querySelector('#mobileNav').innerHTML !== ''
                 ? (document.querySelector('#mobileNav').innerHTML = '')
                 : (document.querySelector('#mobileNav').innerHTML =
-                    '<a class="btn btn-dark" href="#about">about</a><a class="btn btn-dark" href="#projects">projects</a><a class="btn btn-dark" href="#contact">contact</a>')
+                    '<a class="btn btn-dark mx-3" href="#about">about</a><a class="btn btn-dark mx-3" href="#projects">projects</a><a class="btn btn-dark mx-3" href="#contact">contact</a><img width="100px" class="mx-3 mb-3" src="img/logo_small.svg" alt="logo" />')
             }
           </script>
           <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 3em">
-            <button style="all: unset" onclick="mobileNavOpens()">☰</button>
-            <div class="col-auto" style="float: right" id="mobileNav"></div>
+            <button style="all: unset" onclick="mobileNavOpens()" id="mobileMenuIcon">☰</button>
+            <div class="position-absolute bg-dark mr-4" style="left: -20px; z-index: 100; width: fit-content" id="mobileNav"></div>
           </nav>
           <!-- I.3.) social section-->
           <div class="col-auto my-2">
