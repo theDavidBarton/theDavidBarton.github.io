@@ -10,7 +10,12 @@
     />
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://twin-peaks-api.herokuapp.com" />
     <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Github page of David Barton (theDavidBarton) QA engineer, release manager & full stack JavaScript developer; made in plain HTML and with the help of Bootstrap 4.4"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
   </head>
@@ -41,17 +46,15 @@
                 : (document.querySelector('#mobileMenuIcon').style.color = '#ffffff')
             }
           </script>
-          <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 3em">
-            <button style="all: unset" onclick="mobileNavOpens()" id="mobileMenuIcon">☰</button>
-            <div
-              class="position-absolute bg-dark"
-              style="display: none; left: -15px; z-index: 100"
-              id="mobileNav"
-            >
+          <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 2em">
+            <button style="all: unset" onclick="mobileNavOpens()" id="mobileMenuIcon">
+              ☰
+            </button>
+            <div class="position-absolute bg-dark" style="display: none; left: -15px; z-index: 100" id="mobileNav">
               <a class="btn btn-dark mx-3" href="#about">about</a>
               <a class="btn btn-dark mx-3" href="#projects">projects</a>
               <a class="btn btn-dark mx-3" href="#contact">contact</a>
-              <img width="100px" class="mx-3 mb-3" src="img/logo_small.svg" alt="logo" />
+              <img width="100px" class="m-3" src="img/logo_small.svg" alt="logo" />
             </div>
           </nav>
           <!-- I.3.) social section-->
@@ -111,9 +114,9 @@
               <a class="text-decoration-none" id="about">about</a>
             </h2>
             <p>
-              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, while I am
-              working as a <span class="badge badge-dark">QA engineer</span> and
-              <span class="badge badge-dark">release manager</span> at the French metasearch company
+              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
+              time I am working as a <span class="badge badge-dark">QA engineer</span> and
+              <span class="badge badge-dark">release manager</span> at French metasearch company
               <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I got
               familiar with JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome, while I am
               using GitLab CI, Kubernetes and Jenkins for deployment and release management. In my spare time I enjoy
