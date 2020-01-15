@@ -7,6 +7,15 @@
   scroll-behavior: smooth;
 }
 
+.mobile-nav-icon-style {
+  font-size: 2em;
+}
+
+.mobile-nav-style {
+  left: -15px;
+  z-index: 100;
+}
+
 .card-body > * {
   font-family: 'Special Elite', cursive;
 }
@@ -22,14 +31,13 @@
 
 .hello-on-home {
   font-family: 'Amatic SC', cursive;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
 .lead-on-home {
   padding: 25px;
   border-width: thick;
   border-radius: 5px 5px 2px 5px;
-  border-left: 25px solid #ffc107;
+  border-left: 8px solid #ffc107;
 }
 
 .background-style {
@@ -40,8 +48,7 @@
 }
 
 .avatar-style {
-  width: 185px;
-  height: 185px;
+  width: 50px;
 }
 
 .card-border-style {
