@@ -22,18 +22,23 @@
   <body>
     <a id="top"></a>
     <!-- I.) navigation bar-->
-    <div class="bg-dark text-light">
+    <div class="bg-dark text-light sticky-top">
       <div class="container">
         <a href="#top"><div class="btn btn-dark position-fixed text-center back-to-top-style">▲</div></a>
-        <div class="row align-items-center text-center pb-3">
+        <div class="row align-items-center text-center">
           <!-- I.1.) logo-->
-          <div class="col-sm-auto col-12 text-sm-left text-center my-4">
-            <h2 class="display-4 hello-on-home">
+          <div class="col-sm-auto col-12 text-sm-left text-center">
+            <img
+              src="img/avatar.png"
+              alt="avatar image"
+              class="rounded-circle avatar-style my-2 mr-2 d-none d-sm-inline"
+            />
+            <h1 class="display-4 hello-on-home float-sm-right d-none d-md-inline">
               Hi, I am David!
-            </h2>
+            </h1>
           </div>
           <!-- I.2.) nav links-->
-          <nav class="col my-2 d-none d-sm-block">
+          <nav class="col my-2 d-none d-sm-block text-right">
             <a class="btn btn-dark" href="#about">about</a>
             <a class="btn btn-dark" href="#projects">projects</a>
             <a class="btn btn-dark" href="#contact">contact</a>
@@ -45,11 +50,11 @@
                 : (document.querySelector('#mobileNav').style.display = 'block')
             }
           </script>
-          <nav class="col-auto my-2 d-sm-none text-left" style="font-size: 2em">
-            <button style="all: unset" onclick="mobileNavOpens()" id="mobileMenuIcon">
+          <nav class="col-auto my-2 d-sm-none text-left mobile-nav-icon-style">
+            <button style="all: unset" onclick="mobileNavOpens()" id="mobileNavIcon">
               ☰
             </button>
-            <div class="position-absolute bg-dark" style="display: none; left: -15px; z-index: 100" id="mobileNav">
+            <div class="position-absolute bg-dark py-2 mobile-nav-style" style="display: none" id="mobileNav">
               <a class="btn btn-dark mx-3" href="#about">about</a>
               <a class="btn btn-dark mx-3" href="#projects">projects</a>
               <a class="btn btn-dark mx-3" href="#contact">contact</a>
@@ -88,33 +93,30 @@
     <div class="bg-dark text-light background-style">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-sm-auto text-center text-light my-5 order-1 order-sm-1 d-none d-sm-block">
+          <div class="col-sm-auto text-center text-light my-5 d-none d-sm-block">
             <img src="img/logo.svg" alt="branded logo" width="300" />
             <p>QA engineering | full stack JavaScript</p>
           </div>
-          <div class="col-sm-auto text-center text-dark my-5 order-1 order-sm-1 d-sm-none">
+          <div class="col-sm-auto text-center text-light mt-5 d-sm-none">
             <img src="img/logo_dark.svg" alt="branded logo" width="300" />
-            <p>QA engineering | full stack JavaScript</p>
           </div>
-          <div class="col-sm-auto col text-center order-2 order-sm-3">
+          <div class="col-sm-auto text-center my-4">
             <a class="btn btn-outline-light" href="#projects">
               <div class="lead align-middle">
                 <span>see my work</span>
               </div>
             </a>
           </div>
-          <div class="lead-on-home bg-light text-dark col order-4 order-sm-4 m-0 m-lg-4">
-            <h2>
-              <a class="text-decoration-none" id="about">about</a>
-            </h2>
+          <div class="lead-on-home bg-light text-dark col m-0 m-lg-4">
+            <a id="about"></a>
             <p>
               I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
               time I am working as a <span class="badge badge-dark">QA engineer</span> and
               <span class="badge badge-dark">release manager</span> at French metasearch company
               <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I got
               familiar with JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome, while I am
-              using GitLab CI, Kubernetes and Jenkins for deployment and release management. In my spare time I enjoy
-              working on hobby JS projects in Node and React to improve my
+              using GitLab CI, Kubernetes and Jenkins for deployment and release management.<br /><br />
+              In my spare time I enjoy working on hobby JS projects in Node and React to improve my
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
           </div>
@@ -603,7 +605,7 @@
         <div class="text-center">
           <div>
             <div class="row">
-              <div class="col text-sm-left">
+              <div class="col text-sm-left align-self-end">
                 <p>
                   Graphics in the "hobbies" section are downloaded from:
                   <a class="text-warning" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
@@ -617,7 +619,7 @@
                   them.
                 </p>
               </div>
-              <div class="col text-sm-center align-self-end mt-5">
+              <div class="col text-sm-center align-self-end">
                 <img src="img/logo.svg" alt="logo" width="300" />
               </div>
               <div class="col text-sm-right align-self-end">
