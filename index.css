@@ -62,16 +62,9 @@
   max-width: 540px;
 }
 
-/* about section */
+/* intro section */
 .hello-on-home {
   font-family: 'Amatic SC', cursive;
-}
-
-.lead-on-home {
-  padding: 25px;
-  border-width: thick;
-  border-radius: 5px 5px 2px 5px;
-  border-left: 8px solid #ffc107;
 }
 
 .background-style {
