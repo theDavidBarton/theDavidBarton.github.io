@@ -2,24 +2,30 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
 
+/* global */
 * {
   font-family: 'Quicksand', sans-serif;
   scroll-behavior: smooth;
 }
 
-.mobile-nav-icon-style {
-  font-size: 2em;
-}
-
-.mobile-nav-style {
-  left: -15px;
+.back-to-top-style {
+  opacity: 0.5;
+  bottom: 10px;
+  right: 25px;
   z-index: 100;
+  padding: 14px 16px;
+  border-radius: 35px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+  line-height: 1.33;
 }
 
-.card-body > * {
-  font-family: 'Special Elite', cursive;
+.bg-black {
+  background-color: #000000;
 }
 
+/* social icons */
 .social-list-margin {
   margin-right: 2em;
 }
@@ -29,6 +35,34 @@
   filter: invert(100%);
 }
 
+/* mobile nav */
+.mobile-nav-icon-style {
+  font-size: 2em;
+}
+
+.mobile-nav-style {
+  left: -15px;
+  z-index: 100;
+}
+
+/* cards */
+.card-body > * {
+  font-family: 'Special Elite', cursive;
+}
+
+.card-border-style {
+  padding: 25px;
+  margin: 25px;
+  border-width: thick;
+  border-radius: 5px 5px 250px 5px;
+  border-left: 25px solid #ffc107;
+}
+
+.card-width-override {
+  max-width: 540px;
+}
+
+/* about section */
 .hello-on-home {
   font-family: 'Amatic SC', cursive;
 }
@@ -51,14 +85,12 @@
   width: 50px;
 }
 
-.card-border-style {
-  padding: 25px;
-  margin: 25px;
-  border-width: thick;
-  border-radius: 5px 5px 250px 5px;
-  border-left: 25px solid #ffc107;
+/* contact section */
+.contact-style {
+  margin-right: 25px;
 }
 
+/* misc. */
 .quote-marker-style {
   position: absolute;
   top: -145px;
@@ -66,21 +98,4 @@
   font-size: 15em;
   color: #ffc107;
   opacity: 0.3;
-}
-
-.back-to-top-style {
-  opacity: 0.5;
-  bottom: 10px;
-  right: 25px;
-  z-index: 100;
-  padding: 14px 16px;
-  border-radius: 35px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #ffffff;
-  line-height: 1.33;
-}
-
-.bg-black {
-  background-color: #000000;
 }

@@ -51,9 +51,9 @@
             }
           </script>
           <nav class="col-auto my-2 d-sm-none text-left mobile-nav-icon-style">
-            <button style="all: unset" onclick="mobileNavOpens()" id="mobileNavIcon">
+            <div onclick="mobileNavOpens()" id="mobileNavIcon">
               ☰
-            </button>
+            </div>
             <div class="position-absolute bg-dark py-2 mobile-nav-style" style="display: none" id="mobileNav">
               <a class="btn btn-dark mx-3" href="#about">about</a>
               <a class="btn btn-dark mx-3" href="#projects">projects</a>
@@ -93,22 +93,19 @@
     <div class="bg-dark text-light background-style">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-sm-auto text-center text-light my-5 d-none d-sm-block">
+          <div class="col-12 text-center text-light mt-lg-0 mt-5 my-lg-5 my-0">
             <img src="img/logo.svg" alt="branded logo" width="300" />
             <p>QA engineering | full stack JavaScript</p>
           </div>
-          <div class="col-sm-auto text-center text-light mt-5 d-sm-none">
-            <img src="img/logo_dark.svg" alt="branded logo" width="300" />
-          </div>
-          <div class="col-sm-auto text-center my-4">
+          <div class="col text-center my-2">
             <a class="btn btn-outline-light" href="#projects">
               <div class="lead align-middle">
                 <span>see my work</span>
               </div>
             </a>
           </div>
-          <div class="lead-on-home bg-light text-dark col m-0 m-lg-4">
-            <a id="about"></a>
+          <!-- on display-none in the current version -->
+          <div class="lead-on-home bg-light text-dark col m-0 m-lg-4 d-none">
             <p>
               I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
               time I am working as a <span class="badge badge-dark">QA engineer</span> and
@@ -120,10 +117,12 @@
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
           </div>
+          <!-- hidden div ends -->
         </div>
       </div>
     </div>
     <!-- III.) tech stack -->
+    <a id="about"></a>
     <div class="bg-dark">
       <div class="container py-3">
         <div class="row p-2 text-light">
@@ -336,7 +335,7 @@
         </div>
         <div class="row align-items-center">
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/rawg_screenshot.jpg" class="card-img" alt="project thumbnail" />
@@ -376,7 +375,7 @@
             </p>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-11 col-10">
                 <div class="card-body">
@@ -417,7 +416,7 @@
             </blockquote>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/tmdb_screenshot.jpg" class="card-img" alt="project thumbnail" />
@@ -455,7 +454,7 @@
             </p>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-11 col-10">
                 <div class="card-body">
@@ -487,7 +486,7 @@
             </p>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-11 col-10">
                 <div class="card-body">
@@ -540,7 +539,7 @@
           <div class="card-border-style bg-light text-dark col-auto">
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
@@ -550,7 +549,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
@@ -562,7 +561,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
@@ -572,7 +571,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg"
@@ -582,7 +581,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
@@ -599,8 +598,8 @@
         </div>
       </div>
     </div>
-    <!-- footer bar -->
-    <div class="bg-dark text-light">
+    <!-- VIII. footer bar -->
+    <div class="bg-warning text-dark">
       <div class="container py-5">
         <div class="text-center">
           <div>
@@ -608,10 +607,10 @@
               <div class="col text-sm-left align-self-end">
                 <p>
                   Graphics in the "hobbies" section are downloaded from:
-                  <a class="text-warning" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
+                  <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
                     >www.fileformat.info</a
                   >. Other icons are from:
-                  <a class="text-warning" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
+                  <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
                     >simpleicons.org</a
                   >.<br />
                   All other graphics and photos of this project have been made available to this project by David Barton
@@ -620,7 +619,7 @@
                 </p>
               </div>
               <div class="col text-sm-center align-self-end">
-                <img src="img/logo.svg" alt="logo" width="300" />
+                <img src="img/logo_dark.svg" alt="logo" width="300" />
               </div>
               <div class="col text-sm-right align-self-end">
                 <p>copyright © 2020 theDavidBarton</p>
