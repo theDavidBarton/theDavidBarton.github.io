@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
     <link rel="preconnect" href="https://twin-peaks-api.herokuapp.com" />
     <meta charset="utf-8" />
     <meta
@@ -220,7 +221,7 @@
             />
             <p>K8s</p>
           </div>
-          <div class="col-3 col-lg-auto d-md-block d-none">
+          <div class="col-3 col-lg-auto d-lg-block d-none">
             <img
               height="50"
               width="50"
@@ -262,13 +263,12 @@
             </div>
           </div>
           <!-- 2nd col starts here -->
-          <div class="col order-first order-xl-last">
+          <div class="col-lg-6 col-12 vertical-bar order-first order-xl-last">
             <h3 class="d-inline">
               <a id="summary">about me &#8605;</a>
             </h3>
             <img src="img/avatar.png" alt="avatar image" class="rounded-circle position-absolute avatar-style ml-3" />
-
-            <p class="m-4">
+            <p class="m-4 pb-lg-0 pb-5">
               I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
               time I am working as a <span class="badge badge-dark">QA engineer</span> and
               <span class="badge badge-dark">release manager</span> at French metasearch company
@@ -278,18 +278,22 @@
               In my spare time I enjoy working on hobby JS projects in Node and React to improve my
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
-            <div class="col-5 col-sm-3 btn btn-outline-dark text-center p-4 ml-4 float-left">
-              <small>Working since</small><br />
-              <h1>2013</h1>
-            </div>
-            <!-- https://api.github.com/users/theDavidBarton -->
-            <div class="col-5 col-sm-3 btn btn-outline-dark text-center p-4 ml-4 float-left">
-              <small>GitHub repos</small><br />
-              <h1>21</h1>
-            </div>
-            <div class="col-5 col-sm-3 btn btn-outline-dark text-center p-4 ml-4 float-left">
-              <small>GitHub streak</small><br />
-              <h1>9<sub style="font-size:.3em">days</sub></h1>
+            <div class="d-xl-block d-none">
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+                <small>Working since</small><br />
+                <h1 id="sinceYear">2013</h1>
+              </div>
+              <!-- https://api.github.com/users/theDavidBarton -->
+              <script async src="index.js" onload="getRepos()"></script>
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+                <small>GitHub repos</small><br />
+                <h1 id="ghRepos">--</h1>
+              </div>
+              <!-- $$('rect')[368].dataset.count | https://github.com/users/theDavidBarton/contributions -->
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+                <small>GitHub streak</small><br />
+                <h1 id="ghStreak">16<sub style="font-size:.3em">days</sub></h1>
+              </div>
             </div>
           </div>
         </div>
