@@ -1,11 +1,14 @@
+'use strict'
+
 async function getQuote() {
   try {
+    const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
     let obj
     let response
     // reduce load on twin peaks api during development
-    if (window.location.href.match(/https:\/\/thedavidbarton\.github\.io\//gi)) {
+    if (window.location.href.match(prodUrl)) {
       response = await fetch('https://twin-peaks-api.herokuapp.com/api/1/quotes/recommend?relevance=1&profanity=false')
-      await response.json().then(function(data) {
+      await response.json().then(data => {
         obj = data[0]
       })
     } else {
@@ -21,6 +24,28 @@ async function getQuote() {
     const persons = obj.persons.map(el => el)
     document.querySelector('#twinpeaks-quote > p').innerHTML = quoteTextOnly
     document.querySelector('#twinpeaks-quote > footer > cite').innerHTML = persons
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+async function getRepos() {
+  try {
+    const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
+    let obj
+    let response
+    // reduce load on github api during development
+    if (window.location.href.match(prodUrl)) {
+      response = await fetch('https://api.github.com/users/theDavidBarton')
+      await response.json().then(data => {
+        obj = data
+      })
+    } else {
+      response = '{"public_repos": 20}'
+      obj = JSON.parse(response)
+    }
+    const publicRepos = obj.public_repos
+    document.querySelector('#ghRepos').textContent = publicRepos
   } catch (e) {
     console.error(e)
   }

@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
     <link rel="preconnect" href="https://twin-peaks-api.herokuapp.com" />
     <meta charset="utf-8" />
     <meta
@@ -28,12 +29,7 @@
         <div class="row align-items-center text-center">
           <!-- I.1.) logo-->
           <div class="col-sm-auto col-12 text-sm-left text-center">
-            <img
-              src="img/avatar.png"
-              alt="avatar image"
-              class="rounded-circle avatar-style my-2 mr-2 d-none d-sm-inline"
-            />
-            <h1 class="display-4 hello-on-home float-sm-right d-none d-md-inline">
+            <h1 class="display-4 hello-on-home d-none d-md-inline">
               Hi, I am David!
             </h1>
           </div>
@@ -51,9 +47,9 @@
             }
           </script>
           <nav class="col-auto my-2 d-sm-none text-left mobile-nav-icon-style">
-            <button style="all: unset" onclick="mobileNavOpens()" id="mobileNavIcon">
+            <div onclick="mobileNavOpens()" id="mobileNavIcon">
               ☰
-            </button>
+            </div>
             <div class="position-absolute bg-dark py-2 mobile-nav-style" style="display: none" id="mobileNav">
               <a class="btn btn-dark mx-3" href="#about">about</a>
               <a class="btn btn-dark mx-3" href="#projects">projects</a>
@@ -89,41 +85,26 @@
         </div>
       </div>
     </div>
-    <!-- II.) about bar -->
+    <!-- II.) intro bar -->
     <div class="bg-dark text-light background-style">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-sm-auto text-center text-light my-5 d-none d-sm-block">
+          <div class="col-12 text-center text-light mt-lg-0 mt-5 my-lg-5 my-0">
             <img src="img/logo.svg" alt="branded logo" width="300" />
             <p>QA engineering | full stack JavaScript</p>
           </div>
-          <div class="col-sm-auto text-center text-light mt-5 d-sm-none">
-            <img src="img/logo_dark.svg" alt="branded logo" width="300" />
-          </div>
-          <div class="col-sm-auto text-center my-4">
+          <div class="col text-center my-2">
             <a class="btn btn-outline-light" href="#projects">
               <div class="lead align-middle">
                 <span>see my work</span>
               </div>
             </a>
           </div>
-          <div class="lead-on-home bg-light text-dark col m-0 m-lg-4">
-            <a id="about"></a>
-            <p>
-              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
-              time I am working as a <span class="badge badge-dark">QA engineer</span> and
-              <span class="badge badge-dark">release manager</span> at French metasearch company
-              <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I got
-              familiar with JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome, while I am
-              using GitLab CI, Kubernetes and Jenkins for deployment and release management.<br /><br />
-              In my spare time I enjoy working on hobby JS projects in Node and React to improve my
-              <span class="badge badge-dark">full stack JavaScript dev</span> skills.
-            </p>
-          </div>
         </div>
       </div>
     </div>
     <!-- III.) tech stack -->
+    <a id="about"></a>
     <div class="bg-dark">
       <div class="container py-3">
         <div class="row p-2 text-light">
@@ -240,7 +221,7 @@
             />
             <p>K8s</p>
           </div>
-          <div class="col-3 col-lg-auto">
+          <div class="col-3 col-lg-auto d-lg-block d-none">
             <img
               height="50"
               width="50"
@@ -252,39 +233,71 @@
         </div>
       </div>
     </div>
-    <!-- IV.) experience bar -->
+    <!-- IV.) experience / about me bar -->
     <div class="bg-light py-4">
       <div class="container">
-        <div class="row p-2">
-          <h3>
-            <a id="experience">experience</a>
-          </h3>
-        </div>
         <div class="row">
-          <div class="text-dark col-auto">
-            <ul class="card-border-style">
-              <li><strong>liligo.com (2016-)</strong> QA engineer & release manager</li>
-              <li>
-                <strong>Budapest University of Technology and Economics (2013-2016)</strong> information specialist
-              </li>
-              <li><strong>Richter Gedeon Nyrt.(2013)</strong> internship</li>
-              <li><strong>Magyar Telekom (2012)</strong> internship</li>
-            </ul>
+          <!-- 1st col starts here -->
+          <div class="col order-last order-xl-first">
+            <h3>
+              <a id="experience">experience</a>
+            </h3>
+            <div>
+              <ul class="card-border-style">
+                <li><strong>liligo.com (2016-)</strong> QA engineer & release manager</li>
+                <li>
+                  <strong>Budapest University of Technology and Economics (2013-2016)</strong> information specialist
+                </li>
+                <li><strong>Richter Gedeon Nyrt.(2013)</strong> internship</li>
+                <li><strong>Magyar Telekom (2012)</strong> internship</li>
+              </ul>
+            </div>
+            <h3>
+              <a id="education">education</a>
+            </h3>
+            <div>
+              <ul class="card-border-style">
+                <li><strong>Eötvös Loránd University, Budapest (2012-2014)</strong> Ma/Msc</li>
+                <li><strong>Eötvös Loránd University, Budapest (2009-2012)</strong> Ba/Bsc</li>
+              </ul>
+            </div>
+          </div>
+          <!-- 2nd col starts here -->
+          <div class="col-lg-6 col-12 vertical-bar order-first order-xl-last">
+            <h3 class="d-inline">
+              <a id="summary">about me &#8605;</a>
+            </h3>
+            <img src="img/avatar.png" alt="avatar image" class="rounded-circle position-absolute avatar-style ml-3" />
+            <p class="m-4 pb-lg-0 pb-5">
+              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
+              time I am working as a <span class="badge badge-dark">QA engineer</span> and
+              <span class="badge badge-dark">release manager</span> at French metasearch company
+              <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I got
+              familiar with JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome, while I am
+              using GitLab CI, Kubernetes and Jenkins for deployment and release management.<br /><br />
+              In my spare time I enjoy working on hobby JS projects in Node and React to improve my
+              <span class="badge badge-dark">full stack JavaScript dev</span> skills.
+            </p>
+            <div class="d-xl-block d-none">
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+                <small>Working since</small><br />
+                <h1 id="sinceYear">2013</h1>
+              </div>
+              <!-- https://api.github.com/users/theDavidBarton -->
+              <script async src="index.js" onload="getRepos()"></script>
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+                <small>GitHub repos</small><br />
+                <h1 id="ghRepos">--</h1>
+              </div>
+              <!-- $$('rect')[368].dataset.count | https://github.com/users/theDavidBarton/contributions -->
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+                <small>GitHub streak</small><br />
+                <h1 id="ghStreak">16<sub style="font-size:.3em">days</sub></h1>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row p-2">
-          <h3>
-            <a id="education">education</a>
-          </h3>
-        </div>
-        <div class="row">
-          <div class="text-dark col-auto">
-            <ul class="card-border-style">
-              <li><strong>Eötvös Loránd University, Budapest (2012-2014)</strong> Ma/Msc</li>
-              <li><strong>Eötvös Loránd University, Budapest (2009-2012)</strong> Ba/Bsc</li>
-            </ul>
-          </div>
-        </div>
+        <!-- 2nd col div ends -->
       </div>
     </div>
     <!-- V.) hobbies -->
@@ -336,7 +349,7 @@
         </div>
         <div class="row align-items-center">
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/rawg_screenshot.jpg" class="card-img" alt="project thumbnail" />
@@ -376,7 +389,7 @@
             </p>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-11 col-10">
                 <div class="card-body">
@@ -417,7 +430,7 @@
             </blockquote>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="img/tmdb_screenshot.jpg" class="card-img" alt="project thumbnail" />
@@ -455,7 +468,7 @@
             </p>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-11 col-10">
                 <div class="card-body">
@@ -487,7 +500,7 @@
             </p>
           </div>
           <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9" style="max-width: 540px;">
+          <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9 card-width-override">
             <div class="row no-gutters">
               <div class="col-md-11 col-10">
                 <div class="card-body">
@@ -540,7 +553,7 @@
           <div class="card-border-style bg-light text-dark col-auto">
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
@@ -550,7 +563,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
@@ -562,7 +575,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
@@ -572,7 +585,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg"
@@ -582,7 +595,7 @@
             </p>
             <p>
               <img
-                style="margin-right: 25px"
+                class="contact-style"
                 height="35"
                 width="35"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
@@ -599,8 +612,8 @@
         </div>
       </div>
     </div>
-    <!-- footer bar -->
-    <div class="bg-dark text-light">
+    <!-- VIII. footer bar -->
+    <div class="bg-warning text-dark">
       <div class="container py-5">
         <div class="text-center">
           <div>
@@ -608,10 +621,10 @@
               <div class="col text-sm-left align-self-end">
                 <p>
                   Graphics in the "hobbies" section are downloaded from:
-                  <a class="text-warning" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
+                  <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
                     >www.fileformat.info</a
                   >. Other icons are from:
-                  <a class="text-warning" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
+                  <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
                     >simpleicons.org</a
                   >.<br />
                   All other graphics and photos of this project have been made available to this project by David Barton
@@ -620,7 +633,7 @@
                 </p>
               </div>
               <div class="col text-sm-center align-self-end">
-                <img src="img/logo.svg" alt="logo" width="300" />
+                <img src="img/logo_dark.svg" alt="logo" width="300" />
               </div>
               <div class="col text-sm-right align-self-end">
                 <p>copyright © 2020 theDavidBarton</p>
