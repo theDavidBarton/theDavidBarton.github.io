@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
     <link rel="preconnect" href="https://twin-peaks-api.herokuapp.com" />
     <meta charset="utf-8" />
     <meta
@@ -279,20 +280,38 @@
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
             <div class="d-xl-block d-none">
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>Working since</small><br />
                 <h1 id="sinceYear">2013</h1>
               </div>
               <!-- https://api.github.com/users/theDavidBarton -->
               <script async src="index.js" onload="getRepos()"></script>
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>GitHub repos</small><br />
                 <h1 id="ghRepos">--</h1>
               </div>
-              <!-- $$('rect')[368].dataset.count | https://github.com/users/theDavidBarton/contributions -->
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 mb-4 float-left">
+              <!-- https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton -->
+              <script async src="index.js" onload="getStreak()"></script>
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>GitHub streak</small><br />
-                <h1 id="ghStreak">16<sub style="font-size:.3em">days</sub></h1>
+                <h1><span id="ghStreak">--</span><sub style="font-size:.3em">days</sub></h1>
+              </div>
+              <div class="col-11 text-center">
+                <p>
+                  <small
+                    >* Data retrieved from
+                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
+                      >GitHub api</a
+                    >
+                    and my own
+                    <a
+                      href="https://www.npmjs.com/package/github-streak-scraper"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >streak scraper</a
+                    >.</small
+                  >
+                </p>
               </div>
             </div>
           </div>

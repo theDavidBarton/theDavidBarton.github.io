@@ -50,3 +50,26 @@ async function getRepos() {
     console.error(e)
   }
 }
+
+async function getStreak() {
+  try {
+    const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
+    let obj
+    let response
+    // reduce load on my heroku api during development
+    if (window.location.href.match(prodUrl)) {
+      response = await fetch('https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton')
+      await response.json().then(data => {
+        obj = data
+      })
+    } else {
+      response =
+        '{"user":"theDavidBarton","currentlyOnStreak":true,"currentStreakCount":11,"currentStreakStartDate":"2019-12-30"}'
+      obj = JSON.parse(response)
+    }
+    const currentStreakCount = obj.currentStreakCount
+    document.querySelector('#ghStreak').textContent = currentStreakCount
+  } catch (e) {
+    console.error(e)
+  }
+}
