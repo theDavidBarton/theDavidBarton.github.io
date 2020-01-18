@@ -98,7 +98,11 @@
 
 /* contact section */
 .contact-style {
-  margin-right: 25px;
+  font-size: 0.7em;
+}
+
+.contact-style > a {
+  color: #000000;
 }
 
 /* misc. */

@@ -1,5 +1,11 @@
 'use strict'
 
+function mobileNavOpens() {
+  document.querySelector('#mobileNav').style.display !== 'none'
+    ? (document.querySelector('#mobileNav').style.display = 'none')
+    : (document.querySelector('#mobileNav').style.display = 'block')
+}
+
 async function getQuote() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
