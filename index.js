@@ -48,6 +48,7 @@ async function getRepos() {
     }
     const publicRepos = obj.public_repos
     document.querySelector('#ghRepos').textContent = publicRepos
+    document.querySelector('#ghReposMobile').textContent = publicRepos
   } catch (e) {
     console.error(e)
   }
@@ -63,12 +64,12 @@ async function getStreak() {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton')
       await response.json().then(data => (obj = data))
     } else {
-      response =
-        '{"user":"theDavidBarton","currentlyOnStreak":true,"currentStreakCount":12,"currentStreakStartDate":"2019-12-30"}'
+      response = '{"currentStreakCount":12}'
       obj = JSON.parse(response)
     }
     const currentStreakCount = obj.currentStreakCount
     document.querySelector('#ghStreak').textContent = currentStreakCount
+    document.querySelector('#ghStreakMobile').textContent = currentStreakCount
     currentStreakCount == 1
       ? (document.querySelector('#ghStreakSubText').textContent = 'day')
       : (document.querySelector('#ghStreakSubText').textContent = 'days')

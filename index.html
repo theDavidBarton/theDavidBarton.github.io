@@ -262,7 +262,7 @@
               <a id="summary">about me &#8605;</a>
             </h3>
             <img src="img/avatar.png" alt="avatar image" class="rounded-circle position-absolute avatar-style ml-3" />
-            <p class="m-4 pb-lg-0 pb-5">
+            <p class="m-4 pb-lg-0 pb-3">
               I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
               time I am working as a <span class="badge badge-dark">QA engineer</span> and
               <span class="badge badge-dark">release manager</span> at French metasearch company
@@ -272,7 +272,7 @@
               In my spare time I enjoy working on hobby JS projects in Node and React to improve my
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
-            <div class="d-xl-block d-none">
+            <div class="row mx-0 justify-content-lg-center d-sm-block d-none">
               <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>Working since</small><br />
                 <h1 id="sinceYear">2013</h1>
@@ -285,11 +285,11 @@
               </div>
               <!-- https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton -->
               <script async src="index.js" onload="getStreak()"></script>
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
                 <small>GitHub streak*</small><br />
                 <h1><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></h1>
               </div>
-              <div class="col-11 text-center">
+              <div class="col-11 m-2 text-center text-muted data-style">
                 <p>
                   <small
                     >*Data is retrieved from
@@ -307,6 +307,41 @@
                 </p>
               </div>
             </div>
+            <!-- mobile content only starts here -->
+            <div class="row mx-0 d-sm-none text-center">
+              <div class="col">
+                <small>Working since</small><br />
+                <h1 id="sinceYearMobile">2013</h1>
+              </div>
+              <div class="col">
+                <small>GitHub repos*</small><br />
+                <h1 id="ghReposMobile">--</h1>
+              </div>
+              <div class="col">
+                <small>GitHub streak*</small><br />
+                <h1>
+                  <span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub>
+                </h1>
+              </div>
+              <div class="col-11 m-2 text-center text-muted data-style">
+                <p>
+                  <small
+                    >*Data is retrieved from
+                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
+                      >GitHub api</a
+                    >
+                    and my own
+                    <a
+                      href="https://www.npmjs.com/package/github-streak-scraper"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub streak scraper</a
+                    >.</small
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- mobile only ends here -->
           </div>
         </div>
         <!-- 2nd col div ends -->
@@ -639,7 +674,7 @@
         <div class="text-center">
           <div>
             <div class="row">
-              <div class="col text-sm-left align-self-end">
+              <div class="col-lg-4 col-12 text-sm-left align-self-end">
                 <p>
                   Graphics in the "hobbies" section are downloaded from:
                   <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
