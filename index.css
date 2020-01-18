@@ -85,6 +85,22 @@
   cursor: default;
 }
 
+.un-on-mobile {
+  font-size: small;
+}
+
+@media all and (min-width: 321px) and (max-width: 375px) {
+  .un-on-mobile {
+    font-size: 0.7em;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .un-on-mobile {
+    font-size: 0.5em;
+  }
+}
+
 .days-style {
   font-size: 0.3em;
 }
@@ -133,4 +149,8 @@
   font-size: 15em;
   color: #ffc107;
   opacity: 0.3;
+}
+
+.invert-img {
+  filter: invert(100%);
 }

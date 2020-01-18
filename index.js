@@ -77,3 +77,9 @@ async function getStreak() {
     console.error(e)
   }
 }
+
+function getDate() {
+  const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
+  document.querySelector('#funfactDataDate').textContent = today
+  document.querySelector('#funfactDataDateMobile').textContent = today
+}
