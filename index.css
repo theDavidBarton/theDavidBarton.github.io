@@ -90,6 +90,10 @@
   border-left: 1px solid #6c757d;
 }
 
+.days-style {
+  font-size: 0.3em;
+}
+
 @media all and (max-width: 1024px) {
   .vertical-bar {
     border-left: none;

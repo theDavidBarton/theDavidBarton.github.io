@@ -14,9 +14,7 @@ async function getQuote() {
     // reduce load on twin peaks api during development
     if (window.location.href.match(prodUrl)) {
       response = await fetch('https://twin-peaks-api.herokuapp.com/api/1/quotes/recommend?relevance=1&profanity=false')
-      await response.json().then(data => {
-        obj = data[0]
-      })
+      await response.json().then(data => (obj = data[0]))
     } else {
       response =
         '[{"quoteTextOnly":"There\'s a sort of evil out there. Something very, very strange in these old woods. Call it what you want. A darkness, a presence. It takes many forms but... its been out there for as long as anyone can remember and we\'ve always been here to fight it. [DEV MODE]","persons":["Sheriff Truman"]}]'
@@ -43,9 +41,7 @@ async function getRepos() {
     // reduce load on github api during development
     if (window.location.href.match(prodUrl)) {
       response = await fetch('https://api.github.com/users/theDavidBarton')
-      await response.json().then(data => {
-        obj = data
-      })
+      await response.json().then(data => (obj = data))
     } else {
       response = '{"public_repos": 20}'
       obj = JSON.parse(response)
@@ -65,16 +61,17 @@ async function getStreak() {
     // reduce load on my heroku api during development
     if (window.location.href.match(prodUrl)) {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton')
-      await response.json().then(data => {
-        obj = data
-      })
+      await response.json().then(data => (obj = data))
     } else {
       response =
-        '{"user":"theDavidBarton","currentlyOnStreak":true,"currentStreakCount":11,"currentStreakStartDate":"2019-12-30"}'
+        '{"user":"theDavidBarton","currentlyOnStreak":true,"currentStreakCount":12,"currentStreakStartDate":"2019-12-30"}'
       obj = JSON.parse(response)
     }
     const currentStreakCount = obj.currentStreakCount
     document.querySelector('#ghStreak').textContent = currentStreakCount
+    currentStreakCount == 1
+      ? (document.querySelector('#ghStreakSubText').textContent = 'day')
+      : (document.querySelector('#ghStreakSubText').textContent = 'days')
   } catch (e) {
     console.error(e)
   }
