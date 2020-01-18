@@ -26,7 +26,7 @@
     <!-- I.) navigation bar-->
     <div class="bg-dark text-light">
       <div class="container">
-        <a href="#top"><div class="btn btn-dark position-fixed text-center back-to-top-style">▲</div></a>
+        <a href="#top"><div class="btn btn-dark position-fixed text-center back-to-top-style">&#9650;</div></a>
         <div class="row align-items-center text-center">
           <!-- I.1.) logo-->
           <div class="col-sm-auto col-12 text-sm-left text-center">
@@ -40,16 +40,9 @@
             <a class="btn btn-dark" href="#projects">projects</a>
             <a class="btn btn-dark" href="#contact">contact</a>
           </nav>
-          <script>
-            function mobileNavOpens() {
-              document.querySelector('#mobileNav').style.display !== 'none'
-                ? (document.querySelector('#mobileNav').style.display = 'none')
-                : (document.querySelector('#mobileNav').style.display = 'block')
-            }
-          </script>
           <nav class="col-auto my-2 d-sm-none text-left mobile-nav-icon-style">
             <div onclick="mobileNavOpens()" id="mobileNavIcon">
-              ☰
+              &#9776;
             </div>
             <div class="position-absolute bg-dark py-2 mobile-nav-style" style="display: none" id="mobileNav">
               <a class="btn btn-dark mx-3" href="#about">about</a>
@@ -269,7 +262,7 @@
               <a id="summary">about me &#8605;</a>
             </h3>
             <img src="img/avatar.png" alt="avatar image" class="rounded-circle position-absolute avatar-style ml-3" />
-            <p class="m-4 pb-lg-0 pb-5">
+            <p class="m-4 pb-lg-0 pb-3">
               I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
               time I am working as a <span class="badge badge-dark">QA engineer</span> and
               <span class="badge badge-dark">release manager</span> at French metasearch company
@@ -279,7 +272,7 @@
               In my spare time I enjoy working on hobby JS projects in Node and React to improve my
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
-            <div class="d-xl-block d-none">
+            <div class="row mx-0 justify-content-lg-center d-sm-block d-none">
               <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>Working since</small><br />
                 <h1 id="sinceYear">2013</h1>
@@ -287,19 +280,19 @@
               <!-- https://api.github.com/users/theDavidBarton -->
               <script async src="index.js" onload="getRepos()"></script>
               <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
-                <small>GitHub repos</small><br />
+                <small>GitHub repos*</small><br />
                 <h1 id="ghRepos">--</h1>
               </div>
               <!-- https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton -->
               <script async src="index.js" onload="getStreak()"></script>
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
-                <small>GitHub streak</small><br />
-                <h1><span id="ghStreak">--</span><sub style="font-size:.3em">days</sub></h1>
+              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
+                <small>GitHub streak*</small><br />
+                <h1><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></h1>
               </div>
-              <div class="col-11 text-center">
+              <div class="col-11 m-2 text-center text-muted data-style">
                 <p>
                   <small
-                    >* Data retrieved from
+                    >*Data is retrieved from
                     <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
                       >GitHub api</a
                     >
@@ -308,12 +301,47 @@
                       href="https://www.npmjs.com/package/github-streak-scraper"
                       target="_blank"
                       rel="noopener noreferrer"
-                      >streak scraper</a
+                      >GitHub streak scraper</a
                     >.</small
                   >
                 </p>
               </div>
             </div>
+            <!-- mobile content only starts here -->
+            <div class="row mx-0 d-sm-none text-center">
+              <div class="col">
+                <small>Working since</small><br />
+                <h1 id="sinceYearMobile">2013</h1>
+              </div>
+              <div class="col">
+                <small>GitHub repos*</small><br />
+                <h1 id="ghReposMobile">--</h1>
+              </div>
+              <div class="col">
+                <small>GitHub streak*</small><br />
+                <h1>
+                  <span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub>
+                </h1>
+              </div>
+              <div class="col-11 m-2 text-center text-muted data-style">
+                <p>
+                  <small
+                    >*Data is retrieved from
+                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
+                      >GitHub api</a
+                    >
+                    and my own
+                    <a
+                      href="https://www.npmjs.com/package/github-streak-scraper"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub streak scraper</a
+                    >.</small
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- mobile only ends here -->
           </div>
         </div>
         <!-- 2nd col div ends -->
@@ -515,7 +543,7 @@
           <div class="col-xl-5 text-light m-4 order-7 order-xl-7">
             <p class="lead">
               I love drawing since I was a child. As I am also a huge fan of retro video game titles I enjoy creating
-              pixel arts. 👾 Check it out on my Pixel Art project:
+              pixel arts. &#128126; Check it out on my Pixel Art project:
             </p>
           </div>
           <!-- card starts-->
@@ -563,70 +591,79 @@
     <!-- VII.) contact bar -->
     <div class="bg-light">
       <div class="container">
-        <div class="row p-4">
+        <div class="row p-2">
           <h2>
             <a id="contact">contact</a>
           </h2>
         </div>
-        <div class="row">
-          <div class="card-border-style bg-light text-dark col-auto">
-            <p>
+        <div class="row text-center pb-4 justify-content-lg-center">
+          <div class="col-3 col-lg-auto contact-style">
+            <a href="mailto:theDavidBarton@gmail.com">
               <img
-                class="contact-style"
-                height="35"
-                width="35"
+                height="50"
+                width="50"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
                 alt="mail icon"
               />
-              <a href="mailto:theDavidBarton@gmail.com">theDavidBarton</a>
-            </p>
-            <p>
-              <img
-                class="contact-style"
-                height="35"
-                width="35"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
-                alt="mail icon"
-              />
-              <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/theDavidBarton/"
-                >theDavidBarton</a
-              >
-            </p>
-            <p>
-              <img
-                class="contact-style"
-                height="35"
-                width="35"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                alt="mail icon"
-              />
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton">theDavidBarton</a>
-            </p>
-            <p>
-              <img
-                class="contact-style"
-                height="35"
-                width="35"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg"
-                alt="mail icon"
-              />
-              <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton">theDavidBarton</a>
-            </p>
-            <p>
-              <img
-                class="contact-style"
-                height="35"
-                width="35"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
-                alt="mail icon"
-              />
-              <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12412595/david-barton"
-                >David Barton</a
-              >
-            </p>
+              <p>@the<wbr />DavidBarton</p></a
+            >
           </div>
-          <div class="col m-4 text-center text-md-right">
-            <img style="max-width: 280px;" alt="danube photo" class="rounded-circle" src="img/danube-photo.jpg" />
+          <div class="col-3 col-lg-auto contact-style">
+            <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/theDavidBarton/">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
+                alt="linkedin icon"
+              />
+              <p>@the<wbr />DavidBarton</p></a
+            >
+          </div>
+          <div class="col-3 col-lg-auto contact-style">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                alt="github icon"
+              />
+              <p>@the<wbr />DavidBarton</p></a
+            >
+          </div>
+          <div class="col-3 col-lg-auto contact-style">
+            <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg"
+                alt="medium icon"
+              />
+              <p>@the<wbr />DavidBarton</p></a
+            >
+          </div>
+          <div class="col-3 col-lg-auto contact-style">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/~thedavidbarton">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/npm.svg"
+                alt="npm icon"
+              />
+              <p>@the<wbr />davidbarton</p></a
+            >
+          </div>
+          <div class="col-3 col-lg-auto contact-style">
+            <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12412595/david-barton">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
+                alt="stackoverflow icon"
+              />
+              <p>
+                @David Barton
+              </p></a
+            >
           </div>
         </div>
       </div>
@@ -637,7 +674,7 @@
         <div class="text-center">
           <div>
             <div class="row">
-              <div class="col text-sm-left align-self-end">
+              <div class="col-lg-4 col-12 text-sm-left align-self-end">
                 <p>
                   Graphics in the "hobbies" section are downloaded from:
                   <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
