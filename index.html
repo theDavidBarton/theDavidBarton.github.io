@@ -106,7 +106,7 @@
             <a id="tech-stack">technology stack</a>
           </h3>
         </div>
-        <div class="row text-center" style="filter: invert(100%)">
+        <div class="row text-center invert-img">
           <div class="col-3 col-lg-auto">
             <img
               height="50"
@@ -272,23 +272,23 @@
               In my spare time I enjoy working on hobby JS projects in Node and React to improve my
               <span class="badge badge-dark">full stack JavaScript dev</span> skills.
             </p>
-            <div class="row mx-0 justify-content-lg-center d-sm-block d-none">
+            <!-- desktop "fun facts" content starts here -->
+            <div class="row mx-0 justify-content-lg-center d-lg-block d-none">
               <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>Working since</small><br />
                 <h1 id="sinceYear">2013</h1>
               </div>
-              <!-- https://api.github.com/users/theDavidBarton -->
               <script async src="index.js" onload="getRepos()"></script>
               <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                 <small>GitHub repos*</small><br />
                 <h1 id="ghRepos">--</h1>
               </div>
-              <!-- https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton -->
               <script async src="index.js" onload="getStreak()"></script>
               <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
                 <small>GitHub streak*</small><br />
                 <h1><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></h1>
               </div>
+              <script async src="index.js" onload="getDate()"></script>
               <div class="col-11 m-2 text-center text-muted data-style">
                 <p>
                   <small
@@ -296,29 +296,31 @@
                     <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
                       >GitHub api</a
                     >
-                    and my own
+                    and my
                     <a
                       href="https://www.npmjs.com/package/github-streak-scraper"
                       target="_blank"
                       rel="noopener noreferrer"
-                      >GitHub streak scraper</a
-                    >.</small
+                      >github&#8209;streak&#8209;scraper</a
+                    >
+                    on
+                    <span id="funfactDataDate">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span>.</small
                   >
                 </p>
               </div>
             </div>
-            <!-- mobile content only starts here -->
-            <div class="row mx-0 d-sm-none text-center">
+            <!-- mobile only "fun facts" starts here -->
+            <div class="row mx-0 d-lg-none text-center">
               <div class="col">
-                <small>Working since</small><br />
+                <small class="un-on-mobile">Working since</small><br />
                 <h1 id="sinceYearMobile">2013</h1>
               </div>
               <div class="col">
-                <small>GitHub repos*</small><br />
+                <small class="un-on-mobile">GitHub repos*</small><br />
                 <h1 id="ghReposMobile">--</h1>
               </div>
               <div class="col">
-                <small>GitHub streak*</small><br />
+                <small class="un-on-mobile">GitHub streak*</small><br />
                 <h1>
                   <span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub>
                 </h1>
@@ -330,18 +332,21 @@
                     <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
                       >GitHub api</a
                     >
-                    and my own
+                    and my
                     <a
                       href="https://www.npmjs.com/package/github-streak-scraper"
                       target="_blank"
                       rel="noopener noreferrer"
-                      >GitHub streak scraper</a
+                      >github&#8209;streak&#8209;scraper</a
+                    >
+                    on
+                    <span id="funfactDataDateMobile">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span
                     >.</small
                   >
                 </p>
               </div>
             </div>
-            <!-- mobile only ends here -->
+            <!-- mobile only "fun facts" ends here -->
           </div>
         </div>
         <!-- 2nd col div ends -->
@@ -641,7 +646,7 @@
               <p>@the<wbr />DavidBarton</p></a
             >
           </div>
-          <div class="col-3 col-lg-auto contact-style">
+          <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
             <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/~thedavidbarton">
               <img
                 height="50"
@@ -652,7 +657,7 @@
               <p>@the<wbr />davidbarton</p></a
             >
           </div>
-          <div class="col-3 col-lg-auto contact-style">
+          <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
             <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12412595/david-barton">
               <img
                 height="50"
