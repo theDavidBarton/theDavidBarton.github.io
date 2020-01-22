@@ -1,9 +1,21 @@
 'use strict'
 
-function mobileNavOpens() {
+window.onresize = function() {
+  if (window.innerWidth >= 575 && document.querySelector('#mobileNav').style.display !== 'none') {
+    activateMobileNav()
+  }
+}
+
+function activateMobileNav() {
   document.querySelector('#mobileNav').style.display !== 'none'
-    ? (document.querySelector('#mobileNav').style.display = 'none')
-    : (document.querySelector('#mobileNav').style.display = 'block')
+    ? (document.querySelector('#mobileNav').style.display = 'none') &&
+      (document.querySelector('#mobileNavOverlay').style.display = 'none')
+    : (document.querySelector('#mobileNav').style.display = 'block') &&
+      (document.querySelector('#mobileNavOverlay').style.display = 'block')
+
+  document.querySelector('#mobileNav').style.display !== 'none'
+    ? (document.querySelector('body').style.position = 'fixed')
+    : (document.querySelector('body').style.position = 'unset')
 }
 
 async function getQuote() {

@@ -41,13 +41,19 @@
             <a class="btn btn-dark" href="#contact">contact</a>
           </nav>
           <nav class="col-auto my-2 d-sm-none text-left mobile-nav-icon-style">
-            <div onclick="mobileNavOpens()" id="mobileNavIcon">
+            <div onclick="activateMobileNav()" id="mobileNavIcon">
               &#9776;
             </div>
+            <div class="mobile-nav-overlay-style" id="mobileNavOverlay" onclick="activateMobileNav()"></div>
             <div class="position-absolute bg-dark py-2 mobile-nav-style" style="display: none" id="mobileNav">
-              <a class="btn btn-dark mx-3" href="#about">about</a>
-              <a class="btn btn-dark mx-3" href="#projects">projects</a>
-              <a class="btn btn-dark mx-3" href="#contact">contact</a>
+              <div class="text-left ml-4">
+                <div class="btn btn-dark text-center mobile-nav-close-style" onclick="activateMobileNav()">
+                  &#9587;
+                </div>
+              </div>
+              <a class="btn btn-dark mx-4" href="#about" onclick="activateMobileNav()">about</a>
+              <a class="btn btn-dark mx-4" href="#projects" onclick="activateMobileNav()">projects</a>
+              <a class="btn btn-dark mx-4" href="#contact" onclick="activateMobileNav()">contact</a>
             </div>
           </nav>
           <!-- I.3.) social section-->
@@ -408,9 +414,9 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h3 class="card-title">Video Games on RAWG App</h3>
+                  <h3 class="card-title">Video Games on RAWG React App</h3>
                   <p class="card-text">
-                    🎮 Experimental SPA with RAWG.io api - a videogame app.
+                    🎮 A videogame app powered by RAWG.io api and Archive.org .
                     <a target="_blank" rel="noopener noreferrer" href="https://trending-video-games.herokuapp.com/">
                       <small><strong>[web]</strong></small>
                     </a>
@@ -489,7 +495,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h3 class="card-title">Trending movies App</h3>
+                  <h3 class="card-title">Trending Movies React App</h3>
                   <p class="card-text">
                     A TMDb SPA made with React, Node & Express and hosted on Heroku. This product uses the TMDb API but
                     is not endorsed or certified by TMDb.
