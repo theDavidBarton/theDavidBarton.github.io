@@ -1,7 +1,7 @@
 'use strict'
 
 window.onresize = function() {
-  if (window.innerWidth >= 575 && document.querySelector('#mobileNav').style.display !== 'none') {
+  if (window.innerWidth >= 545 && document.querySelector('#mobileNav').style.display !== 'none') {
     activateMobileNav()
   }
 }
