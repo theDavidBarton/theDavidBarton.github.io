@@ -22,27 +22,36 @@
     <meta name="theme-color" content="#000000" />
   </head>
   <body>
-    <a id="top"></a>
-    <!-- I.) navigation bar-->
-    <div class="bg-dark text-light">
+    <header class="bg-dark text-light">
+      <!-- I.) navigation bar-->
+      <a id="top"></a>
       <div class="container">
         <a href="#top"><div class="btn btn-dark position-fixed text-center back-to-top-style">&#9650;</div></a>
         <div class="row align-items-center text-center">
           <!-- I.1.) logo-->
-          <div class="col-sm-auto col-12 text-sm-left text-center">
+          <section class="col-sm-auto col-12 text-sm-left text-center">
             <h1 class="display-4 hello-on-home d-none d-md-inline">
               Hi, I am David!
             </h1>
-          </div>
+          </section>
           <!-- I.2.) nav links-->
           <nav class="col my-2 d-none d-sm-block text-right">
             <a class="btn btn-dark" href="#about">about</a>
             <a class="btn btn-dark" href="#projects">projects</a>
             <a class="btn btn-dark" href="#contact">contact</a>
           </nav>
-          <nav class="col-auto my-2 d-sm-none text-left mobile-nav-icon-style">
+          <nav class="col-auto my-2 d-sm-none text-left">
             <div onclick="activateMobileNav()" id="mobileNavIcon">
-              &#9776;
+              <svg width="29px" height="29px" viewBox="0 0 7.730794 7.6363115">
+                <g transform="translate(-99.908249,-113.90375)">
+                  <g aria-label="☰" transform="scale(1.005158,0.99486842)">
+                    <path
+                      d="m 99.395567,121.13874 h 7.691123 v 1.02823 h -7.691123 z m 0,-3.32116 h 7.691123 v 1.02822 h -7.691123 z m 0,-3.32631 h 7.691123 v 1.02822 h -7.691123 z"
+                      fill="#ffffff"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
             <div class="mobile-nav-overlay-style" id="mobileNavOverlay" onclick="activateMobileNav()"></div>
             <div class="position-absolute bg-dark py-2 mobile-nav-style" style="display: none" id="mobileNav">
@@ -84,603 +93,621 @@
           <!-- I.3.) social section ends-->
         </div>
       </div>
-    </div>
-    <!-- II.) intro bar -->
-    <div class="bg-dark text-light background-style">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 text-center text-light mt-lg-0 mt-5 my-lg-4 my-0">
-            <img src="img/logo.svg" alt="branded logo" width="300" />
-            <p>QA engineering | full stack JavaScript</p>
-          </div>
-          <div class="col text-center my-2">
-            <a class="btn btn-outline-light" href="#projects">
-              <div class="lead align-middle">
-                <span>see my work</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- III.) tech stack -->
-    <a id="about"></a>
-    <div class="bg-dark">
-      <div class="container py-3">
-        <div class="row p-2 text-light">
-          <h3>
-            <a id="tech-stack">technology stack</a>
-          </h3>
-        </div>
-        <div class="row text-center invert-img">
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg"
-              alt="logo"
-            />
-            <p>JS - ES6</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nodejs.svg"
-              alt="logo"
-            />
-            <p>Node.Js</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg"
-              alt="logo"
-            />
-            <p>React.Js</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg"
-              alt="logo"
-            />
-            <p>Git</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gitlab.svg"
-              alt="logo"
-            />
-            <p>GitLab</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-              alt="logo"
-            />
-            <p>GitHub</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bootstrap.svg"
-              alt="logo"
-            />
-            <p>Bootstrap</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/visualstudiocode.svg"
-              alt="logo"
-            />
-            <p>VSCode</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlechrome.svg"
-              alt="logo"
-            />
-            <p>Puppeteer</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jest.svg"
-              alt="logo"
-            />
-            <p>Jest</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yarn.svg"
-              alt="logo"
-            />
-            <p>Yarn</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kubernetes.svg"
-              alt="logo"
-            />
-            <p>K8s</p>
-          </div>
-          <div class="col-3 col-lg-auto d-lg-block d-none">
-            <img
-              height="50"
-              width="50"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gimp.svg"
-              alt="logo"
-            />
-            <p>Gimp</p>
+    </header>
+    <main>
+      <!-- II.) intro bar -->
+      <div class="bg-dark text-light background-style">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 text-center text-light mt-lg-0 mt-5 my-lg-4 my-0">
+              <img src="img/logo.svg" alt="branded logo" width="300" />
+              <p>QA engineering | full stack JavaScript</p>
+            </div>
+            <div class="col text-center my-2">
+              <a class="btn btn-outline-light" href="#projects">
+                <div class="lead align-middle">
+                  <span>see my work</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- IV.) experience / about me bar -->
-    <div class="bg-light py-4">
-      <div class="container">
-        <div class="row">
-          <!-- 1st col starts here -->
-          <div class="col order-last order-xl-first">
+      <!-- III.) tech stack -->
+      <section class="bg-dark">
+        <a id="about"></a>
+        <div class="container py-3">
+          <div class="row p-2 text-light">
             <h3>
-              <a id="experience">experience</a>
+              <a id="tech-stack">technology stack</a>
             </h3>
-            <div>
-              <ul class="card-border-style">
-                <li><strong>liligo.com (2016-)</strong> QA engineer & release manager</li>
-                <li>
-                  <strong>Budapest University of Technology and Economics (2013-2016)</strong> information specialist
-                </li>
-                <li><strong>Richter Gedeon Nyrt.(2013)</strong> internship</li>
-                <li><strong>Magyar Telekom (2012)</strong> internship</li>
-              </ul>
-            </div>
-            <h3>
-              <a id="education">education</a>
-            </h3>
-            <div>
-              <ul class="card-border-style">
-                <li><strong>Eötvös Loránd University, Budapest (2012-2014)</strong> Ma/Msc</li>
-                <li><strong>Eötvös Loránd University, Budapest (2009-2012)</strong> Ba/Bsc</li>
-              </ul>
-            </div>
           </div>
-          <!-- 2nd col starts here -->
-          <div class="col-lg-6 col-12 vertical-bar order-first order-xl-last">
-            <h3 class="d-inline">
-              <a id="summary">about me &#8605;</a>
-            </h3>
-            <img src="img/avatar.png" alt="avatar image" class="rounded-circle position-absolute avatar-style ml-3" />
-            <p class="m-4 pb-lg-0 pb-3">
-              I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
-              time I am working as a <span class="badge badge-dark">QA engineer</span> and
-              <span class="badge badge-dark">release manager</span> at French metasearch company
-              <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I am
-              using JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI,
-              Kubernetes and Jenkins for deployment and release management.<br /><br />
-              In my spare time I enjoy working on hobby JS projects in Node and React to improve my
-              <span class="badge badge-dark">full stack JavaScript dev</span> skills.
-            </p>
-            <!-- desktop "fun facts" content starts here -->
-            <div class="row mx-0 justify-content-lg-center d-lg-block d-none">
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
-                <small>Working since</small><br />
-                <h1 id="sinceYear">2013</h1>
-              </div>
-              <script async src="index.js" onload="getRepos()"></script>
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
-                <small>GitHub repos*</small><br />
-                <h1 id="ghRepos">--</h1>
-              </div>
-              <script async src="index.js" onload="getStreak()"></script>
-              <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
-                <small>GitHub streak*</small><br />
-                <h1><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></h1>
-              </div>
-              <script async src="index.js" onload="getDate()"></script>
-              <div class="col-11 m-2 text-center text-muted data-style">
-                <p>
-                  <small
-                    >*Data is retrieved from
-                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
-                      >GitHub api</a
-                    >
-                    and my
-                    <a
-                      href="https://www.npmjs.com/package/github-streak-scraper"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >github&#8209;streak&#8209;scraper</a
-                    >
-                    on
-                    <span id="funfactDataDate">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span>.</small
-                  >
-                </p>
-              </div>
-            </div>
-            <!-- mobile only "fun facts" starts here -->
-            <div class="row mx-0 d-lg-none text-center">
-              <div class="col">
-                <small class="un-on-mobile">Working since</small><br />
-                <h1 id="sinceYearMobile">2013</h1>
-              </div>
-              <div class="col">
-                <small class="un-on-mobile">GitHub repos*</small><br />
-                <h1 id="ghReposMobile">--</h1>
-              </div>
-              <div class="col">
-                <small class="un-on-mobile">GitHub streak*</small><br />
-                <h1>
-                  <span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub>
-                </h1>
-              </div>
-              <div class="col-11 m-2 text-center text-muted data-style">
-                <p>
-                  <small
-                    >*Data is retrieved from
-                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
-                      >GitHub api</a
-                    >
-                    and my
-                    <a
-                      href="https://www.npmjs.com/package/github-streak-scraper"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >github&#8209;streak&#8209;scraper</a
-                    >
-                    on
-                    <span id="funfactDataDateMobile">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span
-                    >.</small
-                  >
-                </p>
-              </div>
-            </div>
-            <!-- mobile only "fun facts" ends here -->
-          </div>
-        </div>
-        <!-- 2nd col div ends -->
-      </div>
-    </div>
-    <!-- V.) hobbies -->
-    <div class="bg-warning">
-      <div class="container py-3">
-        <div class="row p-2 text-dark">
-          <h3>
-            <a id="hobbies">hobbies</a>
-          </h3>
-        </div>
-        <div class="row text-center">
-          <div class="col-3 col-lg-auto">
-            <img height="50" src="img/books.svg" alt="logo" />
-            <p>Reading</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img height="50" src="img/hiking_boot.svg" alt="logo" />
-            <p>Hiking</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img height="50" src="img/video_game.svg" alt="logo" />
-            <p>Retro gaming</p>
-          </div>
-          <div class="col-3 col-lg-auto">
-            <img height="50" src="img/old_personal_computer.svg" alt="logo" />
-            <p>Coding</p>
-          </div>
-          <div class="col mx-4 text-left">
-            <p>
-              Besides coding I enjoy <strong>reading books</strong> (J.R.R. Tolkien, J.K. Rowling, Arthur C. Clarke,
-              Stephen King), going for a <strong>hiking</strong> or - in case of depressing weather - playing
-              <strong>retro video games</strong> on my
-              <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="https://www.lakka.tv/"
-                >Lakka Linux</a
-              >
-              distro.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- VI.) projects -->
-    <div class="bg-dark py-4">
-      <div class="container">
-        <div class="row p-2 text-light">
-          <h2>
-            <a id="projects">projects I am proud of</a>
-          </h2>
-        </div>
-        <div class="row align-items-center">
-          <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1 card-width-override">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="img/rawg_screenshot.jpg" class="card-img" alt="project thumbnail" />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">Video Games on RAWG React App</h3>
-                  <p class="card-text">
-                    🎮 A videogame app powered by RAWG.io api and Archive.org .
-                    <a target="_blank" rel="noopener noreferrer" href="https://trending-video-games.herokuapp.com/">
-                      <small><strong>[web]</strong></small>
-                    </a>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/theDavidBarton/video-games-on-RAWG-react-app"
-                    >
-                      <small><strong>[source&nbsp;code]</strong></small>
-                    </a>
-                  </p>
-                  <p class="card-text">
-                    <small class="badge badge-dark">React.Js</small>
-                    <small class="badge badge-dark">Node.Js</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card ends-->
-          <div class="col-xl-5 text-light m-4 order-1 order-xl-2">
-            <p class="lead">
-              The following projects are not related to my professional work, I do them in my free time to improve my
-              dev skills. All of them are available on my
-              <a class="text-warning" target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton"
-                >GitHub</a
-              >.
-            </p>
-          </div>
-          <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4 card-width-override">
-            <div class="row no-gutters">
-              <div class="col-md-11 col-10">
-                <div class="card-body">
-                  <h3 class="card-title">Twin Peaks api</h3>
-                  <p class="card-text">
-                    🌲⛰️⛰️🌲 "The responses are not what they seem." A quote API for the cult classic TV movie series:
-                    Twin Peaks - made in Node.Js and Express.
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://twin-peaks-api.herokuapp.com/api/1/quotes/recommend"
-                      ><small><strong>[web]</strong></small>
-                    </a>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/theDavidBarton/twin-peaks-api"
-                    >
-                      <small><strong>[source&nbsp;code]</strong></small>
-                    </a>
-                  </p>
-                  <p class="card-text">
-                    <small class="badge badge-dark">Node.Js</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card ends-->
-          <script async src="index.js" onload="getQuote()"></script>
-          <div class="col-xl-5 text-light m-4 order-3 order-xl-3">
-            <blockquote id="twinpeaks-quote" class="blockquote">
-              <i class="quote-marker-style">&#8223;</i>
-              <p>Loading...</p>
-              <footer class="blockquote-footer">
-                <cite title="persons">Loading...</cite>
-              </footer>
-            </blockquote>
-          </div>
-          <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5 card-width-override">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="img/tmdb_screenshot.jpg" class="card-img" alt="project thumbnail" />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">Trending Movies React App</h3>
-                  <p class="card-text">
-                    A TMDb SPA made with React, Node & Express and hosted on Heroku. This product uses the TMDb API but
-                    is not endorsed or certified by TMDb.
-                    <a target="_blank" rel="noopener noreferrer" href="https://trending-movies-react-app.herokuapp.com/"
-                      ><small><strong>[web]</strong></small>
-                    </a>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/theDavidBarton/trending-movies-react-app"
-                    >
-                      <small><strong>[source&nbsp;code]</strong></small>
-                    </a>
-                  </p>
-                  <p class="card-text">
-                    <small class="badge badge-dark">React.Js</small>
-                    <small class="badge badge-dark">Node.Js</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card ends-->
-          <div class="col-xl-5 text-light m-4 order-5 order-xl-6">
-            <p class="lead">
-              I am doing my best to handle all part of the Software Development Life Cycle by myself, like the DevOps
-              tasks of deploying these projects on production with GitHub Actions or Heroku.
-            </p>
-          </div>
-          <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8 card-width-override">
-            <div class="row no-gutters">
-              <div class="col-md-11 col-10">
-                <div class="card-body">
-                  <h3 class="card-title">Pixel Art</h3>
-                  <p class="card-text">
-                    👾🎮🎮👾 My pixel art works.<br />
-                    Made with GIMP on a 50px X 50px grid. The drawings are stored in xcf, and also published on a
-                    dedicated React.Js app.
-                    <a target="_blank" rel="noopener noreferrer" href="https://theDavidBarton.github.io/pixel-art/"
-                      ><small><strong>[web]</strong></small>
-                    </a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton/pixel-art">
-                      <small><strong>[source&nbsp;code]</strong></small>
-                    </a>
-                  </p>
-                  <p class="card-text">
-                    <small class="badge badge-dark">React.Js</small>
-                    <small class="badge badge-dark">Gimp</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card ends-->
-          <div class="col-xl-5 text-light m-4 order-7 order-xl-7">
-            <p class="lead">
-              I love drawing since I was a child. As I am also a huge fan of retro video game titles I enjoy creating
-              pixel arts. &#128126; Check it out on my Pixel Art project:
-            </p>
-          </div>
-          <!-- card starts-->
-          <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9 card-width-override">
-            <div class="row no-gutters">
-              <div class="col-md-11 col-10">
-                <div class="card-body">
-                  <h3 class="card-title">Puppeteer daily menu scraper App</h3>
-                  <p class="card-text">
-                    Scraping daily and weekly menus of restaurants from downtown Budapest (Hungary) with Puppeteer
-                    (headless Chrome).
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/theDavidBarton/puppeteer-daily-menu-scraper"
-                    >
-                      <small><strong>[source&nbsp;code]</strong></small>
-                    </a>
-                  </p>
-                  <p class="card-text">
-                    <small class="badge badge-dark">Node.Js</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card ends-->
-          <div class="col-xl-5 text-light m-4 order-9 order-xl-10">
-            <p class="lead">
-              My first project was this nice scraper app. It is still not perfect, but definiately in the collection I
-              am proud of.<br />Bon Apetit !
-            </p>
-          </div>
-          <div class="col text-light text-center m-5 order-11 order-xl-11">
-            <p class="lead">
-              Check out my other repos on
-              <a class="text-warning" target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton"
-                >GitHub</a
-              >!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- VII.) contact bar -->
-    <div class="bg-light">
-      <div class="container">
-        <div class="row p-2">
-          <h2>
-            <a id="contact">contact</a>
-          </h2>
-        </div>
-        <div class="row text-center pb-4 justify-content-lg-center">
-          <div class="col-3 col-lg-auto contact-style">
-            <a href="mailto:theDavidBarton@gmail.com">
+          <div class="row text-center invert-img">
+            <div class="col-3 col-lg-auto">
               <img
                 height="50"
                 width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
-                alt="mail icon"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg"
+                alt="logo"
               />
-              <p>@the<wbr />DavidBarton</p></a
-            >
-          </div>
-          <div class="col-3 col-lg-auto contact-style">
-            <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/theDavidBarton/">
+              <p>JS - ES6</p>
+            </div>
+            <div class="col-3 col-lg-auto">
               <img
                 height="50"
                 width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
-                alt="linkedin icon"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nodejs.svg"
+                alt="logo"
               />
-              <p>@the<wbr />DavidBarton</p></a
-            >
-          </div>
-          <div class="col-3 col-lg-auto contact-style">
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton">
+              <p>Node.Js</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg"
+                alt="logo"
+              />
+              <p>React.Js</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg"
+                alt="logo"
+              />
+              <p>Git</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gitlab.svg"
+                alt="logo"
+              />
+              <p>GitLab</p>
+            </div>
+            <div class="col-3 col-lg-auto">
               <img
                 height="50"
                 width="50"
                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                alt="github icon"
+                alt="logo"
               />
-              <p>@the<wbr />DavidBarton</p></a
-            >
-          </div>
-          <div class="col-3 col-lg-auto contact-style">
-            <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton">
+              <p>GitHub</p>
+            </div>
+            <div class="col-3 col-lg-auto">
               <img
                 height="50"
                 width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg"
-                alt="medium icon"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bootstrap.svg"
+                alt="logo"
               />
-              <p>@the<wbr />DavidBarton</p></a
-            >
-          </div>
-          <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/~thedavidbarton">
+              <p>Bootstrap</p>
+            </div>
+            <div class="col-3 col-lg-auto">
               <img
                 height="50"
                 width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/npm.svg"
-                alt="npm icon"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/visualstudiocode.svg"
+                alt="logo"
               />
-              <p>@the<wbr />davidbarton</p></a
-            >
-          </div>
-          <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
-            <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12412595/david-barton">
+              <p>VSCode</p>
+            </div>
+            <div class="col-3 col-lg-auto">
               <img
                 height="50"
                 width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
-                alt="stackoverflow icon"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlechrome.svg"
+                alt="logo"
               />
-              <p>
-                @David Barton
-              </p></a
-            >
+              <p>Puppeteer</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jest.svg"
+                alt="logo"
+              />
+              <p>Jest</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yarn.svg"
+                alt="logo"
+              />
+              <p>Yarn</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kubernetes.svg"
+                alt="logo"
+              />
+              <p>K8s</p>
+            </div>
+            <div class="col-3 col-lg-auto d-lg-block d-none">
+              <img
+                height="50"
+                width="50"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gimp.svg"
+                alt="logo"
+              />
+              <p>Gimp</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- VIII. footer bar -->
-    <div class="bg-warning text-dark">
+      </section>
+      <!-- IV.) experience / about me bar -->
+      <section class="bg-light py-4">
+        <div class="container">
+          <div class="row">
+            <!-- 1st col starts here -->
+            <div class="col order-last order-xl-first">
+              <h3>
+                <a id="experience">experience</a>
+              </h3>
+              <div>
+                <ul class="card-border-style">
+                  <li><strong>liligo.com (2016-)</strong> QA engineer & release manager</li>
+                  <li>
+                    <strong>Budapest University of Technology and Economics (2013-2016)</strong> information specialist
+                  </li>
+                  <li><strong>Richter Gedeon Nyrt.(2013)</strong> internship</li>
+                  <li><strong>Magyar Telekom (2012)</strong> internship</li>
+                </ul>
+              </div>
+              <h3>
+                <a id="education">education</a>
+              </h3>
+              <div>
+                <ul class="card-border-style">
+                  <li><strong>Eötvös Loránd University, Budapest (2012-2014)</strong> Ma/Msc</li>
+                  <li><strong>Eötvös Loránd University, Budapest (2009-2012)</strong> Ba/Bsc</li>
+                </ul>
+              </div>
+            </div>
+            <!-- 2nd col starts here -->
+            <div class="col-lg-6 col-12 vertical-bar order-first order-xl-last">
+              <h3 class="d-inline">
+                <a id="summary">about me &#8605;</a>
+              </h3>
+              <img src="img/avatar.png" alt="avatar image" class="rounded-circle position-absolute avatar-style ml-3" />
+              <p class="m-4 pb-lg-0 pb-3">
+                I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same
+                time I am working as a <span class="badge badge-dark">QA engineer</span> and
+                <span class="badge badge-dark">release manager</span> at French metasearch company
+                <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I am
+                using JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI,
+                Kubernetes and Jenkins for deployment and release management.<br /><br />
+                In my spare time I enjoy working on hobby JS projects in Node and React to improve my
+                <span class="badge badge-dark">full stack JavaScript dev</span> skills.
+              </p>
+              <!-- desktop "fun facts" content starts here -->
+              <div class="row mx-0 justify-content-lg-center d-lg-block d-none">
+                <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
+                  <small>Working since</small><br />
+                  <h1 id="sinceYear">2013</h1>
+                </div>
+                <script async src="index.js" onload="getRepos()"></script>
+                <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
+                  <small>GitHub repos*</small><br />
+                  <h1 id="ghRepos">--</h1>
+                </div>
+                <script async src="index.js" onload="getStreak()"></script>
+                <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
+                  <small>GitHub streak*</small><br />
+                  <h1><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></h1>
+                </div>
+                <script async src="index.js" onload="getDate()"></script>
+                <div class="col-11 m-2 text-center text-muted data-style">
+                  <p>
+                    <small
+                      >*Data is retrieved from
+                      <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
+                        >GitHub api</a
+                      >
+                      and my
+                      <a
+                        href="https://www.npmjs.com/package/github-streak-scraper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >github&#8209;streak&#8209;scraper</a
+                      >
+                      on
+                      <span id="funfactDataDate">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span
+                      >.</small
+                    >
+                  </p>
+                </div>
+              </div>
+              <!-- mobile only "fun facts" starts here -->
+              <div class="row mx-0 d-lg-none text-center">
+                <div class="col">
+                  <small class="un-on-mobile">Working since</small><br />
+                  <h1 id="sinceYearMobile">2013</h1>
+                </div>
+                <div class="col">
+                  <small class="un-on-mobile">GitHub repos*</small><br />
+                  <h1 id="ghReposMobile">--</h1>
+                </div>
+                <div class="col">
+                  <small class="un-on-mobile">GitHub streak*</small><br />
+                  <h1>
+                    <span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub>
+                  </h1>
+                </div>
+                <div class="col-11 m-2 text-center text-muted data-style">
+                  <p>
+                    <small
+                      >*Data is retrieved from
+                      <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer"
+                        >GitHub api</a
+                      >
+                      and my
+                      <a
+                        href="https://www.npmjs.com/package/github-streak-scraper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >github&#8209;streak&#8209;scraper</a
+                      >
+                      on
+                      <span id="funfactDataDateMobile">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span
+                      >.</small
+                    >
+                  </p>
+                </div>
+              </div>
+              <!-- mobile only "fun facts" ends here -->
+            </div>
+          </div>
+          <!-- 2nd col div ends -->
+        </div>
+      </section>
+      <!-- V.) hobbies -->
+      <section class="bg-warning">
+        <div class="container py-3">
+          <div class="row p-2 text-dark">
+            <h3>
+              <a id="hobbies">hobbies</a>
+            </h3>
+          </div>
+          <div class="row text-center">
+            <div class="col-3 col-lg-auto">
+              <img height="50" src="img/books.svg" alt="logo" />
+              <p>Reading</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img height="50" src="img/hiking_boot.svg" alt="logo" />
+              <p>Hiking</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img height="50" src="img/video_game.svg" alt="logo" />
+              <p>Retro gaming</p>
+            </div>
+            <div class="col-3 col-lg-auto">
+              <img height="50" src="img/old_personal_computer.svg" alt="logo" />
+              <p>Coding</p>
+            </div>
+            <div class="col mx-4 text-left">
+              <p>
+                Besides coding I enjoy <strong>reading books</strong> (J.R.R. Tolkien, J.K. Rowling, Arthur C. Clarke,
+                Stephen King), going for a <strong>hiking</strong> or - in case of depressing weather - playing
+                <strong>retro video games</strong> on my
+                <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="https://www.lakka.tv/"
+                  >Lakka Linux</a
+                >
+                distro.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- VI.) projects -->
+      <section class="bg-dark py-4">
+        <div class="container">
+          <div class="row p-2 text-light">
+            <h2>
+              <a id="projects">projects I am proud of</a>
+            </h2>
+          </div>
+          <div class="row align-items-center">
+            <!-- card starts-->
+            <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1 card-width-override">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <a target="_blank" rel="noopener noreferrer" href="https://trending-video-games.herokuapp.com/">
+                    <img src="img/rawg_screenshot.jpg" class="card-img" alt="project thumbnail"
+                  /></a>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title">Video Games on RAWG React App</h3>
+                    <p class="card-text">
+                      🎮 A videogame app powered by RAWG.io api and Archive.org .
+                      <a target="_blank" rel="noopener noreferrer" href="https://trending-video-games.herokuapp.com/">
+                        <small><strong>[web]</strong></small>
+                      </a>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://github.com/theDavidBarton/video-games-on-RAWG-react-app"
+                      >
+                        <small><strong>[source&nbsp;code]</strong></small>
+                      </a>
+                    </p>
+                    <p class="card-text">
+                      <small class="badge badge-dark">React.Js</small>
+                      <small class="badge badge-dark">Node.Js</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card ends-->
+            <div class="col-xl-5 text-light m-4 order-1 order-xl-2">
+              <p class="lead">
+                The following projects are not related to my professional work, I do them in my free time to improve my
+                dev skills. All of them are available on my
+                <a
+                  class="text-warning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/theDavidBarton"
+                  >GitHub</a
+                >.
+              </p>
+            </div>
+            <!-- card starts-->
+            <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4 card-width-override">
+              <div class="row no-gutters">
+                <div class="col-md-11 col-10">
+                  <div class="card-body">
+                    <h3 class="card-title">Twin Peaks api</h3>
+                    <p class="card-text">
+                      🌲⛰️⛰️🌲 "The responses are not what they seem." A quote API for the cult classic TV movie series:
+                      Twin Peaks - made in Node.Js and Express.
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://twin-peaks-api.herokuapp.com/api/1/quotes/recommend"
+                        ><small><strong>[web]</strong></small>
+                      </a>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://github.com/theDavidBarton/twin-peaks-api"
+                      >
+                        <small><strong>[source&nbsp;code]</strong></small>
+                      </a>
+                    </p>
+                    <p class="card-text">
+                      <small class="badge badge-dark">Node.Js</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card ends-->
+            <script async src="index.js" onload="getQuote()"></script>
+            <div class="col-xl-5 text-light m-4 order-3 order-xl-3">
+              <blockquote id="twinpeaks-quote" class="blockquote">
+                <i class="quote-marker-style">&#8223;</i>
+                <p>Loading...</p>
+                <footer class="blockquote-footer">
+                  <cite title="persons">Loading...</cite>
+                </footer>
+              </blockquote>
+            </div>
+            <!-- card starts-->
+            <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5 card-width-override">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <a target="_blank" rel="noopener noreferrer" href="https://trending-movies-react-app.herokuapp.com/">
+                    <img src="img/tmdb_screenshot.jpg" class="card-img" alt="project thumbnail"
+                  /></a>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title">Trending Movies React App</h3>
+                    <p class="card-text">
+                      A TMDb SPA made with React, Node & Express and hosted on Heroku. This product uses the TMDb API
+                      but is not endorsed or certified by TMDb.
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://trending-movies-react-app.herokuapp.com/"
+                        ><small><strong>[web]</strong></small>
+                      </a>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://github.com/theDavidBarton/trending-movies-react-app"
+                      >
+                        <small><strong>[source&nbsp;code]</strong></small>
+                      </a>
+                    </p>
+                    <p class="card-text">
+                      <small class="badge badge-dark">React.Js</small>
+                      <small class="badge badge-dark">Node.Js</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card ends-->
+            <div class="col-xl-5 text-light m-4 order-5 order-xl-6">
+              <p class="lead">
+                I am doing my best to handle all part of the Software Development Life Cycle by myself, like the DevOps
+                tasks of deploying these projects on production with GitHub Actions or Heroku.
+              </p>
+            </div>
+            <!-- card starts-->
+            <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8 card-width-override">
+              <div class="row no-gutters">
+                <div class="col-md-11 col-10">
+                  <div class="card-body">
+                    <h3 class="card-title">Pixel Art</h3>
+                    <p class="card-text">
+                      👾🎮🎮👾 My pixel art works.<br />
+                      Made with GIMP on a 50px X 50px grid. The drawings are stored in xcf, and also published on a
+                      dedicated React.Js app.
+                      <a target="_blank" rel="noopener noreferrer" href="https://theDavidBarton.github.io/pixel-art/"
+                        ><small><strong>[web]</strong></small>
+                      </a>
+                      <a target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton/pixel-art">
+                        <small><strong>[source&nbsp;code]</strong></small>
+                      </a>
+                    </p>
+                    <p class="card-text">
+                      <small class="badge badge-dark">React.Js</small>
+                      <small class="badge badge-dark">Gimp</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card ends-->
+            <div class="col-xl-5 text-light m-4 order-7 order-xl-7">
+              <p class="lead">
+                I love drawing since I was a child. As I am also a huge fan of retro video game titles I enjoy creating
+                pixel arts. &#128126; Check it out on my Pixel Art project:
+              </p>
+            </div>
+            <!-- card starts-->
+            <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9 card-width-override">
+              <div class="row no-gutters">
+                <div class="col-md-11 col-10">
+                  <div class="card-body">
+                    <h3 class="card-title">Puppeteer daily menu scraper App</h3>
+                    <p class="card-text">
+                      Scraping daily and weekly menus of restaurants from downtown Budapest (Hungary) with Puppeteer
+                      (headless Chrome).
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://github.com/theDavidBarton/puppeteer-daily-menu-scraper"
+                      >
+                        <small><strong>[source&nbsp;code]</strong></small>
+                      </a>
+                    </p>
+                    <p class="card-text">
+                      <small class="badge badge-dark">Node.Js</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card ends-->
+            <div class="col-xl-5 text-light m-4 order-9 order-xl-10">
+              <p class="lead">
+                My first project was this nice scraper app. It is still not perfect, but definiately in the collection I
+                am proud of.<br />Bon Apetit !
+              </p>
+            </div>
+            <div class="col text-light text-center m-5 order-11 order-xl-11">
+              <p class="lead">
+                Check out my other repos on
+                <a
+                  class="text-warning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/theDavidBarton"
+                  >GitHub</a
+                >!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- VII.) contact bar -->
+      <section class="bg-light">
+        <div class="container">
+          <div class="row p-2">
+            <h2>
+              <a id="contact">contact</a>
+            </h2>
+          </div>
+          <div class="row text-center pb-4 justify-content-lg-center">
+            <div class="col-3 col-lg-auto contact-style">
+              <a href="mailto:theDavidBarton@gmail.com">
+                <img
+                  height="50"
+                  width="50"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
+                  alt="mail icon"
+                />
+                <p>@the<wbr />DavidBarton</p></a
+              >
+            </div>
+            <div class="col-3 col-lg-auto contact-style">
+              <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/theDavidBarton/">
+                <img
+                  height="50"
+                  width="50"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
+                  alt="linkedin icon"
+                />
+                <p>@the<wbr />DavidBarton</p></a
+              >
+            </div>
+            <div class="col-3 col-lg-auto contact-style">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/theDavidBarton">
+                <img
+                  height="50"
+                  width="50"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                  alt="github icon"
+                />
+                <p>@the<wbr />DavidBarton</p></a
+              >
+            </div>
+            <div class="col-3 col-lg-auto contact-style">
+              <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton">
+                <img
+                  height="50"
+                  width="50"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/medium.svg"
+                  alt="medium icon"
+                />
+                <p>@the<wbr />DavidBarton</p></a
+              >
+            </div>
+            <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/~thedavidbarton">
+                <img
+                  height="50"
+                  width="50"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/npm.svg"
+                  alt="npm icon"
+                />
+                <p>@the<wbr />davidbarton</p></a
+              >
+            </div>
+            <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
+              <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12412595/david-barton">
+                <img
+                  height="50"
+                  width="50"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
+                  alt="stackoverflow icon"
+                />
+                <p>
+                  @David Barton
+                </p></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-warning text-dark">
+      <!-- VIII. footer bar -->
       <div class="container py-5">
         <div class="text-center">
           <div>
@@ -709,6 +736,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
