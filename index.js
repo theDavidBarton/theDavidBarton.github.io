@@ -6,6 +6,12 @@ window.onresize = function() {
   }
 }
 
+function getUrlFromLink() {
+  const urlSelector = window.location.href.match(/url(.*)/)[0]
+  const url = urlSelector.replace('url=', '')
+  document.querySelector('#refresh').content = `7; URL='${url}'`
+}
+
 function activateMobileNav() {
   document.querySelector('#mobileNav').style.display !== 'none'
     ? (document.querySelector('#mobileNav').style.display = 'none') &&
