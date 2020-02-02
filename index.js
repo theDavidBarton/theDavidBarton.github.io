@@ -1,5 +1,11 @@
 'use strict'
 
+const trustedLinks = [
+  'https://trending-video-games.herokuapp.com/',
+  'https://trending-movies-react-app.herokuapp.com/',
+  'https://thedavidbarton.herokuapp.com/api/1/quotes/recommend'
+]
+
 window.onresize = function() {
   if (window.innerWidth > window.innerHeight && document.querySelector('#mobileNav').style.display !== 'none') {
     activateMobileNav()
@@ -9,7 +15,10 @@ window.onresize = function() {
 function getUrlFromLink() {
   const urlSelector = window.location.href.match(/url(.*)/)[0]
   const url = urlSelector.replace('url=', '')
-  document.querySelector('#refresh').content = `7; URL='${url}'`
+  if (trustedLinks.includes(url)) {
+    document.querySelector('#refresh').content = `7; URL='${url}'`
+    document.querySelector('#redirectTitle').textContent = url
+  }
 }
 
 function activateMobileNav() {
