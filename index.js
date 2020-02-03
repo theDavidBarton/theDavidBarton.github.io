@@ -16,7 +16,7 @@ function getUrlFromLink() {
   const urlSelector = window.location.href.match(/url(.*)/)[0]
   const url = urlSelector.replace('url=', '')
   if (trustedLinks.includes(url)) {
-    document.querySelector('#refresh').content = `7; URL='${url}'`
+    document.querySelector('#refresh').content = `0; URL='${url}'`
     document.querySelector('#redirectTitle').textContent = url
   }
 }
