@@ -177,3 +177,27 @@
 .invert-img {
   filter: invert(100%);
 }
+
+/* preloader animation */
+.outer {
+  width: 200px;
+  overflow: hidden;
+  animation: preloader 6s infinite;
+}
+
+.inner {
+  width: 400px;
+}
+
+.evil-twin {
+  filter: brightness(0);
+}
+
+@keyframes preloader {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 400px;
+  }
+}
