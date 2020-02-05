@@ -18,75 +18,26 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta id="refresh" http-equiv="refresh" content="14; URL='https://theDavidBarton.github.io/'" />
+    <meta id="refresh" http-equiv="refresh" content="7; URL='https://theDavidBarton.github.io/'" />
   </head>
-  <body>
-    <header class="bg-dark text-light">
-      <!-- I.) navigation bar-->
-      <a id="top"></a>
-      <div class="container">
-        <a href="#top"><div class="btn btn-dark position-fixed text-center back-to-top-style">&#9650;</div></a>
-        <div class="row align-items-center text-center">
-          <!-- I.1.) h1 -->
-          <section class="col-sm-auto col-12 text-sm-left text-center my-2">redirecting you to my other page &#10132; <span class="text-warning" id="redirectTitle"></span class=""></section>
-        </div>
-      </div>
-    </header>
-    <main class="container">
+  <body class="container bg-dark text-light">
+    <main>
       <script src="index.js" onload="getUrlFromLink()"></script>
-      <section class="row text-center">
-        <div class="col my-4">
-          <h1>
-            This dyno* might be sleeping!
-          </h1>
-          <img height="250" src="img/dino.png" alt="sleeping dino" />
-          <p>
-            Please be patient after the redirection for <strong>6-7 seconds</strong> you may need to wait.<br />
-            If you'd face a blank page: worry not! It will turn into something very nice soon^^.
-          </p>
-          <small
-            >*dynos are the containers at
-            <a href="https://www.heroku.com/dynos" target="_blank" rel="noopener noreferrer">Heroku</a>, free ones go to
-            sleep after a certain time</small
-          >
-        </div>
-      </section>
-      <div class="row text-center">
-        <div class="col my-4">
-          <a href="/"><button class="btn btn-dark">✋ stop redirection</button></a>
-        </div>
-      </div>
-    </main>
-    <footer class="bg-warning text-dark">
-      <!-- VIII. footer bar -->
-      <div class="container py-5">
-        <div class="text-center">
-          <div>
-            <div class="row">
-              <div class="col-lg-4 col-12 text-sm-left align-self-end">
-                <p>
-                  Graphics in the "hobbies" section are downloaded from:
-                  <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
-                    >www.fileformat.info</a
-                  >. Other icons are from:
-                  <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
-                    >simpleicons.org</a
-                  >.<br />
-                  All other graphics and photos of this project have been made available to this project by David Barton
-                  and are copyrighted; any other use must be authorized by the maker which holds all the rights for
-                  them.
-                </p>
-              </div>
-              <div class="col text-sm-center align-self-end">
-                <img src="img/logo_dark.svg" alt="logo" width="300" />
-              </div>
-              <div class="col text-sm-right align-self-end">
-                <p>copyright © 2020 theDavidBarton</p>
-              </div>
+      <section class="row">
+        <div class="col-md col-1 p-xs-0 p-sm-5 p-md-0"></div>
+        <div class="col my-5">
+          <div class="outer position-absolute" style="z-index: 5;">
+            <div class="inner">
+              <img src="img/logo.svg" width="300" alt="branded logo" class="elem good-twin" />
+              <p class="text-center display-4">loading...</p>
             </div>
           </div>
+          <div class="position-absolute">
+            <img src="img/logo.svg" width="300" alt="branded logo" class="evil-twin" />
+            <p class="text-center display-4" style="color:black">loading...</p>
+          </div>
         </div>
-      </div>
-    </footer>
+        <div class="col-md col-1 p-xs-0 p-sm-5 p-md-0"></div>
+      </section>
   </body>
 </html>
