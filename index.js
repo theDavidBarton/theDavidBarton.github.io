@@ -1,19 +1,24 @@
 'use strict'
 
-const trustedLinks = [
-  'https://trending-video-games.herokuapp.com/',
-  'https://trending-movies-react-app.herokuapp.com/',
-  'https://thedavidbarton.herokuapp.com/api/1/quotes/recommend'
-]
-
 window.onresize = function() {
-  if (window.innerWidth > window.innerHeight && document.querySelector('#mobileNav').style.display !== 'none') {
+  if (
+    window.innerWidth > window.innerHeight &&
+    document.querySelector('#mobileNav') &&
+    document.querySelector('#mobileNav').style.display !== 'none'
+  ) {
     activateMobileNav()
   }
 }
 
 function getUrlFromLink() {
-  const urlSelector = window.location.href.match(/url(.*)/)[0]
+  const trustedLinks = [
+    'https://trending-video-games.herokuapp.com/',
+    'https://trending-movies-react-app.herokuapp.com/',
+    'https://thedavidbarton.herokuapp.com/api/1/quotes/recommend'
+  ]
+  const urlSelector = window.location.href.match(/url(.*)/)
+    ? window.location.href.match(/url(.*)/)[0]
+    : window.location.href
   const url = urlSelector.replace('url=', '')
   if (trustedLinks.includes(url)) {
     document.querySelector('#refresh').content = `0; URL='${url}'`
@@ -43,11 +48,11 @@ async function getQuote() {
       await response.json().then(data => (obj = data[0]))
     } else {
       response =
-        '[{"quoteTextOnly":"There\'s a sort of evil out there. Something very, very strange in these old woods. Call it what you want. A darkness, a presence. It takes many forms but... its been out there for as long as anyone can remember and we\'ve always been here to fight it. [DEV MODE]","persons":["Sheriff Truman"]}]'
+        '[{"quoteTextOnly":"There\'s a sort of evil out there. Something very, very strange in these old woods. \\nCall it what you want. A darkness, a presence. It takes many forms but... its been out there for as long as anyone can remember and we\'ve always been here to fight it. [DEV MODE]","persons":["Sheriff Truman"]}]'
       obj = JSON.parse(response)[0]
       console.log('DEV MODE: on')
     }
-    let quoteTextOnly = obj.quoteTextOnly
+    let quoteTextOnly = obj.quoteTextOnly.replace(/\n/gm, '<br />/ ')
     quoteTextOnly.length >= 380
       ? (quoteTextOnly = quoteTextOnly.substring(0, 380) + '...')
       : (quoteTextOnly = quoteTextOnly)
