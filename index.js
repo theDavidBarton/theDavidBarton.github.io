@@ -52,7 +52,7 @@ async function getQuote() {
       obj = JSON.parse(response)[0]
       console.log('DEV MODE: on')
     }
-    let quoteTextOnly = obj.quoteTextOnly.replace(/\n/gm, '<br />/ ')
+    let quoteTextOnly = obj.quoteTextOnly.replace(/\n/gm, ' / ')
     quoteTextOnly.length >= 380
       ? (quoteTextOnly = quoteTextOnly.substring(0, 380) + '...')
       : (quoteTextOnly = quoteTextOnly)
