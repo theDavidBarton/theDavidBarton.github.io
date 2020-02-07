@@ -14,13 +14,15 @@ function getUrlFromLink() {
   const trustedLinks = [
     'https://trending-video-games.herokuapp.com/',
     'https://trending-movies-react-app.herokuapp.com/',
-    'https://thedavidbarton.herokuapp.com/api/1/quotes/recommend'
+    'https://thedavidbarton.herokuapp.com/',
+    'https://twin-peaks-api.herokuapp.com/'
   ]
   const urlSelector = window.location.href.match(/url(.*)/)
     ? window.location.href.match(/url(.*)/)[0]
     : window.location.href
   const url = urlSelector.replace('url=', '')
-  if (trustedLinks.includes(url)) {
+  const baseUrlMatcher = url.match(/^https:\/\/(.*?)\//)[0]
+  if (trustedLinks.includes(baseUrlMatcher)) {
     document.querySelector('#refresh').content = `0; URL='${url}'`
   }
 }
