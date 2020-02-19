@@ -52,7 +52,7 @@ async function getQuote() {
       response =
         '[{"quoteTextOnly":"There\'s a sort of evil out there. Something very, very strange in these old woods. \\nCall it what you want. A darkness, a presence. It takes many forms but... its been out there for as long as anyone can remember and we\'ve always been here to fight it. [DEV MODE]","persons":["Sheriff Truman"]}]'
       obj = JSON.parse(response)[0]
-      console.log('DEV MODE: on')
+      console.log('%cDEV MODE: on', 'color:#000000; background-color:#ffc107')
     }
     let quoteTextOnly = obj.quoteTextOnly.replace(/\n/gm, ' / ')
     quoteTextOnly.length >= 380

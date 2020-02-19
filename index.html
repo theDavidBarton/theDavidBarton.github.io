@@ -26,15 +26,10 @@
       <a id="top"></a>
       <div class="container">
         <a href="#top"><div class="btn btn-dark position-fixed text-center back-to-top-style">&#9650;</div></a>
-        <div class="row align-items-center text-center">
-          <!-- I.1.) logo-->
-          <section class="col-sm-auto col-12 text-sm-left text-center">
-            <h1 class="display-4 hello-on-home d-none d-md-inline">
-              Hi, I am David!
-            </h1>
-          </section>
-          <!-- I.2.) nav links-->
-          <nav class="col my-2 d-none d-sm-block text-right">
+        <div class="row align-items-center">
+          <!-- I.1.) nav links-->
+          <nav class="col my-2 d-none d-sm-block">
+            <a href="#"><img src="img/logo_sm.svg" alt="small logo" width="25" class="flame-style"/></a>
             <a class="btn btn-dark" href="#about">about</a>
             <a class="btn btn-dark" href="#projects">projects</a>
             <a class="btn btn-dark" href="#contact">contact</a>
@@ -64,7 +59,7 @@
               <a class="btn btn-dark mx-4" href="#contact" onclick="activateMobileNav()">contact</a>
             </div>
           </nav>
-          <!-- I.3.) social section-->
+          <!-- I.2.) social section-->
           <div class="col-auto my-2">
             <ul class="list-unstyled list-group list-group-horizontal social-list-margin">
               <li class="my-2">
@@ -252,7 +247,7 @@
                 <a id="experience">experience</a>
               </h3>
               <div>
-                <ul class="card-border-style">
+                <ul class="cv-border-style">
                   <li><strong>liligo.com (2016-)</strong> QA engineer & release manager</li>
                   <li>
                     <strong>Budapest University of Technology and Economics (2013-2016)</strong> information specialist
@@ -265,7 +260,7 @@
                 <a id="education">education</a>
               </h3>
               <div>
-                <ul class="card-border-style">
+                <ul class="cv-border-style">
                   <li><strong>Eötvös Loránd University, Budapest (2012-2014)</strong> Ma/Msc</li>
                   <li><strong>Eötvös Loránd University, Budapest (2009-2012)</strong> Ba/Bsc</li>
                 </ul>
@@ -284,7 +279,7 @@
                 <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I am
                 using JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI,
                 Kubernetes and Jenkins for deployment and release management.<br /><br />
-                In my spare time I enjoy working on hobby JS projects in Node and React to improve my
+                In my spare time, I enjoy working on hobby JS projects in Node and React to improve my
                 <span class="badge badge-dark">full stack JavaScript dev</span> skills.
               </p>
               <!-- desktop "fun facts" content starts here -->
@@ -395,8 +390,8 @@
             </div>
             <div class="col mx-4 text-left">
               <p>
-                Besides coding I enjoy <strong>reading books</strong> (J.R.R. Tolkien, J.K. Rowling, Arthur C. Clarke,
-                Stephen King), going for a <strong>hiking</strong> or - in case of depressing weather - playing
+                Besides coding, I enjoy <strong>reading books</strong> (J.R.R. Tolkien, J.K. Rowling, Arthur C. Clarke,
+                Stephen King), going for <strong>hiking</strong> or - in case of depressing weather - playing
                 <strong>retro video games</strong> on my
                 <a class="text-secondary" target="_blank" rel="noopener noreferrer" href="https://www.lakka.tv/"
                   >Lakka Linux</a
@@ -418,19 +413,11 @@
           <div class="row align-items-center">
             <!-- card starts-->
             <div class="m-1 m-xl-4 card-border-style bg-light order-2 order-xl-1 card-width-override">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/redirect.html?url=https://trending-video-games.herokuapp.com/"
-                  >
-                    <img src="img/rawg_screenshot.jpg" class="card-img" alt="project thumbnail"
-                  /></a>
-                </div>
-                <div class="col-md-8">
+              <div class="row no-gutters position-relative">
+                <div class="card-hole bg-dark position-absolute"></div>
+                <div class="col-md-11">
                   <div class="card-body">
-                    <h3 class="card-title">Video Games on RAWG React App</h3>
+                    <h3 class="card-title w-75">Video Games on RAWG React App</h3>
                     <p class="card-text">
                       🎮 A videogame app powered by RAWG.io api and Archive.org .
                       <a
@@ -472,10 +459,11 @@
             </div>
             <!-- card starts-->
             <div class="m-1 m-xl-4 card-border-style bg-light order-4 order-xl-4 card-width-override">
-              <div class="row no-gutters">
-                <div class="col-md-11 col-10">
+              <div class="row no-gutters position-relative">
+                <div class="card-hole bg-dark position-absolute"></div>
+                <div class="col-md-11">
                   <div class="card-body">
-                    <h3 class="card-title">Twin Peaks api</h3>
+                    <h3 class="card-title w-75">Twin Peaks api</h3>
                     <p class="card-text">
                       🌲⛰️⛰️🌲 "The responses are not what they seem." A quote API for the cult classic TV movie series:
                       Twin Peaks - made in Node.Js and Express.
@@ -513,19 +501,11 @@
             </div>
             <!-- card starts-->
             <div class="m-1 m-xl-4 card-border-style bg-light order-6 order-xl-5 card-width-override">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/redirect.html?url=https://trending-movies-react-app.herokuapp.com/"
-                  >
-                    <img src="img/tmdb_screenshot.jpg" class="card-img" alt="project thumbnail"
-                  /></a>
-                </div>
-                <div class="col-md-8">
+              <div class="row no-gutters position-relative">
+                <div class="card-hole bg-dark position-absolute"></div>
+                <div class="col-md-11">
                   <div class="card-body">
-                    <h3 class="card-title">Trending Movies React App</h3>
+                    <h3 class="card-title w-75">Trending Movies React App</h3>
                     <p class="card-text">
                       A TMDb SPA made with React, Node & Express and hosted on Heroku. This product uses the TMDb API
                       but is not endorsed or certified by TMDb.
@@ -554,16 +534,17 @@
             <!-- card ends-->
             <div class="col-xl-5 text-light m-4 order-5 order-xl-6">
               <p class="lead">
-                I am doing my best to handle all part of the Software Development Life Cycle by myself, like the DevOps
+                I am doing my best to handle all parts of the Software Development Life Cycle by myself, like the DevOps
                 tasks of deploying these projects on production with GitHub Actions or Heroku.
               </p>
             </div>
             <!-- card starts-->
             <div class="m-1 m-xl-4 card-border-style bg-light order-8 order-xl-8 card-width-override">
-              <div class="row no-gutters">
-                <div class="col-md-11 col-10">
+              <div class="row no-gutters position-relative">
+                <div class="card-hole bg-dark position-absolute"></div>
+                <div class="col-md-11">
                   <div class="card-body">
-                    <h3 class="card-title">Pixel Art</h3>
+                    <h3 class="card-title w-75">Pixel Art</h3>
                     <p class="card-text">
                       👾🎮🎮👾 My pixel art works.<br />
                       Made with GIMP on a 50px X 50px grid. The drawings are stored in xcf, and also published on a
@@ -592,10 +573,11 @@
             </div>
             <!-- card starts-->
             <div class="m-1 m-xl-4 card-border-style bg-light order-10 order-xl-9 card-width-override">
-              <div class="row no-gutters">
-                <div class="col-md-11 col-10">
+              <div class="row no-gutters position-relative">
+                <div class="card-hole bg-dark position-absolute"></div>
+                <div class="col-md-11">
                   <div class="card-body">
-                    <h3 class="card-title">Puppeteer daily menu scraper App</h3>
+                    <h3 class="card-title w-75">Puppeteer daily menu scraper App</h3>
                     <p class="card-text">
                       Scraping daily and weekly menus of restaurants from downtown Budapest (Hungary) with Puppeteer
                       (headless Chrome).
@@ -617,7 +599,7 @@
             <!-- card ends-->
             <div class="col-xl-5 text-light m-4 order-9 order-xl-10">
               <p class="lead">
-                My first project was this nice scraper app. It is still not perfect, but definiately in the collection I
+                My first project was this nice scraper app. It is still not perfect, but definitely in the collection I
                 am proud of.<br />Bon Apetit !
               </p>
             </div>
