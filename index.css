@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
 
 /* global */
 * {
@@ -33,6 +32,11 @@
 .social-img-style {
   height: 22px;
   filter: invert(100%);
+}
+
+.flame-style {
+  margin-right: 1em;
+  filter: grayscale(1);
 }
 
 /* mobile nav */
@@ -73,12 +77,17 @@
   font-family: 'Special Elite', cursive;
 }
 
+.card-hole {
+  right: 0;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
 .card-border-style {
   padding: 25px;
   margin: 25px;
-  border-width: thick;
-  border-radius: 5px 5px 135px 5px;
-  border-left: 25px solid #ffc107;
+  border-radius: 45px;
 }
 
 .card-width-override {
@@ -86,9 +95,6 @@
 }
 
 /* intro section */
-.hello-on-home {
-  font-family: 'Amatic SC', cursive;
-}
 
 .background-style {
   background-image: linear-gradient(0deg, rgb(52, 58, 64) 0%, rgba(52, 58, 64, 0) 100%), url(img/danube-bend-photo.jpg);
@@ -110,6 +116,14 @@
 
 .un-on-mobile {
   font-size: small;
+}
+
+.cv-border-style {
+  padding: 25px;
+  margin: 25px;
+  border-width: thick;
+  border-radius: 5px 5px 135px 5px;
+  border-left: 25px solid #ffc107;
 }
 
 @media all and (min-width: 321px) and (max-width: 375px) {
