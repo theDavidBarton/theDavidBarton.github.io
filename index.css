@@ -193,32 +193,10 @@
 }
 
 /* preloader animation */
-.outer {
-  width: 300px;
-  overflow: hidden;
-  animation: preloader 7s;
+.loading-wrappers {
+  height: 100%;
+  display: grid;
 }
-
-.inner {
-  width: 300px;
-}
-
-.evil-twin {
-  filter: brightness(0);
-}
-
-.good-twin {
-  filter: brightness(100);
-}
-
-@keyframes preloader {
-  0% {
-    width: 0;
-  }
-  15% {
-    width: 0;
-  }
-  100% {
-    width: 300px;
-  }
+.center-loading {
+  margin: auto;
 }
