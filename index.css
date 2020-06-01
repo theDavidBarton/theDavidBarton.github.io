@@ -93,13 +93,19 @@
   overflow: hidden;
 }
 
-@media all and (max-width: 567px) {
+@media all and (min-width: 321px) and (max-width: 812px) {
   .portfolio-item,
   .portfolio-item-blur-1,
   .portfolio-item-blur-2 {
-    height: 195px;
-    background-size: contain;
-    overflow: hidden;
+    height: 230px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .portfolio-item,
+  .portfolio-item-blur-1,
+  .portfolio-item-blur-2 {
+    height: 199px;
   }
 }
 
@@ -109,6 +115,20 @@
   right: 3rem;
   filter: drop-shadow(2px 4px 3px black);
   width: 11rem;
+}
+
+@media all and (min-width: 321px) and (max-width: 812px) {
+  .portfolio-symbol {
+    top: 1.6rem;
+    width: 9rem;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .portfolio-symbol {
+    top: 2.6rem;
+    width: 7rem;
+  }
 }
 
 .portfolio-info {
@@ -141,6 +161,20 @@
   text-align: left !important;
 }
 
+@media all and (min-width: 321px) and (max-width: 812px) {
+  .h1-para {
+    top: -2rem;
+    left: 0rem;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .h1-para {
+    top: -2rem;
+    left: -0.9rem;
+  }
+}
+
 .link-para {
   position: absolute;
   top: 8rem;
@@ -148,10 +182,23 @@
   z-index: 10;
 }
 
+@media all and (max-width: 812px) {
+  .link-para {
+    top: 3rem;
+  }
+}
+
 .tags-para {
   position: absolute;
   top: 5.3rem;
   left: 12rem;
+}
+
+@media all and (max-width: 812px) {
+  .tags-para {
+    top: 0.3rem;
+    left: 9rem;
+  }
 }
 
 /* intro section */
