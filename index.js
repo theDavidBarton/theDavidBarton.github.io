@@ -1,6 +1,6 @@
 'use strict'
 
-window.onresize = function() {
+window.onresize = function () {
   if (
     window.innerWidth > window.innerHeight &&
     document.querySelector('#mobileNav') &&
@@ -15,11 +15,10 @@ function getUrlFromLink() {
     'https://trending-video-games.herokuapp.com/',
     'https://trending-movies-react-app.herokuapp.com/',
     'https://thedavidbarton.herokuapp.com/',
-    'https://twin-peaks-api.herokuapp.com/'
+    'https://twin-peaks-api.herokuapp.com/',
+    'https://the-harry-potter-database.herokuapp.com/'
   ]
-  const urlSelector = window.location.href.match(/url(.*)/)
-    ? window.location.href.match(/url(.*)/)[0]
-    : window.location.href
+  const urlSelector = window.location.href.match(/url(.*)/) ? window.location.href.match(/url(.*)/)[0] : window.location.href
   const url = urlSelector.replace('url=', '')
   const baseUrlMatcher = url.match(/^https:\/\/(.*?)\//)[0]
   if (trustedLinks.includes(baseUrlMatcher)) {
@@ -55,9 +54,7 @@ async function getQuote() {
       console.log('%cDEV MODE: on', 'color:#000000; background-color:#ffc107')
     }
     let quoteTextOnly = obj.quoteTextOnly.replace(/\n/gm, ' / ')
-    quoteTextOnly.length >= 380
-      ? (quoteTextOnly = quoteTextOnly.substring(0, 380) + '...')
-      : (quoteTextOnly = quoteTextOnly)
+    quoteTextOnly.length >= 380 ? (quoteTextOnly = quoteTextOnly.substring(0, 380) + '...') : (quoteTextOnly = quoteTextOnly)
     const persons = obj.persons.map(el => el)
     document.querySelector('#twinpeaks-quote > p').innerHTML = quoteTextOnly
     document.querySelector('#twinpeaks-quote > footer > cite').innerHTML = persons

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
 
 /* global */
 * {
@@ -72,26 +71,87 @@
   display: none;
 }
 
-/* cards */
-.card-body > * {
-  font-family: 'Special Elite', cursive;
+/* portfolio items */
+.portfolio-item {
+  filter: drop-shadow(2px 4px 6px black);
+  z-index: 10;
 }
 
-.card-hole {
-  right: 0;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
+.portfolio-item-blur-1 {
+  background-image: url(img/portfolio/blur-1.png);
 }
 
-.card-border-style {
-  padding: 25px;
-  margin: 25px;
-  border-radius: 45px;
+.portfolio-item-blur-2 {
+  background-image: url(img/portfolio/blur-2.png);
 }
 
-.card-width-override {
-  max-width: 540px;
+.portfolio-item,
+.portfolio-item-blur-1,
+.portfolio-item-blur-2 {
+  height: 315px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+@media all and (max-width: 567px) {
+  .portfolio-item,
+  .portfolio-item-blur-1,
+  .portfolio-item-blur-2 {
+    height: 195px;
+    background-size: contain;
+    overflow: hidden;
+  }
+}
+
+.portfolio-symbol {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  filter: drop-shadow(2px 4px 3px black);
+  width: 11rem;
+}
+
+.portfolio-info {
+  position: relative;
+  cursor: default;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.portfolio-info > .badge {
+  font-size: x-large;
+}
+
+.external-link {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 3rem;
+}
+
+.badge-link {
+  filter: drop-shadow(1px 1px 2px black);
+  width: 3rem;
+}
+
+.h1-para {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  text-align: left !important;
+}
+
+.link-para {
+  position: absolute;
+  top: 8rem;
+  left: 1rem;
+  z-index: 10;
+}
+
+.tags-para {
+  position: absolute;
+  top: 5.3rem;
+  left: 12rem;
 }
 
 /* intro section */
