@@ -149,6 +149,14 @@
   width: 3rem;
 }
 
+.refresh-link {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 3rem;
+}
+
 .badge-link {
   filter: drop-shadow(1px 1px 2px black);
   width: 3rem;
