@@ -1,0 +1,19 @@
+{
+  "name": "thedavidbarton.github.io",
+  "version": "0.0.1",
+  "description": "server for local development",
+  "main": "server.js",
+  "author": "David Barton (theDavidBarton)",
+  "repository": "https://github.com/theDavidBarton/theDavidBarton.github.io",
+  "homepage": "https://github.com/theDavidBarton/theDavidBarton.github.io#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

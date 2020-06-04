@@ -22,11 +22,9 @@ function getUrlFromLink() {
   const url = urlSelector.replace('url=', '')
   const baseUrlMatcher = url.match(/^https:\/\/(.*?)\//)[0]
   if (trustedLinks.includes(baseUrlMatcher)) {
-    if (window.chrome) {
-      console.log('Chromium based browser 👌')
+    if (!window.InstallTrigger) {
       document.querySelector('#refresh').content = `0; URL='${url}'`
     } else {
-      console.log('NOT Chromium based browser 😭')
       window.setTimeout(() => {
         window.location.href = url
       }, 6000)
