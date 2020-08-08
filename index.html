@@ -22,42 +22,53 @@
   </head>
 
   <body>
-    <header class="bg-dark text-light">
-      <!-- I.) navigation bar-->
+    <header class="bg-dark">
+      <!-- I.) back to top -->
       <a id="top"></a>
-      <div class="container">
-        <a href="#top">
-          <div class="btn btn-dark position-fixed text-center back-to-top-style">&#9650;</div>
-        </a>
-      </div>
-    </header>
-    <main>
+      <a href="#top">
+        <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
+      </a>
       <!-- II.) intro bar -->
-      <div class="bg-warning py-4">
+      <div class="bg-tertiary py-4">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col text-center text-dark mt-lg-0 mt-5 my-lg-4 my-0">
-              <h1>theDavidBarton</h1>
-              <p>QA engineering | full stack JavaScript</p>
+            <div class="col text-center text-black mt-lg-0 mt-5 my-lg-4 my-0">
+              <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+              <p class="bolder">QA engineering | full stack JavaScript</p>
             </div>
             <div class="col d-none d-lg-block">
               <img src="img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
             </div>
             <div class="col text-center my-2">
-              <a class="btn btn-dark" href="#projects">
+              <a class="btn btn-warning btn-w my-2" href="#projects">
                 <div class="lead align-middle">
                   <span>see my work</span>
+                  <img
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    alt="logo"
+                  />
                 </div>
               </a>
-              <a class="btn btn-dark" href="#contact">
+              <a class="btn btn-dark btn-w my-2" href="#contact">
                 <div class="lead align-middle">
-                  <span>contact me</span>
+                  <span>contact</span>
+                  <img
+                    class="invert-img"
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
+                    alt="logo"
+                  />
                 </div>
               </a>
             </div>
           </div>
         </div>
       </div>
+    </header>
+    <main>
       <!-- III.) tech stack -->
       <section class="bg-dark">
         <a id="about"></a>
