@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
 
 /* global */
+h1 {
+  font-family: 'Beth Ellen', cursive;
+}
+
 * {
   font-family: 'Quicksand', sans-serif;
   scroll-behavior: smooth;
@@ -218,9 +223,12 @@
   background-position: bottom;
 }
 
-.avatar-style {
-  width: 60px;
-  top: -13px;
+.avatar-style-top {
+  width: 200px;
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  margin-left: -100px;
 }
 
 /* about section */
