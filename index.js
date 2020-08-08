@@ -1,15 +1,5 @@
 'use strict'
 
-window.onresize = function () {
-  if (
-    window.innerWidth > window.innerHeight &&
-    document.querySelector('#mobileNav') &&
-    document.querySelector('#mobileNav').style.display !== 'none'
-  ) {
-    activateMobileNav()
-  }
-}
-
 function getUrlFromLink() {
   const trustedLinks = [
     'https://trending-video-games.herokuapp.com/',
@@ -30,18 +20,6 @@ function getUrlFromLink() {
       }, 6000)
     }
   }
-}
-
-function activateMobileNav() {
-  document.querySelector('#mobileNav').style.display !== 'none'
-    ? (document.querySelector('#mobileNav').style.display = 'none') &&
-      (document.querySelector('#mobileNavOverlay').style.display = 'none')
-    : (document.querySelector('#mobileNav').style.display = 'block') &&
-      (document.querySelector('#mobileNavOverlay').style.display = 'block')
-
-  document.querySelector('#mobileNav').style.display !== 'none'
-    ? (document.querySelector('body').style.position = 'fixed')
-    : (document.querySelector('body').style.position = 'unset')
 }
 
 async function getQuote() {
