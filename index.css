@@ -54,11 +54,10 @@
 }
 
 .carousel {
-  min-height: 20rem;
+  min-height: 25rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  user-select: none;
 }
 
 .carousel .item {
@@ -66,8 +65,8 @@
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 250px;
+  width: auto;
+  height: auto;
   overflow: hidden;
   transition: all 300ms ease-in-out;
   z-index: -1;
@@ -78,6 +77,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.item h3 {
+  position: relative;
+  z-index: 200;
 }
 
 .item.active {

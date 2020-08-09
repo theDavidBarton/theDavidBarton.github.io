@@ -1,5 +1,79 @@
 'use strict'
 
+// portfolio projects
+
+function portfolioProjectsFn() {
+  const object = [
+    {
+      id: 0,
+      title: 'Trending Movies app',
+      imgSrc: 'img/portfolio/tmdb.jpg',
+      projectDemoUrl: '/redirect.html?url=https://trending-movies-react-app.herokuapp.com/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
+      techStack: ['Node.Js', 'React.Js']
+    },
+    {
+      id: 1,
+      title: 'Trending Video Games app',
+      imgSrc: 'img/portfolio/rawg.jpg',
+      projectDemoUrl: '/redirect.html?url=https://trending-video-games.herokuapp.com/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
+      techStack: ['Node.Js', 'React.Js']
+    },
+    {
+      id: 2,
+      title: 'The Harry Potter Database',
+      imgSrc: 'img/portfolio/thpdb.jpg',
+      projectDemoUrl: '/redirect.html?url=https://the-harry-potter-database.herokuapp.com/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
+      techStack: ['Node.Js', 'React.Js']
+    },
+    {
+      id: 3,
+      title: 'Pixel Art Project',
+      imgSrc: 'img/portfolio/pixel.jpg',
+      projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/pixel-art',
+      techStack: ['Node.Js', 'React.Js', 'GIMP']
+    }
+  ]
+  return object
+}
+
+function portfolio() {
+  const portfolioProjects = portfolioProjectsFn()
+  const carouselItems = document.querySelectorAll('.item')
+  const carouselImages = document.querySelectorAll('.item > img')
+  carouselItems.forEach((el, i) => {
+    el.id = portfolioProjects[i].id
+  })
+  carouselImages.forEach((el, i) => {
+    el.src = portfolioProjects[i].imgSrc
+    el.alt = portfolioProjects[i].title
+  })
+}
+portfolio()
+
+function portfolioNext(id) {
+  console.log(typeof id)
+  document.querySelectorAll('.item')[id].classList.add('active')
+  document.querySelectorAll('.item')[id].classList.remove('next')
+  document.querySelectorAll('.item')[id + 1].classList.add('next')
+  document.querySelectorAll('.item')[id - 1].classList.add('prev')
+  document.querySelectorAll('.item')[id - 2].classList.add('prev')
+  console.log('NEXT' + id)
+}
+function portfolioPrev(id) {
+  document.querySelectorAll('.item')[id].classList.add('active')
+  document.querySelectorAll('.item')[id + 1].classList.add('next')
+  document.querySelectorAll('.item')[id - 1].classList.add('prev')
+  console.log('PREV' + id)
+}
+
+document.querySelector('.next').addEventListener('click', event => portfolioNext(parseInt(event.target.parentElement.id)))
+document.querySelector('.prev').addEventListener('click', event => portfolioPrev(parseInt(event.target.parentElement.id)))
+
+// redirection page
 function getUrlFromLink() {
   const trustedLinks = [
     'https://trending-video-games.herokuapp.com/',
