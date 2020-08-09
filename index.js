@@ -46,6 +46,9 @@ function portfolio() {
   const carouselImages = document.querySelectorAll('.item > img')
   carouselItems.forEach((el, i) => {
     el.id = portfolioProjects[i].id
+    el.onclick = function () {
+      navHandler(this)
+    }
   })
   carouselImages.forEach((el, i) => {
     el.src = portfolioProjects[i].imgSrc
@@ -54,24 +57,33 @@ function portfolio() {
 }
 portfolio()
 
-function portfolioNext(id) {
-  console.log(typeof id)
+function nextPrev(id) {
+  const portItemLngth = portfolioProjectsFn().length
+
+  let nextId
+  if (id === portItemLngth - 1) nextId = 0
+  else nextId = id + 1
+
+  let prevId
+  if (id < 1) prevId = portItemLngth - 1
+  else prevId = id - 1
+
+  // remove current classes
+  document.querySelector('.next').classList.remove('next')
+  document.querySelector('.prev').classList.remove('prev')
+  document.querySelector('.active').classList.remove('active')
+
+  // add new classes
   document.querySelectorAll('.item')[id].classList.add('active')
-  document.querySelectorAll('.item')[id].classList.remove('next')
-  document.querySelectorAll('.item')[id + 1].classList.add('next')
-  document.querySelectorAll('.item')[id - 1].classList.add('prev')
-  document.querySelectorAll('.item')[id - 2].classList.add('prev')
-  console.log('NEXT' + id)
-}
-function portfolioPrev(id) {
-  document.querySelectorAll('.item')[id].classList.add('active')
-  document.querySelectorAll('.item')[id + 1].classList.add('next')
-  document.querySelectorAll('.item')[id - 1].classList.add('prev')
-  console.log('PREV' + id)
+  document.querySelectorAll('.item')[nextId].classList.add('next')
+  document.querySelectorAll('.item')[prevId].classList.add('prev')
+
+  console.log(prevId + ' ' + id + ' ' + nextId)
 }
 
-document.querySelector('.next').addEventListener('click', event => portfolioNext(parseInt(event.target.parentElement.id)))
-document.querySelector('.prev').addEventListener('click', event => portfolioPrev(parseInt(event.target.parentElement.id)))
+function navHandler(event) {
+  nextPrev(parseInt(event.id))
+}
 
 // redirection page
 function getUrlFromLink() {
@@ -96,6 +108,7 @@ function getUrlFromLink() {
   }
 }
 
+// twin peaks api call
 async function getQuote() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
@@ -121,6 +134,7 @@ async function getQuote() {
   }
 }
 
+// GitHub repo counter
 async function getRepos() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
@@ -142,6 +156,7 @@ async function getRepos() {
   }
 }
 
+// GitHub streak scraper
 async function getStreak() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
@@ -166,6 +181,7 @@ async function getStreak() {
   }
 }
 
+// print date
 function getDate() {
   const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
   document.querySelector('#funfactDataDate').textContent = today
