@@ -44,6 +44,9 @@ function portfolio() {
   const portfolioProjects = portfolioProjectsFn()
   const carouselItems = document.querySelectorAll('.item')
   const carouselImages = document.querySelectorAll('.item > img')
+  const carouselHeadings = document.querySelectorAll('.item > h3')
+  const carouselExternalSource = document.querySelectorAll('.item > a:nth-child(3)')
+  const carouselExternalDemos = document.querySelectorAll('.item > a:nth-child(4)')
   carouselItems.forEach((el, i) => {
     el.id = portfolioProjects[i].id
     el.onclick = function () {
@@ -53,6 +56,15 @@ function portfolio() {
   carouselImages.forEach((el, i) => {
     el.src = portfolioProjects[i].imgSrc
     el.alt = portfolioProjects[i].title
+  })
+  carouselHeadings.forEach((el, i) => {
+    el.textContent = portfolioProjects[i].title
+  })
+  carouselExternalSource.forEach((el, i) => {
+    el.href = portfolioProjects[i].projectSourceUrl
+  })
+  carouselExternalDemos.forEach((el, i) => {
+    el.href = portfolioProjects[i].projectDemoUrl
   })
 }
 portfolio()
@@ -77,8 +89,6 @@ function nextPrev(id) {
   document.querySelectorAll('.item')[id].classList.add('active')
   document.querySelectorAll('.item')[nextId].classList.add('next')
   document.querySelectorAll('.item')[prevId].classList.add('prev')
-
-  console.log(prevId + ' ' + id + ' ' + nextId)
 }
 
 function navHandler(event) {
