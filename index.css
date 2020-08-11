@@ -112,6 +112,59 @@
   cursor: default;
 }
 
+/*
+.item.next::before {
+  position: absolute;
+  left: 5rem;
+  top: 5rem;
+  filter: drop-shadow(6px 4px 5px black);
+  font-size: 16rem;
+  transform: scale(1, 2);
+  content: '►';
+}
+
+.item.prev::before {
+  position: absolute;
+  right: 5rem;
+  top: 5rem;
+  filter: drop-shadow(-6px 2px 5px black);
+  font-size: 16rem;
+  transform: scale(1, 2);
+  content: '◄';
+}
+*/
+
+@media all and (max-width: 1023px) {
+  .carousel .item {
+    position: relative;
+    left: 0%;
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  .item-img {
+    padding-top: 1rem;
+  }
+  .carousel {
+    left: 0%;
+    transform: translate(0%, 0%);
+  }
+  .item.active {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  .item.prev,
+  .item.next {
+    cursor: default;
+    opacity: 1;
+    filter: blur(0rem) grayscale(0);
+    transform: translate(0%, 0%) scale(1);
+  }
+  .next > a,
+  .prev > a {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+}
+
 .portfolio-symbol {
   position: absolute;
   top: 1rem;
@@ -159,6 +212,14 @@
   right: 4.5rem;
   bottom: 1rem;
   width: 3rem;
+}
+
+@media all and (max-width: 1023px) {
+  .external-link,
+  .source-link {
+    position: unset;
+    margin: 0.3rem;
+  }
 }
 
 .refresh-link {
@@ -259,7 +320,6 @@
 }
 
 .cv-border-style {
-  padding: 25px;
   margin: 25px;
   border-width: thick;
   border-radius: 5px 5px 135px 5px;
