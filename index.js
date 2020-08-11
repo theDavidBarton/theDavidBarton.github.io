@@ -1,5 +1,101 @@
 'use strict'
 
+// portfolio projects
+
+function portfolioProjectsFn() {
+  const object = [
+    {
+      id: 0,
+      title: 'Trending Movies app',
+      imgSrc: 'img/portfolio/tmdb.jpg',
+      projectDemoUrl: '/redirect.html?url=https://trending-movies-react-app.herokuapp.com/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
+      techStack: ['Node.Js', 'React.Js']
+    },
+    {
+      id: 1,
+      title: 'Trending Video Games app',
+      imgSrc: 'img/portfolio/rawg.jpg',
+      projectDemoUrl: '/redirect.html?url=https://trending-video-games.herokuapp.com/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
+      techStack: ['Node.Js', 'React.Js']
+    },
+    {
+      id: 2,
+      title: 'The Harry Potter Database',
+      imgSrc: 'img/portfolio/thpdb.jpg',
+      projectDemoUrl: '/redirect.html?url=https://the-harry-potter-database.herokuapp.com/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
+      techStack: ['Node.Js', 'React.Js']
+    },
+    {
+      id: 3,
+      title: 'Pixel Art Project',
+      imgSrc: 'img/portfolio/pixel.jpg',
+      projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
+      projectSourceUrl: 'https://github.com/theDavidBarton/pixel-art',
+      techStack: ['Node.Js', 'React.Js', 'GIMP']
+    }
+  ]
+  return object
+}
+
+function portfolio() {
+  const portfolioProjects = portfolioProjectsFn()
+  const carouselItems = document.querySelectorAll('.item')
+  const carouselImages = document.querySelectorAll('.item > img')
+  const carouselHeadings = document.querySelectorAll('.item > h3')
+  const carouselExternalSource = document.querySelectorAll('.item > a:nth-child(3)')
+  const carouselExternalDemos = document.querySelectorAll('.item > a:nth-child(4)')
+  carouselItems.forEach((el, i) => {
+    el.id = portfolioProjects[i].id
+    el.onclick = function () {
+      navHandler(this)
+    }
+  })
+  carouselImages.forEach((el, i) => {
+    el.src = portfolioProjects[i].imgSrc
+    el.alt = portfolioProjects[i].title
+  })
+  carouselHeadings.forEach((el, i) => {
+    el.textContent = portfolioProjects[i].title
+  })
+  carouselExternalSource.forEach((el, i) => {
+    el.href = portfolioProjects[i].projectSourceUrl
+  })
+  carouselExternalDemos.forEach((el, i) => {
+    el.href = portfolioProjects[i].projectDemoUrl
+  })
+}
+portfolio()
+
+function nextPrev(id) {
+  const portItemLngth = portfolioProjectsFn().length
+
+  let nextId
+  if (id === portItemLngth - 1) nextId = 0
+  else nextId = id + 1
+
+  let prevId
+  if (id < 1) prevId = portItemLngth - 1
+  else prevId = id - 1
+
+  // remove current classes
+  document.querySelector('.next').classList.remove('next')
+  document.querySelector('.prev').classList.remove('prev')
+  document.querySelector('.active').classList.remove('active')
+
+  // add new classes
+  document.querySelectorAll('.item')[id].classList.add('active')
+  document.querySelectorAll('.item')[nextId].classList.add('next')
+  document.querySelectorAll('.item')[prevId].classList.add('prev')
+}
+
+function navHandler(event) {
+  nextPrev(parseInt(event.id))
+}
+
+// redirection page
 function getUrlFromLink() {
   const trustedLinks = [
     'https://trending-video-games.herokuapp.com/',
@@ -22,6 +118,7 @@ function getUrlFromLink() {
   }
 }
 
+// twin peaks api call
 async function getQuote() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
@@ -47,6 +144,7 @@ async function getQuote() {
   }
 }
 
+// GitHub repo counter
 async function getRepos() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
@@ -68,6 +166,7 @@ async function getRepos() {
   }
 }
 
+// GitHub streak scraper
 async function getStreak() {
   try {
     const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
@@ -92,6 +191,7 @@ async function getStreak() {
   }
 }
 
+// print date
 function getDate() {
   const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
   document.querySelector('#funfactDataDate').textContent = today

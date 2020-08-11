@@ -47,81 +47,152 @@
 }
 
 /* portfolio items */
-.portfolio-item {
-  filter: drop-shadow(2px 4px 6px black);
-  z-index: 10;
-}
-
-.portfolio-item-blur-1 {
-  background-image: url(img/portfolio/blur-1.png);
-}
-
-.portfolio-item-blur-2 {
-  background-image: url(img/portfolio/blur-2.png);
-}
-
-.portfolio-item,
-.portfolio-item-blur-1,
-.portfolio-item-blur-2 {
-  height: 315px;
-  background-size: cover;
+.carousel-container {
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
-@media all and (min-width: 321px) and (max-width: 812px) {
-  .portfolio-item,
-  .portfolio-item-blur-1,
-  .portfolio-item-blur-2 {
-    height: 230px;
+.carousel {
+  min-height: 33rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media all and (min-width: 1540px) {
+  .carousel {
+    min-height: 43rem;
   }
 }
 
-@media all and (max-width: 320px) {
-  .portfolio-item,
-  .portfolio-item-blur-1,
-  .portfolio-item-blur-2 {
-    height: 199px;
-  }
-}
-
-.portfolio-symbol {
+.carousel .item {
   position: absolute;
-  top: 1rem;
-  right: 3rem;
-  filter: drop-shadow(2px 4px 3px black);
-  width: 11rem;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  transition: all 400ms ease-in-out;
+  z-index: -1;
+  opacity: 0;
 }
 
-@media all and (min-width: 321px) and (max-width: 812px) {
-  .portfolio-symbol {
-    top: 1.6rem;
-    width: 9rem;
-  }
+.item .item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media all and (max-width: 320px) {
-  .portfolio-symbol {
-    top: 2.6rem;
-    width: 7rem;
-  }
-}
-
-.portfolio-info {
+.item h3 {
   position: relative;
-  cursor: default;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  z-index: 200;
 }
 
-.portfolio-info > .badge {
-  font-size: x-large;
+.item.active {
+  opacity: 1;
+  z-index: 99;
+  box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+}
+
+.item.prev {
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.9;
+  filter: blur(0.2rem) grayscale(1);
+  transform: translate(-125%, -50%) scale(0.6);
+}
+
+.item.next {
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.9;
+  filter: blur(0.2rem) grayscale(1);
+  transform: translate(25%, -50%) scale(0.6);
+}
+
+.next > a,
+.prev > a {
+  pointer-events: none;
+  cursor: default;
+}
+
+/*
+.item.next::before {
+  position: absolute;
+  left: 5rem;
+  top: 5rem;
+  filter: drop-shadow(6px 4px 5px black);
+  font-size: 16rem;
+  transform: scale(1, 2);
+  content: '►';
+}
+
+.item.prev::before {
+  position: absolute;
+  right: 5rem;
+  top: 5rem;
+  filter: drop-shadow(-6px 2px 5px black);
+  font-size: 16rem;
+  transform: scale(1, 2);
+  content: '◄';
+}
+*/
+
+@media all and (max-width: 1023px) {
+  .carousel .item {
+    position: relative;
+    left: 0%;
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  .item-img {
+    padding-top: 1rem;
+  }
+  .carousel {
+    left: 0%;
+    transform: translate(0%, 0%);
+  }
+  .item.active {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  .item.prev,
+  .item.next {
+    cursor: default;
+    opacity: 1;
+    filter: blur(0rem) grayscale(0);
+    transform: translate(0%, 0%) scale(1);
+  }
+  .next > a,
+  .prev > a {
+    pointer-events: auto;
+    cursor: pointer;
+  }
 }
 
 .external-link {
+  z-index: 200;
   position: absolute;
   right: 1rem;
   bottom: 1rem;
   width: 3rem;
+}
+
+.source-link {
+  z-index: 200;
+  position: absolute;
+  right: 4.5rem;
+  bottom: 1rem;
+  width: 3rem;
+}
+
+@media all and (max-width: 1023px) {
+  .external-link,
+  .source-link {
+    position: unset;
+    margin: 0.3rem;
+  }
 }
 
 .refresh-link {
@@ -130,58 +201,6 @@
   right: 1rem;
   bottom: 1rem;
   width: 3rem;
-}
-
-.badge-link {
-  filter: drop-shadow(1px 1px 2px black);
-  width: 3rem;
-}
-
-.h1-para {
-  position: absolute;
-  top: 3rem;
-  left: 1rem;
-  text-align: left !important;
-}
-
-@media all and (min-width: 321px) and (max-width: 812px) {
-  .h1-para {
-    top: -2rem;
-    left: 0rem;
-  }
-}
-
-@media all and (max-width: 320px) {
-  .h1-para {
-    top: -2rem;
-    left: -0.9rem;
-  }
-}
-
-.link-para {
-  position: absolute;
-  top: 8rem;
-  left: 1rem;
-  z-index: 10;
-}
-
-@media all and (max-width: 812px) {
-  .link-para {
-    top: 3rem;
-  }
-}
-
-.tags-para {
-  position: absolute;
-  top: 5.3rem;
-  left: 12rem;
-}
-
-@media all and (max-width: 812px) {
-  .tags-para {
-    top: 0.3rem;
-    left: 9rem;
-  }
 }
 
 /* intro section */
@@ -222,7 +241,6 @@
 }
 
 .cv-border-style {
-  padding: 25px;
   margin: 25px;
   border-width: thick;
   border-radius: 5px 5px 135px 5px;
