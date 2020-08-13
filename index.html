@@ -34,7 +34,7 @@
           <div class="row align-items-center">
             <div class="col text-center text-black mt-lg-0 mt-5 my-lg-4 my-0">
               <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
-              <p class="bolder">QA engineering | full stack JavaScript</p>
+              <h2 class="bolder">QA engineering | full stack JavaScript</h2>
             </div>
             <div class="col d-none d-lg-block">
               <img src="img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
@@ -205,17 +205,19 @@
               <div class="row mx-0 justify-content-lg-center d-lg-block d-none">
                 <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                   <small>Working since</small><br />
-                  <h1 id="sinceYear">2013</h1>
+                  <span class="number-big" id="sinceYear">2013</span>
                 </div>
                 <script async src="index.js" onload="getRepos()"></script>
                 <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
                   <small>GitHub repos*</small><br />
-                  <h1 id="ghRepos">--</h1>
+                  <span class="number-big" id="ghRepos">--</span>
                 </div>
                 <script async src="index.js" onload="getStreak()"></script>
                 <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
                   <small>GitHub streak*</small><br />
-                  <h1><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></h1>
+                  <span class="number-big"
+                    ><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></span
+                  >
                 </div>
                 <script async src="index.js" onload="getDate()"></script>
                 <div class="col-11 m-2 text-center text-muted data-style">
@@ -237,15 +239,17 @@
               <div class="row mx-0 d-lg-none text-center">
                 <div class="col">
                   <small class="un-on-mobile">Working since</small><br />
-                  <h1 id="sinceYearMobile">2013</h1>
+                  <span class="number-big" id="sinceYearMobile">2013</span>
                 </div>
                 <div class="col">
                   <small class="un-on-mobile">GitHub repos*</small><br />
-                  <h1 id="ghReposMobile">--</h1>
+                  <span class="number-big" id="ghReposMobile">--</span>
                 </div>
                 <div class="col">
                   <small class="un-on-mobile">GitHub streak*</small><br />
-                  <h1><span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub></h1>
+                  <span class="number-big"
+                    ><span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub></span
+                  >
                 </div>
                 <div class="col-11 m-2 text-center text-muted data-style">
                   <p>
@@ -323,9 +327,14 @@
         </div>
         <div class="carousel-container">
           <div class="p-2 carousel">
-            <div class="item active">
-              <img class="item-img" alt="" src="" />
-              <h3 class="p-2 text-center">First</h3>
+            <div class="item active text-center">
+              <a target="_blank" rel="noopener noreferrer" href="">
+                <img
+                  class="item-img"
+                  alt=""
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              /></a>
+              <h3 class="p-2">First</h3>
               <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href=""
                 ><img class="source-link" src="img/portfolio/github-light.svg" alt="source link"
               /></a>
@@ -333,9 +342,14 @@
                 <img class="external-link" src="img/portfolio/external_link-light.svg" alt="external link" />
               </a>
             </div>
-            <div class="item next">
-              <img class="item-img" alt="" src="" />
-              <h3 class="p-2 text-center">Second</h3>
+            <div class="item next text-center">
+              <a target="_blank" rel="noopener noreferrer" href="">
+                <img
+                  class="item-img"
+                  alt=""
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              /></a>
+              <h3 class="p-2">Second</h3>
               <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href=""
                 ><img class="source-link" src="img/portfolio/github-light.svg" alt="source link"
               /></a>
@@ -343,9 +357,14 @@
                 <img class="external-link" src="img/portfolio/external_link-light.svg" alt="external link" />
               </a>
             </div>
-            <div class="item">
-              <img class="item-img" alt="" src="" />
-              <h3 class="p-2 text-center">Third</h3>
+            <div class="item text-center">
+              <a target="_blank" rel="noopener noreferrer" href="">
+                <img
+                  class="item-img"
+                  alt=""
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              /></a>
+              <h3 class="p-2">Third</h3>
               <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href=""
                 ><img class="source-link" src="img/portfolio/github-light.svg" alt="source link"
               /></a>
@@ -353,9 +372,14 @@
                 <img class="external-link" src="img/portfolio/external_link-light.svg" alt="external link" />
               </a>
             </div>
-            <div class="item prev">
-              <img class="item-img" alt="" src="" />
-              <h3 class="p-2 text-center">Fourth</h3>
+            <div class="item prev text-center">
+              <a target="_blank" rel="noopener noreferrer" href="">
+                <img
+                  class="item-img"
+                  alt=""
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              /></a>
+              <h3 class="p-2">Fourth</h3>
               <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href=""
                 ><img class="source-link" src="img/portfolio/github-light.svg" alt="source link"
               /></a>
