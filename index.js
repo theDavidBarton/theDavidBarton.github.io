@@ -43,7 +43,8 @@ function portfolioProjectsFn() {
 function portfolio() {
   const portfolioProjects = portfolioProjectsFn()
   const carouselItems = document.querySelectorAll('.item')
-  const carouselImages = document.querySelectorAll('.item > img')
+  const carouselExternalDemosImg = document.querySelectorAll('.item > a:nth-child(1)')
+  const carouselImages = document.querySelectorAll('.item-img')
   const carouselHeadings = document.querySelectorAll('.item > h3')
   const carouselExternalSource = document.querySelectorAll('.item > a:nth-child(3)')
   const carouselExternalDemos = document.querySelectorAll('.item > a:nth-child(4)')
@@ -62,6 +63,9 @@ function portfolio() {
   })
   carouselExternalSource.forEach((el, i) => {
     el.href = portfolioProjects[i].projectSourceUrl
+  })
+  carouselExternalDemosImg.forEach((el, i) => {
+    el.href = portfolioProjects[i].projectDemoUrl
   })
   carouselExternalDemos.forEach((el, i) => {
     el.href = portfolioProjects[i].projectDemoUrl
