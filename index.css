@@ -51,6 +51,10 @@
 }
 
 /* portfolio items */
+.lift-up-elem {
+  z-index: 1;
+}
+
 .carousel-container {
   margin: 0;
   padding: 0;
