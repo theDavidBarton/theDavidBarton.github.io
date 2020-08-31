@@ -247,9 +247,8 @@ a {
 }
 
 .cv-border-style {
-  margin: 25px;
-  border-width: thick;
-  border-radius: 5px 5px 135px 5px;
+  margin: 25px 25px 25px 0px;
+  padding-left: 28px;
   border-left: 25px solid #9fe0c6;
 }
 
