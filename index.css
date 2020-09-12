@@ -23,6 +23,16 @@
   filter: fliph;
 }
 
+.vertical-align {
+  padding-top: 3rem;
+}
+
+@media all and (max-width: 992px) {
+  .vertical-align {
+    padding-top: 0rem;
+  }
+}
+
 .bolder {
   font-size: unset;
   font-weight: bold;
