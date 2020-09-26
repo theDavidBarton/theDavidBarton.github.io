@@ -7,7 +7,7 @@ function portfolioProjectsFn() {
     {
       id: 0,
       title: 'Trending Movies app',
-      imgSrc: 'img/portfolio/tmdb.jpg',
+      imgSrc: 'img/portfolio/tmdb',
       projectDemoUrl: '/redirect.html?url=https://trending-movies-react-app.herokuapp.com/',
       projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
       techStack: ['Node.Js', 'React.Js']
@@ -15,7 +15,7 @@ function portfolioProjectsFn() {
     {
       id: 1,
       title: 'Trending Video Games app',
-      imgSrc: 'img/portfolio/rawg.jpg',
+      imgSrc: 'img/portfolio/rawg',
       projectDemoUrl: '/redirect.html?url=https://trending-video-games.herokuapp.com/',
       projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
       techStack: ['Node.Js', 'React.Js']
@@ -23,7 +23,7 @@ function portfolioProjectsFn() {
     {
       id: 2,
       title: 'The Harry Potter Database',
-      imgSrc: 'img/portfolio/thpdb.jpg',
+      imgSrc: 'img/portfolio/thpdb',
       projectDemoUrl: '/redirect.html?url=https://the-harry-potter-database.herokuapp.com/',
       projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
       techStack: ['Node.Js', 'React.Js']
@@ -31,7 +31,7 @@ function portfolioProjectsFn() {
     {
       id: 3,
       title: 'Pixel Art Project',
-      imgSrc: 'img/portfolio/pixel.jpg',
+      imgSrc: 'img/portfolio/pixel',
       projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
       projectSourceUrl: 'https://github.com/theDavidBarton/pixel-art',
       techStack: ['Node.Js', 'React.Js', 'GIMP']
@@ -44,6 +44,8 @@ function portfolio() {
   const portfolioProjects = portfolioProjectsFn()
   const carouselItems = document.querySelectorAll('.item')
   const carouselExternalDemosImg = document.querySelectorAll('.item > a:nth-child(1)')
+  const carouselImagesWebp = document.querySelectorAll('.item-img-webp')
+  const carouselImagesJpeg = document.querySelectorAll('.item-img-jpeg')
   const carouselImages = document.querySelectorAll('.item-img')
   const carouselHeadings = document.querySelectorAll('.item > h3')
   const carouselExternalSource = document.querySelectorAll('.item > a:nth-child(3)')
@@ -54,8 +56,14 @@ function portfolio() {
       navHandler(this)
     }
   })
+  carouselImagesWebp.forEach((el, i) => {
+    el.srcset = portfolioProjects[i].imgSrc + '.webp'
+  })
+  carouselImagesJpeg.forEach((el, i) => {
+    el.srcset = portfolioProjects[i].imgSrc + '.jpg'
+  })
   carouselImages.forEach((el, i) => {
-    el.src = portfolioProjects[i].imgSrc
+    el.src = portfolioProjects[i].imgSrc + '.jpg'
     el.alt = portfolioProjects[i].title
   })
   carouselHeadings.forEach((el, i) => {
