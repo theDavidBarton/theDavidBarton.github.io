@@ -247,13 +247,21 @@ a {
 }
 
 /* about section */
-.un-btn {
+.fun-border {
+  color: #343a40;
+  border-color: #343a40;
   pointer-events: none;
   cursor: default;
+  padding: 1.5rem;
+  margin-left: 1.5rem;
+  display: inline-block;
+  line-height: 1.5;
+  border: 1px solid;
+  border-radius: 0.25rem;
 }
 
-.un-on-mobile {
-  font-size: small;
+.fun-text {
+  cursor: default;
 }
 
 .cv-border-style {
@@ -263,13 +271,13 @@ a {
 }
 
 @media all and (min-width: 321px) and (max-width: 375px) {
-  .un-on-mobile {
+  .fun-text {
     font-size: 0.7em;
   }
 }
 
 @media all and (max-width: 320px) {
-  .un-on-mobile {
+  .fun-text {
     font-size: 0.5em;
   }
 }
@@ -291,17 +299,15 @@ a {
   .vertical-bar {
     border-left: none;
   }
-}
-
-@media all and (max-width: 1200px) {
-  .un-btn > small {
-    font-size: 0.5em;
+  .fun-border {
+    border: 0px solid;
   }
 }
 
-@media all and (max-width: 1200px) {
-  .un-btn > h1 {
-    font-size: 1.7em;
+@media all and (max-width: 990px) {
+  .fun-border {
+    margin-left: 0rem;
+    padding: 0rem;
   }
 }
 
@@ -314,6 +320,12 @@ a {
   margin-block-start: -0.3rem;
   margin-block-end: 0.27rem;
   display: block;
+}
+
+@media all and (max-width: 370px) {
+  .number-big {
+    font-size: 1.95rem;
+  }
 }
 
 /* contact section */
