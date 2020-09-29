@@ -264,10 +264,6 @@ a {
   cursor: default;
 }
 
-.fun-on-mobile {
-  font-size: small;
-}
-
 .cv-border-style {
   margin: 25px 25px 25px 0px;
   padding-left: 28px;
@@ -275,23 +271,12 @@ a {
 }
 
 @media all and (min-width: 321px) and (max-width: 375px) {
-  .fun-on-mobile {
-    font-size: 0.7em;
-  }
   .fun-text {
     font-size: 0.7em;
-  }
-  .fun-border {
-    padding: 0rem;
-    margin-left: 0rem;
-    border: 0px solid;
   }
 }
 
 @media all and (max-width: 320px) {
-  .fun-on-mobile {
-    font-size: 0.5em;
-  }
   .fun-text {
     font-size: 0.5em;
   }
