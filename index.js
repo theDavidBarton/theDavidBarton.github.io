@@ -1,5 +1,15 @@
 'use strict'
 
+function prodUrl() {
+  return /https:\/\/thedavidbarton\.github\.io\//gi
+}
+
+function numberToK(n) {
+  // works till 999999
+  if (n >= 1e3) return `${+(n / 1e3).toFixed(1)}K`
+  else return n
+}
+
 // portfolio projects
 
 function portfolioProjectsFn() {
@@ -133,11 +143,10 @@ function getUrlFromLink() {
 // twin peaks api call
 async function getQuote() {
   try {
-    const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
     let obj
     let response
     // reduce load on twin peaks api during development
-    if (window.location.href.match(prodUrl)) {
+    if (window.location.href.match(prodUrl())) {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/quotes/recommend?relevance=1&profanity=false')
       await response.json().then(data => (obj = data[0]))
     } else {
@@ -159,20 +168,18 @@ async function getQuote() {
 // GitHub repo counter
 async function getRepos() {
   try {
-    const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
     let obj
     let response
     // reduce load on github api during development
-    if (window.location.href.match(prodUrl)) {
+    if (window.location.href.match(prodUrl())) {
       response = await fetch('https://api.github.com/users/theDavidBarton')
       await response.json().then(data => (obj = data))
     } else {
       response = '{"public_repos": 20}'
       obj = JSON.parse(response)
     }
-    const publicRepos = obj.public_repos
+    const publicRepos = numberToK(parseInt(obj.public_repos))
     document.querySelector('#ghRepos').textContent = publicRepos
-    document.querySelector('#ghReposMobile').textContent = publicRepos
   } catch (e) {
     console.error(e)
   }
@@ -181,23 +188,49 @@ async function getRepos() {
 // GitHub streak scraper
 async function getStreak() {
   try {
-    const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
     let obj
     let response
     // reduce load on my heroku api during development
-    if (window.location.href.match(prodUrl)) {
+    if (window.location.href.match(prodUrl())) {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton')
       await response.json().then(data => (obj = data))
     } else {
-      response = '{"currentStreakCount":12}'
+      response = '{"currentStreakCount": 1400}'
       obj = JSON.parse(response)
     }
-    const currentStreakCount = obj.currentStreakCount
-    document.querySelector('#ghStreak').textContent = currentStreakCount
-    document.querySelector('#ghStreakMobile').textContent = currentStreakCount
-    currentStreakCount == 1
-      ? (document.querySelector('#ghStreakSubText').textContent = 'day')
-      : (document.querySelector('#ghStreakSubText').textContent = 'days')
+    const currentStreakCount = numberToK(parseInt(obj.currentStreakCount))
+    if (obj.currentStreakCount > 0) {
+      document.querySelector('#ghStreak').textContent = currentStreakCount
+      currentStreakCount == 1
+        ? (document.querySelector('#ghStreakSubText').textContent = 'day')
+        : (document.querySelector('#ghStreakSubText').textContent = 'days')
+    } else {
+      getReputation()
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+// StackOverFlow reputation fallback for no GitHub streak
+async function getReputation() {
+  try {
+    let obj
+    let response
+    // reduce load on github api during development
+    if (window.location.href.match(prodUrl())) {
+      response = await fetch('https://api.stackexchange.com/2.2/users/12412595?site=stackoverflow')
+      await response.json().then(data => (obj = data))
+    } else {
+      response = '{"items":[{"reputation":1828}]}'
+      obj = JSON.parse(response)
+    }
+    const reputationOnSO = numberToK(parseInt(obj.items[0].reputation))
+    document.querySelector('#ghStreakText').textContent = 'StackOverflow:*'
+    document.querySelector('#streakOrRepSource').innerHTML =
+      '<a href="https://api.stackexchange.com/2.2/users" target="_blank" rel="noopener noreferrer">Stack Exchange API</a>'
+    document.querySelector('#ghStreak').textContent = reputationOnSO
+    document.querySelector('#ghStreakSubText').remove()
   } catch (e) {
     console.error(e)
   }
@@ -207,5 +240,4 @@ async function getStreak() {
 function getDate() {
   const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
   document.querySelector('#funfactDataDate').textContent = today
-  document.querySelector('#funfactDataDateMobile').textContent = today
 }

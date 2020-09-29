@@ -203,72 +203,44 @@
                 In my spare time, I enjoy working on hobby JS projects in Node and React to improve my
                 <span class="badge badge-dark">full stack JavaScript dev</span> skills.
               </p>
-              <!-- desktop "fun facts" content starts here -->
-              <div class="row mx-0 justify-content-lg-center d-lg-block d-none">
-                <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
-                  <small>Working since</small><br />
+              <!-- "fun facts" content starts here -->
+              <div class="row mx-0 text-center">
+                <div class="col col-lg-3 fun-border float-left">
+                  <small class="fun-text" id="sinceYearText">Working since</small><br />
                   <span class="number-big" id="sinceYear">2013</span>
                 </div>
                 <script async src="index.js" onload="getRepos()"></script>
-                <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4 float-left">
-                  <small>GitHub repos*</small><br />
+                <div class="col col-lg-3 fun-border float-left">
+                  <small class="fun-text" id="ghReposText">GitHub repos*</small><br />
                   <span class="number-big" id="ghRepos">--</span>
                 </div>
                 <script async src="index.js" onload="getStreak()"></script>
-                <div class="col-5 col-sm-3 btn un-btn btn-outline-dark text-center p-4 ml-4">
-                  <small>GitHub streak*</small><br />
+                <div class="col col-lg-3 fun-border">
+                  <small class="fun-text" id="ghStreakText">GitHub streak*</small><br />
                   <span class="number-big"
                     ><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></span
                   >
                 </div>
                 <script async src="index.js" onload="getDate()"></script>
-                <div class="col-11 m-2 text-center text-muted data-style">
-                  <p>
-                    <small
-                      >*Data is retrieved from
-                      <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer">GitHub api</a>
-                      and my
+              </div>
+              <!-- "fun facts" ends here -->
+              <div class="col-11 m-2 text-center text-muted data-style">
+                <p>
+                  <small
+                    >*Data is retrieved from
+                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer">GitHub api</a>
+                    and
+                    <span id="streakOrRepSource"
+                      >my
                       <a href="https://www.npmjs.com/package/github-streak-scraper" target="_blank" rel="noopener noreferrer"
                         >github&#8209;streak&#8209;scraper</a
-                      >
-                      on
-                      <span id="funfactDataDate">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span>.</small
+                      ></span
                     >
-                  </p>
-                </div>
-              </div>
-              <!-- mobile only "fun facts" starts here -->
-              <div class="row mx-0 d-lg-none text-center">
-                <div class="col">
-                  <small class="un-on-mobile">Working since</small><br />
-                  <span class="number-big" id="sinceYearMobile">2013</span>
-                </div>
-                <div class="col">
-                  <small class="un-on-mobile">GitHub repos*</small><br />
-                  <span class="number-big" id="ghReposMobile">--</span>
-                </div>
-                <div class="col">
-                  <small class="un-on-mobile">GitHub streak*</small><br />
-                  <span class="number-big"
-                    ><span id="ghStreakMobile">--</span><sub id="ghStreakSubTextMobile" class="days-style">days</sub></span
+                    on
+                    <span id="funfactDataDate">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span>.</small
                   >
-                </div>
-                <div class="col-11 m-2 text-center text-muted data-style">
-                  <p>
-                    <small
-                      >*Data is retrieved from
-                      <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer">GitHub api</a>
-                      and my
-                      <a href="https://www.npmjs.com/package/github-streak-scraper" target="_blank" rel="noopener noreferrer"
-                        >github&#8209;streak&#8209;scraper</a
-                      >
-                      on
-                      <span id="funfactDataDateMobile">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span>.</small
-                    >
-                  </p>
-                </div>
+                </p>
               </div>
-              <!-- mobile only "fun facts" ends here -->
             </div>
           </div>
           <!-- 2nd col div ends -->
