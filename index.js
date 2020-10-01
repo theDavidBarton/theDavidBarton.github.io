@@ -199,20 +199,16 @@ async function getStreak() {
       obj = JSON.parse(response)
     }
     const currentStreakCount = numberToK(parseInt(obj.currentStreakCount))
-    if (obj.currentStreakCount > 0) {
-      document.querySelector('#ghStreak').textContent = currentStreakCount
-      currentStreakCount == 1
-        ? (document.querySelector('#ghStreakSubText').textContent = 'day')
-        : (document.querySelector('#ghStreakSubText').textContent = 'days')
-    } else {
-      getReputation()
-    }
+    document.querySelector('#ghStreak').textContent = currentStreakCount
+    currentStreakCount == 1
+      ? (document.querySelector('#ghStreakSubText').textContent = 'day')
+      : (document.querySelector('#ghStreakSubText').textContent = 'days')
   } catch (e) {
     console.error(e)
   }
 }
 
-// StackOverFlow reputation fallback for no GitHub streak
+// StackOverFlow reputation
 async function getReputation() {
   try {
     let obj
@@ -222,15 +218,11 @@ async function getReputation() {
       response = await fetch('https://api.stackexchange.com/2.2/users/12412595?site=stackoverflow')
       await response.json().then(data => (obj = data))
     } else {
-      response = '{"items":[{"reputation":1828}]}'
+      response = '{"items":[{"reputation": 1828}]}'
       obj = JSON.parse(response)
     }
     const reputationOnSO = numberToK(parseInt(obj.items[0].reputation))
-    document.querySelector('#ghStreakText').textContent = 'StackOverflow:*'
-    document.querySelector('#streakOrRepSource').innerHTML =
-      '<a href="https://api.stackexchange.com/2.2/users" target="_blank" rel="noopener noreferrer">Stack Exchange API</a>'
-    document.querySelector('#ghStreak').textContent = reputationOnSO
-    document.querySelector('#ghStreakSubText').remove()
+    document.querySelector('#soReputation').textContent = reputationOnSO
   } catch (e) {
     console.error(e)
   }
