@@ -166,7 +166,7 @@
         <div class="container">
           <div class="row">
             <!-- 1st col starts here -->
-            <div class="col order-last order-xl-first">
+            <div class="col">
               <h3>
                 <a id="experience">experience</a>
               </h3>
@@ -189,11 +189,11 @@
               </div>
             </div>
             <!-- 2nd col starts here -->
-            <div class="col-lg-6 col-12 vertical-bar order-first order-xl-last">
-              <h3 class="d-inline">
+            <div class="col-lg-6 col-12">
+              <h3>
                 <a id="summary">about me</a>
               </h3>
-              <p class="m-4 pb-lg-0 pb-3">
+              <p class="m-4 pb-lg-0 pb-2">
                 I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same time I am
                 working as a <span class="badge badge-dark">QA engineer</span> and
                 <span class="badge badge-dark">release manager</span> at French metasearch company
@@ -203,38 +203,64 @@
                 In my spare time, I enjoy working on hobby JS projects in Node and React to improve my
                 <span class="badge badge-dark">full stack JavaScript dev</span> skills.
               </p>
-              <!-- "fun facts" content starts here -->
-              <div class="row mx-0 text-center">
-                <div class="col col-lg-3 fun-border float-left">
-                  <small class="fun-text" id="sinceYearText">Working since</small><br />
-                  <span class="number-big" id="sinceYear">2013</span>
-                </div>
-                <script async src="index.js" onload="getRepos()"></script>
-                <div class="col col-lg-3 fun-border float-left">
-                  <small class="fun-text" id="ghReposText">GitHub repos*</small><br />
-                  <span class="number-big" id="ghRepos">--</span>
-                </div>
-                <script async src="index.js" onload="getStreak()"></script>
-                <div class="col col-lg-3 fun-border">
-                  <small class="fun-text" id="ghStreakText">GitHub streak*</small><br />
-                  <span class="number-big"
-                    ><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></span
-                  >
-                </div>
-                <script async src="index.js" onload="getDate()"></script>
+            </div>
+            <!-- 2nd col div ends -->
+            <!-- "fun facts" content starts here -->
+            <div class="row mx-lg-0 mx-1 text-center">
+              <h3 class="col-12 text-left mb-2">
+                <a id="funFacts">fun facts</a>
+              </h3>
+              <div class="col-3 col-lg-auto fun-degree fun-border">
+                <small class="fun-text" id="sinceYearText">Working since</small><br />
+                <span class="number-big" id="sinceYear">2013</span>
               </div>
+              <div class="col-3 col-lg-auto fun-border">
+                <small class="fun-text" id="countryText">Citizenship</small><br />
+                <span class="number-big" id="country">EU</span>
+              </div>
+              <div class="col-3 col-lg-auto fun-border">
+                <small class="fun-text" id="ghReposText">GitHub repos*</small><br />
+                <span class="number-big" id="ghRepos">--</span>
+              </div>
+              <div class="col-3 col-lg-auto fun-border">
+                <small class="fun-text" id="ghStreakText">GitHub streak*</small><br />
+                <span class="number-big"
+                  ><span id="ghStreak">--</span><sub id="ghStreakSubText" class="days-style">days</sub></span
+                >
+              </div>
+              <div class="col-3 col-lg-auto fun-border">
+                <small class="fun-text" id="soReputationText">StackOverflow*</small><br />
+                <span class="number-big" id="soReputation">--</span>
+                <small class="fun-text" id="soReputationSubtitle">reputation</small>
+              </div>
+              <div class="col-3 col-lg-auto fun-border">
+                <small class="fun-text" id="crocText">a crocodile</small><br />
+                <span class="number-big de-saturate" id="croc">🐊</span>
+              </div>
+              <div class="col-3 col-lg-auto fun-border">
+                <img
+                  height="75"
+                  width="75"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg"
+                  alt="whale from Docker"
+                />
+              </div>
+              <script async src="index.js" onload="getRepos()"></script>
+              <script async src="index.js" onload="getStreak()"></script>
+              <script async src="index.js" onload="getReputation()"></script>
+              <script async src="index.js" onload="getDate()"></script>
               <!-- "fun facts" ends here -->
-              <div class="col-11 m-2 text-center text-muted data-style">
+              <div class="col pt-4 text-center text-muted data-style">
                 <p>
                   <small
                     >*Data is retrieved from
-                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer">GitHub api</a>
+                    <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer">GitHub api</a>, my
+                    <a href="https://www.npmjs.com/package/github-streak-scraper" target="_blank" rel="noopener noreferrer"
+                      >github&#8209;streak&#8209;scraper</a
+                    >
                     and
-                    <span id="streakOrRepSource"
-                      >my
-                      <a href="https://www.npmjs.com/package/github-streak-scraper" target="_blank" rel="noopener noreferrer"
-                        >github&#8209;streak&#8209;scraper</a
-                      ></span
+                    <a href="https://api.stackexchange.com/2.2/users" target="_blank" rel="noopener noreferrer"
+                      >Stack Exchange API</a
                     >
                     on
                     <span id="funfactDataDate">&#8209;&#8209;/&#8209;&#8209;/&#8209;&#8209;&#8209;&#8209;</span>.</small
@@ -243,11 +269,10 @@
               </div>
             </div>
           </div>
-          <!-- 2nd col div ends -->
         </div>
       </section>
       <!-- V.) hobbies -->
-      <section class="bg-cool-secondary">
+      <section class="bg-cool">
         <div class="container py-3">
           <div class="row p-2 text-dark">
             <h3>

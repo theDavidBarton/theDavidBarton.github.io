@@ -258,6 +258,13 @@ a {
   line-height: 1.5;
   border: 1px solid;
   border-radius: 0.25rem;
+  width: 8.4rem;
+  height: 8.4rem;
+  overflow: hidden;
+}
+
+.fun-degree {
+  transform: rotate(20deg);
 }
 
 .fun-text {
@@ -290,17 +297,13 @@ a {
   font-size: 0.8em;
 }
 
-.vertical-bar {
-  border-width: thin;
-  border-left: 1px solid #6c757d;
-}
-
 @media all and (max-width: 1200px) {
-  .vertical-bar {
-    border-left: none;
-  }
   .fun-border {
     border: 0px solid;
+    height: auto;
+  }
+  .fun-degree {
+    transform: rotate(0deg);
   }
 }
 
@@ -311,6 +314,12 @@ a {
   }
 }
 
+@media all and (max-width: 450px) {
+  .fun-border {
+    width: 7.4rem;
+  }
+}
+
 .number-big {
   font-size: 2.5rem;
   margin-top: 0;
@@ -318,14 +327,24 @@ a {
   font-weight: 500;
   line-height: 1.43;
   margin-block-start: -0.3rem;
-  margin-block-end: 0.27rem;
+  margin-block-end: -0.73rem;
   display: block;
+}
+
+@media all and (max-width: 990px) {
+  .number-big {
+    margin-block-end: 0rem;
+  }
 }
 
 @media all and (max-width: 370px) {
   .number-big {
     font-size: 1.95rem;
   }
+}
+
+.de-saturate {
+  filter: saturate(0.5);
 }
 
 /* contact section */
