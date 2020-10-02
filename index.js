@@ -50,46 +50,41 @@ function portfolioProjectsFn() {
   return object
 }
 
-function portfolio() {
-  const portfolioProjects = portfolioProjectsFn()
+function createPortfolioItems() {
+  const projects = portfolioProjectsFn()
+  const items = projects.map((item, i) => {
+    return `<div class="item text-center" id="${i}">
+    <a target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl}">
+      <picture>
+        <source srcset="${item.imgSrc}.webp" type="image/webp" class="item-img-webp" />
+        <source srcset="${item.imgSrc}.jpg" type="image/jpeg" class="item-img-jpeg" />
+        <img class="item-img" alt="${item.title}" src="${item.imgSrc}.jpg" />
+      </picture>
+    </a>
+    <h3 class="p-2">${item.title}</h3>
+    <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href="${item.projectSourceUrl}">
+      <img class="source-link" src="img/portfolio/github-light.svg" alt="source link to ${item.title}" />
+    </a>
+    <a title="visit website" target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl}">
+      <img class="external-link" src="img/portfolio/external_link-light.svg" alt="external link to ${item.title}" />
+    </a>
+  </div>`
+  })
+  const htmlJoined = items.join('')
+  const carousel = document.querySelector('#carousel')
+  carousel.innerHTML = htmlJoined
   const carouselItems = document.querySelectorAll('.item')
-  const carouselExternalDemosImg = document.querySelectorAll('.item > a:nth-child(1)')
-  const carouselImagesWebp = document.querySelectorAll('.item-img-webp')
-  const carouselImagesJpeg = document.querySelectorAll('.item-img-jpeg')
-  const carouselImages = document.querySelectorAll('.item-img')
-  const carouselHeadings = document.querySelectorAll('.item > h3')
-  const carouselExternalSource = document.querySelectorAll('.item > a:nth-child(3)')
-  const carouselExternalDemos = document.querySelectorAll('.item > a:nth-child(4)')
-  carouselItems.forEach((el, i) => {
-    el.id = portfolioProjects[i].id
+  carouselItems.forEach(el => {
     el.onclick = function () {
       navHandler(this)
     }
   })
-  carouselImagesWebp.forEach((el, i) => {
-    el.srcset = portfolioProjects[i].imgSrc + '.webp'
-  })
-  carouselImagesJpeg.forEach((el, i) => {
-    el.srcset = portfolioProjects[i].imgSrc + '.jpg'
-  })
-  carouselImages.forEach((el, i) => {
-    el.src = portfolioProjects[i].imgSrc + '.jpg'
-    el.alt = portfolioProjects[i].title
-  })
-  carouselHeadings.forEach((el, i) => {
-    el.textContent = portfolioProjects[i].title
-  })
-  carouselExternalSource.forEach((el, i) => {
-    el.href = portfolioProjects[i].projectSourceUrl
-  })
-  carouselExternalDemosImg.forEach((el, i) => {
-    el.href = portfolioProjects[i].projectDemoUrl
-  })
-  carouselExternalDemos.forEach((el, i) => {
-    el.href = portfolioProjects[i].projectDemoUrl
-  })
+
+  // add initial classes
+  carouselItems[0].classList.add('active')
+  carouselItems[1].classList.add('next')
+  carouselItems[projects.length - 1].classList.add('prev')
 }
-portfolio()
 
 function nextPrev(id) {
   const portItemLngth = portfolioProjectsFn().length
