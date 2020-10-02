@@ -13,7 +13,7 @@ function numberToK(n) {
 // portfolio projects
 
 function portfolioProjectsFn() {
-  const object = [
+  return [
     {
       id: 0,
       title: 'Trending Movies app',
@@ -32,6 +32,14 @@ function portfolioProjectsFn() {
     },
     {
       id: 2,
+      title: 'OneyPlays api',
+      imgSrc: 'img/portfolio/oney',
+      projectDemoUrl: 'https://www.npmjs.com/package/oneyplays-api',
+      projectSourceUrl: 'https://github.com/theDavidBarton/oneyplays-api',
+      techStack: ['Node.Js']
+    },
+    {
+      id: 3,
       title: 'The Harry Potter Database',
       imgSrc: 'img/portfolio/thpdb',
       projectDemoUrl: '/redirect.html?url=https://the-harry-potter-database.herokuapp.com/',
@@ -39,7 +47,15 @@ function portfolioProjectsFn() {
       techStack: ['Node.Js', 'React.Js']
     },
     {
-      id: 3,
+      id: 4,
+      title: 'Simple Puppeteer Uptime Checker',
+      imgSrc: 'img/portfolio/uptime',
+      projectDemoUrl: null,
+      projectSourceUrl: 'https://github.com/theDavidBarton/simple-puppeteer-uptime-checker',
+      techStack: ['Node.Js']
+    },
+    {
+      id: 5,
       title: 'Pixel Art Project',
       imgSrc: 'img/portfolio/pixel',
       projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
@@ -47,14 +63,14 @@ function portfolioProjectsFn() {
       techStack: ['Node.Js', 'React.Js', 'GIMP']
     }
   ]
-  return object
 }
 
 function createPortfolioItems() {
   const projects = portfolioProjectsFn()
   const items = projects.map((item, i) => {
+    // prettier-ignore
     return `<div class="item text-center" id="${i}">
-    <a target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl}">
+    <a target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl ? item.projectDemoUrl : item.projectSourceUrl}">
       <picture>
         <source srcset="${item.imgSrc}.webp" type="image/webp" class="item-img-webp" />
         <source srcset="${item.imgSrc}.jpg" type="image/jpeg" class="item-img-jpeg" />
@@ -65,9 +81,9 @@ function createPortfolioItems() {
     <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href="${item.projectSourceUrl}">
       <img class="source-link" src="img/portfolio/github-light.svg" alt="source link to ${item.title}" />
     </a>
-    <a title="visit website" target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl}">
+    ${item.projectDemoUrl ? `<a title="visit website" target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl}">
       <img class="external-link" src="img/portfolio/external_link-light.svg" alt="external link to ${item.title}" />
-    </a>
+    </a>` : ''}
   </div>`
   })
   const htmlJoined = items.join('')
