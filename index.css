@@ -247,20 +247,29 @@ a {
 }
 
 /* about section */
+.highlight {
+  font-size: smaller;
+  color: #9fe0c6;
+  background-color: #343a40;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  padding-bottom: 0.1rem;
+  border-radius: 0.1rem;
+}
+
 .fun-border {
   color: #343a40;
   border-color: #343a40;
   pointer-events: none;
   cursor: default;
   padding: 1.5rem;
-  margin-left: 1.5rem;
+  margin: 0.75rem;
   display: inline-block;
   line-height: 1.5;
   border: 1px solid;
   border-radius: 0.25rem;
   width: 8.4rem;
   height: 8.4rem;
-  overflow: hidden;
 }
 
 .fun-degree {
@@ -309,7 +318,6 @@ a {
 
 @media all and (max-width: 990px) {
   .fun-border {
-    margin-left: 0rem;
     padding: 0rem;
   }
 }
@@ -333,7 +341,7 @@ a {
 
 @media all and (max-width: 990px) {
   .number-big {
-    margin-block-end: 0rem;
+    margin-block-end: -0.72rem;
   }
 }
 
@@ -345,6 +353,10 @@ a {
 
 .de-saturate {
   filter: saturate(0.5);
+}
+
+.text-wrap {
+  white-space: normal;
 }
 
 /* contact section */
