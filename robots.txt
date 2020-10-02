@@ -1,0 +1,10 @@
+# img
+User-agent: Googlebot-Image
+Disallow: /*.webp$
+Disallow: /*.svg$
+Disallow: /*.jpg$
+
+# general
+User-agent: *
+Disallow: /redirect.html?
+Disallow: /redirect.html
