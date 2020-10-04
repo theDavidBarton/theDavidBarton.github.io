@@ -18,7 +18,7 @@ function portfolioProjectsFn() {
       id: 0,
       title: 'Trending Movies app',
       imgSrc: 'img/portfolio/tmdb',
-      projectDemoUrl: '/redirect.html?url=https://trending-movies-react-app.herokuapp.com/',
+      projectDemoUrl: '/redirect?url=https://trending-movies-react-app.herokuapp.com/',
       projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
       techStack: ['Node.Js', 'React.Js']
     },
@@ -26,7 +26,7 @@ function portfolioProjectsFn() {
       id: 1,
       title: 'Trending Video Games app',
       imgSrc: 'img/portfolio/rawg',
-      projectDemoUrl: '/redirect.html?url=https://trending-video-games.herokuapp.com/',
+      projectDemoUrl: '/redirect?url=https://trending-video-games.herokuapp.com/',
       projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
       techStack: ['Node.Js', 'React.Js']
     },
@@ -42,7 +42,7 @@ function portfolioProjectsFn() {
       id: 3,
       title: 'The Harry Potter Database',
       imgSrc: 'img/portfolio/thpdb',
-      projectDemoUrl: '/redirect.html?url=https://the-harry-potter-database.herokuapp.com/',
+      projectDemoUrl: '/redirect?url=https://the-harry-potter-database.herokuapp.com/',
       projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
       techStack: ['Node.Js', 'React.Js']
     },

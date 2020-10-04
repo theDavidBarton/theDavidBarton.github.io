@@ -1,0 +1,10 @@
+{
+  "id": 0,
+  "canonical": true,
+  "canonical-href": "https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a",
+  "title": "Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps",
+  "lead": "To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available.",
+  "date": "February 2, 2020",
+  "originally-published": "Medium.com",
+  "category": "technical writing"
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Simple preloader CSS animation - theDavidBarton.github.io</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    <link rel="canonical" href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7" />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Previously I was working on a redirect page to act as a bridge between my page and my idling Heroku apps. The next step is to make the content of this redirect page a bit more elegant."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+
+  <body>
+    <header class="bg-dark">
+      <!-- I.) back to top -->
+      <a id="top"></a>
+      <a href="#top">
+        <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
+      </a>
+      <!-- II.) intro bar -->
+      <div class="bg-cool py-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col text-center text-black mt-lg-0 mt-5 vertical-align">
+              <a class="text-decoration-none text-reset" href="/">
+                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
+            </div>
+            <picture class="col d-none d-lg-block">
+              <source srcset="/img/avatar.webp" type="image/webp" />
+              <source srcset="/img/avatar.png" type="image/png" />
+              <img src="/img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
+            </picture>
+            <div class="col text-center my-2">
+              <a class="btn btn-light btn-w my-2" href="#projects">
+                <div class="lead align-middle">
+                  <span>see my work</span>
+                  <img
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+              <a class="btn btn-dark btn-w my-2" href="#contact">
+                <div class="lead align-middle">
+                  <span>contact</span>
+                  <img
+                    class="invert-icon"
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="bg-dark text-light">
+  <section class="container">
+    <script async src="/blog/index.js"></script>
+    <div class="row">
+      <article class="col" id="article">
+        <div class="pt-3">February 5, 2020, &#128368; <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7">Medium.com</a></div><h1 id="simple-preloader-css-animation">Simple preloader CSS animation</h1>
+<p>Previously I was working on a redirect page to act as a bridge between my page and my idling Heroku apps. The next step is to make the content of this redirect page a bit more elegant.
+<a href="https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a"><strong>Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps</strong>
+<em>I am using a Free plan on Heroku to host my Node/React projects which has its limitations. The most challenging one is…</em>medium.com</a></p>
+<p>Though I really liked the sleeping dino and the text content explains why the user sees the redirection, an animation is much more elegant, and in case of non-idling Heroku app, it is less redundant (if the redirection flashes for only a second it is confusing for the user as he/she cannot process the written info nor the graphic).</p>
+<p>I decided to use my logo and a “loading…” text as the preloader on the animation.</p>
+<p>About the functionality of the redirection page read my <a href="https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a">previous article</a>.</p>
+<h2 id="css">CSS</h2>
+<p>We gonna have an <strong>outer</strong> div and its width will be animated from zero to the size of the logo. In my case it is 300px (set in the <img> too). The animation starts only at 15% of keyframes. I also define an <strong>inner</strong> div that will contain the “unloaded” logo from the beginning. I also store two classes to recolor these logos (called evil-twin [black] and good-twin [white]).</p>
+<p>The two logos will be put on top of each other (position: absolute) and the outer one gonna have a higher z-index to make sure the animation is played on top of the black/unloaded logo</p>
+<p>The CSS:</p>
+<pre><code>.outer {
+  width: 300px;
+  overflow: hidden;
+  animation: preloader 7s;
+}
+
+.inner {
+  width: 300px;
+}
+
+.evil-twin {
+  filter: brightness(0);
+}
+
+.good-twin {
+  filter: brightness(100);
+}
+
+@keyframes *preloader* {
+  0% {
+    width: 0;
+  }
+  15% {
+    width: 0;
+  }
+  100% {
+    width: 300px;
+  }
+}</code></pre>
+<p>and the HTML (using some Bootstrap 4 classes!):</p>
+<pre><code>[...]
+&lt;div&gt;
+  &lt;div class=&quot;**outer** position-absolute&quot; style=&quot;z-index:5;&quot;&gt;
+    &lt;div class=&quot;**inner**&quot;&gt;
+      **&lt;img src=&quot;img/logo.svg&quot; width=&quot;300&quot; alt=&quot;branded logo&quot; class=&quot;good-twin&quot; /&gt;**
+      &lt;p class=&quot;text-center display-4&quot;&gt;loading...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;position-absolute&quot;&gt;
+    **&lt;img src=&quot;img/logo.svg&quot; width=&quot;300&quot; alt=&quot;branded logo&quot; class=&quot;evil-twin&quot; /&gt;**
+    &lt;p class=&quot;text-center display-4&quot; style=&quot;color:black&quot;&gt;loading...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+[...]</code></pre>
+<p>I only needed to fight a bit with positioning it on all devices to the center, this part is not part of the example above.</p>
+<p><img src="/img/blog/simple-preloader.png" alt=""></p>
+<p>You can check out the full code in my Github page’s repo:
+<a href="https://github.com/theDavidBarton/theDavidBarton.github.io"><strong>theDavidBarton/theDavidBarton.github.io</strong>
+*My GitHub page. Contribute to theDavidBarton/theDavidBarton.github.io development by creating an account on GitHub.*github.com</a></p>
+
+      </article>
+    </div>
+  </section>
+</main>
+
+    <footer class="bg-cool-secondary text-dark">
+      <!-- VIII. footer bar -->
+      <div class="container py-5">
+        <div class="text-center">
+          <div>
+            <div class="row">
+              <div class="col-lg-4 col-12 text-sm-left align-self-end">
+                <p>
+                  Graphics in the "hobbies" section are downloaded from:
+                  <a class="text-cool" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
+                    >www.fileformat.info</a
+                  >. Other icons are from:
+                  <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
+                    >simpleicons.org</a
+                  >.<br />
+                  All other graphics and photos of this project have been made available to this project by
+                  <span class="highlight">David Barton</span> and are copyrighted; any other use must be authorized by the maker
+                  which holds all the rights for them.
+                </p>
+              </div>
+              <div class="col text-sm-center align-self-end">
+                <img src="/img/logo_dark.svg" alt="logo" width="300" />
+              </div>
+              <div class="col text-sm-right align-self-end">
+                <a href="/">[&nbsp;home&nbsp;]</a> | <a href="/#projects">[&nbsp;porfolio&nbsp;]</a> |
+                <a href="/blog">[&nbsp;blog&nbsp;]</a>
+                <p>copyright © 2020 theDavidBarton</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -8,10 +8,11 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <link rel="preconnect" href="https://api.github.com/" />
     <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    <link rel="canonical" href="https://thedavidbarton.github.io/" />
     <meta charset="utf-8" />
     <meta
       name="description"
@@ -33,13 +34,15 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col text-center text-black mt-lg-0 mt-5 vertical-align">
-              <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
-              <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              <a class="text-decoration-none text-reset" href="/">
+                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
             </div>
             <picture class="col d-none d-lg-block">
-              <source srcset="img/avatar.webp" type="image/webp" />
-              <source srcset="img/avatar.png" type="image/png" />
-              <img src="img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
+              <source srcset="/img/avatar.webp" type="image/webp" />
+              <source srcset="/img/avatar.png" type="image/png" />
+              <img src="/img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
             </picture>
             <div class="col text-center my-2">
               <a class="btn btn-light btn-w my-2" href="#projects">
@@ -246,10 +249,10 @@
                   alt="whale from Docker"
                 />
               </div>
-              <script async src="index.js" onload="getRepos()"></script>
-              <script async src="index.js" onload="getStreak()"></script>
-              <script async src="index.js" onload="getReputation()"></script>
-              <script async src="index.js" onload="getDate()"></script>
+              <script async src="/index.js" onload="getRepos()"></script>
+              <script async src="/index.js" onload="getStreak()"></script>
+              <script async src="/index.js" onload="getReputation()"></script>
+              <script async src="/index.js" onload="getDate()"></script>
               <!-- "fun facts" ends here -->
               <div class="col pt-4 text-muted text-wrap data-style">
                 <p>
@@ -282,19 +285,19 @@
           </div>
           <div class="row text-center">
             <div class="col-3 col-lg-auto">
-              <img height="50" src="img/books.svg" alt="logo" />
+              <img height="50" src="/img/books.svg" alt="logo" />
               <p>Reading</p>
             </div>
             <div class="col-3 col-lg-auto">
-              <img height="50" src="img/hiking_boot.svg" alt="logo" />
+              <img height="50" src="/img/hiking_boot.svg" alt="logo" />
               <p>Hiking</p>
             </div>
             <div class="col-3 col-lg-auto">
-              <img height="50" src="img/video_game.svg" alt="logo" />
+              <img height="50" src="/img/video_game.svg" alt="logo" />
               <p>Retro gaming</p>
             </div>
             <div class="col-3 col-lg-auto">
-              <img height="50" src="img/old_personal_computer.svg" alt="logo" />
+              <img height="50" src="/img/old_personal_computer.svg" alt="logo" />
               <p>Coding</p>
             </div>
             <div class="col mx-4 text-left">
@@ -327,7 +330,7 @@
             </div>
           </div>
           <div class="p-2 carousel" id="carousel">
-            <script async src="index.js" onload="createPortfolioItems()"></script>
+            <script async src="/index.js" onload="createPortfolioItems()"></script>
           </div>
           <div class="container">
             <div class="row align-items-center">
@@ -442,9 +445,11 @@
                 </p>
               </div>
               <div class="col text-sm-center align-self-end">
-                <img src="img/logo_dark.svg" alt="logo" width="300" />
+                <img src="/img/logo_dark.svg" alt="logo" width="300" />
               </div>
               <div class="col text-sm-right align-self-end">
+                <a href="/">[&nbsp;home&nbsp;]</a> | <a href="/#projects">[&nbsp;porfolio&nbsp;]</a> |
+                <a href="/blog">[&nbsp;blog&nbsp;]</a>
                 <p>copyright © 2020 theDavidBarton</p>
               </div>
             </div>

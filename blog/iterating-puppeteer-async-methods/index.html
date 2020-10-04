@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Iterating puppeteer async methods in for loop vs. Array.map()/Array.forEach() - theDavidBarton.github.io</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="As all puppeteer methods are asynchronous it doesn't matter how we iterate over them. I've made a comparison and a rating of the most commonly recommended and used options."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+
+  <body>
+    <header class="bg-dark">
+      <!-- I.) back to top -->
+      <a id="top"></a>
+      <a href="#top">
+        <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
+      </a>
+      <!-- II.) intro bar -->
+      <div class="bg-cool py-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col text-center text-black mt-lg-0 mt-5 vertical-align">
+              <a class="text-decoration-none text-reset" href="/">
+                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
+            </div>
+            <picture class="col d-none d-lg-block">
+              <source srcset="/img/avatar.webp" type="image/webp" />
+              <source srcset="/img/avatar.png" type="image/png" />
+              <img src="/img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
+            </picture>
+            <div class="col text-center my-2">
+              <a class="btn btn-light btn-w my-2" href="#projects">
+                <div class="lead align-middle">
+                  <span>see my work</span>
+                  <img
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+              <a class="btn btn-dark btn-w my-2" href="#contact">
+                <div class="lead align-middle">
+                  <span>contact</span>
+                  <img
+                    class="invert-icon"
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="bg-dark text-light">
+  <section class="container">
+    <script async src="/blog/index.js"></script>
+    <div class="row">
+      <article class="col" id="article">
+        <div class="pt-3">June 27, 2020, &#128368; <span id="readTime">6 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/62612102/12412595">Stack Overflow</a></div><h1 id="iterating-puppeteer-async-methods-in-for-loop-vs-arraymaparrayforeach">Iterating puppeteer async methods in <code>for</code> loop vs. <code>Array.map()/Array.forEach()</code></h1>
+<p>As all puppeteer methods are asynchronous it doesn&#39;t matter how we iterate over them. I&#39;ve made a comparison and a rating of the most commonly recommended and used options.</p>
+<p>For this purpose, I have created a React.Js example page with a lot of React buttons <a href="https://thedavidbarton.github.io/react-examples/#/lot-of-react-buttons">here</a> (I just call it <em>Lot Of React Buttons</em>). Here <strong>(1)</strong> we are able set how many buttons to be rendered on the page; <strong>(2)</strong> we can activate the black buttons to turn green by clicking on them. I consider it an identical use case as the OP&#39;s, and it is also a general case of browser automation (we expect something to happen if we do something on the page).
+Let&#39;s say our use case is:</p>
+<pre><code class="language-gherkin">Scenario outline: click all the buttons with the same selector
+  Given I have &lt;no.&gt; black buttons on the page
+  When I click on all of them
+  Then I should have &lt;no.&gt; green buttons on the page</code></pre>
+<p>There is a conservative and a rather extreme scenario. To click <strong><code>no. = 132</code></strong> buttons is not a huge CPU task, <strong><code>no. = 1320</code></strong> can take a bit of time.</p>
+<hr>
+<h2 id="i-arraymap">I. Array.map</h2>
+<p>In general, if we only want to perform async methods like <a href="https://pptr.dev/#?product=Puppeteer&amp;version=v4.0.1&amp;show=api-elementhandleclickoptions"><code>elementHandle.click</code></a> in iteration, but we don&#39;t want to return a new array: it is a bad practice to use <code>Array.map</code>. Map() execution is going to finish before all the iteratees are executed completely because Array iteration methods execute the iteratees synchronously, but these iteratees are asynchronous.</p>
+<h3 id="code-example">Code example</h3>
+<pre><code class="language-javascript">const elHandleArray = await page.$$(&#39;button&#39;)
+
+elHandleArray.map(async el =&gt; {
+  await el.click()
+})
+
+await page.screenshot({ path: &#39;clicks_map.png&#39; })
+await browser.close()</code></pre>
+<h3 id="specialties">Specialties</h3>
+<ul>
+<li>returns another array</li>
+<li>parallel execution inside the .map method</li>
+<li>fast</li>
+</ul>
+<h3 id="132-buttons-scenario-result-❌">132 buttons scenario result: ❌</h3>
+<p>Duration: 891 ms</p>
+<p>By watching the browser in headful mode it looks like it works, but if we check when the <code>page.screenshot</code> happened: we can see the clicks were still in progress. It is due to the fact the <code>Array.map</code> cannot be awaited by default. It is only luck that the script had enough time to resolve all clicks on all elements until the browser was not closed.</p>
+<p><img src="/img/blog/clicks_map_02.gif" alt="running map" width="450"/><img src="/img/blog/clicks_map_02.png" alt="result map" width="450"/></p>
+<h3 id="1320-buttons-scenario-result-❌">1320 buttons scenario result: ❌</h3>
+<p>Duration: 6868 ms</p>
+<p>If we increase the number of elements of the same selector we will run into the following error:
+<code>UnhandledPromiseRejectionWarning: Error: Node is either not visible or not an HTMLElement</code>, because we already reached <code>await page.screenshot()</code> and <code>await browser.close()</code>: the async clicks are still in progress while the browser is already closed.</p>
+<hr>
+<h2 id="ii-arrayforeach">II. Array.forEach</h2>
+<p>All the iteratees will be executed, but forEach() is going to return before all of them finish execution, which is not the desirable behavior in many cases with async functions. In terms of puppeteer it is a very similar case to <code>Array.map</code>, except: for <code>Array.forEach</code> does not return a new array.</p>
+<h3 id="code-example-1">Code example</h3>
+<pre><code class="language-javascript">const elHandleArray = await page.$$(&#39;button&#39;)
+
+elHandleArray.forEach(async el =&gt; {
+  await element.click()
+})
+
+await page.screenshot({ path: &#39;clicks_foreach.png&#39; })
+await browser.close()</code></pre>
+<h3 id="specialties-1">Specialties</h3>
+<ul>
+<li>parallel execution inside the .forEach method</li>
+<li>fast</li>
+</ul>
+<h3 id="132-buttons-scenario-result-❌-1">132 buttons scenario result: ❌</h3>
+<p>Duration: 1058 ms</p>
+<p>By watching the browser in headful mode it looks like it works, but if we check when the <code>page.screenshot</code> happened: we can see the clicks were still in progress.</p>
+<p><img src="/img/blog/clicks_foreach_02.gif" alt="running foreach" width="450"/><img src="/img/blog/clicks_foreach_02.png" alt="result foreach" width="450"/></p>
+<h3 id="1320-buttons-scenario-result-❌-1">1320 buttons scenario result: ❌</h3>
+<p>Duration: 5111 ms</p>
+<p>If we increase the number of elements with the same selector we will run into the following error:
+<code>UnhandledPromiseRejectionWarning: Error: Node is either not visible or not an HTMLElement</code>, because we already reached <code>await page.screenshot()</code> and <code>await browser.close()</code>: the async clicks are still in progress while the browser is already closed.</p>
+<hr>
+<h2 id="iii-pageeval--foreach">III. page.$$eval + forEach</h2>
+<p>The best performing solution is a slightly modified version of <em>bside</em>&#39;s <a href="https://stackoverflow.com/a/54712599/12412595">answer</a>. The <strong>page.$$eval</strong> (<a href="https://pptr.dev/#?product=Puppeteer&amp;version=v4.0.1&amp;show=api-pageevalselector-pagefunction-args"><code>page.$$eval(selector, pageFunction[, ...args])</code></a>) runs <code>Array.from(document.querySelectorAll(selector))</code> within the page and passes it as the first argument to <code>pageFunction</code>. It functions as a wrapper over forEach hence it can be awaited perfectly.</p>
+<h3 id="code-example-2">Code example</h3>
+<pre><code class="language-javascript">await page.$$eval(&#39;button&#39;, elHandles =&gt; elHandles.forEach(el =&gt; el.click()))
+
+await page.screenshot({ path: &#39;clicks_eval_foreach.png&#39; })
+await browser.close()</code></pre>
+<h3 id="specialties-2">Specialties</h3>
+<ul>
+<li>no side-effects of using async puppeteer method inside a forEach loop</li>
+<li>parallel execution inside the .forEach method</li>
+<li>extremely fast</li>
+</ul>
+<h3 id="132-buttons-scenario-result-✔">132 buttons scenario result: ✔</h3>
+<p>Duration: 711 ms</p>
+<p>By watching the browser in headful mode we see the effect is immediate, also the screenshot is taken only after every element has been clicked, every promise has been resolved.</p>
+<p><img src="/img/blog/clicks_eval_foreach.gif" alt="running eval foreach" width="450"/><img src="/img/blog/clicks_eval_foreach.png" alt="result eval foreach" width="450"/></p>
+<h3 id="1320-buttons-scenario-result-✔">1320 buttons scenario result: ✔</h3>
+<p>Duration: 3445 ms</p>
+<p>Works just like in case of 132 buttons, extremely fast.</p>
+<hr>
+<h2 id="iv-forof-loop">IV. for...of loop</h2>
+<p>The simplest option, not that fast and executed in sequence. The script won&#39;t go to <code>page.screenshot</code> until the loop is not finished.</p>
+<h3 id="code-example-3">Code example</h3>
+<pre><code class="language-javascript">const elHandleArray = await page.$$(&#39;button&#39;)
+
+for (const el of elHandleArray) {
+  await el.click()
+}
+
+await page.screenshot({ path: &#39;clicks_for_of.png&#39; })
+await browser.close()</code></pre>
+<h3 id="specialties-3">Specialties</h3>
+<ul>
+<li>async behavior works as expected by the first sight</li>
+<li>execution in sequence inside the loop</li>
+<li>slow</li>
+</ul>
+<h3 id="132-buttons-scenario-result-✔-1">132 buttons scenario result: ✔</h3>
+<p>Duration: 2957 ms</p>
+<p>By watching the browser in headful mode we can see the page clicks are happening in strict order, also the screenshot is taken only after every element has been clicked.</p>
+<p><img src="/img/blog/clicks_for_of.gif" alt="running forof" width="450"/><img src="/img/blog/clicks_for_of.png" alt="result forof" width="450"/></p>
+<h3 id="1320-buttons-scenario-result-✔-1">1320 buttons scenario result: ✔</h3>
+<p>Duration: 25 396 ms</p>
+<p>Works just like in case of 132 buttons (but it takes more time).</p>
+<hr>
+<h1 id="summary">Summary</h1>
+<ul>
+<li>Avoid using <code>Array.map</code> if you only want to perform async events and you aren&#39;t using the returned array, use forEach or for-of instead. ❌</li>
+<li><code>Array.forEach</code> is an option, but you need to wrap it so the next async method only starts after all promises are resolved inside the forEach. ❌</li>
+<li>Combine <code>Array.forEach</code> with <code>$$eval</code> for best performance if the order of async events doesn&#39;t matter inside the iteration. ✔</li>
+<li>Use a <code>for</code>/<code>for...of</code> loop if speed is not vital and if the order of the async events does matter inside the iteration. ✔</li>
+</ul>
+<hr>
+<h1 id="sources--recommended-materials">Sources / Recommended materials</h1>
+<ul>
+<li><a href="https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404">Sebastien Chopin: <em>JavaScript: async/await with forEach()</em> (codeburst.io)</a></li>
+<li><a href="https://medium.com/@antonioval/making-array-iteration-easy-when-using-async-await-6315c3225838">Antonio Val: <em>Making array iteration easy when using async/await</em> (Medium)</a></li>
+<li><a href="https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop"><em>Using async/await with a forEach loop</em> (Stackoverflow)</a></li>
+<li><a href="https://stackoverflow.com/questions/51738684/await-with-array-foreach-containing-async-await"><em>Await with array foreach containing async await</em> (Stackoverflow)</a></li>
+</ul>
+
+      </article>
+    </div>
+  </section>
+</main>
+
+    <footer class="bg-cool-secondary text-dark">
+      <!-- VIII. footer bar -->
+      <div class="container py-5">
+        <div class="text-center">
+          <div>
+            <div class="row">
+              <div class="col-lg-4 col-12 text-sm-left align-self-end">
+                <p>
+                  Graphics in the "hobbies" section are downloaded from:
+                  <a class="text-cool" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
+                    >www.fileformat.info</a
+                  >. Other icons are from:
+                  <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
+                    >simpleicons.org</a
+                  >.<br />
+                  All other graphics and photos of this project have been made available to this project by
+                  <span class="highlight">David Barton</span> and are copyrighted; any other use must be authorized by the maker
+                  which holds all the rights for them.
+                </p>
+              </div>
+              <div class="col text-sm-center align-self-end">
+                <img src="/img/logo_dark.svg" alt="logo" width="300" />
+              </div>
+              <div class="col text-sm-right align-self-end">
+                <a href="/">[&nbsp;home&nbsp;]</a> | <a href="/#projects">[&nbsp;porfolio&nbsp;]</a> |
+                <a href="/blog">[&nbsp;blog&nbsp;]</a>
+                <p>copyright © 2020 theDavidBarton</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
