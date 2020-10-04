@@ -9,5 +9,12 @@ My github page.
 # Start development server
 
 ```
-npx serve
+$ npx serve
+```
+
+# Static Pre-Rendering of the blog articles
+
+```
+$ yarn start
+$ node ./blog/blogContentCreator.js
 ```

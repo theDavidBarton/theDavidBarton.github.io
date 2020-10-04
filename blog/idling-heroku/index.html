@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps - theDavidBarton.github.io</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    <link rel="canonical" href="https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a" />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+
+  <body>
+    <header class="bg-dark">
+      <!-- I.) back to top -->
+      <a id="top"></a>
+      <a href="#top">
+        <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
+      </a>
+      <!-- II.) intro bar -->
+      <div class="bg-cool py-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col text-center text-black mt-lg-0 mt-5 vertical-align">
+              <a class="text-decoration-none text-reset" href="/">
+                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
+            </div>
+            <picture class="col d-none d-lg-block">
+              <source srcset="/img/avatar.webp" type="image/webp" />
+              <source srcset="/img/avatar.png" type="image/png" />
+              <img src="/img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
+            </picture>
+            <div class="col text-center my-2">
+              <a class="btn btn-light btn-w my-2" href="#projects">
+                <div class="lead align-middle">
+                  <span>see my work</span>
+                  <img
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+              <a class="btn btn-dark btn-w my-2" href="#contact">
+                <div class="lead align-middle">
+                  <span>contact</span>
+                  <img
+                    class="invert-icon"
+                    height="25"
+                    width="25"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
+                    alt="logo"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="bg-dark text-light">
+  <section class="container">
+    <script async src="/blog/index.js"></script>
+    <div class="row">
+      <article class="col" id="article">
+        <div class="pt-3">February 2, 2020, &#128368; <span id="readTime">8 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a">Medium.com</a></div><h1 id="custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps">Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps</h1>
+<p>To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available.</p>
+<p><a href="https://www.heroku.com/dynos">What Heroku dynos are?</a> At Heroku the virtual containers are called dynos, your app will run on one or more of these depending on your monthly plan and scaling of your app. In the Free plan, you will have only one dyno per app, which will go to sleep after 30 minutes of inactivity (lack of visitors on your app).
+<a href="https://www.heroku.com/dynos"><strong>Heroku Dynos | Heroku</strong>
+<em>App developers rely on software abstractions to simplify development and enhance productivity. When it comes to running…</em>www.heroku.com</a></p>
+<p>I know that their Hobby plan would be more accurate for my projects and it still has a reasonable price (a Hobby dyno is <a href="https://www.heroku.com/dynos">7$/month</a> currently), but as I don’t have frequent visitors on my web apps I decided to stay with the Free plan.</p>
+<p>The only annoying thing is — from user &amp; UX point of view — when your dyno went to sleep after the 30 minutes of inactivity it will take time for them to wake up when the next visitor arrives (multiple <em>yarn starts</em> on a relatively slow dyno), it takes around 6–7 seconds to get the <a href="https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint">First Meaningful Paint</a>.</p>
+<p>I said annoying because it is literally a white screen without any preloader or note about <em>Heroku is warming up/dyno is waking up/soon the page will load</em> etc. Nothing, so a new user won’t wait for this 6–7 secs, will think my app is broken and leaves before it would be rendered.</p>
+<p><em>(Did you know? You can keep awake a dyno by pinging your Heroku app at least once per 30 minutes. It can be nicely done with a free <a href="https://coderwall.com/p/u0x3nw/avoid-heroku-idling-with-new-relic-pings">New Relic monitor</a>. However, the current article will show you a different approach to deal with Heroku idling.)</em></p>
+<p>As I decided to keep the Free plan and live for a while with the blank white screens, I realized there is a solution to entertain and inform the users until they get the fully-loaded app.</p>
+<h2 id="tldr">TL;DR</h2>
+<p><strong>I created an old fashioned redirect page as a bridge (preloader) between my page and my Heroku apps.</strong> Redirection pages are entities I don’t like on other sites, however, it just fills the gap nicely, hides the blank white page totally (see the last section) and it is fun to create one. Last but not least if you can put creativity into its design it will be nice enough not to annoy your users at all (pro tip: don’t put ads on it).</p>
+<p>You can make a nice CSS loading animation as well in a preloader style as the content, as long as it is clear enough for the user why it appears for some secs before the app would be loaded.</p>
+<p>I created it simply in <strong>(1) HTML,</strong> <strong>(2) vanilla JavaScript, (3) Bootstrap 4 **and **(4) Gimp</strong>. Feel free to adopt it with more today’s technologies.</p>
+<p><strong>Ingredients:</strong></p>
+<ol>
+<li><p>An <strong>existing page</strong> we own (e.g. our <em>GitHub Pages</em> page) and where from we can redirect the users to the Heroku apps;</p>
+</li>
+<li><p>A <strong>redirect.html</strong> file on the page;</p>
+</li>
+<li><p>Inside <head> an <strong>http-equiv=”refresh”</strong> meta tag;</p>
+</li>
+<li><p>A <strong>nice content</strong> which will be visible for the users until the Heroku dyno pull oneself together (text/image);</p>
+</li>
+<li><p>An <strong>url parameter</strong>, carrying the herokupapp’s url we want to redirect to;</p>
+</li>
+<li><p>A <strong>JavaScript function</strong> to dynamically recognize and replace the value of the parameter in the meta tag from step 3.;</p>
+</li>
+<li><p>An <strong>array of trusted links</strong> we accept for our redirection.</p>
+</li>
+</ol>
+<h2 id="have-your-own-page">Have your own page</h2>
+<p>You need one if you want to redirect users. Did you know if you put an index.html on a GitHub repo which has your **<username>.github.io **name it will be automatically deployed to this GitHub Pages domain? It can be even a bundled React/Angular app’s public folder. In my case, it is plain HTML, JS and CSS files.</p>
+<h2 id="create-the-redirection-page">Create the redirection page</h2>
+<p>As I mentioned mine is a bit old fashioned, I just created such an HTML file and styled it to be similar to my homepage (used Bootstrap 4 and some custom CSS to override default Bootstrap styles).</p>
+<p>The key of the redirection is this meta tag: <strong>http-equiv=”refresh”</strong> (this is the default value, we gonna update its content with JavaScript later):</p>
+<pre><code>&lt;meta id=&quot;refresh&quot; http-equiv=&quot;refresh&quot; content=&quot;7; URL=&#39;https://theDavidBarton.github.io/&#39;&quot; /&gt;</code></pre>
+<p>Assign id=”refresh” to it.</p>
+<p><strong>content:</strong></p>
+<ul>
+<li><p>7 = Seven seconds until redirection (page refresh), it is just a default value we gonna set to “0” later: important not to set zero secs here by default as it would prevent JavaScript from making the magic;</p>
+</li>
+<li><p>URL = the desired <em>window.location.href</em> (by default it can be your homepage).</p>
+</li>
+</ul>
+<p>The HTML source of **redirect.html **looks something like this (just imagine the parts with […] or check it out in my GitHub repo linked at the end of this article):</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    [...]
+    &lt;meta id=&quot;refresh&quot; http-equiv=&quot;refresh&quot; content=&quot;7; URL=&#39;https://theDavidBarton.github.io/&#39;&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;index.js&quot; onload=&quot;getUrlFromLink()&quot;&gt;&lt;/script&gt;
+    [...]
+    &lt;section class=&quot;row text-center&quot;&gt;
+      &lt;div class=&quot;col my-4&quot;&gt;
+        &lt;h1&gt;This dyno* might be sleeping!&lt;/h1&gt;
+        &lt;img height=&quot;250&quot; src=&quot;img/dino.png&quot; alt=&quot;sleeping dino&quot; /&gt;
+        &lt;p&gt;
+          Please be patient after the redirection for &lt;strong&gt;6-7 seconds&lt;/strong&gt; you may need to wait.&lt;br /&gt;If you&#39;d face a
+          blank page: worry not! It will turn into something very nice soon^^.
+        &lt;/p&gt;
+        &lt;small
+          &gt;*dynos are the containers at&lt;a href=&quot;https://www.heroku.com/dynos&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Heroku&lt;/a
+          &gt;, free ones go to sleep after a certain time&lt;/small
+        &gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;div class=&quot;row text-center&quot;&gt;
+      &lt;div class=&quot;col my-4&quot;&gt;
+        &lt;a href=&quot;/&quot;&gt;&lt;button class=&quot;btn btn-dark&quot;&gt;✋ stop redirection&lt;/button&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    [...]
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="content">Content</h2>
+<p>The key idea behind my solution is to entertain the user until he/she waits for the Heroku app to be awakened in the background, so it worths to think of something unique, something nice. I created a drawing of a sleeping dino (get it!? dyno = dino! :DDD …sorry! :$ ) in Gimp and I wrote a short explanation section about <strong>why</strong> this redirection and <strong>Intermission scene</strong> is happening.</p>
+<p><strong>It goes like this:</strong></p>
+<p><img src="/img/blog/idling-heroku-01.png" alt=""></p>
+<p><em>This dyno</em> might be sleeping!*</p>
+<p><em>Please be patient after the redirection for **6–7 seconds **you may need to wait.
+If you’d face a blank page: worry not! It will turn into something very nice soon^^.</em></p>
+<p>*<em>dynos are the containers at <a href="https://www.heroku.com/dynos">Heroku</a>, free ones go to sleep after a certain time</em></p>
+<p>I also added a “stop redirection” button on the bottom in case someone would cancel the process. But it is an optional element.</p>
+<h2 id="url-parameter">URL parameter</h2>
+<p>It will be “url” (**?url=**…). It can be anything that semantically fits your needs.</p>
+<h2 id="javascript">JavaScript</h2>
+<p>Super simple implementation: with Regex we retrieve the value of the “url” parameter with the <strong>getUrlFromLink</strong> function.</p>
+<p>The most important part updates the meta tag’s content (the meta has its own HTML id: #refresh):</p>
+<pre><code>document.querySelector(&#39;#refresh&#39;).content = `0; URL=&#39;${url}&#39;`</code></pre>
+<p><strong>Zero seconds will be the time until redirection (page refresh). It means: (1) in case the dyno is available redirect will be immediate to the Heroku app, (2) while if it sleeps users will spend a maximum of 6–7 seconds on the redirect page then the Heroku app will be opened without any flash of white screen.</strong></p>
+<p>There is no other functionality nor extra error handling here, as we will parameterize the redirect links ourselves the business logic is restricted to recognize this single parameter properly. The only extra I have added is a <strong>trustedLinks</strong> array. It needs to be maintained manually (at least in my example), but with its help, no funny folks will use your redirection page to steal your s̶u̶n̶s̶h̶i̶n̶e̶ SEO by putting XXX links and other funny stuff in the url parameter.</p>
+<p>My JavaScript looks like this:</p>
+<pre><code class="language-javascript">&#39;use strict&#39;
+
+const trustedLinks = [&#39;https://my-first.herokuapp.com/&#39;, &#39;https://my-second.herokuapp.com/&#39;, &#39;https://my-third.herokuapp.com/&#39;]
+
+function getUrlFromLink() {
+  const urlSelector = window.location.href.match(/url(.*)/)[0]
+  const url = urlSelector.replace(&#39;url=&#39;, &#39;&#39;)
+  if (trustedLinks.includes(url)) {
+    document.querySelector(&#39;#refresh&#39;).content = `0; URL=&#39;${url}&#39;`
+  }
+}</code></pre>
+<h2 id="the-result">The Result</h2>
+<p>A similar redirect page is the result of https://<username>.github.io/redirect.html**?url=<a href="https://trending-video-games.herokuapp.com/">https://my-first.herokuapp.com/</a>**. You can replace all the Heroku app links on your page with these links.</p>
+<p>+You can use the redirection even from your social media if you create a <a href="https://bitly.com/">Bitly shortened link</a> for the redirection url, it won’t be confusing if you are sharing your Heroku app like this (while the parametized long url might be).</p>
+<p><img src="/img/blog/idling-heroku-02.png" alt=""></p>
+<h2 id="and-do-you-know-what-is-the-best-part">And do you know what is the best part?</h2>
+<p>… I might wrote:</p>
+<blockquote>
+<p>If you’d face <strong>a blank page</strong>: worry not! It will turn into something very nice soon^^.</p>
+</blockquote>
+<p>…but <strong>the users will never see that blank page.</strong> If the dyno is indeed sleeping: they will see this redirect page for max. 7 seconds (seven is the calculated delay of warming up / <em>yarn start</em> of the actual Heroku app).</p>
+<p>It gives a much more smooth experience than the regular redirection with the blank page for 7 seconds we had previously.</p>
+<p><em>Note:</em> this redirection is not a standard HTTP redirect right now but an HTTP 200, it would require a backend functionality to make it an HTTP 301 ( Moved Permanently) or 303 ( See Other). For the current purpose, it is OK like this.</p>
+<p>You can check out my full implementation on <a href="https://github.com/theDavidBarton/theDavidBarton.github.io">GitHub</a>.</p>
+<p><strong><em>Update:</em></strong> since this article was written I replaced dino by a preloader CSS animation. <a href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7">See more…</a>
+<a href="https://github.com/theDavidBarton/theDavidBarton.github.io"><strong>theDavidBarton/theDavidBarton.github.io</strong>
+*My GitHub page. Contribute to theDavidBarton/theDavidBarton.github.io development by creating an account on GitHub.*github.com</a>
+<a href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7"><strong>Simple preloader CSS animation</strong>
+<em>Previously I was working on a redirect page to act as a bridge between my page and my idling Heroku apps. The next step…</em>medium.com</a></p>
+
+      </article>
+    </div>
+  </section>
+</main>
+
+    <footer class="bg-cool-secondary text-dark">
+      <!-- VIII. footer bar -->
+      <div class="container py-5">
+        <div class="text-center">
+          <div>
+            <div class="row">
+              <div class="col-lg-4 col-12 text-sm-left align-self-end">
+                <p>
+                  Graphics in the "hobbies" section are downloaded from:
+                  <a class="text-cool" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
+                    >www.fileformat.info</a
+                  >. Other icons are from:
+                  <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/"
+                    >simpleicons.org</a
+                  >.<br />
+                  All other graphics and photos of this project have been made available to this project by
+                  <span class="highlight">David Barton</span> and are copyrighted; any other use must be authorized by the maker
+                  which holds all the rights for them.
+                </p>
+              </div>
+              <div class="col text-sm-center align-self-end">
+                <img src="/img/logo_dark.svg" alt="logo" width="300" />
+              </div>
+              <div class="col text-sm-right align-self-end">
+                <a href="/">[&nbsp;home&nbsp;]</a> | <a href="/#projects">[&nbsp;porfolio&nbsp;]</a> |
+                <a href="/blog">[&nbsp;blog&nbsp;]</a>
+                <p>copyright © 2020 theDavidBarton</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

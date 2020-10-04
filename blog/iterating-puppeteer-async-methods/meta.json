@@ -1,0 +1,10 @@
+{
+  "id": 2,
+  "canonical": false,
+  "canonical-href": "https://stackoverflow.com/a/62612102/12412595",
+  "title": "Iterating puppeteer async methods in for loop vs. Array.map()/Array.forEach()",
+  "lead": "As all puppeteer methods are asynchronous it doesn't matter how we iterate over them. I've made a comparison and a rating of the most commonly recommended and used options.",
+  "date": "June 27, 2020",
+  "originally-published": "Stack Overflow",
+  "category": "technical writing"
+}
