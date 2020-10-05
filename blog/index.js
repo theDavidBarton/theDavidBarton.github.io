@@ -1,5 +1,5 @@
 function responsiveImgs() {
-  const element = document.querySelectorAll('img')
-  element.forEach(el => el.classList.add('img-fluid'))
+  const img = document.querySelectorAll('img')
+  img.forEach(el => el.classList.add('img-fluid'))
 }
 responsiveImgs()
