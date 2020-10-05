@@ -403,6 +403,7 @@ pre {
 
 article * {
   user-select: text;
+  overflow-wrap: break-word;
 }
 
 article * > a {

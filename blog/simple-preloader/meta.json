@@ -1,5 +1,6 @@
 {
   "id": 1,
+  "slug": "simple-preloader",
   "canonical": true,
   "canonical-href": "https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7",
   "title": "Simple preloader CSS animation",
