@@ -1,5 +1,6 @@
 {
   "id": 2,
+  "slug": "iterating-puppeteer-async-methods",
   "canonical": false,
   "canonical-href": "https://stackoverflow.com/a/62612102/12412595",
   "title": "Iterating puppeteer async methods in for loop vs. Array.map()/Array.forEach()",
