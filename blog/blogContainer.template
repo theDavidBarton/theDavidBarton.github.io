@@ -1,7 +1,7 @@
 <main class="bg-dark text-light">
   <section class="container">
     <script async src="/blog/index.js"></script>
-    <div class="row">
+    <div class="row mx-lg-5">
       <article class="col" id="article">
         <!-- content goes here -->
       </article>

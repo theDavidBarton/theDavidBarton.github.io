@@ -30,10 +30,10 @@
         <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
       </a>
       <!-- II.) intro bar -->
-      <div class="bg-cool py-4">
+      <div class="bg-cool py-1">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col text-center text-black mt-lg-0 mt-5 vertical-align">
+            <div class="col branded-container text-black mt-lg-0 mt-5 vertical-align">
               <a class="text-decoration-none text-reset" href="/">
                 <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
                 <h2 class="bolder">QA engineering | full stack JavaScript</h2>
@@ -42,31 +42,25 @@
             <picture class="col d-none d-lg-block">
               <source srcset="/img/avatar.webp" type="image/webp" />
               <source srcset="/img/avatar.png" type="image/png" />
-              <img src="/img/avatar.png" alt="avatar image" class="rounded-circle avatar-style-top" />
+              <img src="/img/avatar.png" alt="avatar image" class="avatar-style-top" />
             </picture>
-            <div class="col text-center my-2">
-              <a class="btn btn-light btn-w my-2" href="/#projects">
-                <div class="lead align-middle">
-                  <span>see my work</span>
-                  <img
-                    height="25"
-                    width="25"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                    alt="logo"
-                  />
-                </div>
-              </a>
-              <a class="btn btn-dark btn-w my-2" href="/#contact">
-                <div class="lead align-middle">
-                  <span>contact</span>
-                  <img
-                    class="invert-icon"
-                    height="25"
-                    width="25"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg"
-                    alt="logo"
-                  />
-                </div>
+            <div class="col-md-auto nav-link-container my-2">
+              <a class="px-2 nav-links about-c" href="/#about"> about </a>
+              <a class="px-2 nav-links projects-c" href="/#projects"> projects </a>
+              <a class="px-2 nav-links blog-c" href="/blog"> blog </a>
+              <a
+                class="pl-2"
+                href="https://github.com/theDavidBarton"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="my GitHub"
+              >
+                <img
+                  height="40"
+                  width="40"
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                  alt="github logo"
+                />
               </a>
             </div>
           </div>
@@ -76,7 +70,7 @@
     <main class="bg-dark text-light">
   <section class="container">
     <script async src="/blog/index.js"></script>
-    <div class="row">
+    <div class="row mx-lg-5">
       <article class="col" id="article">
         <div class="pt-3">February 5, 2020, &#128368; <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7">Medium.com</a></div><h1 id="simple-preloader-css-animation">Simple preloader CSS animation</h1>
 <p>Previously I was working on a redirect page to act as a bridge between my page and my idling Heroku apps. The next step is to make the content of this redirect page a bit more elegant.
@@ -168,8 +162,9 @@
                 <img src="/img/logo_dark.svg" alt="logo" width="300" />
               </div>
               <div class="col text-sm-right align-self-end">
-                <a href="/">[&nbsp;home&nbsp;]</a> | <a href="/#projects">[&nbsp;porfolio&nbsp;]</a> |
-                <a href="/blog">[&nbsp;blog&nbsp;]</a>
+                <a class="text-dark" href="/">[&nbsp;home&nbsp;]</a>
+                <a class="text-dark" href="/#projects">[&nbsp;projects&nbsp;]</a>
+                <a class="text-dark" href="/blog">[&nbsp;blog&nbsp;]</a>
                 <p>copyright © 2020 theDavidBarton</p>
               </div>
             </div>
