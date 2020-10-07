@@ -1,0 +1,11 @@
+<main class="bg-light text-cool">
+  <section class="container">
+    <div class="row p-lg-5 text-center">
+      <article class="col" id="article">
+        <h1 class="display-1">404</h1>
+        <h2 class="display-3">page not found :(</h2>
+        <p>go back to homepage: <a href="/">theDavidBarton.github.io</a></p>
+      </article>
+    </div>
+  </section>
+</main>
