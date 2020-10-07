@@ -32,7 +32,7 @@ for (const folder of folders) {
   const descriptionMarkup = meta.lead ? `content="${meta.lead}"` : 'content="Github page of David Barton (theDavidBarton)"'
   const titleMarkup = `<title>${meta.title} - theDavidBarton.github.io</title>`
   /* prettier-ignore */
-  const metaMarkup = `<div class="pt-3">${meta.date}, &#128368; <span id="readTime">${readTime(md)}</span>, In: ${meta.category}</div>`
+  const metaMarkup = `<div class="pt-3">${meta.date}, 🕓︎&#xFE0E; <span id="readTime">${readTime(md)}</span>, In: ${meta.category}</div>`
   const sourceMarkup = meta['originally-published']
     ? `<div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></div>`
     : '<div class="pb-3">by David Barton</div>'
