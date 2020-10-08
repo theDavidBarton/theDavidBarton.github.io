@@ -5,6 +5,7 @@
 .branded-name,
 .branded-pre,
 .fliph {
+  color: #343a40;
   font-family: 'Staatliches', sans-serif;
   font-size: 3rem;
   transform: scale(1, 2);
@@ -12,7 +13,7 @@
 }
 
 .branded-pre {
-  color: #f8f9fa;
+  color: #9fe0c6;
   font-size: 2.5rem;
 }
 
@@ -37,6 +38,7 @@
   font-size: unset;
   font-weight: bold;
   display: block;
+  color: #343a40;
   margin-block-start: 0.66rem;
   margin-block-end: 1.16rem;
 }
@@ -70,6 +72,46 @@ a {
 
 .branded-container {
   text-align: left;
+}
+
+.shield {
+  white-space: nowrap !important;
+  box-shadow: 0 0.6rem #29282861;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.inline-block {
+  display: inline;
+}
+.shield-left,
+.shield-right {
+  color: white;
+  text-shadow: 0 0.1rem #29282861;
+  margin-bottom: 0.4rem;
+  padding: 0.25rem;
+  font-family: system-ui;
+  font-size: 1.02rem;
+  text-transform: lowercase;
+  display: inline-block;
+  height: 2.2rem;
+}
+
+.shield-left {
+  background: linear-gradient(180deg, rgba(95, 95, 95, 1) 0%, rgba(52, 58, 64, 1) 100%);
+  border-radius: 0.5rem 0 0 0.5rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+}
+
+.shield-right {
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  background-color: var(--data-color);
+}
+
+.shield:hover > * {
+  background-color: #c3e6cb;
 }
 
 .nav-links {
@@ -283,7 +325,7 @@ a {
   border-radius: 50%;
   width: 7.55rem;
   margin-top: 0.6rem;
-  margin-left: -6.85rem;
+  margin-left: -2.85rem;
 }
 
 @media all and (max-width: 1200px) {
