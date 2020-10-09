@@ -13,7 +13,7 @@
 }
 
 .branded-pre {
-  color: #9fe0c6;
+  color: #6c9a88;
   font-size: 2.5rem;
 }
 
@@ -54,7 +54,7 @@ a {
 }
 
 .back-to-top-style {
-  opacity: 0.5;
+  opacity: 0.8;
   bottom: 10px;
   right: 25px;
   z-index: 100;
@@ -62,7 +62,7 @@ a {
   border-radius: 35px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f8f9fa;
+  border-color: #9fe0c682;
   line-height: 1.33;
 }
 
@@ -78,6 +78,12 @@ a {
   white-space: nowrap !important;
   box-shadow: 0 0.6rem #29282861;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 33.66%;
+}
+
+.active-shield {
+  position: relative;
+  content: 'hey!';
 }
 
 .inline-block {
@@ -89,23 +95,24 @@ a {
   text-shadow: 0 0.1rem #29282861;
   margin-bottom: 0.4rem;
   padding: 0.25rem;
-  font-family: system-ui;
+  font-family: system-ui, sans-serif;
   font-size: 1.02rem;
   text-transform: lowercase;
   display: inline-block;
   height: 2.2rem;
+  margin-left: -0.01rem;
 }
 
 .shield-left {
   background: linear-gradient(180deg, rgba(95, 95, 95, 1) 0%, rgba(52, 58, 64, 1) 100%);
   border-radius: 0.5rem 0 0 0.5rem;
   padding-left: 1rem;
-  padding-right: 0.5rem;
+  padding-right: 0.6rem;
 }
 
 .shield-right {
   border-radius: 0 0.5rem 0.5rem 0;
-  padding-left: 0.5rem;
+  padding-left: 0.6rem;
   padding-right: 1rem;
   background-color: var(--data-color);
 }
@@ -306,7 +313,7 @@ a {
 }
 
 .bg-cool {
-  background-color: #9fe0c6;
+  background-color: #c3e6cb;
 }
 
 .text-cool {
@@ -325,7 +332,7 @@ a {
   border-radius: 50%;
   width: 7.55rem;
   margin-top: 0.6rem;
-  margin-left: -2.85rem;
+  margin-left: -2.5rem;
 }
 
 @media all and (max-width: 1200px) {
@@ -369,7 +376,7 @@ a {
 .cv-border-style {
   margin: 25px 25px 25px 0px;
   padding-left: 28px;
-  border-left: 25px solid #9fe0c6;
+  border-left: 25px solid #c3e6cb;
 }
 
 @media all and (min-width: 321px) and (max-width: 375px) {
