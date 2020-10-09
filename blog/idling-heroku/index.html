@@ -18,19 +18,20 @@
       name="description"
       content="To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available."
     />
+    <meta name="google" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
   </head>
 
-  <body>
-    <header class="bg-dark">
+  <body class="bg-light">
+    <header translate="no" class="notranslate">
       <!-- I.) back to top -->
       <a id="top"></a>
       <a href="#top">
         <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
       </a>
       <!-- II.) intro bar -->
-      <div class="bg-cool py-1">
+      <div class="bg-light py-1">
         <div class="container">
           <div class="row align-items-center">
             <div class="col branded-container text-black mt-lg-0 mt-5 vertical-align">
@@ -42,26 +43,33 @@
             <picture class="col d-none d-lg-block">
               <source srcset="/img/avatar.webp" type="image/webp" />
               <source srcset="/img/avatar.png" type="image/png" />
-              <img src="/img/avatar.png" alt="avatar image" class="avatar-style-top" />
+              <a href="/"> <img src="/img/avatar.png" alt="avatar image" class="avatar-style-top" /></a>
             </picture>
-            <div class="col-md-auto nav-link-container my-2">
-              <a class="px-2 nav-links about-c" href="/#about"> about </a>
-              <a class="px-2 nav-links projects-c" href="/#projects"> projects </a>
-              <a class="px-2 nav-links blog-c" href="/blog"> blog </a>
-              <a
-                class="pl-2"
-                href="https://github.com/theDavidBarton"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="my GitHub"
+            <div class="col-lg-auto nav-link-container my-2 inline-block">
+              <a class="shield" href="/#about"
+                ><span class="shield-left">about</span
+                ><span id="about-r" class="shield-right" style="--data-color: #ffa7c4">👱🏻‍♂️</span></a
               >
-                <img
-                  height="40"
-                  width="40"
-                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                  alt="github logo"
-                />
-              </a>
+              <a class="shield" href="/#projects"
+                ><span class="shield-left">projects</span
+                ><span id="projects-r" class="shield-right" style="--data-color: #52da37">⚗️</span></a
+              >
+              <a class="shield" href="/blog"
+                ><span class="shield-left">blog</span
+                ><span id="blog-r" class="shield-right" style="--data-color: #48bbe6">📝</span></a
+              >
+              <a class="shield" href="https://github.com/theDavidBarton" target="_blank" rel="noopener noreferrer"
+                ><span class="shield-left">code</span
+                ><span id="github-r" class="shield-right" style="--data-color: #f1f1f1"
+                  ><img
+                    height="19"
+                    width="19"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    alt="github logo"
+                    style="margin-top: -0.3rem" /></span
+              ></a>
+              <!--different behaviour on Win (as they have the only cool emoji set)-->
+              <script src="/header/index.js"></script>
             </div>
           </div>
         </div>
@@ -202,7 +210,7 @@ function getUrlFromLink() {
   </section>
 </main>
 
-    <footer class="bg-cool-secondary text-dark">
+    <footer translate="no" class="bg-cool text-dark notranslate">
       <!-- VIII. footer bar -->
       <div class="container py-5">
         <div class="text-center">
