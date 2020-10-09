@@ -24,6 +24,7 @@ const top = homeMarkup.split('<main>')
 const bottom = homeMarkup.split('</main>')
 const blogMain = blogTemplate.split('<!-- content goes here -->')
 const folders = getFolders()
+const articleMetas = []
 const leads = []
 for (const folder of folders) {
   const meta = require(`${__dirname}/${folder}/meta.json`)
@@ -40,6 +41,7 @@ for (const folder of folders) {
   const leadMd = `## [${meta.title}](/blog/${folder})\n\n ${metaMarkup + sourceMarkup}\n\n ${meta.lead}...\n\n [Read more =>](/blog/${folder})\n\n <hr class="bg-cool">`
   const leadMarkup = marked(leadMd)
   leads[meta.id] = leadMarkup
+  articleMetas[meta.id] = meta
   const articleMarkup = marked(md)
 
   const finalMarkup =
@@ -56,6 +58,7 @@ for (const folder of folders) {
   fs.writeFileSync(`${__dirname}/${folder}/index.html`, finalMarkup)
   console.log('html file succesfully created for: ' + folder)
 }
+
 const blogLeadsUnited = leads.reverse().join('')
 const finalBlogLeads =
   top[0]
@@ -77,3 +80,7 @@ const error404 =
   bottom[1]
 fs.writeFileSync(__dirname + '/../404.html', error404)
 console.log('html file succesfully created for: 404')
+
+const latestArticle = articleMetas[articleMetas.length - 1]
+fs.writeFileSync(__dirname + '/../header/latestArticle.json', JSON.stringify(latestArticle))
+console.log('json file succesfully created for: latest article')

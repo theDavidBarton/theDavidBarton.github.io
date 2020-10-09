@@ -2,6 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 /* global */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c3e6cb;
+}
+
+body::-webkit-scrollbar-track-piece {
+  display: none;
+}
+
 .branded-name,
 .branded-pre,
 .fliph {
@@ -290,6 +302,10 @@ a {
 
 .text-cool-secondary {
   color: #f39369;
+}
+
+a.text-cool-secondary:hover {
+  color: #c3e6cb;
 }
 
 .avatar-style-top {

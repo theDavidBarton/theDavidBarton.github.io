@@ -7,3 +7,14 @@ if (navigator.platform.includes('Win')) {
   document.querySelector('#projects-r').innerText = '{ };'
   document.querySelector('#blog-r').innerText = '/**/'
 }
+
+function getLatestArticle() {
+  fetch('/header/latestArticle.json')
+    .then(response => response.json())
+    .then(json => {
+      document.querySelector('#cookie-bar-link').href = `/blog/${json.slug}`
+      document.querySelector('#cookie-bar-link').innerText =
+        json.title.replace(/^(.{40}[^\s]*).*/, '$1') + (json.title.length > 40 ? '...' : '')
+    })
+}
+getLatestArticle()
