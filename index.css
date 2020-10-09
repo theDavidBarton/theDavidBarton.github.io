@@ -25,7 +25,7 @@
 }
 
 .vertical-align {
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 @media all and (max-width: 992px) {
@@ -79,11 +79,7 @@ a {
   box-shadow: 0 0.6rem #29282861;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   width: 33.66%;
-}
-
-.active-shield {
-  position: relative;
-  content: 'hey!';
+  transition: 0.3s;
 }
 
 .inline-block {
@@ -117,40 +113,12 @@ a {
   background-color: var(--data-color);
 }
 
-.shield:hover > * {
+.shield:hover > .shield-right {
   background-color: #c3e6cb;
 }
 
-.nav-links {
-  padding: 0.2rem;
-  margin: 0.25rem;
-  color: #000000;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.about-c {
-  background-image: linear-gradient(transparent 1.2rem, #ff8888 1rem);
-}
-
-.projects-c {
-  background-image: linear-gradient(transparent 1.2rem, #ffb292 1rem);
-}
-
-.blog-c {
-  background-image: linear-gradient(transparent 1.2rem, #f8f9fa 1rem);
-}
-
-.nav-links:hover {
-  color: #000000;
-  text-decoration: none;
-  padding-bottom: 0.65rem;
-}
-
-@media all and (max-width: 330px) {
-  .nav-links {
-    font-size: 0.93rem;
-  }
+.shield:hover {
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 @media all and (max-width: 1200px) {
@@ -308,10 +276,6 @@ a {
   background-position: bottom;
 }
 
-.bg-tertiary {
-  background-color: #a2a2a2;
-}
-
 .bg-cool {
   background-color: #c3e6cb;
 }
@@ -365,10 +329,6 @@ a {
   height: 8.4rem;
 }
 
-.fun-degree {
-  transform: rotate(20deg);
-}
-
 .fun-text {
   cursor: default;
 }
@@ -403,9 +363,6 @@ a {
   .fun-border {
     border: 0px solid;
     height: auto;
-  }
-  .fun-degree {
-    transform: rotate(0deg);
   }
 }
 
