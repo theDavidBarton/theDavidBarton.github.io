@@ -10,8 +10,8 @@
   background: #c3e6cb;
 }
 
-body::-webkit-scrollbar-track-piece {
-  display: none;
+h1 {
+  font-family: 'Staatliches', sans-serif;
 }
 
 .branded-name,
