@@ -18,3 +18,19 @@ $ npx serve
 $ yarn start
 $ node ./blog/blogContentCreator.js
 ```
+
+# Credits
+
+**Design inspiration for this site** (especially the top bar and the rich emoji usage) from: [flaviocopes.com](https://flaviocopes.com/) 🙏.
+
+# Copyright
+
+Graphics in the "hobbies" section are downloaded from: [www.fileformat.info](www.fileformat.info). Other icons are from: [simpleicons.org](https://simpleicons.org).
+
+All other graphics and photos of this project have been made available to this project by David Barton and are copyrighted; any other use must be authorized by the maker which holds all the rights for them.
+
+---
+
+MIT License
+
+Copyright (c) 2020 David Barton
