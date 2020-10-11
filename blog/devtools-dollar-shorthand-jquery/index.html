@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>404 - theDavidBarton.github.io</title>
+    <title>Chrome DevTools: $(selector) shorthand doesn't return the element while $(selector)[0] does - theDavidBarton.github.io</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -16,7 +16,7 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="The page of David Barton (theDavidBarton) QA engineer, release manager & full stack JavaScript developer."
+      content="Time to time I face a weird phenomenon with the $ chrome api shorthand for document.querySelector that it doesn't return the element with the correct selector, while it works correctly with $. As puppeteer heavily depends on these shorthands (page.$, page.$, page.$eval, page.$eval) it can cause unexpected issues."
     />
     <meta name="google" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -80,15 +80,42 @@
     </header>
     <main class="bg-dark text-light">
   <section class="container">
-    <div class="row p-lg-5 text-center">
+    <script async src="/blog/index.js"></script>
+    <div class="row mx-lg-5">
       <article class="col" id="article">
-        <h1 class="display-1">404</h1>
-        <h2 class="display-3 pb-2">page not found :(</h2>
-        <p class="pb-5">go back to homepage: <a class="text-cool-secondary" href="/">theDavidBarton.github.io</a></p>
+        <div class="pt-3">September 29, 2020, 🕓︎&#xFE0E; <span id="readTime">2 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/64127250/chrome-devtools-selector-shorthand-doesnt-return-the-element-while-selec">Stack Overflow</a></div><h1 id="chrome-devtools-selector-shorthand-doesnt-return-the-element-while-selector0-does">Chrome DevTools: <code>$(selector)</code> shorthand doesn&#39;t return the element while <code>$$(selector)[0]</code> does</h1>
+<p>Time to time I face a weird phenomenon with the <code>$</code> chrome api shorthand for <code>document.querySelector</code> that it doesn&#39;t return the element with the correct selector, while it works correctly with <code>$$</code>. As <a href="https://github.com/puppeteer/puppeteer">puppeteer</a> heavily depends on these shorthands (<code>page.$</code>, <code>page.$$</code>, <code>page.$eval</code>, <code>page.$$eval</code>) it can cause unexpected issues.</p>
+<p>The issue can be even reproduced here, on Stack Overflow at the moment (09-29-2020).</p>
+<p><strong>E.g.:</strong></p>
+<ul>
+<li><code>$(&#39;h1&#39;).innerText</code> =&gt; <code>undefined</code></li>
+<li><code>$$(&#39;h1&#39;)[0].innerText</code> =&gt; <code>Chrome DevTools: $(selector) shorthand doesn&#39;t return the element...</code></li>
+</ul>
+<p><img src="/img/blog/devtools-dollar-shorthand-jquery-01.png" alt=""></p>
+<p><strong>What is its cause, and why the workaround with <code>$$</code> works?</strong></p>
+<p>I&#39;ve found it affects those pages that uses jQuery library on their frontend (Stack Overflow uses it at the moment).</p>
+<p>On such pages the <code>$</code> is occupied by jQuery (as alias for itself), so chrome api returns an object instead of the element for <code>$(selector)</code>. The first element is the DOM element itself, that&#39;s why <code>[0]</code> works.</p>
+<p>By the way: <code>$$(selector)[0]</code> can be even replaced with <code>$(selector)[0]</code>, as this problem has nothing to do with <code>querySelector</code> vs. <code>querySelectorAll</code>.</p>
+<p><strong>Page using jQuery:</strong></p>
+<p><code>$(&#39;h1&#39;)</code>:</p>
+<pre><code class="language-markup">n.fn.init(2) [h1.grid--cell.fs-headline1.fl1.ow-break-word.mb8, h1#feed-modal-title.s-modal--header.fw-bold.js-first-tabbable.c-move, prevObject: n.fn.init(1), context: document, selector: &quot;h1&quot;]</code></pre>
+<p><code>$(&#39;h1&#39;)[0]</code> / <code>document.querySelector(&#39;h1&#39;)</code>:</p>
+<pre><code class="language-html">&lt;h1&gt;...&lt;/h1&gt;</code></pre>
+<p><img src="/img/blog/devtools-dollar-shorthand-jquery-02.png" alt=""></p>
+<p><strong>Page <em>doesn&#39;t</em> use jQuery:</strong></p>
+<p>...while on pages doesn&#39;t rely on jQuery it works as usual.</p>
+<p><code>$(&#39;h1&#39;)</code> / <code>document.querySelector(&#39;h1&#39;)</code>:</p>
+<pre><code class="language-html">&lt;h1&gt;...&lt;/h1&gt;</code></pre>
+<p><code>$(&#39;h1&#39;)[0]</code>:</p>
+<pre><code class="language-markup">undefined</code></pre>
+<p><img src="/img/blog/devtools-dollar-shorthand-jquery-03.png" alt=""></p>
+<p>It might be useful for others.</p>
+
       </article>
     </div>
   </section>
 </main>
+
     <footer translate="no" class="bg-cool text-dark notranslate">
       <!-- VIII. footer bar -->
       <div class="container py-5 text-center">

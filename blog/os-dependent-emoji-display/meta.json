@@ -1,0 +1,12 @@
+{
+  "id": 5,
+  "published": false,
+  "slug": "os-dependent-emoji-display",
+  "canonical": false,
+  "canonical-href": "/blog/os-dependent-emoji-display",
+  "title": "OS dependent emoji display",
+  "lead": "🐊 An emoji looks totally different for you than to me if we are looking it from different platforms. Everyone has a preffered set of emojis and it can be disheartening to see that the content we've carefully created has a totally different meaning on another platform, another OS. Let's see what we can do about this phenomenon.",
+  "date": "October 10, 2020",
+  "originally-published": null,
+  "category": "technical writing"
+}

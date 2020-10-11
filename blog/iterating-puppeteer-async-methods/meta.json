@@ -1,5 +1,6 @@
 {
   "id": 2,
+  "published": true,
   "slug": "iterating-puppeteer-async-methods",
   "canonical": false,
   "canonical-href": "https://stackoverflow.com/a/62612102/12412595",

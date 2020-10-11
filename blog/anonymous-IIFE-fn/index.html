@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Anonymous IIFE-s and semicolons - theDavidBarton.github.io</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="IIFE is an elegant way to execute what should be executed anyway in our JavaScript code. If it is also an anonymous function then it is almost sure that the returned value is not used later on. When it comes to semicolon-less JavaScript styles it gets tricky (and ugly). Let's see how we can handle it if we want to gain from the advantages of both approaches."
+    />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body class="bg-dark">
+    <!-- I.) back to top -->
+    <a id="top"></a>
+    <a href="#top">
+      <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
+    </a>
+    <header translate="no" class="notranslate">
+      <aside id="top-bar" class="bg-dark text-light text-center p-2">
+        🔥 check out my latest post:
+        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
+      </aside>
+      <!-- II.) intro bar -->
+      <div class="bg-light py-1">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col branded-container text-black mt-lg-0 mt-5 vertical-align">
+              <a class="text-decoration-none text-reset" href="/">
+                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
+            </div>
+            <picture class="col d-none d-lg-block">
+              <source srcset="/img/avatar.webp" type="image/webp" />
+              <source srcset="/img/avatar.png" type="image/png" />
+              <a href="/"> <img src="/img/avatar.png" alt="avatar image" class="avatar-style-top" /></a>
+            </picture>
+            <div class="col-lg-auto nav-link-container my-2 inline-block">
+              <a class="shield" href="/#about"
+                ><span class="shield-left">about</span
+                ><span id="about-r" class="shield-right" style="--data-color: #ffa7c4">👱🏻‍♂️</span></a
+              >
+              <a class="shield" href="/#projects"
+                ><span class="shield-left">projects</span
+                ><span id="projects-r" class="shield-right" style="--data-color: #52da37">⚗️</span></a
+              >
+              <a class="shield" href="/blog"
+                ><span class="shield-left">blog</span
+                ><span id="blog-r" class="shield-right" style="--data-color: #48bbe6">📝</span></a
+              >
+              <a class="shield" href="https://github.com/theDavidBarton" target="_blank" rel="noopener noreferrer"
+                ><span class="shield-left">code</span
+                ><span id="github-r" class="shield-right" style="--data-color: #f1f1f1"
+                  ><img
+                    height="19"
+                    width="19"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    alt="github logo"
+                    style="margin-top: -0.3rem" /></span
+              ></a>
+              <!--different behaviour on Win (as they have the only cool emoji set)-->
+              <script src="/header/index.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="bg-dark text-light">
+  <section class="container">
+    <script async src="/blog/index.js"></script>
+    <div class="row mx-lg-5">
+      <article class="col" id="article">
+        <div class="pt-3">October 11, 2020, 🕓︎&#xFE0E; <span id="readTime">4 min read</span>, In: technical writing</div><div class="pb-3">by David Barton</div><h1 id="anonymous-iife-s-and-semicolons">Anonymous IIFE-s and semicolons</h1>
+<p>IIFE (immediately invoked function expression) is an elegant way to execute what should be executed anyway in our JavaScript code. If it is also an anonymous function then it is almost sure that the returned value is not used later on. When it comes to semicolon-less JavaScript styles it gets tricky (and ugly). Let&#39;s see how we can handle it if we want to gain from the advantages of both approaches.</p>
+<p><a href="https://web.archive.org/web/20200731235507/https://mislav.net/2010/05/semicolons/">Semicolons in JavaScript are optional</a>, after all these years it can be still a subject of arguments, but many of us embraced this style, and come on: even prettier or ESlint can fix it for a giga-codebase for you if you don&#39;t like it 😜.</p>
+<p>I always liked the syntax and the elegance of IIFE, but I have never used it in my code as I omit semicolons, which causes <a href="http://www.ecma-international.org/ecma-262/7.0/index.html#sec-automatic-semicolon-insertion"><strong>Automatic Semicolon Insertion (ASI)</strong></a> problems on the fly. I just learned how to make the two work together nicely.</p>
+<h2 id="the-problem-with-iife-and-semicolon-less-js">The problem with IIFE and semicolon-less JS</h2>
+<p>The following script is invalid like this:</p>
+<p>(<em>Note:</em> just realized that it is hard to write invalid code examples in the age of linters and prettiers 😅. I&#39;ve solved it in the end. 👍)</p>
+<!-- prettier-ignore-start -->
+<pre><code class="language-javascript">const text = &#39;hello, world!&#39;
+(() =&gt; {
+    console.log(text)
+  })()</code></pre>
+<!-- prettier-ignore-end -->
+
+<p><strong>And throws the error:</strong></p>
+<pre><code class="language-markdown">Uncaught TypeError: &quot;hello, world!&quot; is not a function at &lt;anonymous&gt;:2:1</code></pre>
+<p>It is due to the fact that ASI has some rules which we need to take care all the time when it comes to semicolon-less style, in the current case: <strong>we cannot start a new line with an opened parenthesis if we have any javascript statements before.</strong></p>
+<p>The <a href="https://github.com/hax/semicolon-less.js/">only cases</a> when we indeed need the semicolons:</p>
+<ul>
+<li><code>;-</code> : line starts with unary - operator</li>
+<li><code>;+</code> : line starts with unary + opeartor</li>
+<li><code>;/regex/</code> : line starts with regexp literal</li>
+<li><code>;[array]</code> : line starts with array initializer</li>
+<li><code>;(group)</code> : line starts with grouping operator</li>
+</ul>
+<p>Linters usually would fix it like this, by adding a semicolon just before the parenthesis:</p>
+<pre><code class="language-javascript">const text = &#39;hello, world!&#39;
+;(() =&gt; {
+  console.log(text)
+})()</code></pre>
+<p><strong>Console output:</strong></p>
+<pre><code class="language-markdown">hello, world!
+undefined</code></pre>
+<p>(We will talk about the <code>undefined</code> value later.)</p>
+<p>It is something turns me totally against semicolon-less coding. <code>;(</code> The sad, winking smiley is not the nicest thing ever. Especially as it logically belongs to <code>const text = &#39;hello, world!&#39;;</code> and not to the IIFE.</p>
+<p>So I mostly used named functions and invoked them immediately after the declaration (pretty pre-ES6 style) until this day. Of course it means I needed to use <strong>named functions</strong> all the time as function statements require a function name.
+With the same example:</p>
+<pre><code class="language-javascript">const text = &#39;hello, world!&#39;
+function foo() {
+  console.log(text)
+}
+foo()</code></pre>
+<p>or:</p>
+<pre><code class="language-javascript">const text = &#39;hello, world!&#39;
+const foo = () =&gt; {
+  console.log(text)
+}
+foo()</code></pre>
+<p><strong>Console output:</strong></p>
+<pre><code class="language-markdown">hello, world!
+undefined</code></pre>
+<p>The function is now a <a href="https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function#Named_function_expression">function expression</a>.</p>
+<p>A small sacrifice to keep semicolon-less stlye.</p>
+<h3 id="undefined"><code>undefined</code></h3>
+<p><strong>For statements without return value we will see <code>undefined</code> on the console (e.g. running the script in DevTools), as in JavaScript every function returns something, at least an undefined value, even if it won&#39;t be used enywhere else: <em>anonymous IIFE-s</em> are good examples for such functions.</strong></p>
+<h2 id="the--comes-to-the-rescue">The <code>!</code> comes to the rescue</h2>
+<p>I&#39;ve seen lately a type of IIFE when it almost looks the same as the regular one, but starting with an exclamation mark. I gave a try. And it worked as it should:</p>
+<pre><code class="language-javascript">!(() =&gt; {
+  console.log(text)
+})()</code></pre>
+<p><strong>Console output:</strong></p>
+<pre><code class="language-markdown">hello, world!
+true</code></pre>
+<p><strong>But wait! What happens with our <code>undefined</code> fellow, why does it turns <code>true</code>? And why does this work as an IIFE?</strong></p>
+<h3 id="function-statements-vs-function-expressions">Function statements vs. function expressions</h3>
+<p>When we declare an anonymous function it is a <strong>function statement</strong> by default, which cannot be invoked immediately, without having an error:</p>
+<pre><code class="language-javascript">function () {
+  console.log(text)
+}()</code></pre>
+<pre><code class="language-markdown">Function statements require a function name</code></pre>
+<p>With the <code>!</code> we can turn the falsy <code>undefined</code> (the IIFE would return as seen above) to true, the function statement becomes a <strong>function expression</strong> as well</p>
+<pre><code class="language-javascript">!(function () {
+  console.log(text)
+})()</code></pre>
+<pre><code class="language-markdown">hello, world!
+true</code></pre>
+<p>And this can be refactored to ES6 arrow as seen two snippets above. It has the limitation of that the returned value is negated, but it is very rare that I would want to return anything form an anonymous IIFE.</p>
+<p>I know by now it is removed from the airbnb style guide since a long while (I suppose since ES6), but they recommended its usage for modules for some years: <a href="https://github.com/airbnb/javascript/issues/44#issuecomment-13063933">https://github.com/airbnb/javascript/issues/44#issuecomment-13063933</a>. From now on I plan to use it in some of my JS projects. The reason not to use this approach all the time: even if it is valid usage of JS, it can (and will) confuse others who look into code that contains such rarities. Anyway, it was a cool thing to learn.</p>
+
+      </article>
+    </div>
+  </section>
+</main>
+
+    <footer translate="no" class="bg-cool text-dark notranslate">
+      <!-- VIII. footer bar -->
+      <div class="container py-5 text-center">
+        <div class="row">
+          <div class="col-lg-4 col-12 text-sm-left">
+            <p>
+              Graphics in the "hobbies" section are downloaded from:
+              <a class="text-cool" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
+                >www.fileformat.info</a
+              >. Other icons are from:
+              <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/">simpleicons.org</a
+              >.<br />
+              All other graphics and photos of this project have been made available to this project by David Barton and are
+              copyrighted; any other use must be authorized by the maker which holds all the rights for them.
+            </p>
+          </div>
+          <div class="col my-3 my-lg-5">
+            <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+            <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+          </div>
+          <div class="col text-sm-right">
+            <p>
+              <strong>Design inspiration for this site</strong>
+              (especially the <a href="/#top-bar">top bar</a> and the rich emoji usage) from:
+              <a class="text-info" target="_blank" rel="noopener noreferrer" href="https://flaviocopes.com/">flaviocopes.com</a>
+              🙏.
+            </p>
+            <br />
+            <a class="text-info" href="/">[&nbsp;home&nbsp;]</a>
+            <a class="text-info" href="/#projects">[&nbsp;projects&nbsp;]</a>
+            <a class="text-info" href="/blog">[&nbsp;blog&nbsp;]</a>
+            <p>copyright © 2020 theDavidBarton</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script data-goatcounter="https://thedavidbarton.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </body>
+</html>

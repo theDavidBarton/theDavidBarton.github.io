@@ -8,7 +8,7 @@ if (navigator.platform.includes('Win')) {
   document.querySelector('#blog-r').innerText = '/**/'
 }
 
-function getLatestArticle() {
+!(() => {
   fetch('/header/latestArticle.json')
     .then(response => response.json())
     .then(json => {
@@ -16,5 +16,4 @@ function getLatestArticle() {
       document.querySelector('#top-bar-link').innerText =
         json.title.replace(/^(.{40}[^\s]*).*/, '$1') + (json.title.length > 40 ? '...' : '')
     })
-}
-getLatestArticle()
+})()

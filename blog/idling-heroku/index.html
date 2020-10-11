@@ -28,11 +28,11 @@
     <a href="#top">
       <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
     </a>
-    <aside id="top-bar" class="bg-dark text-light text-center p-2">
-      🔥 check out my latest post:
-      <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
-    </aside>
     <header translate="no" class="notranslate">
+      <aside id="top-bar" class="bg-dark text-light text-center p-2">
+        🔥 check out my latest post:
+        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
+      </aside>
       <!-- II.) intro bar -->
       <div class="bg-light py-1">
         <div class="container">
@@ -85,9 +85,7 @@
       <article class="col" id="article">
         <div class="pt-3">February 2, 2020, 🕓︎&#xFE0E; <span id="readTime">8 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a">Medium.com</a></div><h1 id="custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps">Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps</h1>
 <p>To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available.</p>
-<p><a href="https://www.heroku.com/dynos">What Heroku dynos are?</a> At Heroku the virtual containers are called dynos, your app will run on one or more of these depending on your monthly plan and scaling of your app. In the Free plan, you will have only one dyno per app, which will go to sleep after 30 minutes of inactivity (lack of visitors on your app).
-<a href="https://www.heroku.com/dynos"><strong>Heroku Dynos | Heroku</strong>
-<em>App developers rely on software abstractions to simplify development and enhance productivity. When it comes to running…</em>www.heroku.com</a></p>
+<p><a href="https://www.heroku.com/dynos">What Heroku dynos are?</a> At Heroku the virtual containers are called dynos, your app will run on one or more of these depending on your monthly plan and scaling of your app. In the Free plan, you will have only one dyno per app, which will go to sleep after 30 minutes of inactivity (lack of visitors on your app).</p>
 <p>I know that their Hobby plan would be more accurate for my projects and it still has a reasonable price (a Hobby dyno is <a href="https://www.heroku.com/dynos">7$/month</a> currently), but as I don’t have frequent visitors on my web apps I decided to stay with the Free plan.</p>
 <p>The only annoying thing is — from user &amp; UX point of view — when your dyno went to sleep after the 30 minutes of inactivity it will take time for them to wake up when the next visitor arrives (multiple <em>yarn starts</em> on a relatively slow dyno), it takes around 6–7 seconds to get the <a href="https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint">First Meaningful Paint</a>.</p>
 <p>I said annoying because it is literally a white screen without any preloader or note about <em>Heroku is warming up/dyno is waking up/soon the page will load</em> etc. Nothing, so a new user won’t wait for this 6–7 secs, will think my app is broken and leaves before it would be rendered.</p>
@@ -115,11 +113,11 @@
 </li>
 </ol>
 <h2 id="have-your-own-page">Have your own page</h2>
-<p>You need one if you want to redirect users. Did you know if you put an index.html on a GitHub repo which has your **<username>.github.io **name it will be automatically deployed to this GitHub Pages domain? It can be even a bundled React/Angular app’s public folder. In my case, it is plain HTML, JS and CSS files.</p>
+<p>You need one if you want to redirect users. Did you know if you put an index.html on a GitHub repo which has your <strong><username>.github.io</strong> name it will be automatically deployed to this GitHub Pages domain? It can be even a bundled React/Angular app’s public folder. In my case, it is plain HTML, JS and CSS files.</p>
 <h2 id="create-the-redirection-page">Create the redirection page</h2>
 <p>As I mentioned mine is a bit old fashioned, I just created such an HTML file and styled it to be similar to my homepage (used Bootstrap 4 and some custom CSS to override default Bootstrap styles).</p>
-<p>The key of the redirection is this meta tag: <strong>http-equiv=”refresh”</strong> (this is the default value, we gonna update its content with JavaScript later):</p>
-<pre><code>&lt;meta id=&quot;refresh&quot; http-equiv=&quot;refresh&quot; content=&quot;7; URL=&#39;https://theDavidBarton.github.io/&#39;&quot; /&gt;</code></pre>
+<p>The key of the redirection is this meta tag: <strong>http-equiv=&quot;refresh&quot;</strong> (this is the default value, we gonna update its content with JavaScript later):</p>
+<pre><code class="language-html">&lt;meta id=&quot;refresh&quot; http-equiv=&quot;refresh&quot; content=&quot;7; URL=&#39;https://theDavidBarton.github.io/&#39;&quot; /&gt;</code></pre>
 <p>Assign id=”refresh” to it.</p>
 <p><strong>content:</strong></p>
 <ul>
@@ -174,7 +172,7 @@ If you’d face a blank page: worry not! It will turn into something very nice s
 <h2 id="javascript">JavaScript</h2>
 <p>Super simple implementation: with Regex we retrieve the value of the “url” parameter with the <strong>getUrlFromLink</strong> function.</p>
 <p>The most important part updates the meta tag’s content (the meta has its own HTML id: #refresh):</p>
-<pre><code>document.querySelector(&#39;#refresh&#39;).content = `0; URL=&#39;${url}&#39;`</code></pre>
+<pre><code class="language-javascript">document.querySelector(&#39;#refresh&#39;).content = `0; URL=&#39;${url}&#39;`</code></pre>
 <p><strong>Zero seconds will be the time until redirection (page refresh). It means: (1) in case the dyno is available redirect will be immediate to the Heroku app, (2) while if it sleeps users will spend a maximum of 6–7 seconds on the redirect page then the Heroku app will be opened without any flash of white screen.</strong></p>
 <p>There is no other functionality nor extra error handling here, as we will parameterize the redirect links ourselves the business logic is restricted to recognize this single parameter properly. The only extra I have added is a <strong>trustedLinks</strong> array. It needs to be maintained manually (at least in my example), but with its help, no funny folks will use your redirection page to steal your s̶u̶n̶s̶h̶i̶n̶e̶ SEO by putting XXX links and other funny stuff in the url parameter.</p>
 <p>My JavaScript looks like this:</p>
@@ -203,10 +201,8 @@ function getUrlFromLink() {
 <p><em>Note:</em> this redirection is not a standard HTTP redirect right now but an HTTP 200, it would require a backend functionality to make it an HTTP 301 ( Moved Permanently) or 303 ( See Other). For the current purpose, it is OK like this.</p>
 <p>You can check out my full implementation on <a href="https://github.com/theDavidBarton/theDavidBarton.github.io">GitHub</a>.</p>
 <p><strong><em>Update:</em></strong> since this article was written I replaced dino by a preloader CSS animation. <a href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7">See more…</a>
-<a href="https://github.com/theDavidBarton/theDavidBarton.github.io"><strong>theDavidBarton/theDavidBarton.github.io</strong>
-*My GitHub page. Contribute to theDavidBarton/theDavidBarton.github.io development by creating an account on GitHub.*github.com</a>
-<a href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7"><strong>Simple preloader CSS animation</strong>
-<em>Previously I was working on a redirect page to act as a bridge between my page and my idling Heroku apps. The next step…</em>medium.com</a></p>
+<a href="https://github.com/theDavidBarton/theDavidBarton.github.io"><strong>theDavidBarton/theDavidBarton.github.io</strong></a>
+<a href="https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7"><strong>Simple preloader CSS animation</strong></a></p>
 
       </article>
     </div>
