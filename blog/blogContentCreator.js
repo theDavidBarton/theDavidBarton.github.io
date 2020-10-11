@@ -40,8 +40,10 @@ for (const folder of folders) {
   /* prettier-ignore */
   const leadMd = `## [${meta.title}](/blog/${folder})\n\n ${metaMarkup + sourceMarkup}\n\n ${meta.lead}...\n\n [Read more =>](/blog/${folder})\n\n <hr class="bg-cool">`
   const leadMarkup = marked(leadMd)
-  leads[meta.id] = leadMarkup
-  articleMetas[meta.id] = meta
+  if (meta.published) {
+    leads[meta.id] = leadMarkup
+    articleMetas[meta.id] = meta
+  }
   const articleMarkup = marked(md)
 
   const finalMarkup =
@@ -56,7 +58,9 @@ for (const folder of folders) {
     blogMain[1] +
     bottom[1]
   fs.writeFileSync(`${__dirname}/${folder}/index.html`, finalMarkup)
-  console.log('html file succesfully created for: ' + folder)
+  meta.published
+    ? console.log('html file succesfully created for: ' + folder)
+    : console.log('[UNPUBLISHED] html file succesfully created for: ' + folder)
 }
 
 const blogLeadsUnited = leads.reverse().join('')

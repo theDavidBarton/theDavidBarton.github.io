@@ -3,8 +3,6 @@
 To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available.
 
 [What Heroku dynos are?](https://www.heroku.com/dynos) At Heroku the virtual containers are called dynos, your app will run on one or more of these depending on your monthly plan and scaling of your app. In the Free plan, you will have only one dyno per app, which will go to sleep after 30 minutes of inactivity (lack of visitors on your app).
-[**Heroku Dynos | Heroku**
-*App developers rely on software abstractions to simplify development and enhance productivity. When it comes to running…*www.heroku.com](https://www.heroku.com/dynos)
 
 I know that their Hobby plan would be more accurate for my projects and it still has a reasonable price (a Hobby dyno is [7\$/month](https://www.heroku.com/dynos) currently), but as I don’t have frequent visitors on my web apps I decided to stay with the Free plan.
 
@@ -42,15 +40,17 @@ I created it simply in **(1) HTML,** **(2) vanilla JavaScript, (3) Bootstrap 4 *
 
 ## Have your own page
 
-You need one if you want to redirect users. Did you know if you put an index.html on a GitHub repo which has your **<username>.github.io **name it will be automatically deployed to this GitHub Pages domain? It can be even a bundled React/Angular app’s public folder. In my case, it is plain HTML, JS and CSS files.
+You need one if you want to redirect users. Did you know if you put an index.html on a GitHub repo which has your **<username>.github.io** name it will be automatically deployed to this GitHub Pages domain? It can be even a bundled React/Angular app’s public folder. In my case, it is plain HTML, JS and CSS files.
 
 ## Create the redirection page
 
 As I mentioned mine is a bit old fashioned, I just created such an HTML file and styled it to be similar to my homepage (used Bootstrap 4 and some custom CSS to override default Bootstrap styles).
 
-The key of the redirection is this meta tag: **http-equiv=”refresh”** (this is the default value, we gonna update its content with JavaScript later):
+The key of the redirection is this meta tag: **http-equiv="refresh"** (this is the default value, we gonna update its content with JavaScript later):
 
-    <meta id="refresh" http-equiv="refresh" content="7; URL='https://theDavidBarton.github.io/'" />
+```html
+<meta id="refresh" http-equiv="refresh" content="7; URL='https://theDavidBarton.github.io/'" />
+```
 
 Assign id=”refresh” to it.
 
@@ -123,7 +123,9 @@ Super simple implementation: with Regex we retrieve the value of the “url” p
 
 The most important part updates the meta tag’s content (the meta has its own HTML id: #refresh):
 
-    document.querySelector('#refresh').content = `0; URL='${url}'`
+```javascript
+document.querySelector('#refresh').content = `0; URL='${url}'`
+```
 
 **Zero seconds will be the time until redirection (page refresh). It means: (1) in case the dyno is available redirect will be immediate to the Heroku app, (2) while if it sleeps users will spend a maximum of 6–7 seconds on the redirect page then the Heroku app will be opened without any flash of white screen.**
 
@@ -168,7 +170,5 @@ _Note:_ this redirection is not a standard HTTP redirect right now but an HTTP 2
 You can check out my full implementation on [GitHub](https://github.com/theDavidBarton/theDavidBarton.github.io).
 
 **_Update:_** since this article was written I replaced dino by a preloader CSS animation. [See more…](https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7)
-[**theDavidBarton/theDavidBarton.github.io**
-*My GitHub page. Contribute to theDavidBarton/theDavidBarton.github.io development by creating an account on GitHub.*github.com](https://github.com/theDavidBarton/theDavidBarton.github.io)
-[**Simple preloader CSS animation**
-*Previously I was working on a redirect page to act as a bridge between my page and my idling Heroku apps. The next step…*medium.com](https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7)
+[**theDavidBarton/theDavidBarton.github.io**](https://github.com/theDavidBarton/theDavidBarton.github.io)
+[**Simple preloader CSS animation**](https://medium.com/@theDavidBarton/simple-preloader-css-animation-72dfcdb443d7)

@@ -18,57 +18,60 @@ The two logos will be put on top of each other (position: absolute) and the oute
 
 The CSS:
 
-    .outer {
-      width: 300px;
-      overflow: hidden;
-      animation: preloader 7s;
-    }
+```css
+.outer {
+  width: 300px;
+  overflow: hidden;
+  animation: preloader 7s;
+}
 
-    .inner {
-      width: 300px;
-    }
+.inner {
+  width: 300px;
+}
 
-    .evil-twin {
-      filter: brightness(0);
-    }
+.evil-twin {
+  filter: brightness(0);
+}
 
-    .good-twin {
-      filter: brightness(100);
-    }
+.good-twin {
+  filter: brightness(100);
+}
 
-    @keyframes *preloader* {
-      0% {
-        width: 0;
-      }
-      15% {
-        width: 0;
-      }
-      100% {
-        width: 300px;
-      }
-    }
+@keyframes preloader {
+  0% {
+    width: 0;
+  }
+  15% {
+    width: 0;
+  }
+  100% {
+    width: 300px;
+  }
+}
+```
 
 and the HTML (using some Bootstrap 4 classes!):
 
-    [...]
-    <div>
-      <div class="**outer** position-absolute" style="z-index:5;">
-        <div class="**inner**">
-          **<img src="img/logo.svg" width="300" alt="branded logo" class="good-twin" />**
-          <p class="text-center display-4">loading...</p>
-        </div>
-      </div>
-      <div class="position-absolute">
-        **<img src="img/logo.svg" width="300" alt="branded logo" class="evil-twin" />**
-        <p class="text-center display-4" style="color:black">loading...</p>
-      </div>
+```html
+[...]
+<div>
+  <div class="**outer** position-absolute" style="z-index:5;">
+    <div class="**inner**">
+      <img src="img/logo.svg" width="300" alt="branded logo" class="good-twin" />
+      <p class="text-center display-4">loading...</p>
     </div>
-    [...]
+  </div>
+  <div class="position-absolute">
+    <img src="img/logo.svg" width="300" alt="branded logo" class="evil-twin" />
+    <p class="text-center display-4" style="color:black">loading...</p>
+  </div>
+</div>
+[...]
+```
 
 I only needed to fight a bit with positioning it on all devices to the center, this part is not part of the example above.
 
 ![](/img/blog/simple-preloader.png)
 
 You can check out the full code in my Github page’s repo:
-[**theDavidBarton/theDavidBarton.github.io**
-*My GitHub page. Contribute to theDavidBarton/theDavidBarton.github.io development by creating an account on GitHub.*github.com](https://github.com/theDavidBarton/theDavidBarton.github.io)
+[**theDavidBarton/theDavidBarton.github.io**](https://github.com/theDavidBarton/theDavidBarton.github.io)
