@@ -219,6 +219,39 @@ async function getStreak() {
   }
 }
 
+// GitHub rank in Hungary
+async function getRank() {
+  try {
+    let obj
+    let response
+    // reduce load on my heroku api during development
+    if (window.location.href.match(prodUrl())) {
+      response = await fetch('https://thedavidbarton.herokuapp.com/api/1/get-my-rank?userName=theDavidBarton&country=Hungary')
+      await response.json().then(data => (obj = data))
+    } else {
+      response = '{"rank": 3}'
+      obj = JSON.parse(response)
+    }
+    const rankNumber = obj.rank
+    document.querySelector('#rank').textContent = rankNumber
+    switch (rankNumber) {
+      case 1:
+        document.querySelector('#rankSubText').textContent = 'st'
+        break
+      case 2:
+        document.querySelector('#rankSubText').textContent = 'nd'
+        break
+      case 3:
+        document.querySelector('#rankSubText').textContent = 'rd'
+        break
+      default:
+        document.querySelector('#rankSubText').textContent = 'th'
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 // StackOverFlow reputation
 async function getReputation() {
   try {

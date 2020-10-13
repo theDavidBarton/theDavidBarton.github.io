@@ -162,8 +162,8 @@
               <p>K8s</p>
             </div>
             <div class="col-3 col-lg-auto d-lg-block d-none">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gimp.svg" alt="logo" />
-              <p>Gimp</p>
+              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg" alt="logo" />
+              <p>CSS3</p>
             </div>
           </div>
         </div>
@@ -178,14 +178,13 @@
                 <a id="about">about me</a>
               </h3>
               <p class="m-4 pb-lg-0 pb-2">
-                I've been using the not too meek user name <strong>"theDavidBarton"</strong> around the web, at the same time I am
-                working as a <span class="highlight">QA engineer</span> and <span class="highlight">release manager</span> at
-                French metasearch company
-                <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I am using
-                JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI, Kubernetes and
+                I've been using the not too meek user name <span class="highlight">"theDavidBarton"</span> around the web, at the
+                same time I am working as a <strong>QA engineer</strong> and <strong>release manager</strong> at French metasearch
+                company <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I am
+                using JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI, Kubernetes and
                 Jenkins for deployment and release management.<br /><br />
                 In my spare time, I enjoy working on hobby JS projects in Node and React to improve my
-                <span class="highlight">full stack JavaScript</span> dev skills.
+                <strong>full stack JavaScript</strong> dev skills.
               </p>
             </div>
             <!-- 2nd col starts here -->
@@ -236,35 +235,37 @@
                 >
               </div>
               <div class="col-3 col-lg-auto fun-border">
+                <small class="fun-text" id="rankText">GitHub rank*</small>
+                <span class="number-big"><span id="rank">--</span><sub id="rankSubText" class="days-style">th</sub></span>
+                <small class="fun-text" id="rankSubtitle">Hungary</small>
+              </div>
+              <div class="col-3 col-lg-auto fun-border">
                 <small class="fun-text" id="soReputationText">Stack Overflow*</small>
                 <span class="number-big" id="soReputation">--</span>
                 <small class="fun-text" id="soReputationSubtitle">reputation</small>
               </div>
-              <div class="col-3 col-lg-auto fun-border">
+              <div class="col-3 col-lg-auto fun-border d-xl-block d-none">
                 <small class="fun-text" id="crocText">This is:</small>
                 <span class="number-big de-saturate" id="croc">🐊</span>
                 <small class="fun-text" id="crocText">a crocodile</small>
               </div>
-              <div class="col-3 col-lg-auto fun-border d-xl-block d-none">
-                <img
-                  height="75"
-                  width="75"
-                  src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg"
-                  alt="whale from Docker"
-                />
-              </div>
               <script async src="/index.js" onload="getRepos()"></script>
               <script async src="/index.js" onload="getStreak()"></script>
+              <script async src="/index.js" onload="getRank()"></script>
               <script async src="/index.js" onload="getReputation()"></script>
               <script async src="/index.js" onload="getDate()"></script>
               <!-- "fun facts" ends here -->
               <div class="col pt-4 text-muted text-wrap data-style">
                 <p>
                   <small
-                    >*Data is retrieved from
+                    >*Data is retrieved via
                     <a href="https://developer.github.com/v3/users/" target="_blank" rel="noopener noreferrer">GitHub api</a>, my
                     <a href="https://www.npmjs.com/package/github-streak-scraper" target="_blank" rel="noopener noreferrer"
                       >github&#8209;streak&#8209;scraper</a
+                    >
+                    &
+                    <a href="https://www.npmjs.com/package/get-my-rank-on-commits-top" target="_blank" rel="noopener noreferrer"
+                      >get&#8209;my&#8209;rank&#8209;on&#8209;commits&#8209;top</a
                     >
                     and
                     <a href="https://api.stackexchange.com/2.2/users" target="_blank" rel="noopener noreferrer"
@@ -396,7 +397,7 @@
                 <p>@the<wbr />DavidBarton</p>
               </a>
             </div>
-            <div class="col-3 col-lg-auto contact-style">
+            <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
               <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@theDavidBarton">
                 <img
                   height="50"
@@ -413,7 +414,7 @@
                 <p>@the<wbr />davidbarton</p>
               </a>
             </div>
-            <div class="col-3 col-lg-auto contact-style d-lg-block d-none">
+            <div class="col-3 col-lg-auto contact-style">
               <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12412595/theDavidBarton">
                 <img
                   height="50"
@@ -421,7 +422,7 @@
                   src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stackoverflow.svg"
                   alt="stackoverflow icon"
                 />
-                <p>@theDavidBarton</p>
+                <p>@the<wbr />DavidBarton</p>
               </a>
             </div>
           </div>

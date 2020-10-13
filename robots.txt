@@ -6,5 +6,11 @@ Disallow: /*.jpg$
 
 # general
 User-agent: *
-Disallow: /redirect.html?
-Disallow: /redirect.html
+Disallow: /*.template$
+Disallow: /redirect?
+Disallow: /redirect
+Disallow: /redirect/index.html
+Disallow: /404
+
+Allow: /blog
+Allow: /blog/*/

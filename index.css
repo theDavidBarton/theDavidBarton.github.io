@@ -387,6 +387,7 @@ a.text-cool-secondary:hover {
 @media all and (max-width: 1200px) {
   .fun-border {
     border: 0px solid;
+    background: linear-gradient(#c3e6cb33, #ffffff00);
     height: auto;
   }
 }
