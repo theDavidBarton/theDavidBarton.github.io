@@ -354,6 +354,11 @@ a.text-cool-secondary:hover {
   height: 8.4rem;
 }
 
+.fun-border:hover {
+  color: #343a40;
+  border-color: #343a40;
+}
+
 .fun-text {
   cursor: unset;
 }
