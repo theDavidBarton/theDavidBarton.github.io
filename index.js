@@ -232,7 +232,7 @@ async function getRank() {
       response = '{"rank": 3}'
       obj = JSON.parse(response)
     }
-    const rankNumber = obj.rank
+    const rankNumber = parseInt(obj.rank)
     document.querySelector('#rank').textContent = rankNumber
     switch (rankNumber) {
       case 1:

@@ -355,7 +355,7 @@ a.text-cool-secondary:hover {
 }
 
 .fun-text {
-  cursor: default;
+  cursor: unset;
 }
 
 .cv-border-style {
