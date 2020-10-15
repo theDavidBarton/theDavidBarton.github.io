@@ -229,23 +229,29 @@ async function getRank() {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/get-my-rank?userName=theDavidBarton&country=Hungary')
       await response.json().then(data => (obj = data))
     } else {
-      response = '{"rankContrib": 3}'
+      response = '{"rankContrib": 13}'
       obj = JSON.parse(response)
     }
     const rankNumber = parseInt(obj.rankContrib)
-    document.querySelector('#rank').textContent = rankNumber
-    switch (rankNumber) {
+    const rankElem = document.querySelector('#rank')
+    const rankSubElem = document.querySelector('#rankSubText')
+    rankElem.textContent = rankNumber
+    switch (isNaN(rankNumber) || rankNumber % 10) {
       case 1:
-        document.querySelector('#rankSubText').textContent = 'st'
+        rankNumber == 11 ? (rankSubElem.textContent = 'th') : (rankSubElem.textContent = 'st')
         break
       case 2:
-        document.querySelector('#rankSubText').textContent = 'nd'
+        rankNumber == 12 ? (rankSubElem.textContent = 'th') : (rankSubElem.textContent = 'nd')
         break
       case 3:
-        document.querySelector('#rankSubText').textContent = 'rd'
+        rankNumber == 13 ? (rankSubElem.textContent = 'th') : (rankSubElem.textContent = 'rd')
+        break
+      case true:
+        rankSubElem.remove()
+        rankElem.textContent = '256+'
         break
       default:
-        document.querySelector('#rankSubText').textContent = 'th'
+        rankSubElem.textContent = 'th'
     }
   } catch (e) {
     console.error(e)
