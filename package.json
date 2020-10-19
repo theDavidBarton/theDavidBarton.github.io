@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "main": "./blog/blogContentCreator.js",
+  "main": "./blog/build-blog.js",
   "license": "MIT",
   "devDependencies": {
     "marked": "^1.2.0"
   },
   "scripts": {
-    "start": "node ./blog/blogContentCreator.js"
+    "build": "node ./blog/build-blog.js"
   },
   "engines": {
     "node": "12.x"

@@ -2,29 +2,45 @@
 
 📅 For October-December I can recommend these free online events:
 
-## development in general
+## #development in general
 
-**GitHub Universe 2020** (december 8-10): https://githubuniverse.com/
+**GitHub Universe 2020** (december 8-10):
 
-(2019 Keynote: https://www.youtube.com/watch?v=9EoNqyxtSRM)
+https://githubuniverse.com/
 
-## web in general
+([2019 Keynote](https://www.youtube.com/watch?v=9EoNqyxtSRM))
 
-**Dev Summit 2020** (december 9-10): https://developer.chrome.com/devsummit/
+<hr class="bg-cool">
 
-(2019: https://www.youtube.com/playlist?list=PLNYkxOF6rcIDA1uGhqy45bqlul0VcvKMr)
+## #web in general
 
-## Node.Js
+**Dev Summit 2020** (december 9-10):
 
-**NodeConf remote** (november 2-6): https://www.nodeconfremote.com/
+https://developer.chrome.com/devsummit/
 
-(2019: https://www.youtube.com/watch?v=DGxdm-QcMF4&list=PL0CdgOSSGlBbkVfya8-yyhVsaiTx2GKXF)
+([2019](https://www.youtube.com/playlist?list=PLNYkxOF6rcIDA1uGhqy45bqlul0VcvKMr))
 
-## DevSecOps
+<hr class="bg-cool">
 
-**SynkCon 2020** (october 21-22): https://snyk.io/snykcon/
+## #Node.Js
 
-## GOTO;
+**NodeConf remote** (november 2-6):
+
+https://www.nodeconfremote.com/
+
+([2019](https://www.youtube.com/watch?v=DGxdm-QcMF4&list=PL0CdgOSSGlBbkVfya8-yyhVsaiTx2GKXF))
+
+<hr class="bg-cool">
+
+## #DevSecOps
+
+**SynkCon 2020** (october 21-22):
+
+https://snyk.io/snykcon/
+
+<hr class="bg-cool">
+
+## #GOTO;
 
 **GOTOpia free nights**
 
