@@ -15,8 +15,8 @@ $ npx serve
 # Static Pre-Rendering of the blog articles
 
 ```
-$ yarn start
-$ node ./blog/blogContentCreator.js
+$ yarn build
+$ node ./blog/build-blog.js
 ```
 
 # Credits
