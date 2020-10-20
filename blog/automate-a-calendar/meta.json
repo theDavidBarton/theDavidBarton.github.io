@@ -1,0 +1,12 @@
+{
+  "id": 8,
+  "published": true,
+  "slug": "automate-a-calendar",
+  "canonical": false,
+  "canonical-href": "https://stackoverflow.com/questions/63796579/use-puppeteer-to-select-by-text/63819936#63819936",
+  "title": "How to automate date selection with puppeteer?",
+  "lead": "When it comes to form e2e automation calendars and date pickers are the trickyest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.",
+  "date": "October 20, 2020",
+  "originally-published": "Stack Overflow",
+  "category": "technical writing"
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>[FREE] Online Conferences for 2020 fall - theDavidBarton.github.io</title>
+    <title>How to automate date selection with puppeteer? - theDavidBarton.github.io</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -16,7 +16,7 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="📅 For October-December I can recommend these free online events."
+      content="When it comes to form e2e automation calendars and date pickers are the trickyest to be implemented. Or at least to make a general solution that can automate any calendar UI-s."
     />
     <meta name="google" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,48 +84,61 @@
     <script async src="/blog/index.js"></script>
     <div class="row mx-lg-5">
       <article class="col" id="article">
-        <div class="pt-3">October 19, 2020, 🕓︎&#xFE0E; <span id="readTime">2 min read</span>, In: events</div><div class="pb-3">by David Barton</div><h1 id="free-online-conferences-for-2020-fall">[FREE] Online Conferences for 2020 fall</h1>
-<p>📅 For October-December I can recommend these free online events:</p>
-<h2 id="development-in-general">#development in general</h2>
-<p><strong>GitHub Universe 2020</strong> (december 8-10):</p>
-<p><a href="https://githubuniverse.com/">https://githubuniverse.com/</a></p>
-<p><a href="https://www.youtube.com/watch?v=9EoNqyxtSRM">2019 Keynote</a></p>
-<hr class="bg-cool">
+        <div class="pt-3">October 20, 2020, 🕓︎&#xFE0E; <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/63796579/use-puppeteer-to-select-by-text/63819936#63819936">Stack Overflow</a></div><h1 id="how-to-automate-date-selection-with-puppeteer">How to automate date selection with puppeteer?</h1>
+<p>When it comes to form e2e automation calendars and date pickers are the trickyest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.</p>
+<h1 id="in-theory">In theory</h1>
+<p>You are able to collect the content of the calendar with <code>page.$eval</code> and <code>page.$$eval</code> methods:</p>
+<pre><code class="language-javascript">const calMonthYear = await page.$eval(&#39;.calendar-monthname&#39;, month =&gt; month.innerText)
+// September 2020
 
-<h2 id="web-in-general">#web in general</h2>
-<p><strong>Dev Summit 2020</strong> (december 9-10):</p>
-<p><a href="https://developer.chrome.com/devsummit/">https://developer.chrome.com/devsummit/</a></p>
-<p><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcIDA1uGhqy45bqlul0VcvKMr">2019</a></p>
-<hr class="bg-cool">
+const calDays = await page.$$eval(&#39;.calendar-grid &gt; ul &gt; li&#39;, days =&gt; days.map(d =&gt; d.innerText))
+// [&quot;30&quot;, &quot;31&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;, &quot;11&quot;, &quot;12&quot;, &quot;13&quot;, &quot;14&quot;, &quot;15&quot;, &quot;16&quot;, &quot;17&quot;, &quot;18&quot;, &quot;19&quot;, &quot;20&quot;, &quot;21&quot;, &quot;22&quot;, &quot;23&quot;, &quot;24&quot;, &quot;25&quot;, &quot;26&quot;, &quot;27&quot;, &quot;28&quot;, &quot;29&quot;, &quot;30&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</code></pre>
+<p><em>Note:</em> in the final example I declare them with <code>let</code> due to they need to be redeclared once we have to step to the next month on date selection.</p>
+<p>Then if you concat the dates you can make every calendar day element a valid JavaScript Date object, e.g.:</p>
+<pre><code class="language-javascript">Date.parse(`${calDays[10]} ${calMonthYear}`) // 9 September 2020
+// 1599602400000</code></pre>
+<p>The current day (today) always has a specific class name, e.g.: <code>.selected</code>, we can evaluate its date with puppeteer (let&#39;s assume this is the valid &quot;now&quot; and not <code>Date.now()</code>)</p>
+<pre><code class="language-javascript">const calToday = await page.$eval(&#39;.selected&#39;, day =&gt; day.innerText)
+// 9</code></pre>
+<pre><code class="language-javascript">const todayIndex = calDays.indexOf(calToday)
+// 10
 
-<h2 id="nodejs">#Node.Js</h2>
-<p><strong>NodeConf remote</strong> (november 2-6):</p>
-<p><a href="https://www.nodeconfremote.com/">https://www.nodeconfremote.com/</a></p>
-<p><a href="https://www.youtube.com/watch?v=DGxdm-QcMF4&amp;list=PL0CdgOSSGlBbkVfya8-yyhVsaiTx2GKXF">2019</a></p>
-<hr class="bg-cool">
+const todayEpoch = Date.parse(`${calDays[todayIndex]} ${calMonthYear}`) // 9 September 2020
+// 1599602400000</code></pre>
+<p>We can create a date desired to be selected in Epoch format (it should be <code>Date.parse()</code>-ed):</p>
+<pre><code class="language-javascript">let today = new Date(todayEpoch)
+let sevenDaysLater = new Date()
+sevenDaysLater.setDate(today.getDate() + 7)
+sevenDaysLater.setHours(0, 0, 0, 0)
+// 1600207200000  (Wed Sep 16 2020 00:00:00 GMT+0200 (Central European Summer Time))</code></pre>
+<p>And finally you should compose an iteration to select the desired 7 days later element, something like this:</p>
+<pre><code class="language-javascript">[...]
 
-<h2 id="devsecops">#DevSecOps</h2>
-<p><strong>All Day DevOps</strong> (november 6):</p>
-<p><a href="https://www.alldaydevops.com/attend-addo">https://www.alldaydevops.com/attend-addo</a></p>
-<p><strong>SynkCon 2020</strong> (october 21-22):</p>
-<p><a href="https://snyk.io/snykcon/">https://snyk.io/snykcon/</a></p>
-<p><strong>Software Circus: Nightmares on Cloud Street Schedule</strong> (october 29):</p>
-<p><a href="https://www.softwarecircus.io/software-circus-nightmares-on-cloud-street-schedule">https://www.softwarecircus.io/software-circus-nightmares-on-cloud-street-schedule</a></p>
-<hr class="bg-cool">
+let calendarGridItemCount =  await page.$$eval(&#39;.calendar-grid &gt; ul &gt; li&#39;, el =&gt; el.length)
+let calMonthYear = await page.$eval(&#39;.calendar-monthname&#39;, month =&gt; month.innerText)
+let calDays = await page.$$eval(&#39;.calendar-grid &gt; ul &gt; li&#39;, days =&gt; days.map(d =&gt; d.innerText))
 
-<h2 id="goto">#GOTO;</h2>
-<p><strong>GOTOpia free nights</strong></p>
-<p><a href="https://gotopia.tech/events">https://gotopia.tech/events</a></p>
+const wantedDate = Date.parse(sevenDaysLater)
+
+  for (let i = 0; i &lt; calendarGridItemCount; i++) {
+    let examinedCalendarGridItem = Date.parse(`${calDays[i]} ${calMonthYear}`)
+    if (examinedCalendarGridItem == wantedDate) {
+      const dayFound = (await page.$$(&#39;.calendar-grid &gt; ul &gt; li&#39;))[i]
+      await dayFound.click()
+      break
+    } else if (examinedCalendarGridItem !== wantedDate &amp;&amp; i === calendarGridItemCount - 1) {
+      await page.click(&#39;.calendar-next&#39;)
+      calendarGridItemCount = await page.$$eval(&#39;.calendar-grid &gt; ul &gt; li&#39;, el =&gt; el.length)
+      calMonthYear = await page.$eval(&#39;.calendar-monthname&#39;, month =&gt; month.innerText)
+      calDays = await page.$$eval(&#39;.calendar-grid &gt; ul &gt; li&#39;, days =&gt; days.map(d =&gt; d.innerText))
+      i = 0
+      continue
+    }
+  }</code></pre>
+<h2 id="make-sure">Make sure:</h2>
 <ul>
-<li>Brian Vermeer - Dependency Management Done Right. (October 19: 5pm-6pm CET)</li>
-<li>Kevlin Henney - #AskMeAnything on Slack (October 21: 5.30pm-6.30pm CET)</li>
-<li>Oleh Dokuka - Reactive Network Protocol (October 28: 5pm-6pm CET)</li>
-<li>Patrick Kua - #AskMeAnything on Slack (November 4: 4pm-5pm CET)</li>
-<li>Dave Farley - Software Engineering in 100 Years Time (November 5: 6pm-7pm CET)</li>
-<li>Oleh Dokuka - #AskMeAnything on Slack (November 11: 4pm-5pm CET)</li>
-<li>Chris Atherton - #AskMeAnything on Slack (November 18: 4pm-5pm CET)</li>
-<li>Aino Corry - Retrospectives Antipatterns (November 19: 5pm-6pm CET)</li>
-<li>Kevlin Henney - Wibbly-Wobbly, Timey-Wimey Stuff (November 24: 5pm - 6pm CET)</li>
+<li>you handle those cases when the +7 days date is in the next month (step to the next month with the <code>.calendar-next</code> button);</li>
+<li>handling of the orphan days (either at the beginning of the month or at the end... if the orphans at the end are selectable, then it is not a problem) e.g.: you can clean the values of the orphans in <code>calDays</code> array with keeping their indexes (the indexes are needed in the iteration to identify the selectable dates, slicing the past dates would mess up their order).</li>
 </ul>
 
       </article>
