@@ -1,4 +1,4 @@
-# How to check SSL cert with puppeteer??
+# How to check SSL cert with puppeteer?
 
 Frustrating it is when you miss to renew your SSL cert on any of your domains. And it is hell of a job to check the different expiry dates among sites manually. with the help of puppeteer you can do it automatically.
 
@@ -11,7 +11,7 @@ You can use [`response.securityDetails()`][1] directly on the `page.goto` if you
 - securityDetails.validFrom()
 - securityDetails.validTo()
 
-E.g. `validTo()`:
+E.g. to check `validTo()`:
 
 ```javascript
 const response = await page.goto(url)
@@ -24,8 +24,12 @@ This method can be used in a for..of loop on a huge array of urls.
 
 Output:
 
+```javascript
+Tuesday, January 26, 2021
 ```
-Sunday, December 20, 2020
-```
+
+The output is the _Valid to_ value of the actual SSL cert.
+
+![](/img/blog/cert-expiry-puppeteer-01.png)
 
 [1]: https://pptr.dev/#?product=Puppeteer&show=api-class-securitydetails
