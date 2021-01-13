@@ -280,6 +280,9 @@ async function getReputation() {
 
 // print date
 function getDate() {
+  const funFact = document.querySelector('#funfactDataDate')
+  const thisYear = document.querySelector('#thisYear')
   const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
-  document.querySelector('#funfactDataDate').textContent = today
+  funFact ? (funFact.textContent = today) : null
+  thisYear.textContent = today.match(/\d{4}/)[0]
 }

@@ -22,69 +22,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
   </head>
-  <body class="bg-dark">
+  <body class="bg-noiz">
     <!-- I.) back to top -->
-    <a id="top"></a>
-    <a href="#top">
-      <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
-    </a>
+    <div id="top"></div>
+    <a href="#top" class="btn btn-dark position-fixed text-light text-center back-to-top-style"> ⮙ </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="bg-dark text-light text-center p-2">
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
         🔥 check out my latest post:
         <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
       </aside>
       <!-- II.) intro bar -->
-      <div class="bg-light py-1">
+      <div class="bg-noiz py-2">
         <div class="container">
-          <div class="row align-items-center">
-            <div class="col branded-container text-black mt-lg-0 mt-5 vertical-align">
-              <a class="text-decoration-none text-reset" href="/">
-                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+          <div class="align-items-center text-center">
+            <div class="row">
+              <a class="col text-decoration-none text-reset" href="/">
+                <h1 class="branded-name text-center pt-3 pb-1 stroke-shadow"><span class="branded-pre">the</span>DavidBarton</h1>
                 <h2 class="bolder">QA engineering | full stack JavaScript</h2>
               </a>
             </div>
-            <a href="/" class="col d-none d-lg-block">
-              <picture>
-                <source srcset="/img/avatar.webp" type="image/webp" />
-                <source srcset="/img/avatar.png" type="image/png" />
-                <img src="/img/avatar.png" alt="avatar image" class="avatar-style-top" /> </picture
-            ></a>
-            <div class="col-lg-auto nav-link-container my-2 inline-block">
-              <a class="shield" href="/#about"
-                ><span class="shield-left">about</span
-                ><span id="about-r" class="shield-right" style="--data-color: #ffa7c4">👱🏻‍♂️</span></a
-              >
-              <a class="shield" href="/#projects"
-                ><span class="shield-left">projects</span
-                ><span id="projects-r" class="shield-right" style="--data-color: #52da37">⚗️</span></a
-              >
-              <a class="shield" href="/blog"
-                ><span class="shield-left">blog</span
-                ><span id="blog-r" class="shield-right" style="--data-color: #48bbe6">📝</span></a
-              >
-              <a class="shield" href="https://github.com/theDavidBarton" target="_blank" rel="noopener noreferrer"
-                ><span class="shield-left">code</span
-                ><span id="github-r" class="shield-right" style="--data-color: #f1f1f1"
-                  ><img
-                    height="19"
-                    width="19"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                    alt="github logo"
-                    style="margin-top: -0.3rem" /></span
-              ></a>
+            <div class="col-lg-auto my-2 inline-block">
+              <a href="/#about">[about 👱🏻‍♂️]</a>
+              <a href="/#projects">[projects ⚗️]</a>
+              <a href="/blog">[blog 📝]</a>
               <!--different behaviour on Win (as they have the only cool emoji set)-->
               <script src="/header/index.js"></script>
             </div>
           </div>
         </div>
       </div>
+      <script src="/header/index.js"></script>
     </header>
-    <main class="bg-dark text-light">
+    <main class="bg-light">
   <section class="container">
     <script async src="/blog/index.js"></script>
     <div class="row mx-lg-5">
       <article class="col" id="article">
-        <div class="pt-3">October 10, 2020, <svg class="invert-icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">1 min read</span>, In: technical writing</div><div class="pb-3">by David Barton</div><h1 id="os-dependent-emoji-display">OS dependent emoji display</h1>
+        <div class="pt-3">October 10, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">1 min read</span>, In: technical writing</div><div class="pb-3">by David Barton</div><h1 id="os-dependent-emoji-display">OS dependent emoji display</h1>
 <p>🐊 An emoji looks totally different for you than to me if we are looking it from different platforms. Everyone has a preffered set of emojis and it can be disheartening to see that the content we&#39;ve carefully created has a totally different meaning on another platform, another OS. Let&#39;s see what we can do about this phenomenon.</p>
 <h2 id="emojipedia">Emojipedia</h2>
 <p><a href="https://emojipedia.org/">Emojipedia.org</a> is the best source for emojis.
@@ -98,38 +72,35 @@ In case of my favourite one, the <code>:crocodile:</code> there is a warning on 
   </section>
 </main>
 
-    <footer translate="no" class="bg-cool text-dark notranslate">
+    <footer translate="no" class="bg-noiz text-dark notranslate">
       <!-- VIII. footer bar -->
       <div class="container py-5 text-center">
         <div class="row">
           <div class="col-lg-4 col-12 text-sm-left">
             <p>
               Graphics in the "hobbies" section are downloaded from:
-              <a class="text-cool" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
-                >www.fileformat.info</a
-              >. Other icons are from:
-              <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/">simpleicons.org</a
-              >.<br />
+              <a target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/">www.fileformat.info</a>. Other icons
+              are from: <a target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/">simpleicons.org</a>.<br />
               All other graphics and photos of this project have been made available to this project by David Barton and are
               copyrighted; any other use must be authorized by the maker which holds all the rights for them.
             </p>
           </div>
           <div class="col my-3 my-lg-5">
-            <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
-            <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+            <p class="branded-name stroke-shadow"><span class="branded-pre">the</span>DavidBarton</p>
+            <p class="bolder">QA engineering | full stack JavaScript</p>
           </div>
           <div class="col text-sm-right">
             <p>
               <strong>Design inspiration for this site</strong>
-              (especially the <a href="/#top-bar">top bar</a> and the rich emoji usage) from:
-              <a class="text-info" target="_blank" rel="noopener noreferrer" href="https://flaviocopes.com/">flaviocopes.com</a>
-              🙏.
+              (especially the <a href="#top-bar">top bar</a> and the rich emoji usage) from:
+              <a target="_blank" rel="noopener noreferrer" href="https://flaviocopes.com/">flaviocopes.com</a>.
             </p>
             <br />
-            <a class="text-info" href="/">[&nbsp;home&nbsp;]</a>
-            <a class="text-info" href="/#projects">[&nbsp;projects&nbsp;]</a>
-            <a class="text-info" href="/blog">[&nbsp;blog&nbsp;]</a>
-            <p>copyright © 2020 theDavidBarton</p>
+            <a href="/">[&nbsp;home&nbsp;]</a>
+            <a href="/#projects">[&nbsp;projects&nbsp;]</a>
+            <a href="/blog">[&nbsp;blog&nbsp;]</a>
+            <p>copyright © 2019-<span id="thisYear">0000</span> theDavidBarton</p>
+            <script async src="/index.js" onload="getDate()"></script>
           </div>
         </div>
       </div>

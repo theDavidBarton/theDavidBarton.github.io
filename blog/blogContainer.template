@@ -1,4 +1,4 @@
-<main class="bg-dark text-light">
+<main class="bg-light">
   <section class="container">
     <script async src="/blog/index.js"></script>
     <div class="row mx-lg-5">
