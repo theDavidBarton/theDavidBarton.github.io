@@ -75,6 +75,15 @@ h4 {
   margin-block-end: 1.16rem;
 }
 
+.nav-icon {
+  text-decoration: none;
+}
+
+.nav-icon > img {
+  height: 1.2rem;
+  margin: 0.08rem;
+}
+
 .back-to-top-style {
   text-decoration: none;
   opacity: 0.8;
@@ -87,6 +96,11 @@ h4 {
   border-width: 1px;
   border-color: cornsilk;
   line-height: 1.33;
+}
+
+.back-to-top-style > img {
+  height: 0.79rem;
+  margin-bottom: 0.15rem;
 }
 
 .inline-block {
@@ -238,7 +252,6 @@ h4 {
 }
 
 /* intro section */
-
 .bg-noiz {
   background-image: url('img/bg-noiz.gif');
   background-repeat: repeat;
