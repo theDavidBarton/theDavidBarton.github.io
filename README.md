@@ -23,6 +23,14 @@ $ node ./blog/build-blog.js
 
 **Design inspiration for this site** (especially the top bar and the rich emoji usage) from: [flaviocopes.com](https://flaviocopes.com/) 🙏.
 
+# Archive
+
+Previous versions of the page are available on Archive.org's [Wayback Machine](https://web.archive.org/web/2020*/thedavidbarton.github.io).
+
+- [2020-08-08](https://web.archive.org/web/20200808181832/thedavidbarton.github.io)
+- [2020-11-28[1]](https://web.archive.org/web/20201128103456/thedavidbarton.github.io)
+- [2020-11-28[2]](https://web.archive.org/web/20201128104110/thedavidbarton.github.io)
+
 # Copyright
 
 Graphics in the "hobbies" section are downloaded from: [www.fileformat.info](www.fileformat.info). Other icons are from: [simpleicons.org](https://simpleicons.org).
