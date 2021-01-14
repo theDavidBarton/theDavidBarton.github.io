@@ -56,7 +56,7 @@
     <main class="bg-light">
   <section class="container">
     <script async src="/blog/index.js"></script>
-    <div class="row mx-lg-5">
+    <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <div class="pt-3">October 20, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/63796579/use-puppeteer-to-select-by-text/63819936#63819936">Stack Overflow</a></div><h1 id="how-to-automate-date-selection-with-puppeteer">How to automate date selection with puppeteer?</h1>
 <p>When it comes to form e2e automation calendars and date pickers are the trickyest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.</p>
@@ -115,6 +115,7 @@ const wantedDate = Date.parse(sevenDaysLater)
 <li>handling of the orphan days (either at the beginning of the month or at the end... if the orphans at the end are selectable, then it is not a problem) e.g.: you can clean the values of the orphans in <code>calDays</code> array with keeping their indexes (the indexes are needed in the iteration to identify the selectable dates, slicing the past dates would mess up their order).</li>
 </ul>
 
+        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt"best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
       </article>
     </div>
   </section>

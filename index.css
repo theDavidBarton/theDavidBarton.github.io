@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-  color: red;
+  color: #609;
 }
 
 h2,
@@ -30,16 +30,6 @@ h3,
 h4 {
   text-transform: capitalize;
   font-weight: bold;
-}
-
-div > h2 > a,
-div > h3 > a {
-  cursor: text !important;
-}
-
-hr {
-  height: 0.2rem;
-  border: 1 !important;
 }
 
 .top-bar {
@@ -86,6 +76,7 @@ hr {
 }
 
 .back-to-top-style {
+  text-decoration: none;
   opacity: 0.8;
   bottom: 10px;
   right: 25px;
@@ -98,57 +89,8 @@ hr {
   line-height: 1.33;
 }
 
-.shield {
-  white-space: nowrap !important;
-  box-shadow: 0 0.6rem #29282861;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-  width: 33.66%;
-  transition: 0.3s;
-}
-
 .inline-block {
   display: inline;
-}
-.shield-left,
-.shield-right {
-  color: white;
-  text-shadow: 0 0.1rem #29282861;
-  margin-bottom: 0.4rem;
-  padding: 0.25rem;
-  font-family: system-ui, sans-serif;
-  font-size: 1.02rem;
-  text-transform: lowercase;
-  display: inline-block;
-  height: 2.2rem;
-  margin-left: -0.01rem;
-}
-
-.shield-left {
-  background: linear-gradient(180deg, rgba(95, 95, 95, 1) 0%, rgba(52, 58, 64, 1) 100%);
-  border-radius: 0.5rem 0 0 0.5rem;
-  padding-left: 1rem;
-  padding-right: 0.6rem;
-}
-
-.shield-right {
-  border-radius: 0 0.5rem 0.5rem 0;
-  padding-left: 0.6rem;
-  padding-right: 1rem;
-  background-color: var(--data-color);
-}
-
-.shield:hover > .shield-right {
-  background-color: #c3e6cb;
-}
-
-.shield:hover {
-  filter: drop-shadow(2px 4px 6px black);
-}
-
-@media all and (max-width: 1200px) {
-  .nav-link-container {
-    text-align: center;
-  }
 }
 
 .avatar-img {
@@ -302,16 +244,8 @@ hr {
   background-repeat: repeat;
 }
 
-.text-cool {
-  color: #1b4b67;
-}
-
 .footnote {
   font-size: 0.95rem;
-}
-
-.bg-cool-secondary {
-  background-color: #ffb292;
 }
 
 .text-cool-secondary {

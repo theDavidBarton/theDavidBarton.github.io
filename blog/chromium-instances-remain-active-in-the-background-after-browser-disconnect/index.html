@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Stolen by a robot (Strange days indeed) - theDavidBarton.github.io</title>
+    <title>Puppeteer: Chromium instances remain active in the background after browser.disconnect - theDavidBarton.github.io</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -16,7 +16,7 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="Lately I've found a strange phenomenon, that one of my Guitar Pro tabs (tabbed in August 2005) was exported as a standalone song by someone and was published on Spotify. Strange days indeed."
+      content="How to solve the infamous zombie Chromium instance issue on Windows."
     />
     <meta name="google" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -58,31 +58,70 @@
     <script async src="/blog/index.js"></script>
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
-        <div class="pt-3">October 5, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">2 min read</span>, In: music</div><div class="pb-3">by David Barton</div><h1 id="stolen-by-a-robot-strange-days-indeed">Stolen by a robot (Strange days indeed)</h1>
-<p>Lately I&#39;ve found a strange phenomenon, that one of my <a href="https://www.guitar-pro.com/en/index.php">Guitar Pro</a> tabs (tabbed in August 2005) was exported as a standalone song by someone and was published on Spotify. <a href="https://www.youtube.com/watch?v=cuuhsqA95iA">Strange days indeed</a>, as John Lennon would say.</p>
-<p>I just realized that we could have released our music already 15 years ago. :D</p>
-<p>The artist publishes 8-bit MIDI-based sound exports as covers of famous artists (possibly using Guitar Pro 5(?) sound engine to make their sound more realistic):
-<a href="https://open.spotify.com/album/7tyRnySOUVbiDVvkRbLudG?si=Jg1pxeWsQtmQ_5ERGTOFbA">https://open.spotify.com/album/7tyRnySOUVbiDVvkRbLudG?si=Jg1pxeWsQtmQ_5ERGTOFbA</a></p>
-<p><img src="/img/blog/stolen-by-a-robot-01.png" alt=""></p>
-<p>One of the featured &quot;songs&quot; <strong><em>There&#39;s No Way Out Of Here</em> by Monster Magnet</strong> was tabbed by myself 15 years ago, it is the very same Guitar Pro tab :D <a href="https://tabs.ultimate-guitar.com/tab/monster-magnet/theres-no-way-out-of-here-guitar-pro-1142980">https://tabs.ultimate-guitar.com/tab/monster-magnet/theres-no-way-out-of-here-guitar-pro-1142980</a> The uploader is another rascal, if you are able to download the file, you will find my name in the file info :D. Strange thing, that I was unable to find my own upload back from 2005, it makes me skeptical about the <em>&quot;if you post something online then it&#39;s out there forever&quot;</em> rule. Which I actually don&#39;t mind, the censored parts are by purpose on the screenshot :) Come on, I was about 15-16 that time.</p>
-<p><img src="/img/blog/stolen-by-a-robot-02.png" alt=""></p>
-<h2 id="how">How?</h2>
-<p>Based on the work of the artist it seems a manual job of collecting Guitar Pro tabs then slightly editing them and publishing on online stores. I am pretty sure it is not done by a robot at the moment (even if the album covers with the knight head would <a href="https://pbfcomics.com/comics/gigaknight/">suggest it</a>).</p>
-<p>However: such job could be automated:</p>
-<ol>
-<li>a web crawler (using e.g. <a href="https://github.com/puppeteer/puppeteer">puppeteer</a>) would collect the tabs,</li>
-<li>then a UI automation tool would export the songs to wave format and</li>
-<li>finally the upload of the albums can be solved with browser automation again.</li>
-</ol>
-<p>Of course its result wouldn&#39;t be quality music, but maybe not worse than the artist&#39;s current work.</p>
-<p>At least I can say: I have at least one song on Spotify^^.</p>
-<div class="col-lg-5 col-auto embed-responsive embed-responsive-16by9 my-5">
-  <iframe src="https://www.youtube.com/embed/6TS8nii_HJ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+        <div class="pt-3">January 12, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/q/62220867/12412595">Stack Overflow</a></div><h1 id="puppeteer-chromium-instances-remain-active-in-the-background-after-browserdisconnect">Puppeteer: Chromium instances remain active in the background after browser.disconnect</h1>
+<p>I have a <code>for...of</code> loop to visit 3000+ urls with puppeteer. I use <code>puppeteer.connect</code> to <code>wsEndpoint</code> so I can reuse one browser instance. I disconnect after each visit and close the tab.</p>
+<ul>
+<li>first 100 urls <code>page.goto</code>&#39;s open the urls immediately,</li>
+<li>above 100 <code>page.goto</code> uses 2-3 retries per url,</li>
+<li>above 300 <code>page.goto</code> uses 5-8 retries per url,</li>
+<li>above 500 I get <code>TimeoutError: Navigation timeout of 30000 ms exceeded</code> all the time.</li>
+</ul>
+<p>I checked the Windows Task Manager and I realized hundreds of Chromium instances running in the background and using 80-90MB of memory each and 1-2% of CPU as well.</p>
+<p><strong>Question</strong></p>
+<p>How can I kill the Chromium instances I&#39;ve already disconnected with <code>browser.disconnect</code> for real?</p>
+<p><strong>Example script</strong></p>
+<pre><code class="language-javascript">const puppeteer = require(&#39;puppeteer&#39;)
+const urlArray = require(&#39;./urls.json&#39;) // contains 3000+ urls in an array
 
-<div class="col-lg-5 col-auto embed-responsive embed-responsive-16by9 my-5">
-  <iframe src="https://www.youtube.com/embed/jlPasnnXDJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+async function fn() {
+  const browser = await puppeteer.launch({ headless: true })
+  const browserWSEndpoint = await browser.wsEndpoint()
+
+  for (const url of urlArray) {
+    try {
+      const browser2 = await puppeteer.connect({ browserWSEndpoint })
+      const page = await browser2.newPage()
+      await page.goto(url) // in my original code it&#39;s also wrapped in a retry function
+
+      // doing cool things with the DOM
+
+      await page.goto(&#39;about:blank&#39;) // because of you: https://github.com/puppeteer/puppeteer/issues/1490
+      await page.close()
+      await browser2.disconnect()
+    } catch (e) {
+      console.error(e)
+    }
+  }
+  await browser.close()
+}
+fn()</code></pre>
+<p><strong>The error</strong></p>
+<p>The usual puppeteer timeout error.</p>
+<pre><code class="language-bash">TimeoutError: Navigation timeout of 30000 ms exceeded
+    at C:\[...]\node_modules\puppeteer\lib\LifecycleWatcher.js:100:111
+  -- ASYNC --
+    at Frame.&lt;anonymous&gt; (C:\[...]\node_modules\puppeteer\lib\helper.js:94:19)
+    at Page.goto (C:\[...]\node_modules\puppeteer\lib\Page.js:476:53)
+    at Page.&lt;anonymous&gt; (C:\[...]\node_modules\puppeteer\lib\helper.js:95:27)
+    at example (C:\[...]\example.js:13:18)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: &#39;TimeoutError&#39;
+}</code></pre>
+<p>Finally I was able to achieve the desired result by adding <code>--single-process</code> and <code>--no-zygote</code> args at launch (+ <code>--no-sandbox</code> is required with them).</p>
+<p>The number of running Chromium processes aren&#39;t growing exponentially anymore, but only two instances remain active: one of them is the usual empty tab in the first position, the second is reused correctly by <code>puppeteer.connect({ browserWSEndpoint })</code>.</p>
+<pre><code class="language-javascript">[...]
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [&#39;--single-process&#39;, &#39;--no-zygote&#39;, &#39;--no-sandbox&#39;]
+  })
+  const browserWSEndpoint = await browser.wsEndpoint()
+[...]</code></pre>
+<ul>
+<li><p><code>--single-process</code>: Runs the renderer and plugins in the same process as the browser <a href="https://peter.sh/experiments/chromium-command-line-switches/#single-process">[source]</a></p>
+</li>
+<li><p><code>--no-zygote</code>: Disables the use of a zygote process for forking child processes. Instead, child processes will be forked and exec&#39;d directly. Note that --no-sandbox should also be used together with this flag because the sandbox needs the zygote to work. <a href="https://peter.sh/experiments/chromium-command-line-switches/#no-zygote">[source]</a></p>
+</li>
+</ul>
 
         <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt"best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
       </article>

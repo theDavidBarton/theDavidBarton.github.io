@@ -1,9 +1,10 @@
 <main class="bg-light">
   <section class="container">
     <script async src="/blog/index.js"></script>
-    <div class="row mx-lg-5">
+    <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <!-- content goes here -->
+        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt"best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
       </article>
     </div>
   </section>
