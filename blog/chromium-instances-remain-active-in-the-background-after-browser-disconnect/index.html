@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Puppeteer: Chromium instances remain active in the background after browser.disconnect - theDavidBarton.github.io</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="How to solve the infamous zombie Chromium instance issue on Windows."
+    />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body class="bg-noiz">
+    <!-- I.) back to top -->
+    <div id="top"></div>
+    <a href="#top" class="btn btn-dark position-fixed text-light text-center back-to-top-style"> ⮙ </a>
+    <header translate="no" class="notranslate">
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        🔥 check out my latest post:
+        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
+      </aside>
+      <!-- II.) intro bar -->
+      <div class="bg-noiz py-2">
+        <div class="container">
+          <div class="align-items-center text-center">
+            <div class="row">
+              <a class="col text-decoration-none text-reset" href="/">
+                <h1 class="branded-name text-center pt-3 pb-1 stroke-shadow"><span class="branded-pre">the</span>DavidBarton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
+            </div>
+            <div class="col-lg-auto my-2 inline-block">
+              <a href="/#about">[about 👱🏻‍♂️]</a>
+              <a href="/#projects">[projects ⚗️]</a>
+              <a href="/blog">[blog 📝]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="/header/index.js"></script>
+    </header>
+    <main class="bg-light">
+  <section class="container">
+    <script async src="/blog/index.js"></script>
+    <div class="row mx-lg-5 pb-5">
+      <article class="col" id="article">
+        <div class="pt-3">January 12, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/q/62220867/12412595">Stack Overflow</a></div><h1 id="puppeteer-chromium-instances-remain-active-in-the-background-after-browserdisconnect">Puppeteer: Chromium instances remain active in the background after browser.disconnect</h1>
+<p>I have a <code>for...of</code> loop to visit 3000+ urls with puppeteer. I use <code>puppeteer.connect</code> to <code>wsEndpoint</code> so I can reuse one browser instance. I disconnect after each visit and close the tab.</p>
+<ul>
+<li>first 100 urls <code>page.goto</code>&#39;s open the urls immediately,</li>
+<li>above 100 <code>page.goto</code> uses 2-3 retries per url,</li>
+<li>above 300 <code>page.goto</code> uses 5-8 retries per url,</li>
+<li>above 500 I get <code>TimeoutError: Navigation timeout of 30000 ms exceeded</code> all the time.</li>
+</ul>
+<p>I checked the Windows Task Manager and I realized hundreds of Chromium instances running in the background and using 80-90MB of memory each and 1-2% of CPU as well.</p>
+<p><strong>Question</strong></p>
+<p>How can I kill the Chromium instances I&#39;ve already disconnected with <code>browser.disconnect</code> for real?</p>
+<p><strong>Example script</strong></p>
+<pre><code class="language-javascript">const puppeteer = require(&#39;puppeteer&#39;)
+const urlArray = require(&#39;./urls.json&#39;) // contains 3000+ urls in an array
+
+async function fn() {
+  const browser = await puppeteer.launch({ headless: true })
+  const browserWSEndpoint = await browser.wsEndpoint()
+
+  for (const url of urlArray) {
+    try {
+      const browser2 = await puppeteer.connect({ browserWSEndpoint })
+      const page = await browser2.newPage()
+      await page.goto(url) // in my original code it&#39;s also wrapped in a retry function
+
+      // doing cool things with the DOM
+
+      await page.goto(&#39;about:blank&#39;) // because of you: https://github.com/puppeteer/puppeteer/issues/1490
+      await page.close()
+      await browser2.disconnect()
+    } catch (e) {
+      console.error(e)
+    }
+  }
+  await browser.close()
+}
+fn()</code></pre>
+<p><strong>The error</strong></p>
+<p>The usual puppeteer timeout error.</p>
+<pre><code class="language-bash">TimeoutError: Navigation timeout of 30000 ms exceeded
+    at C:\[...]\node_modules\puppeteer\lib\LifecycleWatcher.js:100:111
+  -- ASYNC --
+    at Frame.&lt;anonymous&gt; (C:\[...]\node_modules\puppeteer\lib\helper.js:94:19)
+    at Page.goto (C:\[...]\node_modules\puppeteer\lib\Page.js:476:53)
+    at Page.&lt;anonymous&gt; (C:\[...]\node_modules\puppeteer\lib\helper.js:95:27)
+    at example (C:\[...]\example.js:13:18)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: &#39;TimeoutError&#39;
+}</code></pre>
+<p>Finally I was able to achieve the desired result by adding <code>--single-process</code> and <code>--no-zygote</code> args at launch (+ <code>--no-sandbox</code> is required with them).</p>
+<p>The number of running Chromium processes aren&#39;t growing exponentially anymore, but only two instances remain active: one of them is the usual empty tab in the first position, the second is reused correctly by <code>puppeteer.connect({ browserWSEndpoint })</code>.</p>
+<pre><code class="language-javascript">[...]
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [&#39;--single-process&#39;, &#39;--no-zygote&#39;, &#39;--no-sandbox&#39;]
+  })
+  const browserWSEndpoint = await browser.wsEndpoint()
+[...]</code></pre>
+<ul>
+<li><p><code>--single-process</code>: Runs the renderer and plugins in the same process as the browser <a href="https://peter.sh/experiments/chromium-command-line-switches/#single-process">[source]</a></p>
+</li>
+<li><p><code>--no-zygote</code>: Disables the use of a zygote process for forking child processes. Instead, child processes will be forked and exec&#39;d directly. Note that --no-sandbox should also be used together with this flag because the sandbox needs the zygote to work. <a href="https://peter.sh/experiments/chromium-command-line-switches/#no-zygote">[source]</a></p>
+</li>
+</ul>
+
+        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt"best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
+      </article>
+    </div>
+  </section>
+</main>
+
+    <footer translate="no" class="bg-noiz text-dark notranslate">
+      <!-- VIII. footer bar -->
+      <div class="container py-5 text-center">
+        <div class="row">
+          <div class="col-lg-4 col-12 text-sm-left">
+            <p>
+              Graphics in the "hobbies" section are downloaded from:
+              <a target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/">www.fileformat.info</a>. Other icons
+              are from: <a target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/">simpleicons.org</a>.<br />
+              All other graphics and photos of this project have been made available to this project by David Barton and are
+              copyrighted; any other use must be authorized by the maker which holds all the rights for them.
+            </p>
+          </div>
+          <div class="col my-3 my-lg-5">
+            <p class="branded-name stroke-shadow"><span class="branded-pre">the</span>DavidBarton</p>
+            <p class="bolder">QA engineering | full stack JavaScript</p>
+          </div>
+          <div class="col text-sm-right">
+            <p>
+              <strong>Design inspiration for this site</strong>
+              (especially the <a href="#top-bar">top bar</a> and the rich emoji usage) from:
+              <a target="_blank" rel="noopener noreferrer" href="https://flaviocopes.com/">flaviocopes.com</a>.
+            </p>
+            <br />
+            <a href="/">[&nbsp;home&nbsp;]</a>
+            <a href="/#projects">[&nbsp;projects&nbsp;]</a>
+            <a href="/blog">[&nbsp;blog&nbsp;]</a>
+            <p>copyright © 2019-<span id="thisYear">0000</span> theDavidBarton</p>
+            <script async src="/index.js" onload="getDate()"></script>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script data-goatcounter="https://thedavidbarton.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </body>
+</html>

@@ -22,177 +22,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
   </head>
-  <body class="bg-dark">
+  <body class="bg-noiz">
     <!-- I.) back to top -->
-    <a id="top"></a>
-    <a href="#top">
-      <div class="btn btn-dark position-fixed text-light text-center back-to-top-style">&#9650;</div>
-    </a>
+    <div id="top"></div>
+    <a href="#top" class="btn btn-dark position-fixed text-light text-center back-to-top-style"> ⮙ </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="bg-dark text-light text-center p-2">
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
         🔥 check out my latest post:
         <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
       </aside>
       <!-- II.) intro bar -->
-      <div class="bg-light py-1">
+      <div class="bg-noiz py-2">
         <div class="container">
-          <div class="row align-items-center">
-            <div class="col branded-container text-black mt-lg-0 mt-5 vertical-align">
-              <a class="text-decoration-none text-reset" href="/">
-                <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
+          <div class="align-items-center text-center">
+            <div class="row">
+              <a class="col text-decoration-none text-reset" href="/">
+                <h1 class="branded-name text-center pt-3 pb-1 stroke-shadow"><span class="branded-pre">the</span>DavidBarton</h1>
                 <h2 class="bolder">QA engineering | full stack JavaScript</h2>
               </a>
             </div>
-            <a href="/" class="col d-none d-lg-block">
-              <picture>
-                <source srcset="/img/avatar.webp" type="image/webp" />
-                <source srcset="/img/avatar.png" type="image/png" />
-                <img src="/img/avatar.png" alt="avatar image" class="avatar-style-top" /> </picture
-            ></a>
-            <div class="col-lg-auto nav-link-container my-2 inline-block">
-              <a class="shield" href="/#about"
-                ><span class="shield-left">about</span
-                ><span id="about-r" class="shield-right" style="--data-color: #ffa7c4">👱🏻‍♂️</span></a
-              >
-              <a class="shield" href="/#projects"
-                ><span class="shield-left">projects</span
-                ><span id="projects-r" class="shield-right" style="--data-color: #52da37">⚗️</span></a
-              >
-              <a class="shield" href="/blog"
-                ><span class="shield-left">blog</span
-                ><span id="blog-r" class="shield-right" style="--data-color: #48bbe6">📝</span></a
-              >
-              <a class="shield" href="https://github.com/theDavidBarton" target="_blank" rel="noopener noreferrer"
-                ><span class="shield-left">code</span
-                ><span id="github-r" class="shield-right" style="--data-color: #f1f1f1"
-                  ><img
-                    height="19"
-                    width="19"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                    alt="github logo"
-                    style="margin-top: -0.3rem" /></span
-              ></a>
-              <!--different behaviour on Win (as they have the only cool emoji set)-->
-              <script src="/header/index.js"></script>
+            <div class="col-lg-auto my-2 inline-block">
+              <a href="/#about">[about 👱🏻‍♂️]</a>
+              <a href="/#projects">[projects ⚗️]</a>
+              <a href="/blog">[blog 📝]</a>
             </div>
           </div>
         </div>
       </div>
+      <script src="/header/index.js"></script>
     </header>
     <main>
-      <!-- III.) tech stack -->
-      <section class="bg-dark">
-        <div class="container py-3 text-light">
-          <div class="row p-2">
-            <h3>
-              <a id="tech-stack">technology stack</a>
-            </h3>
-          </div>
-          <div class="row text-center invert-img">
-            <div class="col-3 col-lg-auto">
-              <img
-                height="50"
-                width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg"
-                alt="logo"
-              />
-              <p>JS - ES6</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img
-                height="50"
-                width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/node-dot-js.svg"
-                alt="logo"
-              />
-              <p>Node.Js</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg" alt="logo" />
-              <p>React.Js</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg" alt="logo" />
-              <p>Git</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gitlab.svg" alt="logo" />
-              <p>GitLab</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" alt="logo" />
-              <p>GitHub</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bootstrap.svg" alt="logo" />
-              <p>Bootstrap</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img
-                height="50"
-                width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/visualstudiocode.svg"
-                alt="logo"
-              />
-              <p>VSCode</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img
-                height="50"
-                width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlechrome.svg"
-                alt="logo"
-              />
-              <p>Puppeteer</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jest.svg" alt="logo" />
-              <p>Jest</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yarn.svg" alt="logo" />
-              <p>Yarn</p>
-            </div>
-            <div class="col-3 col-lg-auto">
-              <img
-                height="50"
-                width="50"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kubernetes.svg"
-                alt="logo"
-              />
-              <p>K8s</p>
-            </div>
-            <div class="col-3 col-lg-auto d-lg-block d-none">
-              <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg" alt="logo" />
-              <p>CSS3</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- IV.) experience / about me bar -->
+      <!-- III.) experience / about me bar -->
       <section class="bg-light py-4">
         <div class="container">
           <div class="row">
             <!-- 1st col starts here -->
             <div class="col-lg-6 col-12">
-              <h3>
-                <a id="about">about me</a>
-              </h3>
+              <h3 id="about">about me</h3>
+              <img
+                class="position-absolute d-none d-lg-block avatar-img"
+                alt="a dithered avatar image of David"
+                src="img/dithered_avatar.png"
+              />
               <p class="m-4 pb-lg-0 pb-2">
-                I've been using the not too meek user name <span class="highlight">"theDavidBarton"</span> around the web, at the
-                same time I am working as a <strong>QA engineer</strong> and <strong>release manager</strong> at French metasearch
-                company <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I am
-                using JavaScript (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI, Kubernetes and
-                Jenkins for deployment and release management.<br /><br />
-                In my spare time, I enjoy working on hobby JS projects in Node and React to improve my
+                I've been using the immodest user name "theDavidBarton" <a href="#fn1">[1]</a> around the web, at the same time I
+                work as a <strong>QA engineer</strong> and <strong>release manager</strong> at French metasearch company
+                <a target="_blank" rel="noopener noreferrer" href="https://www.liligo.fr/">liligo.com</a>, where I use JavaScript
+                (ES6), Node.Js and Google's Puppeteer to automate headless Chrome; and GitLab CI, Kubernetes and Jenkins for
+                deployment and release management.<br /><br />
+                In my spare time, I enjoy working on hobby JS projects in Node and React to maintain my
                 <strong>full stack JavaScript</strong> dev skills.
               </p>
             </div>
             <!-- 2nd col starts here -->
             <div class="col">
-              <h3>
-                <a id="experience">experience</a>
-              </h3>
+              <h3 id="experience">experience</h3>
               <div>
                 <ul class="cv-border-style">
                   <li><strong>liligo.com (2016–)</strong> QA engineer & release manager</li>
@@ -201,9 +85,7 @@
                   <li><strong>Magyar Telekom (2012)</strong> internship</li>
                 </ul>
               </div>
-              <h3>
-                <a id="education">education</a>
-              </h3>
+              <h3 id="education">education</h3>
               <div>
                 <ul class="cv-border-style">
                   <li><strong>Eötvös Loránd University, Budapest (2012–2014)</strong> Ma/Msc</li>
@@ -211,12 +93,141 @@
                 </ul>
               </div>
             </div>
+            <div class="col-12">
+              <p class="mx-4 footnote" id="fn1">
+                [1] My French colleagues used to call me time to time: <em>"the David"</em> or <em>"le David"</em> due to French
+                linguistic
+                <a target="_blank" rel="noopener noreferrer" href="https://forum.unilang.org/viewtopic.php?t=40021"
+                  >specialities</a
+                >. Not a big deal, in reality I am a really meek person.
+              </p>
+            </div>
             <!-- 2nd col div ends -->
+            <!-- IV.) tech stack -->
+            <section>
+              <div class="container">
+                <div class="row p-2">
+                  <h3 id="tech-stack">technology stack</h3>
+                </div>
+                <div class="row text-center">
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg"
+                      alt="logo"
+                    />
+                    <p>JS - ES6</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/node-dot-js.svg"
+                      alt="logo"
+                    />
+                    <p>Node.Js</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg"
+                      alt="logo"
+                    />
+                    <p>React.Js</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img height="50" width="50" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg" alt="logo" />
+                    <p>Git</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gitlab.svg"
+                      alt="logo"
+                    />
+                    <p>GitLab</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                      alt="logo"
+                    />
+                    <p>GitHub</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bootstrap.svg"
+                      alt="logo"
+                    />
+                    <p>Bootstrap</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/visualstudiocode.svg"
+                      alt="logo"
+                    />
+                    <p>VSCode</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlechrome.svg"
+                      alt="logo"
+                    />
+                    <p>Puppeteer</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jest.svg"
+                      alt="logo"
+                    />
+                    <p>Jest</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yarn.svg"
+                      alt="logo"
+                    />
+                    <p>Yarn</p>
+                  </div>
+                  <div class="col-3 col-lg-auto">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kubernetes.svg"
+                      alt="logo"
+                    />
+                    <p>K8s</p>
+                  </div>
+                  <div class="col-3 col-lg-auto d-lg-block d-none">
+                    <img
+                      height="50"
+                      width="50"
+                      src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg"
+                      alt="logo"
+                    />
+                    <p>CSS3</p>
+                  </div>
+                </div>
+              </div>
+            </section>
             <!-- "fun facts" content starts here -->
             <div translate="no" class="row mx-0 justify-content-center text-center text-nowrap notranslate">
-              <h3 class="col-12 text-left mb-1">
-                <a id="funFacts">fun facts</a>
-              </h3>
+              <h3 class="col-12 text-left mb-1" id="funFacts">fun facts</h3>
               <a href="/assets/cv.pdf" target="_blank" class="col-3 col-lg-auto fun-border text-decoration-none">
                 <small class="fun-text" id="sinceYearText">Working since</small>
                 <span class="number-big" id="sinceYear">2013</span>
@@ -273,13 +284,12 @@
               >
                 <small class="fun-text" id="crocText">This is:</small>
                 <span class="number-big de-saturate" id="croc">🐊</span>
-                <small class="fun-text" id="crocText">a crocodile</small>
+                <small class="fun-text" id="crocTextSubtitle">a crocodile</small>
               </a>
               <script async src="/index.js" onload="getRepos()"></script>
               <script async src="/index.js" onload="getStreak()"></script>
               <script async src="/index.js" onload="getRank()"></script>
               <script async src="/index.js" onload="getReputation()"></script>
-              <script async src="/index.js" onload="getDate()"></script>
               <!-- "fun facts" ends here -->
               <div class="col pt-4 text-muted text-wrap data-style">
                 <p>
@@ -307,12 +317,10 @@
         </div>
       </section>
       <!-- V.) hobbies -->
-      <section class="bg-cool">
+      <section class="bg-noiz">
         <div class="container py-3">
           <div class="row p-2 text-dark">
-            <h3>
-              <a id="hobbies">hobbies</a>
-            </h3>
+            <h3 id="hobbies">hobbies</h3>
           </div>
           <div class="row text-center">
             <div class="col-3 col-lg-auto">
@@ -336,7 +344,7 @@
                 Besides coding, I enjoy <span class="highlight">reading books</span> (J.R.R. Tolkien, J.K. Rowling, Arthur C.
                 Clarke, Stephen King), going for <span class="highlight">hiking</span> or - in case of depressing weather -
                 playing <span class="highlight">retro video games</span> on my
-                <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://www.lakka.tv/">Lakka Linux</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.lakka.tv/">Lakka Linux</a>
                 distro.
               </p>
             </div>
@@ -348,9 +356,7 @@
         <div class="carousel-container">
           <div class="container">
             <div class="row p-2">
-              <h2 class="col-12 col-md pb-3">
-                <a id="projects">projects I am proud of</a>
-              </h2>
+              <h2 class="col-12 col-md pb-3" id="projects">projects I am proud of</h2>
               <p class="col mx-4 lift-up-elem">
                 The following projects are not related to my professional work, I do them in my free time to improve my dev
                 skills. All of them are available on my
@@ -385,9 +391,7 @@
       <section class="bg-light">
         <div class="container">
           <div class="row p-2">
-            <h2>
-              <a id="contact">contact</a>
-            </h2>
+            <h2 id="contact">contact</h2>
           </div>
           <div class="row text-center pb-4 justify-content-lg-center">
             <div class="col-3 col-lg-auto contact-style">
@@ -455,38 +459,35 @@
         </div>
       </section>
     </main>
-    <footer translate="no" class="bg-cool text-dark notranslate">
+    <footer translate="no" class="bg-noiz text-dark notranslate">
       <!-- VIII. footer bar -->
       <div class="container py-5 text-center">
         <div class="row">
           <div class="col-lg-4 col-12 text-sm-left">
             <p>
               Graphics in the "hobbies" section are downloaded from:
-              <a class="text-cool" target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/"
-                >www.fileformat.info</a
-              >. Other icons are from:
-              <a class="text-cool" target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/">simpleicons.org</a
-              >.<br />
+              <a target="_blank" rel="noopener noreferrer" href="http://www.fileformat.info/">www.fileformat.info</a>. Other icons
+              are from: <a target="_blank" rel="noopener noreferrer" href="https://simpleicons.org/">simpleicons.org</a>.<br />
               All other graphics and photos of this project have been made available to this project by David Barton and are
               copyrighted; any other use must be authorized by the maker which holds all the rights for them.
             </p>
           </div>
           <div class="col my-3 my-lg-5">
-            <h1 class="branded-name"><span class="branded-pre">the</span>Davi<span class="fliph">d</span>Barton</h1>
-            <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+            <p class="branded-name stroke-shadow"><span class="branded-pre">the</span>DavidBarton</p>
+            <p class="bolder">QA engineering | full stack JavaScript</p>
           </div>
           <div class="col text-sm-right">
             <p>
               <strong>Design inspiration for this site</strong>
-              (especially the <a href="/#top-bar">top bar</a> and the rich emoji usage) from:
-              <a class="text-info" target="_blank" rel="noopener noreferrer" href="https://flaviocopes.com/">flaviocopes.com</a>
-              🙏.
+              (especially the <a href="#top-bar">top bar</a> and the rich emoji usage) from:
+              <a target="_blank" rel="noopener noreferrer" href="https://flaviocopes.com/">flaviocopes.com</a>.
             </p>
             <br />
-            <a class="text-info" href="/">[&nbsp;home&nbsp;]</a>
-            <a class="text-info" href="/#projects">[&nbsp;projects&nbsp;]</a>
-            <a class="text-info" href="/blog">[&nbsp;blog&nbsp;]</a>
-            <p>copyright © 2020 theDavidBarton</p>
+            <a href="/">[&nbsp;home&nbsp;]</a>
+            <a href="/#projects">[&nbsp;projects&nbsp;]</a>
+            <a href="/blog">[&nbsp;blog&nbsp;]</a>
+            <p>copyright © 2019-<span id="thisYear">0000</span> theDavidBarton</p>
+            <script async src="/index.js" onload="getDate()"></script>
           </div>
         </div>
       </div>

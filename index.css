@@ -1,24 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
 /* global */
-::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c3e6cb;
-}
 
 * {
-  font-family: 'Quicksand', sans-serif;
+  font-family: serif;
   scroll-behavior: smooth;
 }
 
-::selection {
-  background-color: #c3e6cb;
-  color: #000000;
+.bg-light {
+  background-color: #ffffff !important;
 }
 
 img {
@@ -26,47 +16,58 @@ img {
 }
 
 a {
-  color: #4a779d;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-h1 {
-  font-family: 'Staatliches', sans-serif;
+a:hover {
+  color: #609;
+}
+
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.top-bar {
+  z-index: 100;
+  position: relative;
+}
+
+.stroke-shadow {
+  filter: drop-shadow(-3px 3px 0px black) drop-shadow(-2px -2px 0px black) drop-shadow(5px 0px 0px black);
 }
 
 .branded-name,
-.branded-pre,
-.fliph {
-  color: #343a40;
-  font-family: 'Staatliches', sans-serif;
+.branded-pre {
+  background: -webkit-linear-gradient(#ffe000, #f39369);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Shrikhand', cursive;
   font-size: 3rem;
   transform: scale(1, 2);
   white-space: nowrap;
 }
 
 .branded-pre {
-  color: #6c9a88;
   font-size: 2.5rem;
 }
 
-.fliph {
-  display: inline-block;
-  vertical-align: top;
-  transform: scaleX(-1);
-  filter: fliph;
-}
-
-.vertical-align {
-  padding-top: 2rem;
-}
-
 @media all and (max-width: 992px) {
-  .vertical-align {
-    padding-top: 0rem;
+  .branded-name {
+    font-size: 2rem;
+  }
+  .branded-pre {
+    font-size: 1.5rem;
   }
 }
 
 .bolder {
-  font-size: unset;
+  font-size: 0.8rem;
   font-weight: bold;
   display: block;
   color: #343a40;
@@ -75,6 +76,7 @@ h1 {
 }
 
 .back-to-top-style {
+  text-decoration: none;
   opacity: 0.8;
   bottom: 10px;
   right: 25px;
@@ -83,70 +85,17 @@ h1 {
   border-radius: 35px;
   border-style: solid;
   border-width: 1px;
-  border-color: #9fe0c682;
+  border-color: cornsilk;
   line-height: 1.33;
-}
-
-.nav-link-container {
-  text-align: right;
-}
-
-.branded-container {
-  text-align: left;
-}
-
-.shield {
-  white-space: nowrap !important;
-  box-shadow: 0 0.6rem #29282861;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-  width: 33.66%;
-  transition: 0.3s;
 }
 
 .inline-block {
   display: inline;
 }
-.shield-left,
-.shield-right {
-  color: white;
-  text-shadow: 0 0.1rem #29282861;
-  margin-bottom: 0.4rem;
-  padding: 0.25rem;
-  font-family: system-ui, sans-serif;
-  font-size: 1.02rem;
-  text-transform: lowercase;
-  display: inline-block;
-  height: 2.2rem;
-  margin-left: -0.01rem;
-}
 
-.shield-left {
-  background: linear-gradient(180deg, rgba(95, 95, 95, 1) 0%, rgba(52, 58, 64, 1) 100%);
-  border-radius: 0.5rem 0 0 0.5rem;
-  padding-left: 1rem;
-  padding-right: 0.6rem;
-}
-
-.shield-right {
-  border-radius: 0 0.5rem 0.5rem 0;
-  padding-left: 0.6rem;
-  padding-right: 1rem;
-  background-color: var(--data-color);
-}
-
-.shield:hover > .shield-right {
-  background-color: #c3e6cb;
-}
-
-.shield:hover {
-  filter: drop-shadow(2px 4px 6px black);
-}
-
-@media all and (max-width: 1200px) {
-  .nav-link-container,
-  .branded-container {
-    text-align: center;
-  }
+.avatar-img {
+  transform: rotate(-4deg);
+  top: -12rem;
 }
 
 /* portfolio items */
@@ -290,23 +239,13 @@ h1 {
 
 /* intro section */
 
-.background-style {
-  background-image: linear-gradient(0deg, rgb(52, 58, 64) 0%, rgba(52, 58, 64, 0) 100%), url(img/danube-bend-photo.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
+.bg-noiz {
+  background-image: url('img/bg-noiz.gif');
+  background-repeat: repeat;
 }
 
-.bg-cool {
-  background-color: #c3e6cb;
-}
-
-.text-cool {
-  color: #1b4b67;
-}
-
-.bg-cool-secondary {
-  background-color: #ffb292;
+.footnote {
+  font-size: 0.95rem;
 }
 
 .text-cool-secondary {
@@ -314,20 +253,7 @@ h1 {
 }
 
 a.text-cool-secondary:hover {
-  color: #c3e6cb;
-}
-
-.avatar-style-top {
-  border-radius: 50%;
-  width: 7.55rem;
-  margin-top: 0.6rem;
-  margin-left: -2.5rem;
-}
-
-@media all and (max-width: 1200px) {
-  .avatar-style-top {
-    margin-left: -0.85rem;
-  }
+  color: #f8f9fa;
 }
 
 /* about section */
@@ -348,7 +274,7 @@ a.text-cool-secondary:hover {
   margin: 0.75rem;
   display: inline-block;
   line-height: 1.5;
-  border: 1px solid;
+  border: double;
   border-radius: 0.25rem;
   width: 8.4rem;
   height: 8.4rem;
@@ -366,7 +292,7 @@ a.text-cool-secondary:hover {
 .cv-border-style {
   margin: 25px 25px 25px 0px;
   padding-left: 28px;
-  border-left: 25px solid #c3e6cb;
+  border-left: 3px double;
 }
 
 @media all and (min-width: 321px) and (max-width: 375px) {
@@ -392,7 +318,7 @@ a.text-cool-secondary:hover {
 @media all and (max-width: 1200px) {
   .fun-border {
     border: 0px solid;
-    background: linear-gradient(#c3e6cb33, #ffffff00);
+    background: linear-gradient(#00070233, #3b393900);
     height: auto;
   }
 }
@@ -410,7 +336,7 @@ a.text-cool-secondary:hover {
 }
 
 .number-big {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -433,7 +359,7 @@ a.text-cool-secondary:hover {
 }
 
 .de-saturate {
-  filter: saturate(0.5);
+  filter: contrast(2) grayscale(1);
 }
 
 .text-wrap {
@@ -450,15 +376,6 @@ a.text-cool-secondary:hover {
 }
 
 /* misc. */
-.quote-marker-style {
-  position: absolute;
-  top: -145px;
-  left: -45px;
-  font-size: 15em;
-  color: #ffc107;
-  opacity: 0.3;
-}
-
 .invert-icon {
   filter: invert(100%);
 }
@@ -476,24 +393,47 @@ a.text-cool-secondary:hover {
   margin: auto;
 }
 
+.loading {
+  font-size: 1.6rem;
+}
+
+.loading:after {
+  content: ' ☞☞☞';
+  animation: dotDotDot 2s infinite;
+}
+
+@keyframes dotDotDot {
+  0% {
+    content: ' ☞☞☞';
+  }
+  25% {
+    content: ' ☛☞☞';
+  }
+  50% {
+    content: ' ☛☛☞';
+  }
+  75% {
+    content: ' ☛☛☛';
+  }
+}
+
 /* blog */
 pre {
   background-color: #2d2d2d;
-  border-radius: 1rem;
+}
+
+pre > code > span {
+  font-family: 'Courier New', Courier, monospace !important;
 }
 
 code {
-  color: #f39369;
+  color: #e20101;
 }
 
 article * {
   overflow-wrap: break-word;
 }
 
-article * > a {
-  color: #9fe0c6;
-}
-
-article * > a:hover {
-  color: #f39369;
+article > h1 {
+  font-weight: bold;
 }

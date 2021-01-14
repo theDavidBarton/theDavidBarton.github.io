@@ -1,0 +1,12 @@
+{
+  "id": 10,
+  "published": true,
+  "slug": "chromium-instances-remain-active-in-the-background-after-browser-disconnect",
+  "canonical": false,
+  "canonical-href": "https://stackoverflow.com/q/62220867/12412595",
+  "title": "Puppeteer: Chromium instances remain active in the background after browser.disconnect",
+  "lead": "How to solve the infamous zombie Chromium instance issue on Windows.",
+  "date": "January 12, 2021",
+  "originally-published": "Stack Overflow",
+  "category": "technical writing"
+}
