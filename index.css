@@ -293,6 +293,18 @@ a.text-cool-secondary:hover {
   height: 8.4rem;
 }
 
+@media all and (min-width: 1200px) {
+  .d-xlg-block {
+    display: block !important;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1200px) {
+  .d-slg-none {
+    display: none !important;
+  }
+}
+
 .fun-border:hover {
   color: #343a40;
   border-color: #343a40;
@@ -328,16 +340,11 @@ a.text-cool-secondary:hover {
   font-size: 0.8em;
 }
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: 991px) {
   .fun-border {
     border: 0px solid;
     background: linear-gradient(#00070233, #3b393900);
-    height: auto;
-  }
-}
-
-@media all and (max-width: 990px) {
-  .fun-border {
+    height: 5.3rem;
     padding: 0rem;
   }
 }
