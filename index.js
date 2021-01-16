@@ -286,3 +286,11 @@ function getDate() {
   funFact ? (funFact.textContent = today) : null
   thisYear.textContent = today.match(/\d{4}/)[0]
 }
+
+// mailto
+function mto() {
+  const mail = document.querySelector('#mailto')
+  window.setTimeout(() => {
+    mail.href = mail.href.replace(/theDavidBartonMail/, 'AOL')
+  }, 3000)
+}
