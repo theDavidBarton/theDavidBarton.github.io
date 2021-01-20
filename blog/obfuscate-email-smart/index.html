@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Chrome DevTools: $(selector) shorthand doesn't return the element while $(selector)[0] does - theDavidBarton.github.io</title>
+    <title>Obfuscate e-mail smart - theDavidBarton.github.io</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -16,7 +16,7 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="Time to time I face a weird phenomenon with the $ chrome api shorthand for document.querySelector that it doesn't return the element with the correct selector, while it works correctly with $. As puppeteer heavily depends on these shorthands (page.$, page.$, page.$eval, page.$eval) it can cause unexpected issues."
+      content="How to prevent e-mails efficiently from crawling."
     />
     <meta name="google" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,33 +65,63 @@
     <script async src="/blog/index.js"></script>
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
-        <div class="pt-3">September 29, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">2 min read</span>, In: technical writing</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/64127250/chrome-devtools-selector-shorthand-doesnt-return-the-element-while-selec">Stack Overflow</a></div><h1 id="chrome-devtools-selector-shorthand-doesnt-return-the-element-while-selector0-does">Chrome DevTools: <code>$(selector)</code> shorthand doesn&#39;t return the element while <code>$$(selector)[0]</code> does</h1>
-<p>Time to time I face a weird phenomenon with the <code>$</code> chrome api shorthand for <code>document.querySelector</code> that it doesn&#39;t return the element with the correct selector, while it works correctly with <code>$$</code>. As <a href="https://github.com/puppeteer/puppeteer">puppeteer</a> heavily depends on these shorthands (<code>page.$</code>, <code>page.$$</code>, <code>page.$eval</code>, <code>page.$$eval</code>) it can cause unexpected issues.</p>
-<p>The issue can be even reproduced here, on Stack Overflow at the moment (09-29-2020).</p>
-<p><strong>E.g.:</strong></p>
-<ul>
-<li><code>$(&#39;h1&#39;).innerText</code> =&gt; <code>undefined</code></li>
-<li><code>$$(&#39;h1&#39;)[0].innerText</code> =&gt; <code>Chrome DevTools: $(selector) shorthand doesn&#39;t return the element...</code></li>
-</ul>
-<p><img src="/img/blog/devtools-dollar-shorthand-jquery-01.png" alt=""></p>
-<p><strong>What is its cause, and why the workaround with <code>$$</code> works?</strong></p>
-<p>I&#39;ve found it affects those pages that uses jQuery library on their frontend (Stack Overflow uses it at the moment).</p>
-<p>On such pages the <code>$</code> is occupied by jQuery (as alias for itself), so chrome api returns an object instead of the element for <code>$(selector)</code>. The first element is the DOM element itself, that&#39;s why <code>[0]</code> works.</p>
-<p>By the way: <code>$$(selector)[0]</code> can be even replaced with <code>$(selector)[0]</code>, as this problem has nothing to do with <code>querySelector</code> vs. <code>querySelectorAll</code>.</p>
-<p><strong>Page using jQuery:</strong></p>
-<p><code>$(&#39;h1&#39;)</code>:</p>
-<pre><code class="language-markup">n.fn.init(2) [h1.grid--cell.fs-headline1.fl1.ow-break-word.mb8, h1#feed-modal-title.s-modal--header.fw-bold.js-first-tabbable.c-move, prevObject: n.fn.init(1), context: document, selector: &quot;h1&quot;]</code></pre>
-<p><code>$(&#39;h1&#39;)[0]</code> / <code>document.querySelector(&#39;h1&#39;)</code>:</p>
-<pre><code class="language-html">&lt;h1&gt;...&lt;/h1&gt;</code></pre>
-<p><img src="/img/blog/devtools-dollar-shorthand-jquery-02.png" alt=""></p>
-<p><strong>Page <em>doesn&#39;t</em> use jQuery:</strong></p>
-<p>...while on pages doesn&#39;t rely on jQuery it works as usual.</p>
-<p><code>$(&#39;h1&#39;)</code> / <code>document.querySelector(&#39;h1&#39;)</code>:</p>
-<pre><code class="language-html">&lt;h1&gt;...&lt;/h1&gt;</code></pre>
-<p><code>$(&#39;h1&#39;)[0]</code>:</p>
-<pre><code class="language-markup">undefined</code></pre>
-<p><img src="/img/blog/devtools-dollar-shorthand-jquery-03.png" alt=""></p>
-<p>It might be useful for others.</p>
+        <div class="pt-3">January 20, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: technical writing</div><div class="pb-3">by David Barton</div><h1 id="obfuscate-e-mail-smart">Obfuscate e-mail smart</h1>
+<p>Let&#39;s assume you need to put an e-mail address (or more) on your website and a contact form is not an option (obviously it would be the ultimate obfuscation but) our usecase is to have an <code>&lt;a&gt;</code> element with a <code>mailto:</code> URL scheme in its <code>href</code>.</p>
+<p>It is 2021, spam filters at the top e-mail providers are efficient, normally you should not worry to use e-mail addresses in your markup. If you still want some protection from landing in a spam address list you can apply the following trick.</p>
+<p>Back in the old days it was enough to put the e-mail address with JavaScript into the href, as bots didn&#39;t use JS. E.g.:</p>
+<pre><code class="language-javascript">var provider = &#39;&lt;E-MAIL PROVIDER NAME&gt;&#39;
+a.href = &#39;mailto:theDavidBarton@&#39; + provider + &#39;.com&#39;</code></pre>
+<p>...did the job.</p>
+<p>These crawlers evolved with time, but they are still simple. But they may see the JS generated content (remember, since May 2019 even <a href="https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot">Googlebot is &quot;evergreen&quot;</a>)</p>
+<h2 id="fake-e-mail-provider-name😜-vs-actual-e-mail-provider-name😎"><code>&lt;FAKE E-MAIL PROVIDER NAME😜&gt;</code> vs. <code>&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;</code></h2>
+<p>Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and they got your address while you are feeding them with a fake e-mail address, then you can replace the bait with the actual one. To achive this:</p>
+<h3 id="steps">steps</h3>
+<ol>
+<li><strong>Put the bait into the markup</strong> to trick crawlers;</li>
+<li>Write a delayed String.replace() to the actual address, to <strong>make sure real users will face the real</strong> one.</li>
+</ol>
+<p>HTML:</p>
+<pre><code class="language-html">&lt;a id=&quot;mailto&quot; href=&quot;mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com&quot;&gt;&lt;/a&gt;</code></pre>
+<p>Three seconds is enough for most crawlers on a page, while it ensures real human will see/click the real e-mail link.</p>
+<p>JS:</p>
+<pre><code class="language-javascript">const mailtoUpdater = () =&gt; {
+  const mail = document.querySelector(&#39;#mailto&#39;)
+  window.setTimeout(() =&gt; {
+    mail.href = mail.href.replace(/&lt;FAKE E-MAIL PROVIDER NAME😜&gt;/, &#39;&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;&#39;)
+  }, 3000)
+}</code></pre>
+<h2 id="crawling-results">Crawling results</h2>
+<p>An example how a crawler (written in puppeteer) could look for the e-mail addresses on a page:</p>
+<pre><code class="language-javascript">const aHrefs = await page.$$eval(&#39;a&#39;, elems =&gt; elems.map(el =&gt; el.href))
+for (let href of aHrefs) {
+  if (href.includes(&#39;mailto:&#39;)) console.log(href)
+}</code></pre>
+<p>Even if I played with the <code>waitUntil</code> event values I still harvested the bait e-mail address string:</p>
+<table>
+<thead>
+<tr>
+<th>event</th>
+<th>retrieved string</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>load</td>
+<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+</tr>
+<tr>
+<td>DOMContentLoaded</td>
+<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+</tr>
+<tr>
+<td>networkidle2</td>
+<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+</tr>
+<tr>
+<td>netwokidle0</td>
+<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+</tr>
+</tbody></table>
+<p>This is fine.</p>
 
         <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt"best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
       </article>
