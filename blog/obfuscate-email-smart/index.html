@@ -72,55 +72,61 @@
 <pre><code class="language-javascript">var provider = &#39;&lt;E-MAIL PROVIDER NAME&gt;&#39;
 a.href = &#39;mailto:theDavidBarton@&#39; + provider + &#39;.com&#39;</code></pre>
 <p>...did the job.</p>
-<p>These crawlers evolved with time, but they are still simple. But they may see the JS generated content (remember, since May 2019 even <a href="https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot">Googlebot is &quot;evergreen&quot;</a>)</p>
-<h2 id="fake-e-mail-provider-name😜-vs-actual-e-mail-provider-name😎"><code>&lt;FAKE E-MAIL PROVIDER NAME😜&gt;</code> vs. <code>&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;</code></h2>
-<p>Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and they got your address while you are feeding them with a fake e-mail address, then you can replace the bait with the actual one. To achive this:</p>
-<h3 id="steps">steps</h3>
+<p>These crawlers evolved with time, but they are still simple. Though they may see the JS generated content (remember, since May 2019 even <a href="https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot">Googlebot is &quot;evergreen&quot;</a>)</p>
+<h3 id="fake-e-mail-provider-name😜-vs-actual-e-mail-provider-name😎"><code>&lt;FAKE E-MAIL PROVIDER NAME😜&gt;</code> VS. <code>&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;</code></h3>
+<p>Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and got your address while you are feeding them with a fake e-mail, then you can replace the bait with the actual one for real users. To achive this:</p>
+<h4 id="steps">steps:</h4>
 <ol>
-<li><strong>Put the bait into the markup</strong> to trick crawlers;</li>
-<li>Write a delayed String.replace() to the actual address, to <strong>make sure real users will face the real</strong> one.</li>
+<li><strong>Put the bait address into the markup</strong> to trick crawlers;</li>
+<li>Write a delayed String.replace() of the actual address, to <strong>make sure real users will face the real</strong> one.</li>
 </ol>
-<p>HTML:</p>
+<p><strong>HTML:</strong></p>
 <pre><code class="language-html">&lt;a id=&quot;mailto&quot; href=&quot;mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com&quot;&gt;&lt;/a&gt;</code></pre>
 <p>Three seconds is enough for most crawlers on a page, while it ensures real human will see/click the real e-mail link.</p>
-<p>JS:</p>
+<p><strong>JS:</strong></p>
 <pre><code class="language-javascript">const mailtoUpdater = () =&gt; {
   const mail = document.querySelector(&#39;#mailto&#39;)
   window.setTimeout(() =&gt; {
-    mail.href = mail.href.replace(/&lt;FAKE E-MAIL PROVIDER NAME😜&gt;/, &#39;&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;&#39;)
+    mail.href = mail.href.replace(&#39;&lt;FAKE E-MAIL PROVIDER NAME😜&gt;&#39;, &#39;&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;&#39;)
   }, 3000)
 }</code></pre>
-<h2 id="crawling-results">Crawling results</h2>
+<h3 id="crawling-results">Crawling results</h3>
 <p>An example how a crawler (written in puppeteer) could look for the e-mail addresses on a page:</p>
 <pre><code class="language-javascript">const aHrefs = await page.$$eval(&#39;a&#39;, elems =&gt; elems.map(el =&gt; el.href))
+let mailto
+
 for (let href of aHrefs) {
-  if (href.includes(&#39;mailto:&#39;)) console.log(href)
+  if (href.includes(&#39;mailto:&#39;)) {
+    console.log(href)
+    mailto = href.replace(&#39;mailto:&#39;, &#39;&#39;)
+  }
 }</code></pre>
-<p>Even if I played with the <code>waitUntil</code> event values I still harvested the bait e-mail address string:</p>
+<p>Even if I played with the <code>waitUntil</code> events I still harvested the bait e-mail address string:</p>
 <table>
 <thead>
 <tr>
 <th>event</th>
-<th>retrieved string</th>
+<th>retrieved string (mailto)</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>load</td>
-<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+<td>theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
 </tr>
 <tr>
-<td>DOMContentLoaded</td>
-<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+<td>DOM<wbr>Content<wbr>Loaded</td>
+<td>theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
 </tr>
 <tr>
-<td>networkidle2</td>
-<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+<td>network<wbr>idle2</td>
+<td>theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
 </tr>
 <tr>
-<td>netwokidle0</td>
-<td>mailto:theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
+<td>netwok<wbr>idle0</td>
+<td>theDavidBarton@&lt;FAKE E-MAIL PROVIDER NAME😜&gt;.com</td>
 </tr>
 </tbody></table>
+<p><img src="https://static01.nyt.com/images/2016/08/05/us/05onfire1_xp/05onfire1_xp-superJumbo-v2.jpg" alt=""></p>
 <p>This is fine.</p>
 
         <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt"best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
@@ -158,7 +164,6 @@ for (let href of aHrefs) {
             <a href="/blog">[&nbsp;blog&nbsp;]</a>
             <p>copyright © 2019-<span id="thisYear">0000</span> theDavidBarton</p>
             <script async src="/index.js" onload="getDate()"></script>
-            <script src="/index.js" onload="mto()"></script>
           </div>
         </div>
       </div>
