@@ -13,18 +13,18 @@ a.href = 'mailto:theDavidBarton@' + provider + '.com'
 
 ...did the job.
 
-These crawlers evolved with time, but they are still simple. But they may see the JS generated content (remember, since May 2019 even [Googlebot is "evergreen"](https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot))
+These crawlers evolved with time, but they are still simple. Though they may see the JS generated content (remember, since May 2019 even [Googlebot is "evergreen"](https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot))
 
-## `<FAKE E-MAIL PROVIDER NAME😜>` vs. `<ACTUAL E-MAIL PROVIDER NAME😎>`
+### `<FAKE E-MAIL PROVIDER NAME😜>` VS. `<ACTUAL E-MAIL PROVIDER NAME😎>`
 
-Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and they got your address while you are feeding them with a fake e-mail address, then you can replace the bait with the actual one. To achive this:
+Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and got your address while you are feeding them with a fake e-mail, then you can replace the bait with the actual one for real users. To achive this:
 
-### steps
+#### steps:
 
-1. **Put the bait into the markup** to trick crawlers;
-2. Write a delayed String.replace() to the actual address, to **make sure real users will face the real** one.
+1. **Put the bait address into the markup** to trick crawlers;
+2. Write a delayed String.replace() of the actual address, to **make sure real users will face the real** one.
 
-HTML:
+**HTML:**
 
 ```html
 <a id="mailto" href="mailto:theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com"></a>
@@ -32,35 +32,42 @@ HTML:
 
 Three seconds is enough for most crawlers on a page, while it ensures real human will see/click the real e-mail link.
 
-JS:
+**JS:**
 
 ```javascript
 const mailtoUpdater = () => {
   const mail = document.querySelector('#mailto')
   window.setTimeout(() => {
-    mail.href = mail.href.replace(/<FAKE E-MAIL PROVIDER NAME😜>/, '<ACTUAL E-MAIL PROVIDER NAME😎>')
+    mail.href = mail.href.replace('<FAKE E-MAIL PROVIDER NAME😜>', '<ACTUAL E-MAIL PROVIDER NAME😎>')
   }, 3000)
 }
 ```
 
-## Crawling results
+### Crawling results
 
 An example how a crawler (written in puppeteer) could look for the e-mail addresses on a page:
 
 ```javascript
 const aHrefs = await page.$$eval('a', elems => elems.map(el => el.href))
+let mailto
+
 for (let href of aHrefs) {
-  if (href.includes('mailto:')) console.log(href)
+  if (href.includes('mailto:')) {
+    console.log(href)
+    mailto = href.replace('mailto:', '')
+  }
 }
 ```
 
-Even if I played with the `waitUntil` event values I still harvested the bait e-mail address string:
+Even if I played with the `waitUntil` events I still harvested the bait e-mail address string:
 
-| event            | retrieved string                                        |
-| ---------------- | ------------------------------------------------------- |
-| load             | mailto:theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
-| DOMContentLoaded | mailto:theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
-| networkidle2     | mailto:theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
-| netwokidle0      | mailto:theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
+| event                      | retrieved string (mailto)                        |
+| -------------------------- | ------------------------------------------------ |
+| load                       | theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
+| DOM<wbr>Content<wbr>Loaded | theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
+| network<wbr>idle2          | theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
+| netwok<wbr>idle0           | theDavidBarton@<FAKE E-MAIL PROVIDER NAME😜>.com |
+
+![](https://static01.nyt.com/images/2016/08/05/us/05onfire1_xp/05onfire1_xp-superJumbo-v2.jpg)
 
 This is fine.

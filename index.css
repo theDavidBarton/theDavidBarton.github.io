@@ -32,6 +32,28 @@ h4 {
   font-weight: bold;
 }
 
+table,
+th,
+tr,
+td {
+  border-collapse: unset !important;
+  border-style: double;
+  border: 1px solid;
+  border-spacing: 2px;
+}
+
+table {
+  margin-bottom: 2rem;
+}
+
+th,
+td {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
 .top-bar {
   z-index: 100;
   position: relative;
