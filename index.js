@@ -291,6 +291,9 @@ function getDate() {
 function mto() {
   const mail = document.querySelector('#mailto')
   window.setTimeout(() => {
+    if (window.location.pathname.includes('/blog')) {
+      mail.innerText = mail.innerText.replace(/theDavidBartonMail/, 'AOL')
+    }
     mail.href = mail.href.replace(/theDavidBartonMail/, 'AOL')
   }, 3000)
 }

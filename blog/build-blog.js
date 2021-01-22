@@ -21,7 +21,7 @@ const homeMarkup = fs.readFileSync(__dirname + '/../index.html', 'utf-8')
 const blogTemplate = fs.readFileSync(__dirname + '/blogContainer.template', 'utf-8')
 const error404Template = fs.readFileSync(__dirname + '/../404/404.template', 'utf-8')
 const top = homeMarkup.split('<main>')
-const bottom = homeMarkup.split('</main>')
+// const bottom = homeMarkup.split('</main>') not in use at the moment
 const blogMain = blogTemplate.split('<!-- content goes here -->')
 const folders = getFolders()
 const articleMetas = []
@@ -57,8 +57,7 @@ for (const folder of folders) {
     metaMarkup +
     sourceMarkup +
     articleMarkup +
-    blogMain[1] +
-    bottom[1]
+    blogMain[1]
   fs.writeFileSync(`${__dirname}/${folder}/index.html`, finalMarkup)
   meta.published
     ? console.log('html file succesfully created for: ' + folder)
@@ -73,17 +72,14 @@ const finalBlogLeads =
   blogMain[0] +
   '<h1 class="py-2">Blog</h1>' +
   blogLeadsUnited +
-  blogMain[1] +
-  bottom[1]
+  blogMain[1]
 fs.writeFileSync(__dirname + '/index.html', finalBlogLeads)
 console.log('html file succesfully created for: united blog leads')
 
 const error404 =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>404 - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
-  error404Template +
-  bottom[1]
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') + error404Template
 fs.writeFileSync(__dirname + '/../404.html', error404)
 console.log('html file succesfully created for: 404')
 

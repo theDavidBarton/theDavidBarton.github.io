@@ -54,6 +54,13 @@ td {
   padding-bottom: 0.1rem;
 }
 
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px;
+  border-top: 1px inset;
+}
+
 .top-bar {
   z-index: 100;
   position: relative;
