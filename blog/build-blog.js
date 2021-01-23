@@ -40,9 +40,9 @@ for (const folder of folders) {
   const sourceMarkupSimple = meta['originally-published']
     ? `<span>Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></span>`
     : '<span>by David Barton</span>'
-  const readmoreMarkup = `<span class="toggle-lead-${meta.id}" onclick="toggleLead(${meta.id})">«&nbsp;Open summary&nbsp;»</span> <span class="lead-${meta.id}"><strong>Summary:</strong> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
+  const readmoreMarkup = `<span class="toggle-lead-${meta.id}" title="toggle summary" onclick="toggleLead(${meta.id})">summary »</span> <span class="lead-${meta.id}"><span class="font-weight-bold font-italic">Summary:</span> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
   /* prettier-ignore */
-  const leadMd = `- ${meta.date}: [${meta.title}](/blog/${folder}) [${meta.category}] _${sourceMarkupSimple}_ ${readmoreMarkup}\n`
+  const leadMd = `- ${meta.date}: [${meta.title}](/blog/${folder}) [${meta.category}] _${sourceMarkupSimple}_, ${readmoreMarkup}\n`
   if (meta.published) {
     leads[meta.id] = leadMd
     articleMetas[meta.id] = meta
