@@ -467,6 +467,16 @@ a.text-cool-secondary:hover {
 }
 
 /* blog */
+span[class^='lead-'] {
+  display: none;
+  padding-bottom: 0.3rem;
+}
+
+span[class^='toggle-lead-'] {
+  color: blue;
+  cursor: pointer;
+}
+
 pre {
   background-color: #2d2d2d;
 }
