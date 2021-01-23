@@ -1,72 +1,66 @@
 'use strict'
 
-function prodUrl() {
-  return /https:\/\/thedavidbarton\.github\.io\//gi
-}
-
-function numberToK(n) {
+const prodUrl = /https:\/\/thedavidbarton\.github\.io\//gi
+const numberToK = n => {
   // works till 999999
   if (n >= 1e3) return `${+(n / 1e3).toFixed(1)}K`
   else return n
 }
 
 // portfolio projects
+const portfolioProjects = [
+  {
+    id: 0,
+    title: 'Trending Movies app',
+    imgSrc: 'img/portfolio/tmdb',
+    projectDemoUrl: '/redirect?url=https://trending-movies-react-app.herokuapp.com/',
+    projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
+    techStack: ['Node.Js', 'React.Js']
+  },
+  {
+    id: 1,
+    title: 'Trending Video Games app',
+    imgSrc: 'img/portfolio/rawg',
+    projectDemoUrl: '/redirect?url=https://trending-video-games.herokuapp.com/',
+    projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
+    techStack: ['Node.Js', 'React.Js']
+  },
+  {
+    id: 2,
+    title: 'OneyPlays api',
+    imgSrc: 'img/portfolio/oney',
+    projectDemoUrl: 'https://www.npmjs.com/package/oneyplays-api',
+    projectSourceUrl: 'https://github.com/theDavidBarton/oneyplays-api',
+    techStack: ['Node.Js']
+  },
+  {
+    id: 3,
+    title: 'The Harry Potter Database',
+    imgSrc: 'img/portfolio/thpdb',
+    projectDemoUrl: '/redirect?url=https://the-harry-potter-database.herokuapp.com/',
+    projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
+    techStack: ['Node.Js', 'React.Js']
+  },
+  {
+    id: 4,
+    title: 'Simple Puppeteer Uptime Checker',
+    imgSrc: 'img/portfolio/uptime',
+    projectDemoUrl: null,
+    projectSourceUrl: 'https://github.com/theDavidBarton/simple-puppeteer-uptime-checker',
+    techStack: ['Node.Js']
+  },
+  {
+    id: 5,
+    title: 'Pixel Art Project',
+    imgSrc: 'img/portfolio/pixel',
+    projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
+    projectSourceUrl: 'https://github.com/theDavidBarton/pixel-art',
+    techStack: ['Node.Js', 'React.Js', 'GIMP']
+  }
+]
 
-function portfolioProjectsFn() {
-  return [
-    {
-      id: 0,
-      title: 'Trending Movies app',
-      imgSrc: 'img/portfolio/tmdb',
-      projectDemoUrl: '/redirect?url=https://trending-movies-react-app.herokuapp.com/',
-      projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
-      techStack: ['Node.Js', 'React.Js']
-    },
-    {
-      id: 1,
-      title: 'Trending Video Games app',
-      imgSrc: 'img/portfolio/rawg',
-      projectDemoUrl: '/redirect?url=https://trending-video-games.herokuapp.com/',
-      projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
-      techStack: ['Node.Js', 'React.Js']
-    },
-    {
-      id: 2,
-      title: 'OneyPlays api',
-      imgSrc: 'img/portfolio/oney',
-      projectDemoUrl: 'https://www.npmjs.com/package/oneyplays-api',
-      projectSourceUrl: 'https://github.com/theDavidBarton/oneyplays-api',
-      techStack: ['Node.Js']
-    },
-    {
-      id: 3,
-      title: 'The Harry Potter Database',
-      imgSrc: 'img/portfolio/thpdb',
-      projectDemoUrl: '/redirect?url=https://the-harry-potter-database.herokuapp.com/',
-      projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
-      techStack: ['Node.Js', 'React.Js']
-    },
-    {
-      id: 4,
-      title: 'Simple Puppeteer Uptime Checker',
-      imgSrc: 'img/portfolio/uptime',
-      projectDemoUrl: null,
-      projectSourceUrl: 'https://github.com/theDavidBarton/simple-puppeteer-uptime-checker',
-      techStack: ['Node.Js']
-    },
-    {
-      id: 5,
-      title: 'Pixel Art Project',
-      imgSrc: 'img/portfolio/pixel',
-      projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
-      projectSourceUrl: 'https://github.com/theDavidBarton/pixel-art',
-      techStack: ['Node.Js', 'React.Js', 'GIMP']
-    }
-  ]
-}
-
-function createPortfolioItems() {
-  const projects = portfolioProjectsFn()
+document.addEventListener('DOMContentLoaded', () => {
+  const projects = portfolioProjects
   const items = projects.map((item, i) => {
     // prettier-ignore
     return `<div class="item text-center" id="${i}">
@@ -100,10 +94,10 @@ function createPortfolioItems() {
   carouselItems[0].classList.add('active')
   carouselItems[1].classList.add('next')
   carouselItems[projects.length - 1].classList.add('prev')
-}
+})
 
-function nextPrev(id) {
-  const portItemLngth = portfolioProjectsFn().length
+const nextPrev = id => {
+  const portItemLngth = portfolioProjects.length
 
   let nextId
   if (id === portItemLngth - 1) nextId = 0
@@ -124,40 +118,17 @@ function nextPrev(id) {
   document.querySelectorAll('.item')[prevId].classList.add('prev')
 }
 
-function navHandler(event) {
+const navHandler = event => {
   nextPrev(parseInt(event.id))
 }
 
-// redirection page
-function getUrlFromLink() {
-  const trustedLinks = [
-    'https://trending-video-games.herokuapp.com/',
-    'https://trending-movies-react-app.herokuapp.com/',
-    'https://thedavidbarton.herokuapp.com/',
-    'https://twin-peaks-api.herokuapp.com/',
-    'https://the-harry-potter-database.herokuapp.com/'
-  ]
-  const urlSelector = window.location.href.match(/url(.*)/) ? window.location.href.match(/url(.*)/)[0] : window.location.href
-  const url = urlSelector.replace('url=', '')
-  const baseUrlMatcher = url.match(/^https:\/\/(.*?)\//)[0]
-  if (trustedLinks.includes(baseUrlMatcher)) {
-    if (!window.InstallTrigger) {
-      document.querySelector('#refresh').content = `0; URL='${url}'`
-    } else {
-      window.setTimeout(() => {
-        window.location.href = url
-      }, 6000)
-    }
-  }
-}
-
 // twin peaks api call
-async function getQuote() {
+const tpFetch = async () => {
   try {
     let obj
     let response
     // reduce load on twin peaks api during development
-    if (window.location.href.match(prodUrl())) {
+    if (window.location.href.match(prodUrl)) {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/quotes/recommend?relevance=1&profanity=false')
       await response.json().then(data => (obj = data[0]))
     } else {
@@ -177,12 +148,12 @@ async function getQuote() {
 }
 
 // GitHub repo counter
-async function getRepos() {
+document.addEventListener('DOMContentLoaded', async () => {
   try {
     let obj
     let response
     // reduce load on github api during development
-    if (window.location.href.match(prodUrl())) {
+    if (window.location.href.match(prodUrl)) {
       response = await fetch('https://api.github.com/users/theDavidBarton')
       await response.json().then(data => (obj = data))
     } else {
@@ -194,15 +165,15 @@ async function getRepos() {
   } catch (e) {
     console.error(e)
   }
-}
+})
 
 // GitHub streak scraper
-async function getStreak() {
+document.addEventListener('DOMContentLoaded', async () => {
   try {
     let obj
     let response
     // reduce load on my heroku api during development
-    if (window.location.href.match(prodUrl())) {
+    if (window.location.href.match(prodUrl)) {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton')
       await response.json().then(data => (obj = data))
     } else {
@@ -217,15 +188,15 @@ async function getStreak() {
   } catch (e) {
     console.error(e)
   }
-}
+})
 
 // GitHub rank in Hungary
-async function getRank() {
+document.addEventListener('DOMContentLoaded', async () => {
   try {
     let obj
     let response
     // reduce load on my heroku api during development
-    if (window.location.href.match(prodUrl())) {
+    if (window.location.href.match(prodUrl)) {
       response = await fetch('https://thedavidbarton.herokuapp.com/api/1/get-my-rank?userName=theDavidBarton&country=Hungary')
       await response.json().then(data => (obj = data))
     } else {
@@ -256,15 +227,15 @@ async function getRank() {
   } catch (e) {
     console.error(e)
   }
-}
+})
 
 // StackOverFlow reputation
-async function getReputation() {
+document.addEventListener('DOMContentLoaded', async () => {
   try {
     let obj
     let response
     // reduce load on github api during development
-    if (window.location.href.match(prodUrl())) {
+    if (window.location.href.match(prodUrl)) {
       response = await fetch('https://api.stackexchange.com/2.2/users/12412595?site=stackoverflow')
       await response.json().then(data => (obj = data))
     } else {
@@ -276,24 +247,4 @@ async function getReputation() {
   } catch (e) {
     console.error(e)
   }
-}
-
-// print date
-function getDate() {
-  const funFact = document.querySelector('#funfactDataDate')
-  const thisYear = document.querySelector('#thisYear')
-  const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
-  funFact ? (funFact.textContent = today) : null
-  thisYear.textContent = today.match(/\d{4}/)[0]
-}
-
-// mailto
-function mto() {
-  const mail = document.querySelector('#mailto')
-  window.setTimeout(() => {
-    if (window.location.pathname.includes('/blog')) {
-      mail.innerText = mail.innerText.replace(/theDavidBartonMail/, 'AOL')
-    }
-    mail.href = mail.href.replace(/theDavidBartonMail/, 'AOL')
-  }, 3000)
-}
+})
