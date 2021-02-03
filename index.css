@@ -104,6 +104,17 @@ hr {
   margin-block-end: 1.16rem;
 }
 
+nav > ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li {
+  display: inline;
+}
+
 .nav-icon {
   text-decoration: none;
 }

@@ -17,15 +17,20 @@ function readTime(text) {
   return readTime + ' min read'
 }
 
+// process existing templates and main HTML
 const homeMarkup = fs.readFileSync(__dirname + '/../index.html', 'utf-8')
 const blogTemplate = fs.readFileSync(__dirname + '/blogContainer.template', 'utf-8')
+const rssTemplate = fs.readFileSync(__dirname + '/RSS.template', 'utf-8')
 const error404Template = fs.readFileSync(__dirname + '/../404/404.template', 'utf-8')
 const top = homeMarkup.split('<main>')
-// const bottom = homeMarkup.split('</main>') not in use at the moment
+// const bottom = homeMarkup.split('</main>') the homepage footer's markup is not in use at the moment
 const blogMain = blogTemplate.split('<!-- content goes here -->')
+const rss = rssTemplate.split('<!-- content goes here -->')
 const folders = getFolders()
 const articleMetas = []
 const leads = []
+
+// blog posts
 for (const folder of folders) {
   const meta = require(`${__dirname}/${folder}/meta.json`)
   const md = fs.readFileSync(`${__dirname}/${folder}/${folder}.md`, 'utf-8')
@@ -40,7 +45,7 @@ for (const folder of folders) {
   const sourceMarkupSimple = meta['originally-published']
     ? `<span>Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></span>`
     : '<span>by David Barton</span>'
-  const readmoreMarkup = `<span class="toggle-lead-${meta.id}" title="toggle summary" onclick="toggleLead(${meta.id})">summary »</span> <span class="lead-${meta.id}"><span class="font-weight-bold font-italic">Summary:</span> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
+  const readmoreMarkup = `<span class="toggle-lead-${meta.id}" title="toggle summary" onclick="toggleLead(${meta.id})">summary\u00A0»</span> <span class="lead-${meta.id}"><span class="font-weight-bold font-italic">Summary:</span> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
   /* prettier-ignore */
   const leadMd = `- ${meta.date}: [${meta.title}](/blog/${folder}) [${meta.category}] _${sourceMarkupSimple}_, ${readmoreMarkup}\n`
   if (meta.published) {
@@ -49,6 +54,7 @@ for (const folder of folders) {
   }
   const articleMarkup = marked(md)
 
+  // blog main
   const finalMarkup =
     top[0]
       .replace(/<title(.*)<\/title>/, titleMarkup)
@@ -65,6 +71,7 @@ for (const folder of folders) {
     : console.log('[UNPUBLISHED] html file succesfully created for: ' + folder)
 }
 
+// blogroll
 const blogLeadsUnited = marked(leads.reverse().join(''))
 const finalBlogLeads =
   top[0]
@@ -77,6 +84,7 @@ const finalBlogLeads =
 fs.writeFileSync(__dirname + '/index.html', finalBlogLeads)
 console.log('html file succesfully created for: united blog leads')
 
+// 404
 const error404 =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>404 - theDavidBarton.github.io</title>')
@@ -84,6 +92,27 @@ const error404 =
 fs.writeFileSync(__dirname + '/../404.html', error404)
 console.log('html file succesfully created for: 404')
 
+// latest article JSON and articleMetas JSON
 const latestArticle = articleMetas[articleMetas.length - 1]
 fs.writeFileSync(__dirname + '/../header/latestArticle.json', JSON.stringify(latestArticle))
-console.log('json file succesfully created for: latest article')
+fs.writeFileSync(__dirname + '/articleMetas.json', JSON.stringify(articleMetas))
+console.log('json file succesfully created for: latest article, articleMetas')
+
+// RSS
+const rssItems = articleMetas
+  .map(
+    el =>
+      `<title>${el.title}</title><link>https://theDavidBarton.github.io/${el.slug}</link><pubDate>${new Date(
+        el.date
+      ).toLocaleDateString('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      })}</pubDate><description>${el.lead}</description>`
+  )
+  .reverse()
+  .join('\n')
+const finalRSS = rss[0] + rssItems + rss[1]
+fs.writeFileSync(__dirname + '/rss.xml', finalRSS)
+console.log('xml file succesfully created for: RSS feed')
