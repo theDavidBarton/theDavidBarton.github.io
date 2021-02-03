@@ -30,10 +30,10 @@ const toggleLead = leadId => {
   if (window.getComputedStyle(lead).getPropertyValue('display') !== 'block') {
     lead.style.display = 'block'
     toggle.style.color = 'red'
-    toggle.innerText = 'summary «'
+    toggle.innerText = 'summary\u00A0«'
   } else {
     lead.style.display = 'none'
     toggle.style.color = 'blue'
-    toggle.innerText = 'summary »'
+    toggle.innerText = 'summary\u00A0»'
   }
 }
