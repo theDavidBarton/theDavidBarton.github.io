@@ -1,0 +1,12 @@
+{
+  "id": 12,
+  "published": false,
+  "slug": "puppeteer-playwright-2021",
+  "canonical": false,
+  "canonical-href": "blog/puppeteer-playwright-2021",
+  "title": "When does Puppeteer still beat Playwright?",
+  "lead": "Let's check while it still worth to choose Google's Puppeteer over Microsoft's Playwright in 2021.",
+  "date": "January 28, 2021",
+  "originally-published": null,
+  "category": "technical writing"
+}

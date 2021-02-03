@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>When does Puppeteer still beat Playwright? - theDavidBarton.github.io</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://api.github.com/" />
+    <link rel="preconnect" href="https://thedavidbarton.herokuapp.com" />
+    
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Let's check while it still worth to choose Google's Puppeteer over Microsoft's Playwright in 2021."
+    />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body class="bg-light">
+    <!-- I.) back to top -->
+    <div id="top"></div>
+    <a href="#top" class="btn btn-dark position-fixed text-light text-center back-to-top-style">
+      <img alt="to the top chevron" src="/img/icons/chevron.svg" />
+    </a>
+    <header translate="no" class="notranslate">
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        🔥 check out my latest post:
+        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀
+      </aside>
+      <!-- II.) intro bar -->
+      <div class="bg-noiz py-2">
+        <div class="container">
+          <div class="align-items-center text-center">
+            <div class="row">
+              <a class="col text-decoration-none text-reset" href="/">
+                <h1 class="branded-name text-center pt-3 pb-1 stroke-shadow"><span class="branded-pre">the</span>DavidBarton</h1>
+                <h2 class="bolder">QA engineering | full stack JavaScript</h2>
+              </a>
+            </div>
+            <div class="col-lg-auto my-2 inline-block">
+              <a href="/#about"
+                >[about <span class="nav-icon"><img alt="about a boy icon" src="/img/icons/blondboy.svg" /></span>]</a
+              >
+              <a href="/#projects"
+                >[projects
+                <span class="nav-icon"><img alt="experimental project icon" src="/img/icons/experiment.svg" /></span>]</a
+              >
+              <a href="/blog"
+                >[blog <span class="nav-icon"><img alt="pencil on a sheet icon" src="/img/icons/write.svg" /></span>]</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <script src="/header/index.js"></script>
+    <script src="/footer/index.js"></script>
+    <main class="bg-light">
+  <section class="container">
+    <script src="/blog/index.js"></script>
+    <div class="row mx-lg-5 pb-5">
+      <article class="col" id="article">
+        <div class="pt-3">January 28, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">2 min read</span>, In: technical writing</div><div class="pb-3">by David Barton</div><h1 id="when-does-puppeteer-still-beat-playwright">When does Puppeteer still beat Playwright?</h1>
+<p>Let&#39;s check while it still worth to choose Google&#39;s Puppeteer over Microsoft&#39;s Playwright in 2021.</p>
+<h2 id="main-differentiator-features-released-since-the-junction-january-2020">Main differentiator features released since the junction (January 2020):</h2>
+<table>
+<thead>
+<tr>
+<th>*</th>
+<th>Puppeteer</th>
+<th>Playwright</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Firefox</td>
+<td>(/)</td>
+<td>(/)</td>
+</tr>
+<tr>
+<td>jugglered Firefox</td>
+<td>(x)</td>
+<td>(/)</td>
+</tr>
+<tr>
+<td>Webkit (Safari)</td>
+<td>(x)</td>
+<td>(/)</td>
+</tr>
+<tr>
+<td>recordVideo</td>
+<td>(x)</td>
+<td>(/)</td>
+</tr>
+<tr>
+<td>page.emulateVisionDeficiency</td>
+<td>(/)</td>
+<td>(x)</td>
+</tr>
+<tr>
+<td>isJavaScriptEnabled()</td>
+<td>(/)</td>
+<td>(x)</td>
+</tr>
+<tr>
+<td>Mouse#wheel</td>
+<td>(/)</td>
+<td>(x)</td>
+</tr>
+<tr>
+<td>page.waitForTimeout</td>
+<td>(/)</td>
+<td>(/)</td>
+</tr>
+<tr>
+<td>page.emulateIdleState()</td>
+<td>(/)</td>
+<td>(x)</td>
+</tr>
+<tr>
+<td>query handler API</td>
+<td>(/)</td>
+<td>(/)</td>
+</tr>
+<tr>
+<td>page.emulateNetworkConditions()</td>
+<td>(/)</td>
+<td>(x)</td>
+</tr>
+</tbody></table>
+<p>Puppeteer release notes: <a href="https://github.com/puppeteer/puppeteer/releases">https://github.com/puppeteer/puppeteer/releases</a>
+Playwright release notes: <a href="https://github.com/microsoft/playwright/releases">https://github.com/microsoft/playwright/releases</a></p>
+
+        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/chrome/"><img alt="best viewed in chrome funny badge" src="/img/best_viewed_chrome.png"></a>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="container">
+  <hr>
+  <p><em><a class="text-decoration-none text-dark" id="mailto" href="mailto:theDavidBarton@theDavidBartonMail.com">thedavidbarton@theDavidBartonMail.com</a></em> | copyright © 2019-<span id="thisYear">0000</span> theDavidBarton</p>
+</footer>
+<script data-goatcounter="https://thedavidbarton.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
