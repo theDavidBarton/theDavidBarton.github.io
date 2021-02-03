@@ -102,14 +102,11 @@ console.log('json file succesfully created for: latest article, articleMetas')
 const rssItems = articleMetas
   .map(
     el =>
-      `<title>${el.title}</title><link>https://theDavidBarton.github.io/${el.slug}</link><pubDate>${new Date(
+      `<item><title>${el.title}</title><link>https://theDavidBarton.github.io/${el.slug}</link><pubDate>${new Date(
         el.date
-      ).toLocaleDateString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      })}</pubDate><description>${el.lead}</description>`
+      ).toUTCString()}</pubDate><guid>https://theDavidBarton.github.io/${el.slug}</guid><description>${
+        el.lead
+      }</description></item>`
   )
   .reverse()
   .join('\n')
