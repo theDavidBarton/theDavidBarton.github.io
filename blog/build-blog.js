@@ -53,13 +53,13 @@ for (const folder of folders) {
   const leadMd = `- ${meta.date}: [${meta.title}](/blog/${folder}) [${meta.category}] _${sourceMarkupSimple}_, ${readmoreMarkup}\n`
   const nextPrevMarkup = `<aside class="row">${
     articles[meta.id - 1]
-      ? `<a class="col-6 text-left mt-4" href="${articles[meta.id - 1].slug}">Previous post: <wbr>${
+      ? `<a class="col-6 text-left mt-4" href="/blog/${articles[meta.id - 1].slug}">Previous post: <wbr>${
           articles[meta.id - 1].title
         }</a>`
       : ''
   }${
     articles[meta.id + 1]
-      ? `<a class="col-6 text-right mt-4 ml-auto" href="${articles[meta.id + 1].slug}">Next post: <wbr>${
+      ? `<a class="col-6 text-right mt-4 ml-auto" href="/blog/${articles[meta.id + 1].slug}">Next post: <wbr>${
           articles[meta.id + 1].title
         }</a>`
       : ''
