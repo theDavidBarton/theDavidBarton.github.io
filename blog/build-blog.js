@@ -1,5 +1,6 @@
 const marked = require('marked')
 const fs = require('fs')
+const articles = require('./articleMetas.json') // it will be re-generated with build but historical file is accurate for this job
 
 const getFolders = () =>
   /* prettier-ignore */
@@ -22,9 +23,11 @@ const homeMarkup = fs.readFileSync(__dirname + '/../index.html', 'utf-8')
 const blogTemplate = fs.readFileSync(__dirname + '/blogContainer.template', 'utf-8')
 const rssTemplate = fs.readFileSync(__dirname + '/RSS.template', 'utf-8')
 const error404Template = fs.readFileSync(__dirname + '/../404/404.template', 'utf-8')
+const linksTemplate = fs.readFileSync(__dirname + '/../links/links.template', 'utf-8')
 const top = homeMarkup.split('<main>')
 // const bottom = homeMarkup.split('</main>') the homepage footer's markup is not in use at the moment
 const blogMain = blogTemplate.split('<!-- content goes here -->')
+const linksMain = linksTemplate.split('<!-- content goes here -->')
 const rss = rssTemplate.split('<!-- content goes here -->')
 const folders = getFolders()
 const articleMetas = []
@@ -48,6 +51,19 @@ for (const folder of folders) {
   const readmoreMarkup = `<span class="toggle-lead-${meta.id}" title="toggle summary" onclick="toggleLead(${meta.id})">summary\u00A0»</span> <span class="lead-${meta.id}"><span class="font-weight-bold font-italic">Summary:</span> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
   /* prettier-ignore */
   const leadMd = `- ${meta.date}: [${meta.title}](/blog/${folder}) [${meta.category}] _${sourceMarkupSimple}_, ${readmoreMarkup}\n`
+  const nextPrevMarkup = `<aside class="row">${
+    articles[meta.id - 1]
+      ? `<a class="col-6 text-left mt-4" href="${articles[meta.id - 1].slug}">Previous post: <wbr>${
+          articles[meta.id - 1].title
+        }</a>`
+      : ''
+  }${
+    articles[meta.id + 1]
+      ? `<a class="col-6 text-right mt-4 ml-auto" href="${articles[meta.id + 1].slug}">Next post: <wbr>${
+          articles[meta.id + 1].title
+        }</a>`
+      : ''
+  }</aside>`
   if (meta.published) {
     leads[meta.id] = leadMd
     articleMetas[meta.id] = meta
@@ -64,6 +80,7 @@ for (const folder of folders) {
     metaMarkup +
     sourceMarkup +
     articleMarkup +
+    nextPrevMarkup +
     blogMain[1]
   fs.writeFileSync(`${__dirname}/${folder}/index.html`, finalMarkup)
   meta.published
@@ -88,9 +105,25 @@ console.log('html file succesfully created for: united blog leads')
 const error404 =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>404 - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') + error404Template
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
+  error404Template +
+  blogMain[1]
 fs.writeFileSync(__dirname + '/../404.html', error404)
 console.log('html file succesfully created for: 404')
+
+// links
+const linksMarkdown = fs.readFileSync(__dirname + '/../links/links.MD', 'utf-8')
+const links =
+  top[0]
+    .replace(/<title(.*)<\/title>/, '<title>Links - theDavidBarton.github.io</title>')
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
+  linksMain[0] +
+  '<h1 class="py-2">Links</h1>' +
+  marked(linksMarkdown) +
+  linksMain[1] +
+  blogMain[1]
+fs.writeFileSync(__dirname + '/../links/index.html', links)
+console.log('html file succesfully created for: links')
 
 // latest article JSON and articleMetas JSON
 const latestArticle = articleMetas[articleMetas.length - 1]

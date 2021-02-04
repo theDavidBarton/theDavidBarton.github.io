@@ -3,6 +3,7 @@ User-agent: Googlebot-Image
 Disallow: /*.webp$
 Disallow: /*.svg$
 Disallow: /*.jpg$
+Disallow: /*.png$
 
 # general
 User-agent: *
@@ -10,6 +11,8 @@ Disallow: /*.template$
 Disallow: /redirect?
 Disallow: /redirect
 Disallow: /redirect/index.html
+Disallow: /links?
+Disallow: /links
 Disallow: /404
 Disallow: /*.pdf$
 
