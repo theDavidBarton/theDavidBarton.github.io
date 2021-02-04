@@ -78,11 +78,15 @@
             <!-- 1st col starts here -->
             <div class="col-lg-6 col-12">
               <h3 id="about">about me</h3>
-              <img
-                class="position-absolute d-none d-lg-block avatar-img"
-                alt="a dithered avatar image of David"
-                src="/img/dithered_avatar.png"
-              />
+              <picture>
+                <source srcset="/img/dithered_avatar.webp" type="image/webp" />
+                <source srcset="/img/dithered_avatar.png" type="image/png" />
+                <img
+                  class="position-absolute d-none d-lg-block avatar-img"
+                  alt="a dithered avatar image of David"
+                  src="/img/dithered_avatar.png"
+                />
+              </picture>
               <p class="m-4 pb-lg-0 pb-2">
                 I've been using the immodest user name "theDavidBarton" <a href="#fn1">[1]</a> around the web, at the same time I
                 work as a <strong>QA engineer</strong> and <strong>release manager</strong> at French metasearch company
@@ -500,6 +504,12 @@
             <a href="/">[&nbsp;home&nbsp;]</a>
             <a href="/#projects">[&nbsp;projects&nbsp;]</a>
             <a href="/blog">[&nbsp;blog&nbsp;]</a>
+            <a href="/blog/rss.xml" target="_blank">
+              <picture>
+                <source srcset="/img/icons/rss-web-button.webp" type="image/webp" />
+                <source srcset="/img/icons/rss-web-button.png" type="image/png" />
+                <img alt="retro RSS web button" src="/img/icons/rss-web-button.png" /> </picture
+            ></a>
             <p>copyright © 2019-<span id="thisYear">0000</span> theDavidBarton</p>
           </div>
         </div>

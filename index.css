@@ -508,3 +508,9 @@ article * {
 article > h1 {
   font-weight: bold;
 }
+
+/* links page */
+#links-page > h2 {
+  text-transform: lowercase;
+  font-size: 1rem !important;
+}
