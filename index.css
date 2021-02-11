@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=block');
 
 /* global */
 
@@ -64,6 +64,10 @@ hr {
 .top-bar {
   z-index: 100;
   position: relative;
+}
+
+#top-bar-text {
+  opacity: 0;
 }
 
 .stroke-shadow {
@@ -278,8 +282,9 @@ nav > ul > li {
 @media all and (max-width: 1023px) {
   .external-link,
   .source-link {
-    position: unset;
-    margin: 0.3rem;
+    position: sticky;
+    margin: 0.15rem;
+    width: 2rem;
   }
 }
 
