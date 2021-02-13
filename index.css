@@ -502,6 +502,10 @@ pre > code > span {
   font-family: 'Courier New', Courier, monospace !important;
 }
 
+:not(pre > *) { /* reset global font-family for inner span-s in Prism.js */
+  font-family: inherit; 
+}
+
 code {
   color: #e20101;
 }
@@ -512,6 +516,12 @@ article * {
 
 article > h1 {
   font-weight: bold;
+}
+
+article > * > img + em {
+  display: grid;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 /* links page */

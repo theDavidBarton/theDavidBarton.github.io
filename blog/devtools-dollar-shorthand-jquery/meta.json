@@ -8,5 +8,5 @@
   "lead": "Time to time I face a weird phenomenon with the $ chrome api shorthand for document.querySelector that it doesn't return the element with the correct selector, while it works correctly with $$. As puppeteer heavily depends on these shorthands (page.$, page.$$, page.$eval, page.$$eval) it can cause unexpected issues.",
   "date": "September 29, 2020",
   "originally-published": "Stack Overflow",
-  "category": "technical writing"
+  "category": "computer technology"
 }

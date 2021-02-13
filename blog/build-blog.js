@@ -49,21 +49,17 @@ for (const folder of folders) {
     ? `<span>Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></span>`
     : '<span>by David Barton</span>'
   const readmoreMarkup = `<span class="toggle-lead-${meta.id}" title="toggle summary" onclick="toggleLead(${meta.id})">summary\u00A0»</span> <span class="lead-${meta.id}"><span class="font-weight-bold font-italic">Summary:</span> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
-  /* prettier-ignore */
-  const leadMd = `- ${meta.date}: [${meta.title}](/blog/${folder}) [${meta.category}] _${sourceMarkupSimple}_, ${readmoreMarkup}\n`
+  const leadMd = `- [${meta.title}](/blog/${folder}) ${meta.date}\n`
   const nextPrevMarkup = `<aside class="row">${
     articles[meta.id - 1]
-      ? `<a class="col-6 text-left mt-4" href="/blog/${articles[meta.id - 1].slug}">Previous post: <wbr>${
-          articles[meta.id - 1].title
-        }</a>`
+      ? `<a class="col-6 text-left mt-4" href="/blog/${articles[meta.id - 1].slug}">Previous post: <wbr>${articles[meta.id - 1].title}</a>`
       : ''
   }${
     articles[meta.id + 1]
-      ? `<a class="col-6 text-right mt-4 ml-auto" href="/blog/${articles[meta.id + 1].slug}">Next post: <wbr>${
-          articles[meta.id + 1].title
-        }</a>`
+      ? `<a class="col-6 text-right mt-4 ml-auto" href="/blog/${articles[meta.id + 1].slug}">Next post: <wbr>${articles[meta.id + 1].title}</a>`
       : ''
   }</aside>`
+  /* prettier-ignore */
   if (meta.published) {
     leads[meta.id] = leadMd
     articleMetas[meta.id] = meta
