@@ -8,5 +8,5 @@
   "lead": "IIFE is an elegant way to execute what should be executed anyway in our JavaScript code. If it is also an anonymous function then it is almost sure that the returned value is not used later on. When it comes to semicolon-less JavaScript styles it gets tricky (and ugly). Let's see how we can handle it if we want to gain from the advantages of both approaches.",
   "date": "October 11, 2020",
   "originally-published": null,
-  "category": "technical writing"
+  "category": "computer technology"
 }

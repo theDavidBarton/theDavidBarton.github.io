@@ -8,13 +8,33 @@ My github page.
 
 # Start development server
 
-```
+```bash
 $ npx serve
+
+   ┌────────────────────────────────────────────────┐
+   │                                                │
+   │   Serving!                                     │
+   │                                                │
+   │   - Local:            http://localhost:5000    │
+   │   - On Your Network:  http://0.0.0.0:5000      │
+   │                                                │
+   └────────────────────────────────────────────────┘
+
 ```
+
+Bon appétit !
+
+## Start dockerized version
+
+```bash
+# port 5000 is exposed, the page will show a snapshot on localhost:4000
+$ docker run -p 4000:5000 -d thedavidbarton/thedavidbarton-github-io
+```
+_Note:_ 5000 comes from the default port of `npx serve`, see above.
 
 # Static Pre-Rendering of the blog articles
 
-```
+```bash
 $ yarn build
 $ node ./blog/build-blog.js
 ```
