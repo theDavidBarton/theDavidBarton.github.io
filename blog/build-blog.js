@@ -80,8 +80,8 @@ for (const folder of folders) {
     blogMain[1]
   fs.writeFileSync(`${__dirname}/${folder}/index.html`, finalMarkup)
   meta.published
-    ? console.log('html file succesfully created for: ' + folder)
-    : console.log('[UNPUBLISHED] html file succesfully created for: ' + folder)
+    ? console.log(`html file succesfully created for: ${folder} [${meta.id}]`)
+    : console.log(`[UNPUBLISHED] html file succesfully created for: ${folder} [${meta.id}]`)
 }
 
 // blogroll
@@ -142,3 +142,4 @@ const rssItems = articleMetas
 const finalRSS = rss[0] + rssItems + rss[1]
 fs.writeFileSync(__dirname + '/rss.xml', finalRSS)
 console.log('xml file succesfully created for: RSS feed')
+console.log('\n!!! on brand new articles: make sure to run the build at least twice to create "next" "prev" links !!!')

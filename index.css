@@ -61,6 +61,24 @@ hr {
   border-top: 1px inset;
 }
 
+blockquote {
+  margin: 0;
+}
+
+blockquote p {
+  padding: 1rem;
+  background-image: url('img/bg-noiz.gif');
+  background-repeat: repeat;
+}
+
+blockquote p::before {
+  content: '\201C';
+}
+
+blockquote p::after {
+  content: '\201D';
+}
+
 .top-bar {
   z-index: 100;
   position: relative;
@@ -516,6 +534,10 @@ article * {
 
 article > h1 {
   font-weight: bold;
+}
+
+article > figure {
+  padding: 2rem;
 }
 
 article > * > img + em {
