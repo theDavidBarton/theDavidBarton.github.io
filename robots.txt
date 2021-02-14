@@ -14,7 +14,6 @@ Disallow: /redirect/index.html
 Disallow: /links?
 Disallow: /links
 Disallow: /404
-Disallow: /*.pdf$
 
 Allow: /blog
 Allow: /blog/*/
