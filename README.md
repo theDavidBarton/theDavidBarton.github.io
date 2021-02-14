@@ -27,6 +27,7 @@ Bon appétit !
 ## Start dockerized version
 
 ```bash
+$ docker build -t thedavidbarton/thedavidbarton-github-io .
 # port 5000 is exposed, the page will show a snapshot on localhost:4000
 $ docker run -p 4000:5000 -d thedavidbarton/thedavidbarton-github-io
 ```
