@@ -7,13 +7,15 @@
     <figcaption>—Brent Hyder, President & Chief People Officer, <cite>Salesforce</cite></figcaption>
 </figure>
 
-Work from home indefinitely. Shouldn't this option exist since at least a decade when high-bandwidth connection has become worldwide? However in the developing countries the broadband speed still can be [between 4 to 50 Mbps](https://worldpopulationreview.com/country-rankings/internet-speeds-by-country) (while in the US the avarage is 161.14 Mbps, source: Speedtest Global Index)
+The sole good side of COVID-19 of the acceptance of home office globally. The latest [announcement from Spotify](https://hrblog.spotify.com/2021/02/12/introducing-working-from-anywhere/) highlighted something that exists since years, but sounds brand new for most of us in the remote work topic. Spotify will "introduce more flexibility when it comes to **what country and city each employee works from** (with some limitations to address time zone difficulties [...])". This can lead to the end of discrimination based on location of the employees. Can you imagine how it can extend the current boundries of workplaces? Someone from Africa can work for a Northern European company (if the high speed internet is/will be availble). Another example: someone who lives on the [lagging regions](https://www.worldbank.org/en/region/eca/publication/rethinking-lagging-regions) of a country could work for a company based in the capital. Is it realistic? It is, and now it seems also feasible.
+Work from home or from anywhere indefinitely. Shouldn't this option exist since long in the era of high-bandwidth connection? Well not yet everywhere. In the developing countries the broadband speed still can be [between 4 to 50 Mbps](https://worldpopulationreview.com/country-rankings/internet-speeds-by-country) (while in the US the avarage is 161.14 Mbps, source: Speedtest Global Index).
 
 ![world broadband speeds](/img/blog/wfa-01.png)
 _[World broadband speeds, 2014](https://www.vox.com/a/internet-maps) (reddit user DMan9797, based on Speedtest.net data)_
 
-The sole good side of COVID-19 of the acceptance of home office globally. The latest [announcment from Spotify](https://hrblog.spotify.com/2021/02/12/introducing-working-from-anywhere/) brings something brand new to the remote work topic. Spotify will "introduce more flexibility when it comes to **what country and city each employee works from** (with some limitations to address time zone difficulties [...])". This can lead to the end of discrimination based on location of the employees. Can you imagine how it can extend the current boundries of workplaces? Someone from Africa can work for a Northern European company (if the high speed internet is/will be availble). Another example: someone who lives on the [lagging regions](https://www.worldbank.org/en/region/eca/publication/rethinking-lagging-regions) could work for a company based in the capital. Is it realistic? It is, and now it seems also feasible.
-Here is a list of the companies who has already announced _Work from Anywhere (WFA)_ or hybrid conditions for their employees.
+It is known Mark Zuckerberg founded [internet.org](http://internet.org) some years ago and planned to provide internet to the developing countries. Just before the pandemic escalated, in May 2020 Facebook announced the [building of an undersea cable to boost internet access in Africa](https://www.cnbc.com/2020/05/14/facebook-building-undersea-cable-in-africa-to-boost-internet-access.html). Facebook and Zuckerberg have their reasons to extend internet users in new continents, but if it also could help the people live there to join in the WFA movements then it is somathing that worths. Let's see, and hope to see.
+
+Here is a list of the companies who have already announced _Work from Anywhere (WFA)_ or hybrid conditions for their employees.
 
 | Company                                                                                                               | Date                | Source                                     |
 | --------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------------ |
@@ -37,7 +39,7 @@ Here is a list of the companies who has already announced _Work from Anywhere (W
 
 [and many more...](https://remotive.io/remote-companies)
 
-Hopefully the pandemic gonna end once, and decision makers will follow these companies to create equal chances for everybody who wants to work with the help of modern communication technology. Don't let us be disappointed.
+Hopefully the pandemic once gonna end and decision makers will follow these companies to create equal chances for everybody who wants to work with the help of modern communication technology. Don't let us be disappointed.
 
 ## Other sources
 
