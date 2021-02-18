@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // style images with bootstrap dynmically
 document.addEventListener('DOMContentLoaded', () => {
-  const img = document.querySelectorAll('article > * > img')
+  const img = document.querySelectorAll('article > :not(h2) > img')
   const bootstrapClasses = ['img-fluid', 'mx-auto', 'd-block']
   img.forEach(el => el.classList.add(...bootstrapClasses))
 })

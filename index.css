@@ -42,8 +42,22 @@ td {
   border-spacing: 2px;
 }
 
+td > img {
+  float: right;
+}
+
 table {
-  margin-bottom: 2rem;
+  margin: 2rem;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+@media all and (max-width: 500px) {
+  table {
+    margin: 0.1rem;
+  }
 }
 
 th,
@@ -59,6 +73,24 @@ hr {
   margin-bottom: 1rem;
   border: 1px;
   border-top: 1px inset;
+}
+
+blockquote {
+  margin: 0;
+}
+
+blockquote p {
+  padding: 1rem;
+  background-image: url('img/bg-noiz.gif');
+  background-repeat: repeat;
+}
+
+blockquote p::before {
+  content: '\201C';
+}
+
+blockquote p::after {
+  content: '\201D';
 }
 
 .top-bar {
@@ -502,8 +534,9 @@ pre > code > span {
   font-family: 'Courier New', Courier, monospace !important;
 }
 
-:not(pre > *) { /* reset global font-family for inner span-s in Prism.js */
-  font-family: inherit; 
+:not(pre > *) {
+  /* reset global font-family for inner span-s in Prism.js */
+  font-family: inherit;
 }
 
 code {
@@ -516,6 +549,16 @@ article * {
 
 article > h1 {
   font-weight: bold;
+}
+
+article > figure {
+  padding: 2rem;
+}
+
+@media all and (max-width: 500px) {
+  article > figure {
+    padding: 0.1rem;
+  }
 }
 
 article > * > img + em {
