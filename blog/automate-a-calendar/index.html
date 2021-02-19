@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -76,9 +78,9 @@
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <div class="pt-3">October 20, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/63796579/use-puppeteer-to-select-by-text/63819936#63819936">Stack Overflow</a></div><h1 id="how-to-automate-date-selection-with-puppeteer">How to automate date selection with puppeteer?</h1>
-<p>When it comes to form e2e automation calendars and date pickers are the trickyest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.</p>
+<p>When it comes to e2e automation of forms: calendars and date pickers are the trickiest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.</p>
 <h1 id="in-theory">In theory</h1>
-<p>You are able to collect the content of the calendar with <code>page.$eval</code> and <code>page.$$eval</code> methods:</p>
+<p>You can collect the content of the calendar with <code>page.$eval</code> and <code>page.$$eval</code> methods:</p>
 <pre><code class="language-javascript">const calMonthYear = await page.$eval(&#39;.calendar-monthname&#39;, month =&gt; month.innerText)
 // September 2020
 
@@ -102,7 +104,7 @@ let sevenDaysLater = new Date()
 sevenDaysLater.setDate(today.getDate() + 7)
 sevenDaysLater.setHours(0, 0, 0, 0)
 // 1600207200000  (Wed Sep 16 2020 00:00:00 GMT+0200 (Central European Summer Time))</code></pre>
-<p>And finally you should compose an iteration to select the desired 7 days later element, something like this:</p>
+<p>And finally, you should compose an iteration to select the desired 7 days later element, something like this:</p>
 <pre><code class="language-javascript">[...]
 
 let calendarGridItemCount =  await page.$$eval(&#39;.calendar-grid &gt; ul &gt; li&#39;, el =&gt; el.length)

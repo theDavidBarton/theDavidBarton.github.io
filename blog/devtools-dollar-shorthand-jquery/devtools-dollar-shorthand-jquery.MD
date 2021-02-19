@@ -1,6 +1,6 @@
 # Chrome DevTools: `$(selector)` shorthand doesn't return the element while `$$(selector)[0]` does
 
-Time to time I face a weird phenomenon with the `$` chrome api shorthand for `document.querySelector` that it doesn't return the element with the correct selector, while it works correctly with `$$`. As [puppeteer][1] heavily depends on these shorthands (`page.$`, `page.$$`, `page.$eval`, `page.$$eval`) it can cause unexpected issues.
+From time to time I face a weird phenomenon with the `$` chrome api shorthand for `document.querySelector` that it doesn't return the element with the correct selector, while it works correctly with `$$`. As [puppeteer][1] heavily depends on these shorthands (`page.$`, `page.$$`, `page.$eval`, `page.$$eval`) it can cause unexpected issues.
 
 The issue can be even reproduced here, on Stack Overflow at the moment (09-29-2020).
 
@@ -16,9 +16,9 @@ The issue can be even reproduced here, on Stack Overflow at the moment (09-29-20
 [1]: https://github.com/puppeteer/puppeteer
 [2]: https://i.stack.imgur.com/CWpUc.png
 
-I've found it affects those pages that uses jQuery library on their frontend (Stack Overflow uses it at the moment).
+I've found it affects those pages that use jQuery library on their frontend (Stack Overflow uses it at the moment).
 
-On such pages the `$` is occupied by jQuery (as alias for itself), so chrome api returns an object instead of the element for `$(selector)`. The first element is the DOM element itself, that's why `[0]` works.
+On such pages the `$` is occupied by jQuery (as an alias for itself), so chrome api returns an object instead of the element for `$(selector)`. The first element is the DOM element itself, that's why `[0]` works.
 
 By the way: `$$(selector)[0]` can be even replaced with `$(selector)[0]`, as this problem has nothing to do with `querySelector` vs. `querySelectorAll`.
 

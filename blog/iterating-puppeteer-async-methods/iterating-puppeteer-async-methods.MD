@@ -2,7 +2,7 @@
 
 As all puppeteer methods are asynchronous it doesn't matter how we iterate over them. I've made a comparison and a rating of the most commonly recommended and used options.
 
-For this purpose, I have created a React.Js example page with a lot of React buttons [here](https://thedavidbarton.github.io/react-examples/#/lot-of-react-buttons) (I just call it _Lot Of React Buttons_). Here **(1)** we are able set how many buttons to be rendered on the page; **(2)** we can activate the black buttons to turn green by clicking on them. I consider it an identical use case as the OP's, and it is also a general case of browser automation (we expect something to happen if we do something on the page).
+For this purpose, I have created a React.Js example page with a lot of React buttons [here](https://thedavidbarton.github.io/react-examples/#/lot-of-react-buttons) (I just call it _Lot Of React Buttons_). Here **(1)** we are able to set how many buttons to be rendered on the page; **(2)** we can activate the black buttons to turn green by clicking on them. I consider it an identical use case as the OP's, and it is also a general case of browser automation (we expect something to happen if we do something on the page).
 Let's say our use case is:
 
 ```gherkin
@@ -58,7 +58,7 @@ If we increase the number of elements of the same selector we will run into the 
 
 ## II. Array.forEach
 
-All the iteratees will be executed, but forEach() is going to return before all of them finish execution, which is not the desirable behavior in many cases with async functions. In terms of puppeteer it is a very similar case to `Array.map`, except: for `Array.forEach` does not return a new array.
+All the iteratees will be executed, but forEach() is going to return before all of them finish execution, which is not the desired behavior in many cases with async functions. In terms of puppeteer it is a very similar case to `Array.map`, except: for `Array.forEach` does not return a new array.
 
 ### Code example
 
@@ -91,7 +91,7 @@ By watching the browser in headful mode it looks like it works, but if we check 
 Duration: 5111 ms
 
 If we increase the number of elements with the same selector we will run into the following error:
-`UnhandledPromiseRejectionWarning: Error: Node is either not visible or not an HTMLElement`, because we already reached `await page.screenshot()` and `await browser.close()`: the async clicks are still in progress while the browser is already closed.
+`UnhandledPromiseRejectionWarning: Error: Node is either not visible or not an HTMLElement` because we already reached `await page.screenshot()` and `await browser.close()`: the async clicks are still in progress while the browser is already closed.
 
 ---
 
@@ -126,7 +126,7 @@ By watching the browser in headful mode we see the effect is immediate, also the
 
 Duration: 3445 ms
 
-Works just like in case of 132 buttons, extremely fast.
+Works just like in the case of 132 buttons, extremely fast.
 
 ---
 

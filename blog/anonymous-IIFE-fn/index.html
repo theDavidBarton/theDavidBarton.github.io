@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -91,11 +93,11 @@
 
 <p><strong>And throws the error:</strong></p>
 <pre><code class="language-markdown">Uncaught TypeError: &quot;hello, world!&quot; is not a function at &lt;anonymous&gt;:2:1</code></pre>
-<p>It is due to the fact that ASI has some rules which we need to take care all the time when it comes to semicolon-less style, in the current case: <strong>we cannot start a new line with an opened parenthesis if we have any javascript statements before.</strong></p>
+<p>It is due to the fact that ASI has some rules which we need to take care of all the time when it comes to semicolon-less style, in the current case: <strong>we cannot start a new line with an opened parenthesis if we have any javascript statements before.</strong></p>
 <p>The <a href="https://github.com/hax/semicolon-less.js/">only cases</a> when we indeed need the semicolons:</p>
 <ul>
-<li><code>;-</code> : line starts with unary - operator</li>
-<li><code>;+</code> : line starts with unary + opeartor</li>
+<li><code>;-</code> : line starts with the unary - operator</li>
+<li><code>;+</code> : line starts with unary + operator</li>
 <li><code>;/regex/</code> : line starts with regexp literal</li>
 <li><code>;[array]</code> : line starts with array initializer</li>
 <li><code>;(group)</code> : line starts with grouping operator</li>
@@ -109,8 +111,8 @@
 <pre><code class="language-markdown">hello, world!
 undefined</code></pre>
 <p>(We will talk about the <code>undefined</code> value later.)</p>
-<p>It is something turns me totally against semicolon-less coding. <code>;(</code> The sad, winking smiley is not the nicest thing ever. Especially as it logically belongs to <code>const text = &#39;hello, world!&#39;;</code> and not to the IIFE.</p>
-<p>So I mostly used named functions and invoked them immediately after the declaration (pretty pre-ES6 style) until this day. Of course it means I needed to use <strong>named functions</strong> all the time as function statements require a function name.
+<p>It is something that turns me totally against semicolon-less coding. <code>;(</code> The sad, winking smiley is not the nicest thing ever. Especially as it logically belongs to <code>const text = &#39;hello, world!&#39;;</code> and not to the IIFE.</p>
+<p>So I mostly used named functions and invoked them immediately after the declaration (pretty pre-ES6 style) until this day. Of course, it means I needed to use <strong>named functions</strong> all the time as function statements require a function name.
 With the same example:</p>
 <pre><code class="language-javascript">const text = &#39;hello, world!&#39;
 function foo() {
@@ -127,18 +129,18 @@ foo()</code></pre>
 <pre><code class="language-markdown">hello, world!
 undefined</code></pre>
 <p>The function is now a <a href="https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function#Named_function_expression">function expression</a>.</p>
-<p>A small sacrifice to keep semicolon-less stlye.</p>
+<p>A small sacrifice to keep semicolon-less style.</p>
 <h3 id="undefined"><code>undefined</code></h3>
-<p><strong>For statements without return value we will see <code>undefined</code> on the console (e.g. running the script in DevTools), as in JavaScript every function returns something, at least an undefined value, even if it won&#39;t be used enywhere else: <em>anonymous IIFE-s</em> are good examples for such functions.</strong></p>
+<p><strong>For statements without return value we will see <code>undefined</code> on the console (e.g. running the script in DevTools), as in JavaScript every function returns something, at least an undefined value, even if it won&#39;t be used anywhere else: <em>anonymous IIFE-s</em> are good examples for such functions.</strong></p>
 <h2 id="the--comes-to-the-rescue">The <code>!</code> comes to the rescue</h2>
-<p>I&#39;ve seen lately a type of IIFE when it almost looks the same as the regular one, but starting with an exclamation mark. I gave a try. And it worked as it should:</p>
+<p>I&#39;ve seen lately a type of IIFE when it almost looks the same as the regular one but starting with an exclamation mark. I gave it a try. And it worked as it should:</p>
 <pre><code class="language-javascript">!(() =&gt; {
   console.log(text)
 })()</code></pre>
 <p><strong>Console output:</strong></p>
 <pre><code class="language-markdown">hello, world!
 true</code></pre>
-<p><strong>But wait! What happens with our <code>undefined</code> fellow, why does it turns <code>true</code>? And why does this work as an IIFE?</strong></p>
+<p><strong>But wait! What happens with our <code>undefined</code> fellow, why does it turn <code>true</code>? And why does this work as an IIFE?</strong></p>
 <h3 id="function-statements-vs-function-expressions">Function statements vs. function expressions</h3>
 <p>When we declare an anonymous function it is a <strong>function statement</strong> by default, which cannot be invoked immediately, without having an error:</p>
 <pre><code class="language-javascript">function () {
@@ -151,8 +153,8 @@ true</code></pre>
 })()</code></pre>
 <pre><code class="language-markdown">hello, world!
 true</code></pre>
-<p>And this can be refactored to ES6 arrow as seen two snippets above. It has the limitation of that the returned value is negated, but it is very rare that I would want to return anything form an anonymous IIFE.</p>
-<p>I know by now it is removed from the airbnb style guide since a long while (I suppose since ES6), but they recommended its usage for modules for some years: <a href="https://github.com/airbnb/javascript/issues/44#issuecomment-13063933">https://github.com/airbnb/javascript/issues/44#issuecomment-13063933</a>. From now on I plan to use it in some of my JS projects. The reason not to use this approach all the time: even if it is valid usage of JS, it can (and will) confuse others who look into code that contains such rarities. Anyway, it was a cool thing to learn.</p>
+<p>And this can be refactored to ES6 arrow as seen two snippets above. It has the limitation that the returned value is negated, but it is very rare that I would want to return anything from an anonymous IIFE.</p>
+<p>I know by now it is removed from the airbnb style guide for a long while (I suppose since ES6), but they recommended its usage for modules for some years: <a href="https://github.com/airbnb/javascript/issues/44#issuecomment-13063933">https://github.com/airbnb/javascript/issues/44#issuecomment-13063933</a>. From now on I plan to use it in some of my JS projects. The reason not to use this approach all the time: even if it is valid usage of JS, it can (and will) confuse others who look into code that contains such rarities. Anyway, it was a cool thing to learn.</p>
 <aside class="row"><a class="col-6 text-left mt-4" href="/blog/os-dependent-emoji-display">Previous post: <wbr>OS dependent emoji display</a><a class="col-6 text-right mt-4 ml-auto" href="/blog/conferences-online-2020-fall">Next post: <wbr>[FREE] Online Conferences for 2020 fall</a></aside>
       </article>
     </div>

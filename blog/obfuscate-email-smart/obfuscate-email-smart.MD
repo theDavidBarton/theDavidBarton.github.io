@@ -1,6 +1,6 @@
 # Obfuscate e-mail smart
 
-Let's assume you need to put an e-mail address (or more) on your website and a contact form is not an option (obviously it would be the ultimate obfuscation but) our usecase is to have an `<a>` element with a `mailto:` URL scheme in its `href`.
+Let's assume you need to put an e-mail address (or more) on your website and a contact form is not an option (obviously it would be the ultimate obfuscation but) our use case is to have an `<a>` element with a `mailto:` URL scheme in its `href`.
 
 It is 2021, spam filters at the top e-mail providers are efficient, normally you should not worry to use e-mail addresses in your markup. If you still want some protection from landing in a spam address list you can apply the following trick.
 
@@ -17,7 +17,7 @@ These crawlers evolved with time, but they are still simple. Though they may see
 
 ### `<FAKE E-MAIL PROVIDER NAME😜>` VS. `<ACTUAL E-MAIL PROVIDER NAME😎>`
 
-Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and got your address while you are feeding them with a fake e-mail, then you can replace the bait with the actual one for real users. To achive this:
+Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and got your address while you are feeding them with a fake e-mail, then you can replace the bait with the actual one for real users. To achieve this:
 
 #### steps:
 
@@ -45,7 +45,7 @@ const mailtoUpdater = () => {
 
 ### Crawling results
 
-An example how a crawler (written in puppeteer) could look for the e-mail addresses on a page:
+An example of how a crawler (written in puppeteer) could look for the e-mail addresses on a page:
 
 ```javascript
 const aHrefs = await page.$$eval('a', elems => elems.map(el => el.href))

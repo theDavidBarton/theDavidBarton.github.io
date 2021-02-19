@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -76,11 +78,11 @@
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <div class="pt-3">January 12, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/q/62220867/12412595">Stack Overflow</a></div><h1 id="puppeteer-chromium-instances-remain-active-in-the-background-after-browserdisconnect">Puppeteer: Chromium instances remain active in the background after browser.disconnect</h1>
-<p>I have a <code>for...of</code> loop to visit 3000+ urls with puppeteer. I use <code>puppeteer.connect</code> to <code>wsEndpoint</code> so I can reuse one browser instance. I disconnect after each visit and close the tab.</p>
+<p>I have a <code>for...of</code> loop to visit 3000+ URLs with puppeteer. I use <code>puppeteer.connect</code> to <code>wsEndpoint</code> so I can reuse one browser instance. I disconnect after each visit and close the tab.</p>
 <ul>
-<li>first 100 urls <code>page.goto</code>&#39;s open the urls immediately,</li>
-<li>above 100 <code>page.goto</code> uses 2-3 retries per url,</li>
-<li>above 300 <code>page.goto</code> uses 5-8 retries per url,</li>
+<li>first 100 URLs <code>page.goto</code>&#39;s open the URLs immediately,</li>
+<li>above 100 <code>page.goto</code> uses 2-3 retries per URL,</li>
+<li>above 300 <code>page.goto</code> uses 5-8 retries per URL,</li>
 <li>above 500 I get <code>TimeoutError: Navigation timeout of 30000 ms exceeded</code> all the time.</li>
 </ul>
 <p>I checked the Windows Task Manager and I realized hundreds of Chromium instances running in the background and using 80-90MB of memory each and 1-2% of CPU as well.</p>
@@ -88,7 +90,7 @@
 <p>How can I kill the Chromium instances I&#39;ve already disconnected with <code>browser.disconnect</code> for real?</p>
 <p><strong>Example script</strong></p>
 <pre><code class="language-javascript">const puppeteer = require(&#39;puppeteer&#39;)
-const urlArray = require(&#39;./urls.json&#39;) // contains 3000+ urls in an array
+const urlArray = require(&#39;./urls.json&#39;) // contains 3000+ URLs in an array
 
 async function fn() {
   const browser = await puppeteer.launch({ headless: true })
@@ -124,8 +126,8 @@ fn()</code></pre>
     at processTicksAndRejections (internal/process/task_queues.js:97:5) {
   name: &#39;TimeoutError&#39;
 }</code></pre>
-<p>Finally I was able to achieve the desired result by adding <code>--single-process</code> and <code>--no-zygote</code> args at launch (+ <code>--no-sandbox</code> is required with them).</p>
-<p>The number of running Chromium processes aren&#39;t growing exponentially anymore, but only two instances remain active: one of them is the usual empty tab in the first position, the second is reused correctly by <code>puppeteer.connect({ browserWSEndpoint })</code>.</p>
+<p>Finally, I was able to achieve the desired result by adding <code>--single-process</code> and <code>--no-zygote</code> args at launch (+ <code>--no-sandbox</code> is required with them).</p>
+<p>The number of running Chromium processes isn&#39;t growing exponentially anymore, but only two instances remain active: one of them is the usual empty tab in the first position, the second is reused correctly by <code>puppeteer.connect({ browserWSEndpoint })</code>.</p>
 <pre><code class="language-javascript">[...]
   const browser = await puppeteer.launch({
     headless: true,

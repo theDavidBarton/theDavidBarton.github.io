@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -75,11 +77,11 @@
     <script src="/blog/index.js"></script>
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
-        <div class="pt-3">October 10, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="pb-3">by David Barton</div><h1 id="os-dependent-emoji-display">OS dependent emoji display</h1>
-<p>🐊 An emoji looks different to you than to me if we are looking at it on different platforms. Everyone has a preffered set of emojis and it can be disheartening to see that the content we&#39;ve carefully created has a totally different meaning on another platform, another OS. Let&#39;s see what we can do about this phenomenon.</p>
+        <div class="pt-3">October 10, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="pb-3">by David Barton</div><h1 id="os-dependent-emoji-display">OS-dependent emoji display</h1>
+<p>🐊 An emoji looks different to you than to me if we are looking at it on different platforms. Everyone has a preferred set of emojis and it can be disheartening to see that the content we&#39;ve carefully created has a totally different meaning on another platform, another OS. Let&#39;s see what we can do about this phenomenon.</p>
 <h2 id="emojipedia">Emojipedia</h2>
 <p><a href="https://emojipedia.org/">Emojipedia.org</a> is the best quality source about emojis to compare their look among all the emoji libraries. (If you have a strong machine you can also browse them on <a href="https://unicode.org/emoji/charts/full-emoji-list.html">unicode.org</a> in a truly beautiful, but enormous HTML table)
-In case of my favourite one, the <code>:crocodile:</code></p>
+In the case of my favorite one, the <code>:crocodile:</code></p>
 <p>🐊: U+1F40A (Unicode code point, registered as <em>Crocodile</em>)</p>
 <p>...there is even a warning on the site that says:</p>
 <pre><code class="language-bash">🚩 Appearance differs greatly cross-platform. Use with caution.</code></pre>
@@ -103,10 +105,10 @@ In case of my favourite one, the <code>:crocodile:</code></p>
 <li>HTC (Android) (discontinued)</li>
 <li>Mozilla (Firefox OS) (abandoned)</li>
 </ul>
-<p>I marked the most relevant ones which could come up in web usage. The others are used in specific native apps or already discontinued or abbandoned.</p>
+<p>I marked the most relevant ones which could come up in web usage. The others are used in specific native apps or already discontinued or abandoned.</p>
 <p>The reason behind why they differ so much is simple: emojis are copyright protected by default (anyway many of the listed libraries has open licenses) so each producer/company creates their own custom sets of these symbols.</p>
 <h2 id="hack-the-difference">Hack the difference</h2>
-<p>As forcing the usage of a symbol among all OS-s (e.g. vectorizing an emoji of a specific library) requires copyright procedure you can create fallbacks for the bigger platforms. <code>navigator.platform</code> will return the a string which helps identifying the OS (note: it is not 100% precise, see the links at the bottom of the post), using Emojipedia you can collect the emojis you want to show for viewers per a specific platforms. Then you can set conditionally the emoji content, for example <em>&quot;the 👱🏻‍♂️ looks OK in the Apple library, but on Android the 😺 is more suitable for my needs...&quot;</em> etc.</p>
+<p>As forcing the usage of a symbol among all OS-s (e.g. vectorizing an emoji of a specific library) requires copyright procedure you can create fallbacks for the bigger platforms. <code>navigator.platform</code> will return a string which helps to identify the OS (note: it is not 100% precise, see the links at the bottom of the post), using Emojipedia you can collect the emojis you want to show for viewers per specific platforms. Then you can set conditionally the emoji content, for example, <em>&quot;the 👱🏻‍♂️ looks OK in the Apple library, but on Android the 😺 is more suitable for my needs...&quot;</em> etc.</p>
 <p>E.g.:</p>
 <pre><code class="language-javascript">const platform = window.navigator.platform
 
@@ -115,22 +117,22 @@ const secondElem = document.querySelector(&#39;#second&#39;)
 const thirdElem = document.querySelector(&#39;#third&#39;)
 
 // Apple
-if (platform.match(/iPhone|iPad|iPod|Mac/i)) { 
+if (platform.match(/iPhone|iPad|iPod|Mac/i)) {
   firstElem.innerText = &#39;👱🏻‍♂️&#39;
   secondElem.innerText = &#39;⚗️&#39;
   thirdElem.innerText = &#39;📝&#39;
-// mostly: Google or Samsung
-} else if (platform.match(/Linux|Android/i)) { 
+  // mostly: Google or Samsung
+} else if (platform.match(/Linux|Android/i)) {
   firstElem.innerText = &#39;😺&#39;
   secondElem.innerText = &#39;🍼&#39;
   thirdElem.innerText = &#39;🧻&#39;
-// Microsoft
-} else if (platform.match(/Win/i)) { 
+  // Microsoft
+} else if (platform.match(/Win/i)) {
   firstElem.innerText = &#39;😬&#39;
   secondElem.innerText = &#39;🍾&#39;
   thirdElem.innerText = &#39;📜&#39;
-// fallbacks
-} else { 
+  // fallbacks
+} else {
   firstElem.innerText = &#39;#&#39;
   secondElem.innerText = &#39;{ };&#39;
   thirdElem.innerText = &#39;/**/&#39;
@@ -138,7 +140,7 @@ if (platform.match(/iPhone|iPad|iPod|Mac/i)) {
 <p>Also note: the <a href="https://www.youtube.com/watch?v=OUmU7paCZnM">results may vary</a> between different versions of the same OS/emoji library.</p>
 <p><img src="/img/blog/os-dependent-emoji-display-02.png" alt="A croc on the same system&#39;s different versions">
 <em>A croc on the same system&#39;s different versions</em></p>
-<p>It is indeed a srange aspect of the web, if you want to know more I can recommend the following sources:</p>
+<p>It is indeed a strange aspect of the web if you want to know more I can recommend the following sources:</p>
 <h2 id="useful-sources">Useful sources:</h2>
 <ul>
 <li><a href="https://emojipedia.org/">https://emojipedia.org/</a></li>

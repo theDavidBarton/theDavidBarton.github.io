@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -76,7 +78,7 @@
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <div class="pt-3">January 20, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="pb-3">by David Barton</div><h1 id="obfuscate-e-mail-smart">Obfuscate e-mail smart</h1>
-<p>Let&#39;s assume you need to put an e-mail address (or more) on your website and a contact form is not an option (obviously it would be the ultimate obfuscation but) our usecase is to have an <code>&lt;a&gt;</code> element with a <code>mailto:</code> URL scheme in its <code>href</code>.</p>
+<p>Let&#39;s assume you need to put an e-mail address (or more) on your website and a contact form is not an option (obviously it would be the ultimate obfuscation but) our use case is to have an <code>&lt;a&gt;</code> element with a <code>mailto:</code> URL scheme in its <code>href</code>.</p>
 <p>It is 2021, spam filters at the top e-mail providers are efficient, normally you should not worry to use e-mail addresses in your markup. If you still want some protection from landing in a spam address list you can apply the following trick.</p>
 <p>Back in the old days it was enough to put the e-mail address with JavaScript into the href, as bots didn&#39;t use JS. E.g.:</p>
 <pre><code class="language-javascript">var provider = &#39;&lt;E-MAIL PROVIDER NAME&gt;&#39;
@@ -84,7 +86,7 @@ a.href = &#39;mailto:theDavidBarton@&#39; + provider + &#39;.com&#39;</code></pr
 <p>...did the job.</p>
 <p>These crawlers evolved with time, but they are still simple. Though they may see the JS generated content (remember, since May 2019 even <a href="https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot">Googlebot is &quot;evergreen&quot;</a>)</p>
 <h3 id="fake-e-mail-provider-name😜-vs-actual-e-mail-provider-name😎"><code>&lt;FAKE E-MAIL PROVIDER NAME😜&gt;</code> VS. <code>&lt;ACTUAL E-MAIL PROVIDER NAME😎&gt;</code></h3>
-<p>Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and got your address while you are feeding them with a fake e-mail, then you can replace the bait with the actual one for real users. To achive this:</p>
+<p>Crawlers doing e-mail collection in bulk, you need to make them believe they achieved their purpose and got your address while you are feeding them with a fake e-mail, then you can replace the bait with the actual one for real users. To achieve this:</p>
 <h4 id="steps">steps:</h4>
 <ol>
 <li><strong>Put the bait address into the markup</strong> to trick crawlers;</li>
@@ -101,7 +103,7 @@ a.href = &#39;mailto:theDavidBarton@&#39; + provider + &#39;.com&#39;</code></pr
   }, 3000)
 }</code></pre>
 <h3 id="crawling-results">Crawling results</h3>
-<p>An example how a crawler (written in puppeteer) could look for the e-mail addresses on a page:</p>
+<p>An example of how a crawler (written in puppeteer) could look for the e-mail addresses on a page:</p>
 <pre><code class="language-javascript">const aHrefs = await page.$$eval(&#39;a&#39;, elems =&gt; elems.map(el =&gt; el.href))
 let mailto
 
