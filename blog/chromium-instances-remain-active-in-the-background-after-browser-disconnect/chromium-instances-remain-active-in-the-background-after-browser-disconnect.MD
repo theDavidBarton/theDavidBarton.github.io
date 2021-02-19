@@ -1,10 +1,10 @@
 # Puppeteer: Chromium instances remain active in the background after browser.disconnect
 
-I have a `for...of` loop to visit 3000+ urls with puppeteer. I use `puppeteer.connect` to `wsEndpoint` so I can reuse one browser instance. I disconnect after each visit and close the tab.
+I have a `for...of` loop to visit 3000+ URLs with puppeteer. I use `puppeteer.connect` to `wsEndpoint` so I can reuse one browser instance. I disconnect after each visit and close the tab.
 
-- first 100 urls `page.goto`'s open the urls immediately,
-- above 100 `page.goto` uses 2-3 retries per url,
-- above 300 `page.goto` uses 5-8 retries per url,
+- first 100 URLs `page.goto`'s open the URLs immediately,
+- above 100 `page.goto` uses 2-3 retries per URL,
+- above 300 `page.goto` uses 5-8 retries per URL,
 - above 500 I get `TimeoutError: Navigation timeout of 30000 ms exceeded` all the time.
 
 I checked the Windows Task Manager and I realized hundreds of Chromium instances running in the background and using 80-90MB of memory each and 1-2% of CPU as well.
@@ -17,7 +17,7 @@ How can I kill the Chromium instances I've already disconnected with `browser.di
 
 ```javascript
 const puppeteer = require('puppeteer')
-const urlArray = require('./urls.json') // contains 3000+ urls in an array
+const urlArray = require('./urls.json') // contains 3000+ URLs in an array
 
 async function fn() {
   const browser = await puppeteer.launch({ headless: true })
@@ -60,9 +60,9 @@ TimeoutError: Navigation timeout of 30000 ms exceeded
 }
 ```
 
-Finally I was able to achieve the desired result by adding `--single-process` and `--no-zygote` args at launch (+ `--no-sandbox` is required with them).
+Finally, I was able to achieve the desired result by adding `--single-process` and `--no-zygote` args at launch (+ `--no-sandbox` is required with them).
 
-The number of running Chromium processes aren't growing exponentially anymore, but only two instances remain active: one of them is the usual empty tab in the first position, the second is reused correctly by `puppeteer.connect({ browserWSEndpoint })`.
+The number of running Chromium processes isn't growing exponentially anymore, but only two instances remain active: one of them is the usual empty tab in the first position, the second is reused correctly by `puppeteer.connect({ browserWSEndpoint })`.
 
 ```javascript
 [...]

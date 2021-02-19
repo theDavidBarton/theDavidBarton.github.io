@@ -4,7 +4,7 @@ Previously I was working on a redirect page to act as a bridge between my page a
 [**Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps**
 *I am using a Free plan on Heroku to host my Node/React projects which has its limitations. The most challenging one is…*medium.com](https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a)
 
-Though I really liked the sleeping dino and the text content explains why the user sees the redirection, an animation is much more elegant, and in case of non-idling Heroku app, it is less redundant (if the redirection flashes for only a second it is confusing for the user as he/she cannot process the written info nor the graphic).
+Though I really liked the sleeping dino and the text content explains why the user sees the redirection, an animation is much more elegant, and in the case of non-idling Heroku app, it is less redundant (if the redirection flashes for only a second it is confusing for the user as he/she cannot process the written info nor the graphic).
 
 I decided to use my logo and a “loading…” text as the preloader on the animation.
 
@@ -12,7 +12,7 @@ About the functionality of the redirection page read my [previous article](https
 
 ## CSS
 
-We gonna have an **outer** div and its width will be animated from zero to the size of the logo. In my case it is 300px (set in the <img> too). The animation starts only at 15% of keyframes. I also define an **inner** div that will contain the “unloaded” logo from the beginning. I also store two classes to recolor these logos (called evil-twin [black] and good-twin [white]).
+We gonna have an **outer** div and its width will be animated from zero to the size of the logo. In my case, it is 300px (set in the `<img>` too). The animation starts only at 15% of keyframes. I also define an **inner** div that will contain the “unloaded” logo from the beginning. I also store two classes to recolor these logos (called evil-twin [black] and good-twin [white]).
 
 The two logos will be put on top of each other (position: absolute) and the outer one gonna have a higher z-index to make sure the animation is played on top of the black/unloaded logo
 

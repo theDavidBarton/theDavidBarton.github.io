@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -76,7 +78,7 @@
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <div class="pt-3">September 29, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">2 min read</span>, In: computer technology</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/64127250/chrome-devtools-selector-shorthand-doesnt-return-the-element-while-selec">Stack Overflow</a></div><h1 id="chrome-devtools-selector-shorthand-doesnt-return-the-element-while-selector0-does">Chrome DevTools: <code>$(selector)</code> shorthand doesn&#39;t return the element while <code>$$(selector)[0]</code> does</h1>
-<p>Time to time I face a weird phenomenon with the <code>$</code> chrome api shorthand for <code>document.querySelector</code> that it doesn&#39;t return the element with the correct selector, while it works correctly with <code>$$</code>. As <a href="https://github.com/puppeteer/puppeteer">puppeteer</a> heavily depends on these shorthands (<code>page.$</code>, <code>page.$$</code>, <code>page.$eval</code>, <code>page.$$eval</code>) it can cause unexpected issues.</p>
+<p>From time to time I face a weird phenomenon with the <code>$</code> chrome api shorthand for <code>document.querySelector</code> that it doesn&#39;t return the element with the correct selector, while it works correctly with <code>$$</code>. As <a href="https://github.com/puppeteer/puppeteer">puppeteer</a> heavily depends on these shorthands (<code>page.$</code>, <code>page.$$</code>, <code>page.$eval</code>, <code>page.$$eval</code>) it can cause unexpected issues.</p>
 <p>The issue can be even reproduced here, on Stack Overflow at the moment (09-29-2020).</p>
 <p><strong>E.g.:</strong></p>
 <ul>
@@ -85,8 +87,8 @@
 </ul>
 <p><img src="/img/blog/devtools-dollar-shorthand-jquery-01.png" alt=""></p>
 <p><strong>What is its cause, and why the workaround with <code>$$</code> works?</strong></p>
-<p>I&#39;ve found it affects those pages that uses jQuery library on their frontend (Stack Overflow uses it at the moment).</p>
-<p>On such pages the <code>$</code> is occupied by jQuery (as alias for itself), so chrome api returns an object instead of the element for <code>$(selector)</code>. The first element is the DOM element itself, that&#39;s why <code>[0]</code> works.</p>
+<p>I&#39;ve found it affects those pages that use jQuery library on their frontend (Stack Overflow uses it at the moment).</p>
+<p>On such pages the <code>$</code> is occupied by jQuery (as an alias for itself), so chrome api returns an object instead of the element for <code>$(selector)</code>. The first element is the DOM element itself, that&#39;s why <code>[0]</code> works.</p>
 <p>By the way: <code>$$(selector)[0]</code> can be even replaced with <code>$(selector)[0]</code>, as this problem has nothing to do with <code>querySelector</code> vs. <code>querySelectorAll</code>.</p>
 <p><strong>Page using jQuery:</strong></p>
 <p><code>$(&#39;h1&#39;)</code>:</p>

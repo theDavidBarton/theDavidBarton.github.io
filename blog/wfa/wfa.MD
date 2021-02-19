@@ -7,11 +7,11 @@
     <figcaption>—Brent Hyder, President & Chief People Officer, <cite>Salesforce</cite></figcaption>
 </figure>
 
-The sole good side of COVID-19 of the acceptance of home office globally. The latest [announcement from Spotify](https://hrblog.spotify.com/2021/02/12/introducing-working-from-anywhere/) highlighted something that exists for years, but sounds brand new for most of us in the remote work topic. Spotify will "introduce more flexibility when it comes to **what country and city each employee work from** (with some limitations to address time zone difficulties [...])". This can lead to the end of discrimination based on the location of the employees. Can you imagine how it can extend the current boundaries of workplaces? Someone from Africa can work for a Northern European company (if the high-speed internet is/will be available). Another example: someone who lives in the [lagging regions](https://www.worldbank.org/en/region/eca/publication/rethinking-lagging-regions) of a country could work for a company based in the capital. Is it realistic? It is, and now it seems also feasible.
+The sole good side of COVID-19 of the acceptance of home office globally. The latest [announcement from Spotify](https://hrblog.spotify.com/2021/02/12/introducing-working-from-anywhere/) highlighted something that exists for years but sounds brand new for most of us in the remote work topic. Spotify will "introduce more flexibility when it comes to **what country and city each employee work from** (with some limitations to address time zone difficulties [...])". This can lead to the end of discrimination based on the location of the employees. Can you imagine how it can extend the current boundaries of workplaces? Someone from Africa can work for a Northern European company (if the high-speed internet is/will be available). Another example: someone who lives in the [lagging regions](https://www.worldbank.org/en/region/eca/publication/rethinking-lagging-regions) of a country could work for a company based in the capital. Is it realistic? It is, and now it seems also feasible.
 Work from home or from anywhere indefinitely. Shouldn't this option exist for a long in the era of high-bandwidth connection? Well not yet everywhere. In the developing countries, the broadband speed still can be [between 4 to 50 Mbps](https://worldpopulationreview.com/country-rankings/internet-speeds-by-country) (while in the US the average is 161.14 Mbps, source: Speedtest Global Index).
 
 ![world broadband speeds](/img/blog/wfa-01.png)
-_[World broadband speeds, 2014](https://www.vox.com/a/internet-maps) (reddit user DMan9797, based on Speedtest.net data)_
+_[World broadband speeds, 2014](https://www.vox.com/a/internet-maps) (Reddit user DMan9797, based on Speedtest.net data)_
 
 It is known Mark Zuckerberg founded [internet.org](http://internet.org) some years ago and planned to provide internet to developing countries. Just before the pandemic escalated, in May 2020 Facebook announced the [building of an undersea cable to boost internet access in Africa](https://www.cnbc.com/2020/05/14/facebook-building-undersea-cable-in-africa-to-boost-internet-access.html). Facebook and Zuckerberg have their reasons to extend internet users to new continents, but if it also could help the people live there to join in the WFA movements then it is something that worths it. Let's see, and hope to see.
 
@@ -39,7 +39,7 @@ Here is a list of the companies that have already announced _Work from Anywhere 
 
 [and many more...](https://remotive.io/remote-companies)
 
-Hopefully, the pandemic once gonna end and decision-makers will follow these companies to create equal chances for everybody who wants to work with the help of modern communication technology. Don't let us be disappointed.
+Hopefully, the pandemic once gonna end, and decision-makers will follow these companies to create equal chances for everybody who wants to work with the help of modern communication technology. Don't let us be disappointed.
 
 ## Other sources
 

@@ -1,10 +1,10 @@
 # How to automate date selection with puppeteer?
 
-When it comes to form e2e automation calendars and date pickers are the trickyest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.
+When it comes to e2e automation of forms: calendars and date pickers are the trickiest to be implemented. Or at least to make a general solution that can automate any calendar UI-s.
 
 # In theory
 
-You are able to collect the content of the calendar with `page.$eval` and `page.$$eval` methods:
+You can collect the content of the calendar with `page.$eval` and `page.$$eval` methods:
 
 ```javascript
 const calMonthYear = await page.$eval('.calendar-monthname', month => month.innerText)
@@ -48,7 +48,7 @@ sevenDaysLater.setHours(0, 0, 0, 0)
 // 1600207200000  (Wed Sep 16 2020 00:00:00 GMT+0200 (Central European Summer Time))
 ```
 
-And finally you should compose an iteration to select the desired 7 days later element, something like this:
+And finally, you should compose an iteration to select the desired 7 days later element, something like this:
 
 ```javascript
 [...]

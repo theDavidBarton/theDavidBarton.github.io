@@ -27,12 +27,12 @@ const text = 'hello, world!'
 Uncaught TypeError: "hello, world!" is not a function at <anonymous>:2:1
 ```
 
-It is due to the fact that ASI has some rules which we need to take care all the time when it comes to semicolon-less style, in the current case: **we cannot start a new line with an opened parenthesis if we have any javascript statements before.**
+It is due to the fact that ASI has some rules which we need to take care of all the time when it comes to semicolon-less style, in the current case: **we cannot start a new line with an opened parenthesis if we have any javascript statements before.**
 
 The [only cases](https://github.com/hax/semicolon-less.js/) when we indeed need the semicolons:
 
-- `;-` : line starts with unary - operator
-- `;+` : line starts with unary + opeartor
+- `;-` : line starts with the unary - operator
+- `;+` : line starts with unary + operator
 - `;/regex/` : line starts with regexp literal
 - `;[array]` : line starts with array initializer
 - `;(group)` : line starts with grouping operator
@@ -55,9 +55,9 @@ undefined
 
 (We will talk about the `undefined` value later.)
 
-It is something turns me totally against semicolon-less coding. `;(` The sad, winking smiley is not the nicest thing ever. Especially as it logically belongs to `const text = 'hello, world!';` and not to the IIFE.
+It is something that turns me totally against semicolon-less coding. `;(` The sad, winking smiley is not the nicest thing ever. Especially as it logically belongs to `const text = 'hello, world!';` and not to the IIFE.
 
-So I mostly used named functions and invoked them immediately after the declaration (pretty pre-ES6 style) until this day. Of course it means I needed to use **named functions** all the time as function statements require a function name.
+So I mostly used named functions and invoked them immediately after the declaration (pretty pre-ES6 style) until this day. Of course, it means I needed to use **named functions** all the time as function statements require a function name.
 With the same example:
 
 ```javascript
@@ -87,15 +87,15 @@ undefined
 
 The function is now a [function expression](https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function#Named_function_expression).
 
-A small sacrifice to keep semicolon-less stlye.
+A small sacrifice to keep semicolon-less style.
 
 ### `undefined`
 
-**For statements without return value we will see `undefined` on the console (e.g. running the script in DevTools), as in JavaScript every function returns something, at least an undefined value, even if it won't be used enywhere else: _anonymous IIFE-s_ are good examples for such functions.**
+**For statements without return value we will see `undefined` on the console (e.g. running the script in DevTools), as in JavaScript every function returns something, at least an undefined value, even if it won't be used anywhere else: _anonymous IIFE-s_ are good examples for such functions.**
 
 ## The `!` comes to the rescue
 
-I've seen lately a type of IIFE when it almost looks the same as the regular one, but starting with an exclamation mark. I gave a try. And it worked as it should:
+I've seen lately a type of IIFE when it almost looks the same as the regular one but starting with an exclamation mark. I gave it a try. And it worked as it should:
 
 ```javascript
 !(() => {
@@ -110,7 +110,7 @@ hello, world!
 true
 ```
 
-**But wait! What happens with our `undefined` fellow, why does it turns `true`? And why does this work as an IIFE?**
+**But wait! What happens with our `undefined` fellow, why does it turn `true`? And why does this work as an IIFE?**
 
 ### Function statements vs. function expressions
 
@@ -139,6 +139,6 @@ hello, world!
 true
 ```
 
-And this can be refactored to ES6 arrow as seen two snippets above. It has the limitation of that the returned value is negated, but it is very rare that I would want to return anything form an anonymous IIFE.
+And this can be refactored to ES6 arrow as seen two snippets above. It has the limitation that the returned value is negated, but it is very rare that I would want to return anything from an anonymous IIFE.
 
-I know by now it is removed from the airbnb style guide since a long while (I suppose since ES6), but they recommended its usage for modules for some years: https://github.com/airbnb/javascript/issues/44#issuecomment-13063933. From now on I plan to use it in some of my JS projects. The reason not to use this approach all the time: even if it is valid usage of JS, it can (and will) confuse others who look into code that contains such rarities. Anyway, it was a cool thing to learn.
+I know by now it is removed from the airbnb style guide for a long while (I suppose since ES6), but they recommended its usage for modules for some years: https://github.com/airbnb/javascript/issues/44#issuecomment-13063933. From now on I plan to use it in some of my JS projects. The reason not to use this approach all the time: even if it is valid usage of JS, it can (and will) confuse others who look into code that contains such rarities. Anyway, it was a cool thing to learn.

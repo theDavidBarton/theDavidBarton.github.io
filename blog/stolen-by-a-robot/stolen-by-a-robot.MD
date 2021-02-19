@@ -1,6 +1,6 @@
 # Stolen by a robot (Strange days indeed)
 
-Lately I've found a strange phenomenon, that one of my [Guitar Pro](https://www.guitar-pro.com/en/index.php) tabs (tabbed in August 2005) was exported as a standalone song by someone and was published on Spotify. [Strange days indeed](https://www.youtube.com/watch?v=cuuhsqA95iA), as John Lennon would say.
+Lately, I've found a strange phenomenon, that one of my [Guitar Pro](https://www.guitar-pro.com/en/index.php) tabs (tabbed in August 2005) was exported as a standalone song by someone and was published on Spotify. [Strange days indeed](https://www.youtube.com/watch?v=cuuhsqA95iA), as John Lennon would say.
 
 I just realized that we could have released our music already 15 years ago. :D
 
@@ -9,7 +9,7 @@ https://open.spotify.com/album/7tyRnySOUVbiDVvkRbLudG?si=Jg1pxeWsQtmQ_5ERGTOFbA
 
 ![](/img/blog/stolen-by-a-robot-01.png)
 
-One of the featured "songs" **_There's No Way Out Of Here_ by Monster Magnet** was tabbed by myself 15 years ago, it is the very same Guitar Pro tab :D https://tabs.ultimate-guitar.com/tab/monster-magnet/theres-no-way-out-of-here-guitar-pro-1142980 The uploader is another rascal, if you are able to download the file, you will find my name in the file info :D. Strange thing, that I was unable to find my own upload back from 2005, it makes me skeptical about the _"if you post something online then it's out there forever"_ rule. Which I actually don't mind, the censored parts are by purpose on the screenshot :) Come on, I was about 15-16 that time.
+One of the featured "songs" **_There's No Way Out Of Here_ by Monster Magnet** was tabbed by myself 15 years ago, it is the very same Guitar Pro tab :D https://tabs.ultimate-guitar.com/tab/monster-magnet/theres-no-way-out-of-here-guitar-pro-1142980 The uploader is another rascal, if you are able to download the file, you will find my name in the file info :D. Strange thing, that I was unable to find my upload back from 2005, it makes me skeptical about the _"if you post something online then it's out there forever"_ rule. Which I actually don't mind, the censored parts are by purpose on the screenshot :) Come on, I was about 15-16 that time.
 
 ![](/img/blog/stolen-by-a-robot-02.png)
 
@@ -21,9 +21,9 @@ However: such job could be automated:
 
 1. a web crawler (using e.g. [puppeteer](https://github.com/puppeteer/puppeteer)) would collect the tabs,
 2. then a UI automation tool would export the songs to wave format and
-3. finally the upload of the albums can be solved with browser automation again.
+3. finally, the upload of the albums can be solved with browser automation again.
 
-Of course its result wouldn't be quality music, but maybe not worse than the artist's current work.
+Of course, its result wouldn't be quality music, but maybe not worse than the artist's current work.
 
 At least I can say: I have at least one song on Spotify^^.
 

@@ -30,9 +30,11 @@
       <img alt="to the top chevron" src="/img/icons/chevron.svg" />
     </a>
     <header translate="no" class="notranslate">
-      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2"><span id="top-bar-text">
-        🔥 check out my latest post:
-        <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span>
+      <aside id="top-bar" class="top-bar bg-dark text-light text-center p-2">
+        <span id="top-bar-text">
+          🔥 check out my latest post:
+          <a id="top-bar-link" class="text-cool-secondary" href="/">Latest article loading here...</a> 🚀</span
+        >
       </aside>
       <!-- II.) intro bar -->
       <div class="bg-noiz py-2">
@@ -76,7 +78,7 @@
     <div class="row mx-lg-5 pb-5">
       <article class="col" id="article">
         <div class="pt-3">December 12, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">1 min read</span>, In: computer technology</div><div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/65266588/12412595">Stack Overflow</a></div><h1 id="how-to-check-ssl-cert-with-puppeteer">How to check SSL cert with puppeteer?</h1>
-<p>Frustrating it is when you miss to renew your SSL cert on any of your domains. And it is hell of a job to check the different expiry dates among sites manually. with the help of puppeteer you can do it automatically.</p>
+<p>Frustrating it is when you miss renewing your SSL cert on any of your domains. And it is a hell of a job to check the different expiry dates among sites manually. with the help of puppeteer you can do it automatically.</p>
 <p>You can use <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-securitydetails"><code>response.securityDetails()</code></a> directly on the <code>page.goto</code> if you need the following methods:</p>
 <ul>
 <li>securityDetails.issuer()</li>
@@ -91,7 +93,7 @@
 const securityDetails = response.securityDetails()
 const expiryDate = securityDetails.validTo() * 1000
 console.log(new Date(expiryDate))</code></pre>
-<p>This method can be used in a for..of loop on a huge array of urls.</p>
+<p>This method can be used in a for..of loop on a huge array of URLs.</p>
 <p>Output:</p>
 <pre><code class="language-javascript">Tuesday, January 26, 2021</code></pre>
 <p>The output is the <em>Valid to</em> value of the actual SSL cert.</p>
