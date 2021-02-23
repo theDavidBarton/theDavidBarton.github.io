@@ -27,10 +27,6 @@ Of course, its result wouldn't be quality music, but maybe not worse than the ar
 
 At least I can say: I have at least one song on Spotify^^.
 
-<div class="col-lg-5 col-auto embed-responsive embed-responsive-16by9 my-5">
-  <iframe src="https://www.youtube.com/embed/6TS8nii_HJ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+  <iframe  class="mx-auto d-block" width="593" height="315" src="https://www.youtube.com/embed/6TS8nii_HJ8" style="max-width: 100%; border-width: 1px; border-style: dotted;"" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<div class="col-lg-5 col-auto embed-responsive embed-responsive-16by9 my-5">
-  <iframe src="https://www.youtube.com/embed/jlPasnnXDJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+  <iframe class="mx-auto d-block" width="593" height="315" src="https://www.youtube.com/embed/jlPasnnXDJU" style="max-width: 100%; border-width: 1px; border-style: dotted;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

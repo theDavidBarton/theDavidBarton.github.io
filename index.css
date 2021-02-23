@@ -75,11 +75,24 @@ hr {
   border-top: 1px inset;
 }
 
+@media all and (max-width: 860px) {
+  footer {
+    padding-bottom: 3rem;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .logo-svg {
+    width: 230px;
+  }
+}
+
 blockquote {
   margin: 0;
 }
 
-blockquote p {
+blockquote p,
+.disclaimer {
   padding: 1rem;
   background-image: url('img/bg-noiz.gif');
   background-repeat: repeat;
@@ -91,6 +104,15 @@ blockquote p::before {
 
 blockquote p::after {
   content: '\201D';
+}
+
+.disclaimer {
+  margin-bottom: 2rem;
+}
+
+.disclaimer::before {
+  font-weight: bold;
+  content: 'Disclaimer: ';
 }
 
 .top-bar {
@@ -106,38 +128,18 @@ blockquote p::after {
   filter: drop-shadow(-3px 3px 0px black) drop-shadow(-2px -2px 0px black) drop-shadow(5px 0px 0px black);
 }
 
-.branded-name,
-.branded-pre {
-  background: -webkit-linear-gradient(#ffe000, #f39369);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Shrikhand', cursive;
-  font-size: 3rem;
-  transform: scale(1, 2);
-  white-space: nowrap;
-}
-
-.branded-pre {
-  font-size: 2.5rem;
-}
-
-@media all and (max-width: 992px) {
-  .branded-name {
-    font-size: 2rem;
-  }
-  .branded-pre {
-    font-size: 1.5rem;
-  }
+.grid-center {
+  display: grid;
+  text-align: center;
 }
 
 .bolder {
+  text-transform: inherit;
   font-size: 0.8rem;
   font-weight: bold;
   display: block;
-  color: #343a40;
-  margin-block-start: 0.66rem;
-  margin-block-end: 1.16rem;
+  margin-block-start: 0.16rem;
+  margin-block-end: 1.14rem;
 }
 
 nav > ul {
@@ -329,7 +331,18 @@ nav > ul > li {
 }
 
 /* intro section */
+
+@keyframes loadIn {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(365deg);
+  }
+}
+
 .bg-noiz {
+  animation: loadIn 1s ease-in;
   background-image: url('img/bg-noiz.gif');
   background-repeat: repeat;
 }
@@ -339,7 +352,7 @@ nav > ul > li {
 }
 
 .text-cool-secondary {
-  color: #f39369;
+  color: #f3699c;
 }
 
 a.text-cool-secondary:hover {
@@ -491,27 +504,31 @@ a.text-cool-secondary:hover {
   margin: auto;
 }
 
-.loading {
-  font-size: 1.6rem;
+.loading,
+.loading-text {
+  font-size: 2.3rem;
 }
 
 .loading:after {
-  content: ' ☞☞☞';
+  content: ' ○ ○ ○ ○ ';
   animation: dotDotDot 2s infinite;
 }
 
 @keyframes dotDotDot {
   0% {
-    content: ' ☞☞☞';
+    content: ' ○ ○ ○ ○ ';
   }
-  25% {
-    content: ' ☛☞☞';
+  20% {
+    content: ' ● ○ ○ ○ ';
   }
-  50% {
-    content: ' ☛☛☞';
+  40% {
+    content: ' ● ● ○ ○ ';
   }
-  75% {
-    content: ' ☛☛☛';
+  60% {
+    content: ' ● ● ● ○ ';
+  }
+  80% {
+    content: ' ● ● ● ● ';
   }
 }
 
@@ -528,6 +545,7 @@ span[class^='toggle-lead-'] {
 
 pre {
   background-color: #2d2d2d;
+  font-size: 0.81rem !important;
 }
 
 pre > code > span {
@@ -544,6 +562,16 @@ code {
   color: #e20101;
 }
 
+article {
+  padding: 0 15rem 0 15rem !important;
+}
+
+@media all and (max-width: 1200px) {
+  article {
+    padding: 0 15px 0 15px !important;
+  }
+}
+
 article * {
   overflow-wrap: break-word;
 }
@@ -552,8 +580,20 @@ article > h1 {
   font-weight: bold;
 }
 
+article > .pb-3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: darkgrey;
+}
+
 article > figure {
   padding: 2rem;
+}
+
+article > * > img {
+  border-width: 1px;
+  border: 1px;
+  border-style: dotted;
 }
 
 @media all and (max-width: 500px) {
@@ -562,7 +602,8 @@ article > figure {
   }
 }
 
-article > * > img + em {
+article > * > img + em,
+article > * > table + em {
   display: grid;
   padding: 0.5rem;
   text-align: center;
