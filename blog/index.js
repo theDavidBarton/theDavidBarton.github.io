@@ -14,26 +14,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(prismScript)
   }
 })
-
-// style images with bootstrap dynmically
-document.addEventListener('DOMContentLoaded', () => {
-  const img = document.querySelectorAll('article > :not(h2) > img')
-  const bootstrapClasses = ['img-fluid', 'mx-auto', 'd-block']
-  img.forEach(el => el.classList.add(...bootstrapClasses))
-})
-
-// handle "Read more" of the blog summaries
-const toggleLead = leadId => {
-  const lead = document.querySelector(`.lead-${leadId}`)
-  const toggle = document.querySelector(`.toggle-lead-${leadId}`)
-
-  if (window.getComputedStyle(lead).getPropertyValue('display') !== 'block') {
-    lead.style.display = 'block'
-    toggle.style.color = 'red'
-    toggle.innerText = 'summary\u00A0«'
-  } else {
-    lead.style.display = 'none'
-    toggle.style.color = 'blue'
-    toggle.innerText = 'summary\u00A0»'
-  }
-}
