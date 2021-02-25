@@ -1,10 +1,5 @@
 <main class="bg-light">
-  <section class="container">
-    <script src="/blog/index.js"></script>
-    <div class="row mx-lg-5 pb-5">
-      <article class="col" id="links-page">
-        <!-- content goes here -->
-      </article>
-    </div>
-  </section>
+  <article id="links-page">
+  <!-- content goes here -->
+  </article>
 </main>

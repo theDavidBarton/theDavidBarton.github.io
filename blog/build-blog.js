@@ -29,6 +29,8 @@ const top = homeMarkup.split('<main>')
 const blogMain = blogTemplate.split('<!-- content goes here -->')
 const linksMain = linksTemplate.split('<!-- content goes here -->')
 const rss = rssTemplate.split('<!-- content goes here -->')
+// dangerouslySetRegexes xD please make sure to remove this after full bootstrap removal
+const bootstrapStylesheet = /<link rel="stylesheet" href="https:\/\/stackpath.bootstrapcdn.com\/bootstrap\/4\.4\.1\/css\/bootstrap\.min\.css"(.*)\/>/
 const folders = getFolders()
 const articleMetas = []
 const leads = []
@@ -41,26 +43,23 @@ for (const folder of folders) {
   const descriptionMarkup = meta.lead ? `content="${meta.lead}"` : 'content="Github page of David Barton (theDavidBarton)"'
   const titleMarkup = `<title>${meta.title} - theDavidBarton.github.io</title>`
   /* prettier-ignore */
-  const metaMarkup = `<div class="pt-3">${meta.date}, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">${readTime(md)}</span>, In: ${meta.category}</div>`
+  const metaMarkup = `<div>${meta.date}, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">${readTime(md)}</span>, In: ${meta.category}</div>`
   const sourceMarkup = meta['originally-published']
-    ? `<div class="pb-3">Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></div>`
-    : '<div class="pb-3">by David Barton</div>'
+    ? `<div class="author-info">Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></div>`
+    : '<div class="author-info">by David Barton</div>'
   const sourceMarkupSimple = meta['originally-published']
     ? `<span>Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></span>`
     : '<span>by David Barton</span>'
-  const readmoreMarkup = `<span class="toggle-lead-${meta.id}" title="toggle summary" onclick="toggleLead(${meta.id})">summary\u00A0»</span> <span class="lead-${meta.id}"><span class="font-weight-bold font-italic">Summary:</span> ${meta.lead} <a href="/blog/${folder}">Read more...</a></span>`
   const leadMd = `- [${meta.title}](/blog/${folder}) ${meta.date}\n`
-  const nextPrevMarkup = `<aside class="row">${
+  const nextPrevMarkup = `<aside class="next-prev-grid">${
     articles[meta.id - 1]
-      ? `<a class="col-6 text-left mt-4" href="/blog/${articles[meta.id - 1].slug}">Previous post: <wbr>${
+      ? `<a class="prev-article" href="/blog/${articles[meta.id - 1].slug}">Previous post: <wbr>${
           articles[meta.id - 1].title
         }</a>`
       : ''
   }${
     articles[meta.id + 1]
-      ? `<a class="col-6 text-right mt-4 ml-auto" href="/blog/${articles[meta.id + 1].slug}">Next post: <wbr>${
-          articles[meta.id + 1].title
-        }</a>`
+      ? `<a class="next-article" href="/blog/${articles[meta.id + 1].slug}">Next post: <wbr>${articles[meta.id + 1].title}</a>`
       : ''
   }</aside>`
   /* prettier-ignore */
@@ -75,6 +74,7 @@ for (const folder of folders) {
     top[0]
       .replace(/<title(.*)<\/title>/, titleMarkup)
       .replace(/<link rel="canonical" href=(.*)\s\/>/, canonicalMarkup)
+      .replace(bootstrapStylesheet, '')
       .replace(/content="(.*)"/, descriptionMarkup) +
     blogMain[0] +
     metaMarkup +
@@ -93,9 +93,10 @@ const blogLeadsUnited = marked(leads.reverse().join(''))
 const finalBlogLeads =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>Blog - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '')
+    .replace(bootstrapStylesheet, '') +
   blogMain[0] +
-  '<h1 class="py-2">Blog</h1>' +
+  '<h1>Blog</h1>' +
   blogLeadsUnited +
   blogMain[1]
 fs.writeFileSync(__dirname + '/index.html', finalBlogLeads)
@@ -105,7 +106,8 @@ console.log('html file succesfully created for: united blog leads')
 const error404 =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>404 - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '')
+    .replace(bootstrapStylesheet, '') +
   error404Template +
   blogMain[1]
 fs.writeFileSync(__dirname + '/../404.html', error404)
@@ -116,9 +118,10 @@ const linksMarkdown = fs.readFileSync(__dirname + '/../links/links.MD', 'utf-8')
 const links =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>Links - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '')
+    .replace(bootstrapStylesheet, '') +
   linksMain[0] +
-  '<h1 class="py-2">Links</h1>' +
+  '<h1>Links</h1>' +
   marked(linksMarkdown) +
   linksMain[1] +
   blogMain[1]

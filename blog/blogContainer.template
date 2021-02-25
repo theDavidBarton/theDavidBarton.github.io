@@ -1,24 +1,19 @@
 <main class="bg-light">
-  <section class="container">
-    <script src="/blog/index.js"></script>
-    <div class="row mx-lg-5 pb-5">
-      <article class="col" id="article">
-        <!-- content goes here -->
-      </article>
-    </div>
-  </section>
+  <script src="/blog/index.js"></script>
+  <article id="article">
+    <!-- content goes here -->
+  </article>
 </main>
-<footer class="container">
-  <hr>
+<footer class="footer-blog">
   <p>
-    <em><a class="text-decoration-none text-dark" id="mailto" href="mailto:theDavidBarton@theDavidBartonMail.com">thedavidbarton@theDavidBartonMail.com</a>, <a href="/assets/thedavidbarton_pgp_public_key.asc" target="_blank" rel="nofollow">PGP public key</a></em> | copyright © 2019-<span id="thisYear">0000</span> theDavidBarton
-    <a href="/blog/rss.xml" target="_blank">
+    <em><a class="footer-email" id="mailto" href="mailto:theDavidBarton@theDavidBartonMail.com">thedavidbarton@theDavidBartonMail.com</a>, <a href="/assets/thedavidbarton_pgp_public_key.asc" target="_blank" rel="nofollow">PGP public key</a></em> | copyright © 2019-<span id="thisYear">0000</span> theDavidBarton
+  </p>
+  <a href="/blog/rss.xml" target="_blank">
       <picture>
         <source srcset="/img/icons/rss-web-button.webp" type="image/webp" />
         <source srcset="/img/icons/rss-web-button.png" type="image/png" />
-        <img class="float-right" alt="retro RSS web button" src="/img/icons/rss-web-button.png" /> 
+        <img alt="retro RSS web button" src="/img/icons/rss-web-button.png" /> 
       </picture>
     </a>
-  </p>
 </footer>
 <script data-goatcounter="https://thedavidbarton.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

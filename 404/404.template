@@ -1,11 +1,7 @@
 <main class="bg-light">
-  <section class="container">
-    <div class="row p-lg-5 text-center">
-      <article class="col" id="article">
-        <h1 class="display-1">404</h1>
-        <h2 class="display-3 pb-2">page not found :(</h2>
-        <p class="pb-5">go back to homepage: <a class="text-cool-secondary" href="/">theDavidBarton.github.io</a></p>
-      </article>
-    </div>
-  </section>
+  <article class="grid-center" id="article-404">
+    <h1>404</h1>
+    <h2>page not found :(</h2>
+    <p>go back to homepage: <a class="text-cool-secondary" href="/">theDavidBarton.github.io</a></p>
+  </article>
 </main>
