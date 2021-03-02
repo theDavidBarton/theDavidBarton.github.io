@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const thisYear = document.querySelector('#thisYear')
   const today = new Date().toLocaleDateString('en-US', { hour: '2-digit', minute: '2-digit' })
   funFact ? (funFact.textContent = today) : null
-  thisYear.textContent = today.match(/\d{4}/)[0]
+  thisYear ? (thisYear.textContent = today.match(/\d{4}/)[0]) : null
 })
 
 // mailto

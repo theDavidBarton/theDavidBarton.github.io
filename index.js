@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <img class="item-img" alt="${item.title}" src="${item.imgSrc}.jpg" />
       </picture>
     </a>
-    <h3 class="p-2">${item.title}</h3>
+    <h3>${item.title}</h3>
     <a title="check out source code on GitHub" target="_blank" rel="noopener noreferrer" href="${item.projectSourceUrl}">
       <img class="source-link" src="img/portfolio/github-light.svg" alt="source link to ${item.title}" />
     </a>
