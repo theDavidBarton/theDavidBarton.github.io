@@ -376,10 +376,6 @@ nav > ul > li {
   margin-bottom: 0.15rem;
 }
 
-.inline-block {
-  display: inline;
-}
-
 .avatar-img {
   display: none;
   position: absolute;
@@ -597,20 +593,6 @@ a.text-cool-secondary:hover {
   white-space: nowrap;
 }
 
-.fun-border {
-  background-image: url(/img/ff-star.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-decoration: none;
-  color: #343a40;
-  padding: 1.5rem;
-  margin: auto;
-  display: inline-block;
-  line-height: 1.5;
-  width: 8.4rem;
-  height: 8.4rem;
-}
-
 .fun-rotate {
   transform: rotate(-16deg);
   width: 8rem;
@@ -622,54 +604,10 @@ a.text-cool-secondary:hover {
   }
 }
 
-@media all and (min-width: 1200px) {
-  .d-xlg-block {
-    display: block !important;
-  }
-}
-
-@media all and (min-width: 992px) and (max-width: 1200px) {
-  .d-slg-none {
-    display: none !important;
-  }
-}
-
-.fun-border:hover {
-  color: #343a40;
-  border-color: #343a40;
-}
-
-.fun-text {
-  font-size: 0.73em;
-  margin-bottom: -1rem;
-}
-
-.fun-text,
-.number-big,
-.days-style {
-  background-color: #ffff7d;
-}
-
 .cv-border-style {
   margin: 25px 25px 25px 0px;
   padding-left: 28px;
   border-left: 3px double;
-}
-
-@media all and (min-width: 321px) and (max-width: 375px) {
-  .fun-text {
-    font-size: 0.7em;
-  }
-}
-
-@media all and (max-width: 320px) {
-  .fun-text {
-    font-size: 0.5em;
-  }
-}
-
-.days-style {
-  font-size: 0.3em;
 }
 
 .data-style {
@@ -694,48 +632,6 @@ a.text-cool-secondary:hover {
   }
 }
 
-@media all and (max-width: 991px) {
-  .fun-border {
-    border: 0px solid;
-    background: linear-gradient(#00070233, #3b393900);
-    height: 5.3rem;
-    padding: 0rem;
-  }
-}
-
-@media all and (max-width: 450px) {
-  .fun-border {
-    width: 7.4rem;
-  }
-}
-
-.number-big {
-  font-size: 2.3rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.43;
-  margin-block-start: -0.3rem;
-  margin-block-end: -0.73rem;
-}
-
-@media all and (max-width: 990px) {
-  .number-big {
-    margin-block-end: -0.72rem;
-    font-size: 2rem;
-  }
-}
-
-@media all and (max-width: 370px) {
-  .number-big {
-    font-size: 1.7rem;
-  }
-}
-
-.de-saturate {
-  filter: contrast(2) grayscale(1);
-}
-
 .text-wrap {
   white-space: normal;
 }
@@ -747,15 +643,6 @@ a.text-cool-secondary:hover {
 
 .contact-style > a {
   color: #000000;
-}
-
-/* misc. */
-.invert-icon {
-  filter: invert(100%);
-}
-
-.invert-img > div > img {
-  filter: invert(100%);
 }
 
 /* preloader animation */
