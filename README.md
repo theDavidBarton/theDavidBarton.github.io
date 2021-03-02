@@ -2,11 +2,11 @@
 
 # theDavidBarton.github.io
 
-My github page.
+My github page and blog.
 
 [Article about redirect page on Medium](https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a)
 
-# Start development server
+# Start development server: localhost:5000
 
 ```bash
 $ npx serve
@@ -24,14 +24,15 @@ $ npx serve
 
 Bon appétit !
 
-## Start dockerized version
+## Start dockerized version: localhost:4000
 
 ```bash
 $ docker build -t thedavidbarton/thedavidbarton-github-io .
 # port 5000 is exposed, the page will show a snapshot on localhost:4000
 $ docker run -p 4000:5000 -d thedavidbarton/thedavidbarton-github-io
 ```
-_Note:_ 5000 comes from the default port of `npx serve`, see above.
+
+_Note:_ 5000 comes from the default port of localhost `npx serve`, see above.
 
 # Static Pre-Rendering of the blog articles
 
@@ -40,10 +41,6 @@ $ yarn build
 $ node ./blog/build-blog.js
 ```
 
-# Credits
-
-**Design inspiration for this site** (especially the top bar and the rich emoji usage) from: [flaviocopes.com](https://flaviocopes.com/) 🙏.
-
 # Archive
 
 Previous versions of the page are available on Archive.org's [Wayback Machine](https://web.archive.org/web/2020*/thedavidbarton.github.io).
@@ -51,6 +48,11 @@ Previous versions of the page are available on Archive.org's [Wayback Machine](h
 - [2020-08-08](https://web.archive.org/web/20200808181832/thedavidbarton.github.io)
 - [2020-11-28[1]](https://web.archive.org/web/20201128103456/thedavidbarton.github.io)
 - [2020-11-28[2]](https://web.archive.org/web/20201128104110/thedavidbarton.github.io)
+- [2021-01-16](https://web.archive.org/web/20210116164850/https://thedavidbarton.github.io/)
+- [2021-01-26](https://web.archive.org/web/20210126212200/https://thedavidbarton.github.io/)
+- [2021-02-13](https://web.archive.org/web/20210213135217/https://thedavidbarton.github.io/)
+- [2021-02-17](https://web.archive.org/web/20210217111222/https://thedavidbarton.github.io/)
+- [2021-03-02](https://web.archive.org/web/20210302171757/https://thedavidbarton.github.io/)
 
 # Copyright
 

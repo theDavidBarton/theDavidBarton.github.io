@@ -29,8 +29,6 @@ const top = homeMarkup.split('<main>')
 const blogMain = blogTemplate.split('<!-- content goes here -->')
 const linksMain = linksTemplate.split('<!-- content goes here -->')
 const rss = rssTemplate.split('<!-- content goes here -->')
-// dangerouslySetRegexes xD please make sure to remove this after full bootstrap removal
-const bootstrapStylesheet = /<link rel="stylesheet" href="https:\/\/stackpath.bootstrapcdn.com\/bootstrap\/4\.4\.1\/css\/bootstrap\.min\.css"(.*)\/>/
 const folders = getFolders()
 const articleMetas = []
 const leads = []
@@ -74,7 +72,6 @@ for (const folder of folders) {
     top[0]
       .replace(/<title(.*)<\/title>/, titleMarkup)
       .replace(/<link rel="canonical" href=(.*)\s\/>/, canonicalMarkup)
-      .replace(bootstrapStylesheet, '')
       .replace(/content="(.*)"/, descriptionMarkup) +
     blogMain[0] +
     metaMarkup +
@@ -93,8 +90,7 @@ const blogLeadsUnited = marked(leads.reverse().join(''))
 const finalBlogLeads =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>Blog - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '')
-    .replace(bootstrapStylesheet, '') +
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
   blogMain[0] +
   '<h1>Blog</h1>' +
   blogLeadsUnited +
@@ -106,8 +102,7 @@ console.log('html file succesfully created for: united blog leads')
 const error404 =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>404 - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '')
-    .replace(bootstrapStylesheet, '') +
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
   error404Template +
   blogMain[1]
 fs.writeFileSync(__dirname + '/../404.html', error404)
@@ -118,8 +113,7 @@ const linksMarkdown = fs.readFileSync(__dirname + '/../links/links.MD', 'utf-8')
 const links =
   top[0]
     .replace(/<title(.*)<\/title>/, '<title>Links - theDavidBarton.github.io</title>')
-    .replace(/<link rel="canonical" href=(.*)\s\/>/, '')
-    .replace(bootstrapStylesheet, '') +
+    .replace(/<link rel="canonical" href=(.*)\s\/>/, '') +
   linksMain[0] +
   '<h1>Links</h1>' +
   marked(linksMarkdown) +
