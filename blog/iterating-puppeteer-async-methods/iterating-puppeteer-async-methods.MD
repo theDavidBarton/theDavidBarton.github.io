@@ -45,7 +45,10 @@ Duration: 891 ms
 
 By watching the browser in headful mode it looks like it works, but if we check when the `page.screenshot` happened: we can see the clicks were still in progress. It is due to the fact the `Array.map` cannot be awaited by default. It is only luck that the script had enough time to resolve all clicks on all elements until the browser was not closed.
 
-<img src="/img/blog/iterating-puppeteer-async-methods-01.gif" alt="running map" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-01.png" alt="result map" width="450"/>
+
+![running map](/img/blog/iterating-puppeteer-async-methods-01.gif)
+
+![result map](/img/blog/iterating-puppeteer-async-methods-01.png)
 
 ### 1320 buttons scenario result: ❌
 
@@ -84,7 +87,10 @@ Duration: 1058 ms
 
 By watching the browser in headful mode it looks like it works, but if we check when the `page.screenshot` happened: we can see the clicks were still in progress.
 
-<img src="/img/blog/iterating-puppeteer-async-methods-02.gif" alt="running foreach" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-02.png" alt="result foreach" width="450"/>
+
+![running foreach](/img/blog/iterating-puppeteer-async-methods-02.gif)
+
+![result foreach](/img/blog/iterating-puppeteer-async-methods-02.png)
 
 ### 1320 buttons scenario result: ❌
 
@@ -120,7 +126,10 @@ Duration: 711 ms
 
 By watching the browser in headful mode we see the effect is immediate, also the screenshot is taken only after every element has been clicked, every promise has been resolved.
 
-<img src="/img/blog/iterating-puppeteer-async-methods-03.gif" alt="running eval foreach" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-03.png" alt="result eval foreach" width="450"/>
+
+![running eval foreach](/img/blog/iterating-puppeteer-async-methods-03.gif)
+
+![result eval foreach](/img/blog/iterating-puppeteer-async-methods-03.png)
 
 ### 1320 buttons scenario result: ✔
 
@@ -159,7 +168,10 @@ Duration: 2957 ms
 
 By watching the browser in headful mode we can see the page clicks are happening in strict order, also the screenshot is taken only after every element has been clicked.
 
-<img src="/img/blog/iterating-puppeteer-async-methods-04.gif" alt="running forof" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-04.png" alt="result forof" width="450"/>
+
+![running forof](/img/blog/iterating-puppeteer-async-methods-04.gif)
+
+![result forof](/img/blog/iterating-puppeteer-async-methods-04.png)
 
 ### 1320 buttons scenario result: ✔
 
