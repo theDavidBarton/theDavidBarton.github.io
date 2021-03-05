@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mail = document.querySelector('#mailto')
   window.setTimeout(() => {
     if (/\/blog|\/links/.test(window.location.pathname)) {
-      mail.innerText = mail.innerText.replace(/theDavidBartonMail/, 'AOL')
+      mail.innerText = mail.innerText.replace(/E0N/, 'AOL')
     }
-    mail.href = mail.href.replace(/theDavidBartonMail/, 'AOL')
+    mail.href = mail.href.replace(/E0N/, 'AOL')
   }, 3000)
 })

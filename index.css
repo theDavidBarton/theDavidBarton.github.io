@@ -459,6 +459,10 @@ nav > ul > li {
   box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
 }
 
+.item > a {
+  text-decoration: none !important;
+}
+
 .item.prev {
   cursor: pointer;
   z-index: 2;

@@ -95,7 +95,8 @@ await browser.close()</code></pre>
 <h3 id="132-buttons-scenario-result-❌">132 buttons scenario result: ❌</h3>
 <p>Duration: 891 ms</p>
 <p>By watching the browser in headful mode it looks like it works, but if we check when the <code>page.screenshot</code> happened: we can see the clicks were still in progress. It is due to the fact the <code>Array.map</code> cannot be awaited by default. It is only luck that the script had enough time to resolve all clicks on all elements until the browser was not closed.</p>
-<p><img src="/img/blog/iterating-puppeteer-async-methods-01.gif" alt="running map" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-01.png" alt="result map" width="450"/></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-01.gif" alt="running map"></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-01.png" alt="result map"></p>
 <h3 id="1320-buttons-scenario-result-❌">1320 buttons scenario result: ❌</h3>
 <p>Duration: 6868 ms</p>
 <p>If we increase the number of elements of the same selector we will run into the following error:
@@ -120,7 +121,8 @@ await browser.close()</code></pre>
 <h3 id="132-buttons-scenario-result-❌-1">132 buttons scenario result: ❌</h3>
 <p>Duration: 1058 ms</p>
 <p>By watching the browser in headful mode it looks like it works, but if we check when the <code>page.screenshot</code> happened: we can see the clicks were still in progress.</p>
-<p><img src="/img/blog/iterating-puppeteer-async-methods-02.gif" alt="running foreach" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-02.png" alt="result foreach" width="450"/></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-02.gif" alt="running foreach"></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-02.png" alt="result foreach"></p>
 <h3 id="1320-buttons-scenario-result-❌-1">1320 buttons scenario result: ❌</h3>
 <p>Duration: 5111 ms</p>
 <p>If we increase the number of elements with the same selector we will run into the following error:
@@ -142,7 +144,8 @@ await browser.close()</code></pre>
 <h3 id="132-buttons-scenario-result-✔">132 buttons scenario result: ✔</h3>
 <p>Duration: 711 ms</p>
 <p>By watching the browser in headful mode we see the effect is immediate, also the screenshot is taken only after every element has been clicked, every promise has been resolved.</p>
-<p><img src="/img/blog/iterating-puppeteer-async-methods-03.gif" alt="running eval foreach" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-03.png" alt="result eval foreach" width="450"/></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-03.gif" alt="running eval foreach"></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-03.png" alt="result eval foreach"></p>
 <h3 id="1320-buttons-scenario-result-✔">1320 buttons scenario result: ✔</h3>
 <p>Duration: 3445 ms</p>
 <p>Works just like in the case of 132 buttons, extremely fast.</p>
@@ -167,7 +170,8 @@ await browser.close()</code></pre>
 <h3 id="132-buttons-scenario-result-✔-1">132 buttons scenario result: ✔</h3>
 <p>Duration: 2957 ms</p>
 <p>By watching the browser in headful mode we can see the page clicks are happening in strict order, also the screenshot is taken only after every element has been clicked.</p>
-<p><img src="/img/blog/iterating-puppeteer-async-methods-04.gif" alt="running forof" width="450"/><img src="/img/blog/iterating-puppeteer-async-methods-04.png" alt="result forof" width="450"/></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-04.gif" alt="running forof"></p>
+<p><img src="/img/blog/iterating-puppeteer-async-methods-04.png" alt="result forof"></p>
 <h3 id="1320-buttons-scenario-result-✔-1">1320 buttons scenario result: ✔</h3>
 <p>Duration: 25 396 ms</p>
 <p>Works just like in case of 132 buttons (but it takes more time).</p>
@@ -192,7 +196,7 @@ await browser.close()</code></pre>
 </main>
 <footer class="footer-blog">
   <p>
-    <em><a class="footer-email" id="mailto" href="mailto:theDavidBarton@theDavidBartonMail.com">thedavidbarton@theDavidBartonMail.com</a>, <a href="/assets/thedavidbarton_pgp_public_key.asc" target="_blank" rel="nofollow">PGP public key</a></em> | copyright © 2019-<span id="thisYear">0000</span> theDavidBarton
+    <em><a class="footer-email" id="mailto" href="mailto:theDavidBarton@E0N.com">thedavidbarton@E0N.com</a>, <a href="/assets/thedavidbarton_pgp_public_key.asc" target="_blank" rel="nofollow">PGP public key</a></em> | copyright © 2019-2021 theDavidBarton
   </p>
   <a href="/blog/rss.xml" target="_blank">
       <picture>
