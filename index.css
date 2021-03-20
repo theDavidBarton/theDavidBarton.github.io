@@ -467,6 +467,7 @@ nav > ul > li {
 .external-link,
 .source-link {
   position: absolute;
+  top: 0rem;
 }
 
 .external-link {
