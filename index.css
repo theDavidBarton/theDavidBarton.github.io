@@ -36,12 +36,16 @@ p {
 a {
   color: blue;
   cursor: pointer;
-  text-decoration: underline;
+}
+
+#fun-facts > a {
+  text-decoration: none;
 }
 
 a:hover {
   color: #609;
 }
+
 .header-p {
   padding: 0.5rem !important;
 }
