@@ -492,6 +492,7 @@ nav > ul > li {
 .badge-position {
   position: absolute;
   top: 12rem;
+  left: 0.37rem;
 }
 
 @media (min-width: 740px) {
