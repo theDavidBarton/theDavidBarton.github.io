@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Blog - theDavidBarton.github.io</title>
+  <title>Testing against multiple browser versions in 2021 - theDavidBarton.github.io</title>
   <link rel="stylesheet" href="/index.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="preconnect" href="https://api.github.com/" />
@@ -10,7 +10,7 @@
   
   <meta charset="utf-8" />
   <meta name="description"
-    content="The page of David Barton (theDavidBarton, the_D9n) QA engineer, release manager & full stack JavaScript developer." />
+    content="Should we still test against multiple browser versions in 2021?" />
   <meta name="google" content="notranslate" />
   <meta name="robots" content="noimageindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,24 +65,41 @@
   <main class="bg-light">
   <script src="/blog/index.js"></script>
   <article id="article">
-    <h1>Blog</h1><ul>
-<li><a href="/blog/e2e-different-browser-versions">Testing against multiple browser versions in 2021</a> April 10, 2021</li>
-<li><a href="/blog/gates-musk-covid-19">Bill Gates &amp; Elon Musk on COVID-19</a> February 21, 2021</li>
-<li><a href="/blog/wfa">Work from Anywhere</a> February 14, 2021</li>
-<li><a href="/blog/obfuscate-email-smart">Obfuscate e-mail smart</a> January 20, 2021</li>
-<li><a href="/blog/chromium-instances-remain-active-in-the-background-after-browser-disconnect">Puppeteer: Chromium instances remain active in the background after browser.disconnect</a> January 12, 2021</li>
-<li><a href="/blog/cert-expiry-puppeteer">How to check SSL cert with puppeteer?</a> December 12, 2020</li>
-<li><a href="/blog/automate-a-calendar">How to automate date selection with puppeteer?</a> October 20, 2020</li>
-<li><a href="/blog/conferences-online-2020-fall">[FREE] Online Conferences for 2020 fall</a> October 19, 2020</li>
-<li><a href="/blog/anonymous-IIFE-fn">Anonymous IIFE-s and semicolons</a> October 11, 2020</li>
-<li><a href="/blog/os-dependent-emoji-display">OS dependent emoji display</a> October 10, 2020</li>
-<li><a href="/blog/stolen-by-a-robot">Stolen by a robot (Strange days indeed)</a> October 5, 2020</li>
-<li><a href="/blog/devtools-dollar-shorthand-jquery">Chrome DevTools: $(selector) shorthand doesn&#39;t return the element while $$(selector)[0] does</a> September 29, 2020</li>
-<li><a href="/blog/iterating-puppeteer-async-methods">Iterating puppeteer async methods in for loop vs. Array.map()/Array.forEach()</a> June 27, 2020</li>
-<li><a href="/blog/simple-preloader">Simple preloader CSS animation</a> February 5, 2020</li>
-<li><a href="/blog/idling-heroku">Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps</a> February 2, 2020</li>
+    <div>April 10, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="author-info">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/67035254/12412595">Stack Overflow</a></div><h1 id="testing-against-multiple-browser-versions-in-2021">Testing against multiple browser versions in 2021</h1>
+<p>A <a href="https://stackoverflow.com/questions/67033300/whats-the-benefit-of-e2e-testing-only-against-latest-browser-versions/">great question</a> came up today on Stack Overflow from user <a href="https://stackoverflow.com/users/165750/zanona">zanona</a>. It is indeed a very elementary question and gets more relevant each year. </p>
+<blockquote>
+<p>What&#39;s the benefit of E2E testing only against latest browser versions? [...]</p>
+<p>Any insights about why considering only recent browser versions and forgetting about the rest is a good idea, by using Playwright instead of a tool which would allow targeting tests against a specific browser binary[?]</p>
+</blockquote>
+<p>I was consistent about using the latest Chromium-based browsers in my end-to-end tests in the past years, still it is a very valid assumption to run our tests on as many browser versions as possible for wider support of our product.</p>
+<p>Do you remember Browsershots.org with its long list of specific navigators?</p>
+<p><img src="/img/blog/e2e-different-browser-versions-02.png" alt="Browsershots.org"></p>
+<p>Those days are gone as the way how browsers are updated changed over time.</p>
+<p>Well of course, as always browser version usage really depends on our needs. Let&#39;s see.</p>
+<h2 id="puppeteer-playwright-with-specific-executable">Puppeteer, Playwright with specific executable</h2>
+<p>First, let&#39;s clarify that it is possible to launch Puppeteer and Playwright with other executables than the bundled one in the case of Chrome/Chromium.</p>
+<p><strong>Puppeteer:</strong> <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-puppeteerlaunchoptions"><code>puppeteer.launch([options])</code></a></p>
+<pre><code class="language-js">const browser = await puppeteer.launch({ executablePath: &#39;/path/to/Chrome70&#39; });</code></pre>
+<p><strong>Playwright:</strong> <a href="https://playwright.dev/docs/api/class-browsertype?_highlight=launch#browsertypelaunchoptions"><code>browserType.launch([options])</code></a></p>
+<pre><code class="language-js">const browser = await chromium.launch({ executablePath: &#39;/path/to/Chrome70&#39; });</code></pre>
+<p>Second, even if &#39;testing&#39; is there in the list of features in the case of <a href="https://github.com/puppeteer/puppeteer#what-can-i-do">Puppeteer</a> and <a href="https://github.com/microsoft/playwright#documentation--api-reference">Playwright</a>, they are not testing frameworks like <a href="https://docs.cypress.io/guides/overview/why-cypress#In-a-nutshell">Cypress which is a testing tool</a> primarily. </p>
+<hr>
+<h2 id="whats-the-benefit-of-e2e-testing-only-against-the-latest-browser-versions">What&#39;s the benefit of E2E testing only against the latest browser versions?</h2>
+<p>Some years ago it was crucial to test across all browsers and as many versions as used by a mass of users.<br>Over time it has changed.</p>
+<h3 id="whats-new-in-2021">What&#39;s new in 2021?</h3>
+<ul>
+<li>Only <strong>Google Chrome</strong> and <strong>Safari</strong> (Webkit) browsers have 10%+ market share. <a href="https://gs.statcounter.com/browser-market-share">Statcounter.com</a>, <a href="https://en.wikipedia.org/wiki/Usage_share_of_web_browsers">Wikpedia</a></li>
+<li>For the vast majority not even Firefox support is required (with its <a href="https://gs.statcounter.com/">3.68% market share</a> worldwide)</li>
+<li>&quot;Google Chrome on Windows and Mac <strong>auto-updates itself</strong> on a regular basis. The auto-updating procedure is performed by Google Update, which is based on the open-source Omaha project. Auto-updated provides fixes to sometimes critical issues, limiting exposure.&quot; <a href="https://www.chromium.org/administrators/turning-off-auto-updates">chromium.org</a></li>
+<li>Due to the auto-updates the number of users with not the latest Chrome is very marginal. The previous versions (e.g. the last-but-one) go out of circulation in 1-2 months and remains under 1% share for a short time before vanishing. <a href="https://gs.statcounter.com/browser-version-market-share/desktop/worldwide/">Desktop Browser Version Market Share Worldwide, Statcounter.com</a></li>
 </ul>
-
+<p><img src="/img/blog/e2e-different-browser-versions-01.png" alt="Desktop Browser Version Market Share Worldwide"></p>
+<h3 id="conclusions">Conclusion(s)</h3>
+<p>I.) <strong>It means for most products it is fairly enough and the best option to test against the latest browser versions.</strong></p>
+<p>For example Chrome 70 is a relatively old version, <a href="https://developer.chrome.com/blog/new-in-chrome-70/">released in October 2018</a>, for most products it is not required to support it, they are in the same bucket as <a href="https://www.theverge.com/2020/8/17/21372487/microsoft-internet-explorer-11-support-end-365-legacy-edge">Internet Explorer 11 or legacy Edge</a>.</p>
+<p>II.) For some products, you may have to support specific (older) browser versions, in that case, the usage of specific executables can help.</p>
+<p>By the way, if you&#39;d decide to run tests against multiple browser versions it will be still possible with Puppeteer or Playwright as well, you just need to provide the right executables while the test suites are iterated over (e.g. in case of Jest: <a href="https://stackoverflow.com/questions/57504927/how-to-add-types-for-jest-test-with-describe-each"><code>describe.each()</code></a> can run the same tests or test suites with different configs and test data).</p>
+<aside class="next-prev-grid"><a class="prev-article" href="/blog/gates-musk-covid-19">Previous post: <wbr>Bill Gates & Elon Musk on COVID-19</a></aside>
   </article>
 </main>
 <footer class="footer-blog">
