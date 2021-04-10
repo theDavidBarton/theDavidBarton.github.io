@@ -129,13 +129,14 @@ fs.writeFileSync(__dirname + '/articleMetas.json', JSON.stringify(articleMetas))
 console.log('json file succesfully created for: latest article, articleMetas')
 
 // RSS
+const escapeInvalidChars = string => string.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(/-/, '&apos;').replace(/"/, '&quot;')
 const rssItems = articleMetas
   .map(
     el =>
-      `<item><title>${el.title}</title><link>https://theDavidBarton.github.io/${el.slug}</link><pubDate>${new Date(
+      `<item><title>${escapeInvalidChars(el.title)}</title><link>https://theDavidBarton.github.io/${el.slug}</link><pubDate>${new Date(
         el.date
       ).toUTCString()}</pubDate><guid>https://theDavidBarton.github.io/${el.slug}</guid><description>${
-        el.lead
+        escapeInvalidChars(el.lead)
       }</description></item>`
   )
   .reverse()
