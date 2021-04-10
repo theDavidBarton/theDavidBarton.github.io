@@ -691,6 +691,11 @@ pre > code > span {
 code {
   font-family: 'Courier New', Courier, monospace !important;
   color: #e20101;
+  font-size: smaller;
+}
+
+article > * > a > code {
+  color: inherit;
 }
 
 article {
