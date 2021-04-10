@@ -129,7 +129,7 @@ fs.writeFileSync(__dirname + '/articleMetas.json', JSON.stringify(articleMetas))
 console.log('json file succesfully created for: latest article, articleMetas')
 
 // RSS
-const escapeInvalidChars = string => string.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(/'-'/, '&apos;').replace(/"/, '&quot;')
+const escapeInvalidChars = string => string.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(/'/, '&apos;').replace(/"/, '&quot;')
 const rssItems = articleMetas
   .map(
     el =>
