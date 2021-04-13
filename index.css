@@ -690,8 +690,14 @@ pre > code > span {
 
 code {
   font-family: 'Courier New', Courier, monospace !important;
-  color: #e20101;
+  color: #e00000;
+  background-color: #f1f3f4;
   font-size: smaller;
+}
+
+p > code,
+a > code {
+  padding: 0.15rem;
 }
 
 article > * > a > code {
