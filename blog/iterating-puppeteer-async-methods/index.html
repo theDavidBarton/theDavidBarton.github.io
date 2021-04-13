@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Iterating puppeteer async methods in for loop vs. Array.map()/Array.forEach() - theDavidBarton.github.io</title>
+  <title>Iterating puppeteer async methods in for loop vs. Array.map/Array.forEach - theDavidBarton.github.io</title>
   <link rel="stylesheet" href="/index.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="preconnect" href="https://api.github.com/" />
@@ -65,7 +65,7 @@
   <main class="bg-light">
   <script src="/blog/index.js"></script>
   <article id="article">
-    <div>June 27, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">6 min read</span>, In: computer technology</div><div class="author-info">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/62612102/12412595">Stack Overflow</a></div><h1 id="iterating-puppeteer-async-methods-in-for-loop-vs-arraymaparrayforeach">Iterating puppeteer async methods in <code>for</code> loop vs. <code>Array.map()/Array.forEach()</code></h1>
+    <div>June 27, 2020, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">6 min read</span>, In: computer technology</div><div class="author-info">Originally published on: <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/62612102/12412595">Stack Overflow</a></div><h1 id="iterating-puppeteer-async-methods-in-for-loop-vs-arraymaparrayforeach">Iterating puppeteer async methods in <code>for</code> loop vs. <code>Array.map/Array.forEach</code></h1>
 <p>As all puppeteer methods are asynchronous it doesn&#39;t matter how we iterate over them. I&#39;ve made a comparison and a rating of the most commonly recommended and used options.</p>
 <p>For this purpose, I have created a React.Js example page with a lot of React buttons <a href="https://thedavidbarton.github.io/react-examples/#/lot-of-react-buttons">here</a> (I just call it <em>Lot Of React Buttons</em>). Here <strong>(1)</strong> we are able to set how many buttons to be rendered on the page; <strong>(2)</strong> we can activate the black buttons to turn green by clicking on them. I consider it an identical use case as the OP&#39;s, and it is also a general case of browser automation (we expect something to happen if we do something on the page).
 Let&#39;s say our use case is:</p>

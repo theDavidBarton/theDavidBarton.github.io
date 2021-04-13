@@ -1,4 +1,4 @@
-# Iterating puppeteer async methods in `for` loop vs. `Array.map()/Array.forEach()`
+# Iterating puppeteer async methods in `for` loop vs. `Array.map/Array.forEach`
 
 As all puppeteer methods are asynchronous it doesn't matter how we iterate over them. I've made a comparison and a rating of the most commonly recommended and used options.
 
@@ -45,7 +45,6 @@ Duration: 891 ms
 
 By watching the browser in headful mode it looks like it works, but if we check when the `page.screenshot` happened: we can see the clicks were still in progress. It is due to the fact the `Array.map` cannot be awaited by default. It is only luck that the script had enough time to resolve all clicks on all elements until the browser was not closed.
 
-
 ![running map](/img/blog/iterating-puppeteer-async-methods-01.gif)
 
 ![result map](/img/blog/iterating-puppeteer-async-methods-01.png)
@@ -87,7 +86,6 @@ Duration: 1058 ms
 
 By watching the browser in headful mode it looks like it works, but if we check when the `page.screenshot` happened: we can see the clicks were still in progress.
 
-
 ![running foreach](/img/blog/iterating-puppeteer-async-methods-02.gif)
 
 ![result foreach](/img/blog/iterating-puppeteer-async-methods-02.png)
@@ -125,7 +123,6 @@ await browser.close()
 Duration: 711 ms
 
 By watching the browser in headful mode we see the effect is immediate, also the screenshot is taken only after every element has been clicked, every promise has been resolved.
-
 
 ![running eval foreach](/img/blog/iterating-puppeteer-async-methods-03.gif)
 
@@ -167,7 +164,6 @@ await browser.close()
 Duration: 2957 ms
 
 By watching the browser in headful mode we can see the page clicks are happening in strict order, also the screenshot is taken only after every element has been clicked.
-
 
 ![running forof](/img/blog/iterating-puppeteer-async-methods-04.gif)
 
