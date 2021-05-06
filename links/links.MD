@@ -7,4 +7,6 @@
 
 ## Pages I made
 
+- [react-examples](https://thedavidbarton.github.io/react-examples/)
+- [freedom-of-the-press](https://thedavidbarton.github.io/freedom-of-the-press/)
 - [gooddieyoung.extra.hu](https://thedavidbarton.github.io/gooddieyoung.extra.hu)
