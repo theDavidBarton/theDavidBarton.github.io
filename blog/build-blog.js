@@ -133,9 +133,9 @@ const escapeInvalidChars = string => string.replace('&', '&amp;').replace('<', '
 const rssItems = articleMetas
   .map(
     el =>
-      `<item><title>${escapeInvalidChars(el.title)}</title><link>https://theDavidBarton.github.io/${el.slug}</link><pubDate>${new Date(
+      `<item><title>${escapeInvalidChars(el.title)}</title><link>https://theDavidBarton.github.io/blog/${el.slug}</link><pubDate>${new Date(
         el.date
-      ).toUTCString()}</pubDate><guid>https://theDavidBarton.github.io/${el.slug}</guid><description>${
+      ).toUTCString()}</pubDate><guid>https://theDavidBarton.github.io/blog/${el.slug}</guid><description>${
         escapeInvalidChars(el.lead)
       }</description></item>`
   )
