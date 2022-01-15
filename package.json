@@ -3,7 +3,7 @@
   "main": "./blog/build-blog.js",
   "license": "MIT",
   "devDependencies": {
-    "marked": "^2.0.0"
+    "marked": "^4.0.10"
   },
   "scripts": {
     "build": "node ./blog/build-blog.js"
