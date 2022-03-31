@@ -9,6 +9,6 @@
     "build": "node ./blog/build-blog.js"
   },
   "engines": {
-    "node": "12.x"
+    "node": "16.x"
   }
 }
