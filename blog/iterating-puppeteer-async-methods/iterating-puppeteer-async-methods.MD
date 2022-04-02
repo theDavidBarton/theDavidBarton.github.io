@@ -18,7 +18,7 @@ There is a conservative and a rather extreme scenario. To click **`no. = 132`** 
 
 ## I. Array.map
 
-In general, if we only want to perform async methods like [`elementHandle.click`](https://pptr.dev/#?product=Puppeteer&version=v4.0.1&show=api-elementhandleclickoptions) in iteration, but we don't want to return a new array: it is a bad practice to use `Array.map`. Map() execution is going to finish before all the iteratees are executed completely because Array iteration methods execute the iteratees synchronously, but these iteratees are asynchronous.
+In general, if we only want to perform async methods like [`elementHandle.click`](https://pptr.dev/#?product=Puppeteer&show=api-elementhandleclickoptions) in iteration, but we don't want to return a new array: it is a bad practice to use `Array.map`. Map() execution is going to finish before all the iteratees are executed completely because Array iteration methods execute the iteratees synchronously, but these iteratees are asynchronous.
 
 ### Code example
 
@@ -101,7 +101,7 @@ If we increase the number of elements with the same selector we will run into th
 
 ## III. page.\$\$eval + forEach
 
-The best performing solution is a slightly modified version of _bside_'s [answer](https://stackoverflow.com/a/54712599/12412595). The **page.\$\$eval** ([`page.$$eval(selector, pageFunction[, ...args])`](https://pptr.dev/#?product=Puppeteer&version=v4.0.1&show=api-pageevalselector-pagefunction-args)) runs `Array.from(document.querySelectorAll(selector))` within the page and passes it as the first argument to `pageFunction`. It functions as a wrapper over forEach hence it can be awaited perfectly.
+The best performing solution is a slightly modified version of _bside_'s [answer](https://stackoverflow.com/a/54712599/12412595). The **page.\$\$eval** ([`page.$$eval(selector, pageFunction[, ...args])`](https://pptr.dev/#?product=Puppeteer&show=api-pageevalselector-pagefunction-args)) runs `Array.from(document.querySelectorAll(selector))` within the page and passes it as the first argument to `pageFunction`. It functions as a wrapper over forEach hence it can be awaited perfectly.
 
 ### Code example
 

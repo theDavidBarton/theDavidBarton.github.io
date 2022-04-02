@@ -76,7 +76,7 @@ Let&#39;s say our use case is:</p>
 <p>There is a conservative and a rather extreme scenario. To click <strong><code>no. = 132</code></strong> buttons is not a huge CPU task, <strong><code>no. = 1320</code></strong> can take a bit of time.</p>
 <hr>
 <h2 id="i-arraymap">I. Array.map</h2>
-<p>In general, if we only want to perform async methods like <a href="https://pptr.dev/#?product=Puppeteer&amp;version=v4.0.1&amp;show=api-elementhandleclickoptions"><code>elementHandle.click</code></a> in iteration, but we don&#39;t want to return a new array: it is a bad practice to use <code>Array.map</code>. Map() execution is going to finish before all the iteratees are executed completely because Array iteration methods execute the iteratees synchronously, but these iteratees are asynchronous.</p>
+<p>In general, if we only want to perform async methods like <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-elementhandleclickoptions"><code>elementHandle.click</code></a> in iteration, but we don&#39;t want to return a new array: it is a bad practice to use <code>Array.map</code>. Map() execution is going to finish before all the iteratees are executed completely because Array iteration methods execute the iteratees synchronously, but these iteratees are asynchronous.</p>
 <h3 id="code-example">Code example</h3>
 <pre><code class="language-javascript">const elHandleArray = await page.$$(&#39;button&#39;)
 
@@ -129,7 +129,7 @@ await browser.close()</code></pre>
 <code>UnhandledPromiseRejectionWarning: Error: Node is either not visible or not an HTMLElement</code> because we already reached <code>await page.screenshot()</code> and <code>await browser.close()</code>: the async clicks are still in progress while the browser is already closed.</p>
 <hr>
 <h2 id="iii-pageeval--foreach">III. page.$$eval + forEach</h2>
-<p>The best performing solution is a slightly modified version of <em>bside</em>&#39;s <a href="https://stackoverflow.com/a/54712599/12412595">answer</a>. The <strong>page.$$eval</strong> (<a href="https://pptr.dev/#?product=Puppeteer&amp;version=v4.0.1&amp;show=api-pageevalselector-pagefunction-args"><code>page.$$eval(selector, pageFunction[, ...args])</code></a>) runs <code>Array.from(document.querySelectorAll(selector))</code> within the page and passes it as the first argument to <code>pageFunction</code>. It functions as a wrapper over forEach hence it can be awaited perfectly.</p>
+<p>The best performing solution is a slightly modified version of <em>bside</em>&#39;s <a href="https://stackoverflow.com/a/54712599/12412595">answer</a>. The <strong>page.$$eval</strong> (<a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-pageevalselector-pagefunction-args"><code>page.$$eval(selector, pageFunction[, ...args])</code></a>) runs <code>Array.from(document.querySelectorAll(selector))</code> within the page and passes it as the first argument to <code>pageFunction</code>. It functions as a wrapper over forEach hence it can be awaited perfectly.</p>
 <h3 id="code-example-2">Code example</h3>
 <pre><code class="language-javascript">await page.$$eval(&#39;button&#39;, elHandles =&gt; elHandles.forEach(el =&gt; el.click()))
 
@@ -196,7 +196,7 @@ await browser.close()</code></pre>
 </main>
 <footer class="footer-blog">
   <p>
-    <em><a class="footer-email" id="mailto" href="mailto:theDavidBarton@E0N.com">thedavidbarton@E0N.com</a>, <a href="/assets/thedavidbarton_pgp_public_key.asc" target="_blank" rel="nofollow">PGP public key</a></em> | copyright © 2019-2021 theDavidBarton
+    <em><a class="footer-email" id="mailto" href="mailto:theDavidBarton@E0N.com">thedavidbarton@E0N.com</a>, <a href="/assets/thedavidbarton_pgp_public_key.asc" target="_blank" rel="nofollow">PGP public key</a></em> | copyright © 2019-2022 theDavidBarton
   </p>
   <a href="/blog/rss.xml" target="_blank">
       <picture>
