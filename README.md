@@ -45,7 +45,6 @@ $ node ./blog/build-blog.js
 
 Previous versions of the page are available on Archive.org's [Wayback Machine](https://web.archive.org/web/2020*/thedavidbarton.github.io).
 
-- [2022-03-27](https://web.archive.org/web/20220327062823/https://thedavidbarton.github.io/)
 - [2020-08-08](https://web.archive.org/web/20200808181832/thedavidbarton.github.io)
 - [2020-11-28[1]](https://web.archive.org/web/20201128103456/thedavidbarton.github.io)
 - [2020-11-28[2]](https://web.archive.org/web/20201128104110/thedavidbarton.github.io)
@@ -54,6 +53,7 @@ Previous versions of the page are available on Archive.org's [Wayback Machine](h
 - [2021-02-13](https://web.archive.org/web/20210213135217/https://thedavidbarton.github.io/)
 - [2021-02-17](https://web.archive.org/web/20210217111222/https://thedavidbarton.github.io/)
 - [2021-03-02](https://web.archive.org/web/20210302171757/https://thedavidbarton.github.io/)
+- [2022-03-27](https://web.archive.org/web/20220327062823/https://thedavidbarton.github.io/)
 
 # Copyright
 
