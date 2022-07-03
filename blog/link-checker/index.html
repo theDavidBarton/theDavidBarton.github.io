@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>How to test the SSR version of a site? - theDavidBarton.github.io</title>
+  <title>Creating a link checker with puppeteer - theDavidBarton.github.io</title>
   <link rel="stylesheet" href="/index.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="preconnect" href="https://api.github.com/" />
@@ -10,7 +10,7 @@
   
   <meta charset="utf-8" />
   <meta name="description"
-    content="How to test the SSR version of a site?" />
+    content="How to test do a link checker with puppeteer?" />
   <meta name="google" content="notranslate" />
   <meta name="robots" content="noimageindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,53 +65,43 @@
   <main class="bg-light">
   <script src="/blog/index.js"></script>
   <article id="article">
-    <div>October 24, 2021, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="how-to-test-the-ssr-version-of-a-site-with-puppeteer">How to test the SSR version of a site (with Puppeteer)?</h1>
-<p>Maintaining SEO with JavaScript frameworks and libraries such as Angular, React.Js or Vue became a Server-Side Rendering (SSR) challenge in recent years.
-Anyway, it was a huge improvement when Googlebot went <a href="https://developers.google.com/search/blog/2019/05/the-new-evergreen-googlebot">evergreen</a> in 2019, since then it is legit to use Client Side Rendered (CSR) pages while still being SEO-friendly.
-I am not destined to decide between the CSR and SSR approaches, you can get better advice from <a href="https://www.precisdigital.com/blog/the-state-of-javascript-seo-2020/">SEO professionals</a>.</p>
-<p>What&#39;s all the fuss about the SSR version of a site? Well, if we lose a correctly rendered/pre-rendered version of our site our SEO will suffer losses in a short time (search bots will see an empty page while real users still use the client-side rendered pages without problem). It is hard to detect, for example, end-to-end tests will pass as the CSR version can be still perfect and hides the lack of the SSR version from the initial state.
-In this post, I will give an example of how to make sure that your dynamic page hasn&#39;t lost its SSR (or pre-rendered) nature. The user story is: <em>As an SEO professional I want to make sure our Dev Team doesn&#39;t screw up the SSR version of the site so that we won&#39;t flush our business down the toilet</em> (e.g.: the pages become fully CSR, SSR has no content, SSR has wrong content, etc.)</p>
-<h2 id="thats-the-way">That&#39;s the way</h2>
-<p>😉 We have a site that uses Angular SSR, its <code>&lt;body&gt;</code> looks like this:</p>
-<pre><code class="language-html">&lt;body&gt;
-  &lt;angular-shell&gt;
-    &lt;angular-header&gt;SSR header&lt;/angular-header&gt;
-    &lt;angular-content&gt;SSR content&lt;/angular-content&gt;
-    &lt;angular-footer&gt;SSR footer&lt;/angular-footer&gt;
-  &lt;/angular-shell&gt;
-  &lt;noscript&gt;
-    &lt;b&gt;&lt;i&gt;This website requires JavaScript.&lt;/i&gt;&lt;/b&gt;
-  &lt;/noscript&gt;
-  &lt;script src=&quot;custom-elements-es5-polyfills.js&quot; nomodule=&quot;&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;runtime-es2017.123456789.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;</code></pre>
-<p>😱 We want to avoid this happening:</p>
-<pre><code class="language-html">&lt;body&gt;
-  &lt;angular-shell&gt;&lt;/angular-shell&gt;
-  &lt;noscript&gt;
-    &lt;b&gt;&lt;i&gt;This website requires JavaScript.&lt;/i&gt;&lt;/b&gt;
-  &lt;/noscript&gt;
-  &lt;script src=&quot;custom-elements-es5-polyfills.js&quot; nomodule=&quot;&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;runtime-es2017.123456789.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;</code></pre>
-<p>We can use <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-pagesetjavascriptenabledenabled"><code>page.setJavaScriptEnabled(enabled)</code></a> with a <code>true|false</code> parameter to disable JavaScript execution (it will take full effect on the next navigation). (By the way, it can be checked with <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-pageisjavascriptenabled"><code>page.isJavaScriptEnabled()</code></a> later on.)</p>
-<p>Dependending on the Angular app we need to determine when our SSR misbehaves. In this example we can say, the SSR is screwed up if:</p>
-<ul>
-<li>the <code>&lt;angular-shell&gt;</code> root component is totally empty (<code>innerHTML === &#39;&#39;</code>)</li>
-<li>it doesn&#39;t contain mandatory components such as <code>&lt;angular-header&gt;</code>, <code>&lt;angular-content&gt;</code> etc. (<code>childElementCount &lt; 1</code>)</li>
-</ul>
-<pre><code class="language-js">await page.setJavaScriptEnabled(false)
-await page.goto(ssrSiteUrl, { waitUntil: &#39;domcontentloaded&#39; })
-const content = await page.$eval(&#39;angular-shell&#39;, el =&gt; el.innerHTML)
-const childCount = await page.$eval(&#39;angular-shell&#39;, el =&gt; el.childElementCount)
-
-expect(content).not.toBe(&#39;&#39;)
-expect(childCount).toBeGreaterThan(0)
-
-// don&#39;t forget to re-enable it if your test continues
-await page.setJavaScriptEnabled(true)
-await page.goto(...)</code></pre>
-<aside class="next-prev-grid"><a class="prev-article" href="/blog/e2e-different-browser-versions">Previous post: <wbr>Testing against multiple browser versions in 2021</a><a class="next-article" href="/blog/link-checker">Next post: <wbr>Creating a link checker with puppeteer</a></aside>
+    <div>July 3, 2022, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">2 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="creating-a-link-checker-with-puppeteer">Creating a link checker with puppeteer</h1>
+<p>I use Node&#39;s HTTP/HTTPS modules to get the status codes of links within a page. For a current project I implemented it in <a href="https://pptr.dev/">puppeteer</a> just for fun (actually because of a limitation within the project to use the HTTPS module). Here is the full gist:</p>
+<pre><code class="language-js">const responses = {
+  200: [],
+  404: []
+}
+const hrefs = await page.$$eval(&#39;a&#39;, links =&gt; links.map(l =&gt; l.href))
+for (const href of hrefs) {
+  try {
+    const crossLinkPage = await browser.newPage()
+    await crossLinkPage.setUserAgent(&#39;my puppeteer link checker&#39;)
+    const response = await Promise.race([
+      crossLinkPage.goto(href),
+      crossLinkPage.waitForResponse(response =&gt; response.url() === href &amp;&amp; response.status() &gt; 99)
+    ])
+    const statusCode = response.status()
+    await crossLinkPage.close()
+    if (responses[statusCode]) {
+      responses[statusCode].push(href)
+    } else {
+      responses[statusCode] = []
+      responses[statusCode].push(href)
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}</code></pre>
+<p>But the TL;DR part is:</p>
+<pre><code class="language-js">const response = await Promise.race([
+  crossLinkPage.goto(href),
+  crossLinkPage.waitForResponse(response =&gt; response.url() === href &amp;&amp; response.status() &gt; 99)
+])
+const statusCode = response.status()</code></pre>
+<p>Using puppeteer as link checker is already an expensive choice - I don&#39;t recommend it for more than 1-200 links on a page - so I tried to reduce some network usage and speed up page load as much as possible. To avoid the strict rules puppeteer follows to consider a page loaded in <code>page.goto</code> I use a <code>Promise.race</code> between <code>goto</code> and <code>page.waitForResponse</code>. The latter will listen to the current link among the network requests (that will be the main document) and once it has a a status code (<code>&gt; 99</code> as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">smallest status code</a> possible would be &quot;100&quot;) we can proceed and save it as the final status code.</p>
+<p>It is not the fastest solution out there but if you also need a solution purely in puppeteer you can get some inspiration from the above code.</p>
+<p>Happy coding!</p>
+<aside class="next-prev-grid"><a class="prev-article" href="/blog/ssr-testing">Previous post: <wbr>How to test the SSR version of a site?</a></aside>
   </article>
 </main>
 <footer class="footer-blog">
