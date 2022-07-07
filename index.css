@@ -664,6 +664,10 @@ a.text-cool-secondary:hover {
 }
 
 /* blog */
+.date {
+  font-weight: 700;
+}
+
 span[class^='lead-'] {
   display: none;
   padding-bottom: 0.3rem;
@@ -677,6 +681,17 @@ span[class^='toggle-lead-'] {
 pre {
   background-color: #2d2d2d;
   font-size: 0.81rem !important;
+  overflow: auto;
+}
+
+@media (min-width: 740px) {
+  pre {
+    background-color: #2d2d2d;
+    font-size: 0.81rem !important;
+    padding: 1em !important;
+    margin: 3em -8em !important;
+    overflow: auto;
+  }
 }
 
 pre > code > span {
