@@ -48,7 +48,7 @@ for (const folder of folders) {
   const sourceMarkupSimple = meta['originally-published']
     ? `<span>Originally published on: <a target="_blank" rel="noopener noreferrer" href="${meta['canonical-href']}">${meta['originally-published']}</a></span>`
     : '<span>by David Barton</span>'
-  const leadMd = `- [${meta.title}](/blog/${folder}) ${meta.date}\n`
+  const leadMd = `- [${meta.title}](/blog/${folder}) <span class="date">${meta.date}</span>\n`
   const nextPrevMarkup = `<aside class="next-prev-grid">${
     articles[meta.id - 1]
       ? `<a class="prev-article" href="/blog/${articles[meta.id - 1].slug}">Previous post: <wbr>${
