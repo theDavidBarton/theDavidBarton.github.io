@@ -1,4 +1,4 @@
-# [FREE] Online Conferences for 2020 fall
+# Free Online Conferences for 2020 fall
 
 📅 For October-December I can recommend these free online events:
 
