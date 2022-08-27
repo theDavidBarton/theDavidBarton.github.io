@@ -128,7 +128,7 @@ const tpFetch = async () => {
     let response
     // reduce load on twin peaks api during development
     if (window.location.href.match(prodUrl)) {
-      response = await fetch('https://thedavidbarton.herokuapp.com/api/1/quotes/recommend?relevance=1&profanity=false')
+      response = await fetch('https://thedavidbarton.onrender.com/api/1/quotes/recommend?relevance=1&profanity=false')
       await response.json().then(data => (obj = data[0]))
     } else {
       response =
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let response
     // reduce load on my heroku api during development
     if (window.location.href.match(prodUrl)) {
-      response = await fetch('https://thedavidbarton.herokuapp.com/api/1/github-streak/theDavidBarton')
+      response = await fetch('https://thedavidbarton.onrender.com/api/1/github-streak/theDavidBarton')
       await response.json().then(data => (obj = data))
     } else {
       response = '{"currentStreakCount": 1400}'
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let response
     // reduce load on my heroku api during development
     if (window.location.href.match(prodUrl)) {
-      response = await fetch('https://thedavidbarton.herokuapp.com/api/1/get-my-rank?userName=theDavidBarton&country=Hungary')
+      response = await fetch('https://thedavidbarton.onrender.com/api/1/get-my-rank?userName=theDavidBarton&country=Hungary')
       await response.json().then(data => (obj = data))
     } else {
       response = '{"rankContrib": 13}'
