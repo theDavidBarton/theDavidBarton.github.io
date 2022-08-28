@@ -1,5 +1,7 @@
 # Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps
 
+<aside class="disclaimer">WARNING: This article becomes obsolete as of 28th November 2022 as Heroku <a href="https://blog.heroku.com/next-chapter" target="_blank">shuts down its Free Dynos</a>. See <a href="/blog/heroku-to-render-dot-com">my new post</a> on how to move your hobby project to the free alternative: Render.com.</aside>
+
 To host my Node/React projects I am using a Free plan on Heroku which has its limitations. The most challenging one is the limited time these dynos are available.
 
 [What Heroku dynos are?](https://www.heroku.com/dynos) At Heroku the virtual containers are called dynos, your app will run on one or more of these depending on your monthly plan and scaling of your app. In the Free plan, you will have only one dyno per app, which will go to sleep after 30 minutes of inactivity (lack of visitors on your app).
