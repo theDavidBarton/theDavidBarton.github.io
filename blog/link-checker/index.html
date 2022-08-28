@@ -101,7 +101,7 @@ const statusCode = response.status()</code></pre>
 <p>Using puppeteer as link checker is already an expensive choice - I don&#39;t recommend it for more than 1-200 links on a page - so I tried to reduce some network usage and speed up page load as much as possible. To avoid the strict rules puppeteer follows to consider a page loaded in <code>page.goto</code> I use a <code>Promise.race</code> between <code>goto</code> and <code>page.waitForResponse</code>. The latter will listen to the current link among the network requests (that will be the main document) and once it has a a status code (<code>&gt; 99</code> as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">smallest status code</a> possible would be &quot;100&quot;) we can proceed and save it as the final status code.</p>
 <p>It is not the fastest solution out there but if you also need a solution purely in puppeteer you can get some inspiration from the above code.</p>
 <p>Happy coding!</p>
-<aside class="next-prev-grid"><a class="prev-article" href="/blog/ssr-testing">Previous post: <wbr>How to test the SSR version of a site?</a><a class="next-article" href="/blog/heroku-to-render-dot-com">Next post: <wbr>How to move React.Js+Node.Js fullstack application from free Heroku dyno to Render.com?</a></aside>
+<aside class="next-prev-grid"><a class="prev-article" href="/blog/ssr-testing">Previous post: <wbr>How to test the SSR version of a site?</a><a class="next-article" href="/blog/heroku-to-render-dot-com">Next post: <wbr>How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com?</a></aside>
   </article>
 </main>
 <footer class="footer-blog">

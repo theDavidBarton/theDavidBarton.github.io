@@ -4,8 +4,8 @@
   "slug": "heroku-to-render-dot-com",
   "canonical": false,
   "canonical-href": "/blog/heroku-to-render-dot-com",
-  "title": "How to move React.Js+Node.Js fullstack application from free Heroku dyno to Render.com?",
-  "lead": "How to move React.Js+Node.Js fullstack application from free Heroku dyno to Render.com? As of 28th November 2022 as Heroku shuts down its Free Dynos, let's see how can we maintain free deployments for our hobby projects at an alternative cloud platform.",
+  "title": "How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com?",
+  "lead": "How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com? As of 28th November 2022 as Heroku shuts down its Free Dynos, let's see how can we maintain free deployments for our hobby projects at an alternative cloud platform.",
   "date": "August 28, 2022",
   "originally-published": null,
   "category": "computer technology"
