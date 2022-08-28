@@ -1,8 +1,8 @@
 'use strict'
 
-// code formatting by adding Prism.js
 document.addEventListener('DOMContentLoaded', () => {
   const pre = document.querySelector('pre')
+  // code formatting by adding Prism.js
   if (pre) {
     const prismStylesheet = document.createElement('link')
     prismStylesheet.rel = 'stylesheet'
@@ -17,5 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const pres = document.querySelectorAll('pre')
       pres.forEach(el => el.style.setProperty('margin', '1em 0', 'important'))
     }
+  }
+  const imgs = document.querySelectorAll('article img')
+  // make blog images clickable so they can see in original size
+  imgs.forEach(el => {
+    const parent = el.parentNode
+    const wrapper = document.createElement('a')
+    parent.replaceChild(wrapper, el)
+    wrapper.appendChild(el)
+    wrapper.classList.add('blog-img')
+    wrapper.href = el.src
+  })
+  // these articles require bigger images
+  if (window.location.href.match(/heroku-to-render-dot-com/)) {
+    imgs.forEach(el => el.classList.add('big-blog-img'))
   }
 })

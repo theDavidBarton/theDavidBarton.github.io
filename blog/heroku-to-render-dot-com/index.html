@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>How to move React.Js+Node.Js fullstack application from free Heroku dyno to Render.com? - theDavidBarton.github.io</title>
+  <title>How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com? - theDavidBarton.github.io</title>
   <link rel="stylesheet" href="/index.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="preconnect" href="https://api.github.com/" />
@@ -10,7 +10,7 @@
   
   <meta charset="utf-8" />
   <meta name="description"
-    content="How to move React.Js+Node.Js fullstack application from free Heroku dyno to Render.com? As of 28th November 2022 as Heroku shuts down its Free Dynos, let's see how can we maintain free deployments for our hobby projects at an alternative cloud platform." />
+    content="How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com? As of 28th November 2022 as Heroku shuts down its Free Dynos, let's see how can we maintain free deployments for our hobby projects at an alternative cloud platform." />
   <meta name="google" content="notranslate" />
   <meta name="robots" content="noimageindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,7 +65,7 @@
   <main class="bg-light">
   <script src="/blog/index.js"></script>
   <article id="article">
-    <div>August 28, 2022, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">6 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="how-to-move-reactjs--nodejs-full-stack-application-from-free-heroku-dyno-to-rendercom">How to move React.Js + Node.Js full-stack application from free Heroku dyno to Render.com?</h1>
+    <div>August 28, 2022, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">5 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="how-to-move-reactjs--nodejs-full-stack-application-from-free-heroku-dyno-to-rendercom">How to move React.Js + Node.Js full-stack application from free Heroku dyno to Render.com?</h1>
 <p>As of 28th November 2022 Heroku <a href="https://blog.heroku.com/next-chapter">shuts down its Free Dynos</a> and removes every deployment using it. It is bad news for everybody who will run into a tutorial that starts with &quot;Let&#39;s create a full-stack web app and deploy it on the fly to Heroku for free&quot;. So long tutorial writers.</p>
 <p>It has been indeed the best free cloud hosting for hobby projects even if the deployments on the so-called &quot;dynos&quot; idled after inactivity and took 30 seconds to wake up. My own React.Js Node.Js/Express.Js full-stack apps are also affected (see my old blog post about the <a href="/blog/idling-heroku">Heroku idling topic</a>) so I started to look for a new place where I can deploy small projects within a free plan and I choose <a href="https://www.render.com/">Render.com</a>.</p>
 <p><strong><a href="https://render.com/">Render</a></strong> is a cloud platform for Ruby, Node.js, Python, Rust, Go, and PHP-based applications. with free TLS certificates, global CDN, private networks and auto deploys from Git.<br>It provides a similar range of services as Heroku.</p>
@@ -141,7 +141,7 @@
 <p>For this purpose, I install <a href="https://www.npmjs.com/package/cors">cors</a> npm package.</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-28.png" alt="">
 <img src="/img/blog/heroku-to-render-dot-com-29.png" alt=""></p>
-<p>In the Node backend, I add the URL of the frontend as Allow Access Control Origin (there is a typo on the screenshot, we need the &#39;frontend&#39; here for sure, not the &#39;backend&#39; :) )</p>
+<p>In the Node backend, I add the URL of the frontend as Allow Access Control Origin.</p>
 <pre><code class="language-js">app.use(cors({ origin: &#39;https://retro-game-finder-frontend.onrender.com&#39; }));</code></pre>
 <p><img src="/img/blog/heroku-to-render-dot-com-30.png" alt=""></p>
 <p>Once I pushed the fix on Github (<a href="https://github.com/theDavidBarton/retro-game-finder/commit/730cce725aa389aee89accefc4c7b1b1df10f1e0">https://github.com/theDavidBarton/retro-game-finder/commit/730cce725aa389aee89accefc4c7b1b1df10f1e0</a>) we need to wait a few seconds for Render to redeploy the new backend version which includes the correct response header so we have no CORS error:</p>

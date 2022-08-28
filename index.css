@@ -684,6 +684,10 @@ pre {
   overflow: auto;
 }
 
+.big-blog-img {
+  display: block;
+}
+
 @media (min-width: 740px) {
   pre {
     background-color: #2d2d2d;
@@ -691,6 +695,10 @@ pre {
     padding: 1em !important;
     margin: 3em -8em !important;
     overflow: auto;
+  }
+  .big-blog-img {
+    max-width: 46.5rem !important;
+    margin-left: -6.5rem !important;
   }
 }
 
@@ -762,7 +770,7 @@ article > figure {
   }
 }
 
-article > * > img {
+article img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -771,7 +779,7 @@ article > * > img {
   border-style: dotted;
 }
 
-article > * > img + em,
+article > * > .blog-img + em,
 article > * > table + em {
   display: grid;
   padding: 0.5rem;

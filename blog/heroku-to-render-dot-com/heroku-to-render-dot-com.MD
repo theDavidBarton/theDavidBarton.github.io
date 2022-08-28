@@ -147,7 +147,7 @@ For this purpose, I install [cors](https://www.npmjs.com/package/cors) npm packa
 ![](/img/blog/heroku-to-render-dot-com-28.png)
 ![](/img/blog/heroku-to-render-dot-com-29.png)
 
-In the Node backend, I add the URL of the frontend as Allow Access Control Origin (there is a typo on the screenshot, we need the 'frontend' here for sure, not the 'backend' :) )
+In the Node backend, I add the URL of the frontend as Allow Access Control Origin.
 
 ```js
 app.use(cors({ origin: 'https://retro-game-finder-frontend.onrender.com' }));
