@@ -65,7 +65,7 @@
   <main class="bg-light">
   <script src="/blog/index.js"></script>
   <article id="article">
-    <div>August 28, 2022, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">5 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="how-to-move-reactjs--nodejs-full-stack-application-from-free-heroku-dyno-to-rendercom">How to move React.Js + Node.Js full-stack application from free Heroku dyno to Render.com?</h1>
+    <div>August 28, 2022, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">6 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="how-to-move-reactjs--nodejs-full-stack-application-from-free-heroku-dyno-to-rendercom">How to move React.Js + Node.Js full-stack application from free Heroku dyno to Render.com?</h1>
 <p>As of 28th November 2022 Heroku <a href="https://blog.heroku.com/next-chapter">shuts down its Free Dynos</a> and removes every deployment using it. It is bad news for everybody who will run into a tutorial that starts with &quot;Let&#39;s create a full-stack web app and deploy it on the fly to Heroku for free&quot;. So long tutorial writers.</p>
 <p>It has been indeed the best free cloud hosting for hobby projects even if the deployments on the so-called &quot;dynos&quot; idled after inactivity and took 30 seconds to wake up. My own React.Js Node.Js/Express.Js full-stack apps are also affected (see my old blog post about the <a href="/blog/idling-heroku">Heroku idling topic</a>) so I started to look for a new place where I can deploy small projects within a free plan and I choose <a href="https://www.render.com/">Render.com</a>.</p>
 <p><strong><a href="https://render.com/">Render</a></strong> is a cloud platform for Ruby, Node.js, Python, Rust, Go, and PHP-based applications. with free TLS certificates, global CDN, private networks and auto deploys from Git.<br>It provides a similar range of services as Heroku.</p>
@@ -88,19 +88,27 @@
 <p><img src="/img/blog/heroku-to-render-dot-com-07.png" alt=""></p>
 <p>You can see it parses the package file correctly:</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-08.png" alt=""></p>
-<p>After reviewing the plans at Render you can stay on the Free plan and click &quot;Create Web Service&quot;.</p>
+<p>After reviewing the plans at Render you can stay on the Free plan and click &quot;Create Web Service&quot;. <em>If you have any environment variables see my update a few paragraphs below.</em></p>
 <p><img src="/img/blog/heroku-to-render-dot-com-09.png" alt=""></p>
 <p>It starts to deploy the Node.Js backend.</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-10.png" alt=""></p>
-<p>At this point, my app did not start on Render with a missing environment variable error. Let&#39;s copy the variables from Heroku by selecting the App on <a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a> and clicking the &quot;settings&quot; tab. They are called &quot;Config Vars&quot; which can be revealed. (You cannot avoid running into this, as the environment variables can be only set once you created the service).</p>
+<p>At this point, my app did not start on Render with a missing environment variable error. Let&#39;s copy the variables from Heroku by selecting the App on <a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a> and clicking the &quot;settings&quot; tab. They are called &quot;Config Vars&quot; which can be revealed. <del>(You cannot avoid running into this, as the environment variables can be only set once you created the service)</del> Luckily, you can avoid this easily if you read <a href="#environment-variables-on-first-deploy">the update below</a>.</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-11.png" alt=""></p>
-<p>Then on render selecting the &quot;Environment&quot; tab below the deployment logs where we have been you can add the environment variables.</p>
+<p>Then on Render selecting the &quot;Environment&quot; tab below the deployment logs where we have been you can add the environment variables.</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-12.png" alt="">
 <img src="/img/blog/heroku-to-render-dot-com-13.png" alt=""></p>
 <p>Here you can either manually deploy again the container image with the big purple button above or you can wait until the next Github merge to <code>main</code> when it will happen automatically.</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-14.png" alt=""></p>
 <p>When the service is restarted/redeployed with the environment variables you can test an endpoint.</p>
 <p><img src="/img/blog/heroku-to-render-dot-com-15.png" alt=""></p>
+<p>At this point we have a running Node.Js backend, we can go on deploying the React.Js frontend.</p>
+<aside id="environment-variables-on-first-deploy" class="update"><p><em>UPDATE:</em> After this description was posted on Twitter the Render team was so kind as to <a href="https://twitter.com/render/status/1563915714829885442" target="_blank">retweet my walkthrough</a> and they also sent me a guide on how to set environment variables before we'd create the web service. Right above the "Create Web Service" button, there is a toggle for Advanced settings. There you can set them before the first launch.</p> 
+<img src="/img/blog/heroku-to-render-dot-com-32.png"/>
+<br>
+<p>Thank you Audrey, thank you Render team! ❤️</p>
+
+</aside>
+
 <h2 id="set-up-frontend">set up frontend</h2>
 <p>All the frontend migration can be seen in this commit (it only includes some minor cleanup and dependency maintenance you can ignore) <a href="https://github.com/theDavidBarton/retro-game-finder/commit/17ff1d0629ecf4cd08ef7d34d8fbe840c92a0d31">https://github.com/theDavidBarton/retro-game-finder/commit/17ff1d0629ecf4cd08ef7d34d8fbe840c92a0d31</a>. The most important changes happen in each react.js components that have internal backend calls. E.g.:</p>
 <p>When it will be served from Render we should call the backend URL, when we are in localhost we use the proxy from the React package.json which is set to <code>localhost:5000</code>, but will be proxied so we don&#39;t need to set it, let&#39;s keep it as an empty string so it can operate in local as before.</p>

@@ -165,6 +165,7 @@ blockquote {
 }
 
 blockquote p,
+.update,
 .disclaimer {
   padding: 1rem;
   background-color: #f1f3f4;
@@ -178,6 +179,7 @@ blockquote p::after {
   content: '\201D';
 }
 
+.update,
 .disclaimer {
   margin-bottom: 2rem;
 }

@@ -47,7 +47,7 @@ You can see it parses the package file correctly:
 
 ![](/img/blog/heroku-to-render-dot-com-08.png)
 
-After reviewing the plans at Render you can stay on the Free plan and click "Create Web Service".
+After reviewing the plans at Render you can stay on the Free plan and click "Create Web Service". _If you have any environment variables see my update a few paragraphs below._
 
 ![](/img/blog/heroku-to-render-dot-com-09.png)
 
@@ -55,11 +55,11 @@ It starts to deploy the Node.Js backend.
 
 ![](/img/blog/heroku-to-render-dot-com-10.png)
 
-At this point, my app did not start on Render with a missing environment variable error. Let's copy the variables from Heroku by selecting the App on https://dashboard.heroku.com/apps and clicking the "settings" tab. They are called "Config Vars" which can be revealed. (You cannot avoid running into this, as the environment variables can be only set once you created the service).
+At this point, my app did not start on Render with a missing environment variable error. Let's copy the variables from Heroku by selecting the App on https://dashboard.heroku.com/apps and clicking the "settings" tab. They are called "Config Vars" which can be revealed. ~~(You cannot avoid running into this, as the environment variables can be only set once you created the service)~~ Luckily, you can avoid this easily if you read [the update below](#environment-variables-on-first-deploy).
 
 ![](/img/blog/heroku-to-render-dot-com-11.png)
 
-Then on render selecting the "Environment" tab below the deployment logs where we have been you can add the environment variables.
+Then on Render selecting the "Environment" tab below the deployment logs where we have been you can add the environment variables.
 
 ![](/img/blog/heroku-to-render-dot-com-12.png)
 ![](/img/blog/heroku-to-render-dot-com-13.png)
@@ -71,6 +71,15 @@ Here you can either manually deploy again the container image with the big purpl
 When the service is restarted/redeployed with the environment variables you can test an endpoint.
 
 ![](/img/blog/heroku-to-render-dot-com-15.png)
+
+At this point we have a running Node.Js backend, we can go on deploying the React.Js frontend.
+
+<aside id="environment-variables-on-first-deploy" class="update"><p><em>UPDATE:</em> After this description was posted on Twitter the Render team was so kind as to <a href="https://twitter.com/render/status/1563915714829885442" target="_blank">retweet my walkthrough</a> and they also sent me a guide on how to set environment variables before we'd create the web service. Right above the "Create Web Service" button, there is a toggle for Advanced settings. There you can set them before the first launch.</p> 
+<img src="/img/blog/heroku-to-render-dot-com-32.png"/>
+<br>
+<p>Thank you Audrey, thank you Render team! ❤️</p>
+
+</aside>
 
 ## set up frontend
 
