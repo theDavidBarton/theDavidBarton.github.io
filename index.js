@@ -20,7 +20,7 @@ const portfolioProjects = [
     id: 0,
     title: 'Trending Movies app',
     imgSrc: 'img/portfolio/tmdb',
-    projectDemoUrl: '/redirect?url=https://trending-movies-react-app.herokuapp.com/',
+    projectDemoUrl: '/redirect?url=https://trending-movies-react-app-frontend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -29,7 +29,7 @@ const portfolioProjects = [
     id: 1,
     title: 'Trending Video Games app',
     imgSrc: 'img/portfolio/rawg',
-    projectDemoUrl: '/redirect?url=https://trending-video-games.herokuapp.com/',
+    projectDemoUrl: '/redirect?url=https://trending-video-games-frontend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -47,7 +47,7 @@ const portfolioProjects = [
     id: 3,
     title: 'The Harry Potter Database',
     imgSrc: 'img/portfolio/thpdb',
-    projectDemoUrl: '/redirect?url=https://the-harry-potter-database.herokuapp.com/',
+    projectDemoUrl: '/redirect?url=https://the-harry-potter-database-frontend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -74,7 +74,7 @@ const portfolioProjects = [
     id: 6,
     title: 'Retro Game Finder',
     imgSrc: 'img/portfolio/retro',
-    projectDemoUrl: '/redirect?url=https://retro-game-finder.herokuapp.com/',
+    projectDemoUrl: '/redirect?url=https://retro-game-finder-frontend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/retro-game-finder',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     let obj
     let response
-    // reduce load on my heroku api during development
+    // reduce load on API during development
     if (window.location.href.match(prodUrl)) {
       response = await fetch('https://thedavidbarton.onrender.com/api/1/github-streak/theDavidBarton')
       await response.json().then(data => (obj = data))
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     let obj
     let response
-    // reduce load on my heroku api during development
+    // reduce load on API during development
     if (window.location.href.match(prodUrl)) {
       response = await fetch('https://thedavidbarton.onrender.com/api/1/get-my-rank?userName=theDavidBarton&country=Hungary')
       await response.json().then(data => (obj = data))
