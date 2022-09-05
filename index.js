@@ -98,7 +98,7 @@ const portfolioProjects = [
   }
 ]
 
-// it helps for the Render Node.Js backend to wake up 7 secends earlier than the render frontend would
+// it helps for the Render Node.Js backend to wake up 7 secends earlier than the Render frontend would
 const preconnectTo = async url => {
   try {
     const endpoint = url + '/health?from=thedavidbarton.github.io'
