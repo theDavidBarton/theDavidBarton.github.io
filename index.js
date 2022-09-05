@@ -21,6 +21,7 @@ const portfolioProjects = [
     title: 'Trending Movies app',
     imgSrc: 'img/portfolio/tmdb',
     projectDemoUrl: '/redirect?url=https://trending-movies-react-app-frontend.onrender.com',
+    preconnectNeeded: 'https://trending-movies-react-app-backend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/trending-movies-react-app',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -30,6 +31,7 @@ const portfolioProjects = [
     title: 'Trending Video Games app',
     imgSrc: 'img/portfolio/rawg',
     projectDemoUrl: '/redirect?url=https://trending-video-games-frontend.onrender.com',
+    preconnectNeeded: 'https://trending-video-games-backend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/video-games-on-RAWG-react-app',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -39,6 +41,7 @@ const portfolioProjects = [
     title: 'OneyPlays api',
     imgSrc: 'img/portfolio/oney',
     projectDemoUrl: 'https://www.npmjs.com/package/oneyplays-api',
+    preconnectNeeded: null,
     projectSourceUrl: 'https://github.com/theDavidBarton/oneyplays-api',
     techStack: ['Node.Js'],
     logoPaths: d9nSvg
@@ -48,6 +51,7 @@ const portfolioProjects = [
     title: 'The Harry Potter Database',
     imgSrc: 'img/portfolio/thpdb',
     projectDemoUrl: '/redirect?url=https://the-harry-potter-database-frontend.onrender.com',
+    preconnectNeeded: 'https://the-harry-potter-database-backend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/the-harry-potter-database',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -57,6 +61,7 @@ const portfolioProjects = [
     title: 'Simple Puppeteer Uptime Checker',
     imgSrc: 'img/portfolio/uptime',
     projectDemoUrl: null,
+    preconnectNeeded: null,
     projectSourceUrl: 'https://github.com/theDavidBarton/simple-puppeteer-uptime-checker',
     techStack: ['Node.Js'],
     logoPaths: d9nSvg
@@ -66,6 +71,7 @@ const portfolioProjects = [
     title: 'Pixel Art Project',
     imgSrc: 'img/portfolio/pixel',
     projectDemoUrl: 'https://thedavidbarton.github.io/pixel-art/',
+    preconnectNeeded: null,
     projectSourceUrl: 'https://github.com/theDavidBarton/pixel-art',
     techStack: ['Node.Js', 'React.Js', 'GIMP'],
     logoPaths: d9nSvg
@@ -75,6 +81,7 @@ const portfolioProjects = [
     title: 'Retro Game Finder',
     imgSrc: 'img/portfolio/retro',
     projectDemoUrl: '/redirect?url=https://retro-game-finder-frontend.onrender.com',
+    preconnectNeeded: 'https://retro-game-finder-backend.onrender.com',
     projectSourceUrl: 'https://github.com/theDavidBarton/retro-game-finder',
     techStack: ['Node.Js', 'React.Js'],
     logoPaths: d9nSvg
@@ -91,12 +98,23 @@ const portfolioProjects = [
   }
 ]
 
+// it helps for the Render Node.Js backend to wake up 7 secends earlier than the Render frontend would
+const preconnectTo = async url => {
+  try {
+    const endpoint = url + '/health?from=thedavidbarton.github.io'
+    console.log(endpoint + ' being called for preconnect purposes')
+    await fetch(endpoint)
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const projects = portfolioProjects
   const items = projects.map((item, i) => {
     // prettier-ignore
     return `<div class="item" id="${i}">
-    <a target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl ? item.projectDemoUrl : item.projectSourceUrl}">
+    <a id="${'project-' + i}" ${item.preconnectNeeded ? `onclick="preconnectTo('${item.preconnectNeeded}')"` : ''} target="_blank" rel="noopener noreferrer" href="${item.projectDemoUrl ? item.projectDemoUrl : item.projectSourceUrl}">
       <picture>
         <source srcset="${item.imgSrc}.webp" type="image/webp" class="item-img-webp" />
         <source srcset="${item.imgSrc}.jpg" type="image/jpeg" class="item-img-jpeg" />
