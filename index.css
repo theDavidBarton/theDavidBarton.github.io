@@ -184,9 +184,14 @@ blockquote p::after {
   margin-bottom: 2rem;
 }
 
-.disclaimer::before {
+.disclaimer::before,
+.disclaimer-portfolio::before {
   font-weight: bold;
   content: 'Disclaimer: ';
+}
+
+.disclaimer-portfolio {
+  font-style: italic;
 }
 
 .top-bar {
