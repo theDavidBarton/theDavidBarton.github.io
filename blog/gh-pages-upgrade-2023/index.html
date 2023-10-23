@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Blog - theDavidBarton.github.io</title>
+  <title>Upgrading GitHub Pages Deploy Action in 2023 - theDavidBarton.github.io</title>
   <link rel="stylesheet" href="/index.css" />
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="preconnect" href="https://api.github.com/" />
   
   <meta charset="utf-8" />
   <meta name="description"
-    content="The page of David Barton (theDavidBarton, the_D9n) QA engineer, release manager & full stack JavaScript developer." />
+    content="How to Upgrade GitHub Pages Deploy Action with Create React App in 2023?" />
   <meta name="google" content="notranslate" />
   <meta name="robots" content="noimageindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,28 +64,63 @@
   <main class="bg-light">
   <script src="/blog/index.js"></script>
   <article id="article">
-    <h1>Blog</h1><ul>
-<li><a href="/blog/gh-pages-upgrade-2023">Upgrading GitHub Pages Deploy Action in 2023</a> <span class="date">October 23, 2023</span></li>
-<li><a href="/blog/heroku-to-render-dot-com">How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com?</a> <span class="date">August 28, 2022</span></li>
-<li><a href="/blog/link-checker">Creating a link checker with puppeteer</a> <span class="date">July 3, 2022</span></li>
-<li><a href="/blog/ssr-testing">How to test the SSR version of a site?</a> <span class="date">October 24, 2021</span></li>
-<li><a href="/blog/e2e-different-browser-versions">Testing against multiple browser versions in 2021</a> <span class="date">April 10, 2021</span></li>
-<li><a href="/blog/gates-musk-covid-19">Bill Gates &amp; Elon Musk on COVID-19</a> <span class="date">February 21, 2021</span></li>
-<li><a href="/blog/wfa">Work from Anywhere</a> <span class="date">February 14, 2021</span></li>
-<li><a href="/blog/obfuscate-email-smart">Obfuscate e-mail smart</a> <span class="date">January 20, 2021</span></li>
-<li><a href="/blog/chromium-instances-remain-active-in-the-background-after-browser-disconnect">Puppeteer: Chromium instances remain active in the background after browser.disconnect</a> <span class="date">January 12, 2021</span></li>
-<li><a href="/blog/cert-expiry-puppeteer">How to check SSL cert with puppeteer?</a> <span class="date">December 12, 2020</span></li>
-<li><a href="/blog/automate-a-calendar">How to automate date selection with puppeteer?</a> <span class="date">October 20, 2020</span></li>
-<li><a href="/blog/conferences-online-2020-fall">Free Online Conferences for 2020 fall</a> <span class="date">October 19, 2020</span></li>
-<li><a href="/blog/anonymous-IIFE-fn">Anonymous IIFE-s and semicolons</a> <span class="date">October 11, 2020</span></li>
-<li><a href="/blog/os-dependent-emoji-display">OS dependent emoji display</a> <span class="date">October 10, 2020</span></li>
-<li><a href="/blog/stolen-by-a-robot">Stolen by a robot (Strange days indeed)</a> <span class="date">October 5, 2020</span></li>
-<li><a href="/blog/devtools-dollar-shorthand-jquery">Chrome DevTools: $(selector) shorthand doesn&#39;t return the element while $$(selector)[0] does</a> <span class="date">September 29, 2020</span></li>
-<li><a href="/blog/iterating-puppeteer-async-methods">Iterating puppeteer async methods in for loop vs. Array.map/Array.forEach</a> <span class="date">June 27, 2020</span></li>
-<li><a href="/blog/simple-preloader">Simple preloader CSS animation</a> <span class="date">February 5, 2020</span></li>
-<li><a href="/blog/idling-heroku">Custom redirect page for a smooth transition between idling Heroku dynos and fully functional apps</a> <span class="date">February 2, 2020</span></li>
-</ul>
+    <div>October 23, 2023, <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><image href="/assets/clock.svg" width="16" height="16"></image></svg> <span id="readTime">3 min read</span>, In: computer technology</div><div class="author-info">by David Barton</div><h1 id="upgrading-github-pages-deploy-action-in-2023">Upgrading GitHub Pages Deploy Action in 2023</h1>
+<p>If you&#39;re like me and have built most of your React.js frontends using <a href="https://create-react-app.dev/">Create React App</a>, you likely host them on <a href="https://github.com/marketplace/actions/deploy-to-github-pages">GitHub Pages</a> – a popular choice for static site hosting. To deploy my projects seamlessly, I rely on the well-known GitHub Action: <code>JamesIves/github-pages-deploy-action</code>. However, over time, this action has gone through several significant changes, introducing new features and, occasionally, breaking existing workflows. In 2023, to maintain your projects with continuous deployment to GitHub Pages, you need to adapt to the latest version, v4, of JamesIves&#39;s action. </p>
+<p>Let&#39;s dive in!</p>
+<h2 id="i-ci-configuration">I. CI Configuration</h2>
+<p>First and foremost, your need to update the CI pipeline for your GitHub Pages to ensure a smooth deployment process. Below is a YAML configuration file that you can use as a reference:</p>
+<pre><code class="language-yml">name: CI
+on: 
+  push:
+    branches:
+      - master
 
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧 
+        env:
+         CI: false
+        run: |
+          yarn
+          yarn build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.</code></pre>
+<p>This GitHub Actions workflow automates the deployment process by building and deploying your application whenever you push changes to the <code>master</code> branch (<em>Note:</em> as these are old projects, for me they have <code>master</code> instead of <code>main</code> branch). The specified folder (<code>build</code>) is where the action will look for your built app.</p>
+<h2 id="ii-code-changes">II. Code Changes</h2>
+<h3 id="1-react-script-upgrade">1. React Script Upgrade</h3>
+<p>Before migrating, make sure to upgrade your React scripts to the latest version:</p>
+<pre><code class="language-shell">yarn add react-scripts@latest</code></pre>
+<p>This ensures that you&#39;re using the most up-to-date version of React (&amp; Friends) for your application.</p>
+<h3 id="2-eslint-parser-installation">2. ESLint Parser Installation</h3>
+<p>Breaking change that eslint parser needs to be installed from <code>@babel</code> npm.</p>
+<pre><code class="language-shell">yarn add --dev @babel/eslint-parser</code></pre>
+<h3 id="3-update-eslintrc">3. Update .eslintrc</h3>
+<p>Update your <code>.eslintrc</code> file to use the Babel ESLint parser:</p>
+<pre><code class="language-json">&quot;parser&quot;: &quot;@babel/eslint-parser&quot;</code></pre>
+<p>This change ensures that ESLint uses the Babel parser for improved code analysis.</p>
+<h3 id="4-deduplicate-dependencies">4. Deduplicate Dependencies</h3>
+<p>Run the following command to deduplicate dependencies:</p>
+<pre><code class="language-shell">npx yarn-deduplicate &amp;&amp; yarn</code></pre>
+<p>This step helps streamline your application&#39;s dependencies and can prevent potential conflicts between packages.</p>
+<h3 id="5-local-testing">5. Local Testing</h3>
+<p>Finally, don&#39;t forget to thoroughly test your application locally. Start with:</p>
+<pre><code class="language-shell">yarn start</code></pre>
+<p>and ensure that your application runs without issues. Then, build your app with:</p>
+<pre><code class="language-shell">yarn build</code></pre>
+<p>This step ensures that your application can be successfully built and prepared for deployment.
+That&#39;s all there is to it! After merging these changes, you&#39;re all set for a seamless deployment experience to GitHub Pages in 2023.</p>
+<p>Happy coding!</p>
+<aside class="next-prev-grid"><a class="prev-article" href="/blog/heroku-to-render-dot-com">Previous post: <wbr>How to move React.Js+Node.Js full-stack application from free Heroku dyno to Render.com?</a></aside>
   </article>
 </main>
 <footer class="footer-blog">
