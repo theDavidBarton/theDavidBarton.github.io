@@ -15,8 +15,8 @@ $ npx serve
    │                                                │
    │   Serving!                                     │
    │                                                │
-   │   - Local:            http://localhost:5000    │
-   │   - On Your Network:  http://0.0.0.0:5000      │
+   │   - Local:            http://localhost:3000    │
+   │   - On Your Network:  http://0.0.0.0:3000      │
    │                                                │
    └────────────────────────────────────────────────┘
 
@@ -28,11 +28,11 @@ Bon appétit !
 
 ```bash
 $ docker build -t thedavidbarton/thedavidbarton-github-io .
-# port 5000 is exposed, the page will show a snapshot on localhost:4000
-$ docker run -p 4000:5000 -d thedavidbarton/thedavidbarton-github-io
+# port 3000 is exposed, the page will show a snapshot on localhost:4000
+$ docker run -p 4000:3000 -d thedavidbarton/thedavidbarton-github-io
 ```
 
-_Note:_ 5000 comes from the default port of localhost `npx serve`, see above.
+_Note:_ 3000 comes from the default port of localhost `npx serve`, see above. Make sure to copy the second port value from there as it may change over time.
 
 # Static Pre-Rendering of the blog articles
 
