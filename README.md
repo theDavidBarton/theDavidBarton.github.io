@@ -6,7 +6,7 @@ My github page and blog.
 
 [Article about redirect page on Medium](https://medium.com/@theDavidBarton/custom-redirect-page-for-a-smooth-transition-between-idling-heroku-dynos-and-fully-functional-apps-8bc7c3346a6a)
 
-# Start development server: localhost:5000
+# Start development server: localhost:3000
 
 ```bash
 $ npx serve
