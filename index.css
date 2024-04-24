@@ -16,6 +16,10 @@ body {
   line-height: 1.5;
 }
 
+main {
+  line-height: 1.2;
+}
+
 .bg-light {
   background-color: #ffffff !important;
 }
@@ -622,6 +626,20 @@ a.text-cool-secondary:hover {
 
 .text-wrap {
   white-space: normal;
+}
+
+.about-col-2 {
+  margin-right: auto;
+}
+
+@media (min-width: 740px) {
+  .about-col-2 {
+    margin-right: -7rem;
+  }
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 /* contact section */
