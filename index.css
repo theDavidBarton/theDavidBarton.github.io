@@ -339,7 +339,7 @@ blockquote p::after {
     grid-gap: 1.5rem;
   }
   .contact-grid {
-    grid-template-columns: auto repeat(6, 1fr);
+    grid-template-columns: auto repeat(5, 1fr);
   }
 }
 
